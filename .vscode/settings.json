@@ -1,0 +1,114 @@
+{
+    "workbench.editor.showIcons": false,
+    // "workbench.editor.showTabs": "single",
+    "workbench.layoutControl.type": "menu",
+    "workbench.layoutControl.enabled": false,
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.editor.highlightModifiedTabs": true,
+  
+    // =editor
+    "editor.glyphMargin": false,
+    "editor.folding": true,
+    "editor.bracketPairColorization.enabled": false,
+    "editor.guides.highlightActiveBracketPair": false,
+    "editor.guides.bracketPairsHorizontal": false,
+    "editor.guides.indentation": false,
+    "editor.minimap.enabled": false,
+    "editor.scrollbar.vertical": "auto",
+    "editor.scrollBeyondLastLine": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.matchBrackets": "near",
+    "editor.overviewRulerBorder": false,
+    "editor.foldingHighlight": false,
+    "editor.renderLineHighlight": "none",
+    "editor.occurrencesHighlight": false,
+  
+    // =misc
+  
+    "explorer.decorations.colors": false,
+    "scm.diffDecorations": "none",
+    "scm.diffDecorationsGutterAction": "none",
+    // "git.untrackedChanges": "hidden",
+    "git.decorations.enabled": false,
+    "breadcrumbs.enabled": false,
+    "terminal.integrated.shellIntegration.decorationsEnabled": "never",
+    "window.commandCenter": false,
+  
+    // =files
+  
+    "files.exclude": {
+      "**/.git": true,
+      "**/.DS_Store": true
+      // ".astro": true,
+      // ".frontmatter": true,
+      // "node_modules": true,
+      // "dist": true,
+      // ".gitignore": true,
+      // ".prettierrc.cjs": true,
+      // "package-lock.json": true,
+      // "package.json": true,
+      // "README.md": true,
+      // "tsconfig.json": true,
+      // "frontmatter.json": true,
+      // "src/env.d.ts": true,
+      // "src/components": true,
+      // "src/data": true,
+      // "src/layouts": true,
+      // "src/pages": true,
+      // "src/scripts": true,
+      // "src/styles": true,
+      // "src/consts.ts": true,
+      // "src/content/config.ts": true,
+      // "astro.config.mjs": true,
+      // ".vscode": true
+    },
+  
+    // "files.readonlyInclude": {
+    //   ".gitignore": true
+    // },
+  
+    // =languages
+  
+    "[astro]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+  
+    "[markdown]": {
+      "editor.wrappingIndent": "same",
+      "editor.fontLigatures": true,
+      //  "editor.fontSize": 16,
+      //  "editor.lineHeight": 26,
+      "editor.wordWrap": "bounded",
+      "editor.wordWrapColumn": 72,
+      "editor.lineNumbers": "off",
+      "editor.quickSuggestions": {
+        "comments": "off",
+        "other": "off",
+        "strings": "off"
+      }
+      //  "editor.fontFamily": "\"IA Writer Duo S\", monospace",
+    },
+  
+    "[mdx]": {
+      "editor.wrappingIndent": "same",
+      "editor.fontLigatures": true,
+      //  "editor.fontSize": 16,
+      //  "editor.lineHeight": 26,
+      "editor.wordWrap": "bounded",
+      "editor.wordWrapColumn": 72,
+      "editor.lineNumbers": "off",
+      "editor.quickSuggestions": {
+        "comments": "off",
+        "other": "off",
+        "strings": "off"
+      }
+      //  "editor.fontFamily": "\"IA Writer Duo S\", monospace",
+    },
+  
+    "files.associations": {
+      "*.css": "postcss"
+    },
+    "prettier.documentSelectors": ["**/*.astro"]
+  }
+  

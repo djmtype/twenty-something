@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Home",
+    "url": "/"
+  },
+  {
+    "name": "Pages",
+    "url": "",
+    "children": true,
+    "childItems": [
+      {
+        "name": "Tags",
+        "url": "/tags"
+      },
+      {
+        "name": "Categories",
+        "url": "/categories"
+      }
+    ]
+  }
+]

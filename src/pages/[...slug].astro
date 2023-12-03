@@ -1,0 +1,34 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content"
+import MarkdownWrapper from "@/layouts/MarkdownWrapper.astro"
+
+export async function getStaticPaths() {
+  const postEntries = await getCollection("post")
+  const pageEntries = await getCollection("page")
+
+  const allEntries = [...postEntries, ...pageEntries]
+
+  return allEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }))
+}
+
+type EntryData = {
+  author: {
+    slug: string;
+  };
+};
+
+type Props = {
+  entry: CollectionEntry<"post" | "page"> & { data: EntryData };
+};
+
+const { entry } = Astro.props
+const { Content } = await entry.render();
+
+---
+
+<MarkdownWrapper frontmatter={entry}>
+  <Content />
+</MarkdownWrapper>

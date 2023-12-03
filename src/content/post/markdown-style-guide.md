@@ -1,8 +1,17 @@
 ---
 title: 'Markdown Style Guide'
 description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.'
-pubDate: 'Jul 01 2022'
-heroImage: '/blog-placeholder-1.jpg'
+date: '2022-07-04'
+thumbnail: '../../assets/uploads/blog-placeholder-1.jpg'
+thumbnailAlt: 'For placement only'
+author: scott-rod
+slug: markdown-style-guide
+tags:
+  - vue
+  - jamstack
+categories:
+  - watchlist
+status: publish
 ---
 
 Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.

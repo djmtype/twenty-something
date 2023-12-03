@@ -1,0 +1,213 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "previewPath": null,
+      "fields": [
+        {
+          "title": "title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "slug",
+          "name": "slug",
+          "type": "slug",
+          "editable": true,
+          "default": "{{slug}}"
+        },
+        {
+          "title": "description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true,
+          "dateFormat": "YYYY-MM-DD"
+        },
+        {
+          "title": "thumbnail",
+          "name": "thumbnail",
+          "type": "image",
+          "isPreviewImage": true
+        },
+        {
+          "title": "thumbnail alt text",
+          "name": "thumbnailAlt",
+          "type": "string"
+        },
+        {
+          "name": "author",
+          "type": "contentRelationship",
+          "contentTypeName": "author",
+          "contentTypeValue": "slug",
+          "required": false
+        },
+        {
+          "title": "categories",
+          "name": "categories",
+          "type": "categories",
+          "taxonomyLimit": 1
+        },
+        {
+          "title": "tags",
+          "name": "tags",
+          "type": "tags",
+          "taxonomyLimit": 6
+        },
+        {
+          "title": "status",
+          "name": "status",
+          "type": "draft",
+          "default": "draft"
+        }
+      ]
+    },
+    {
+      "name": "author",
+      "pageBundle": false,
+      "previewPath": null,
+      "fields": [
+        {
+          "title": "name",
+          "name": "name",
+          "type": "string",
+          "default": "{{title}}",
+          "single": true
+        },
+        {
+          "title": "slug",
+          "name": "slug",
+          "type": "slug",
+          "editable": true,
+          "default": "{{slug}}"
+        },
+        {
+          "title": "description",
+          "name": "description",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "frontMatter.framework.id": "astro",
+  "frontMatter.content.draftField": {
+    "name": "status",
+    "type": "choice",
+    "choices": [
+      "draft",
+      "publish"
+    ]
+  },
+  "frontMatter.content.publicFolder": {
+    "path": "src/assets/uploads",
+    "relative": true
+  },
+  "frontMatter.preview.host": "http://localhost:4321",
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "blog",
+      "path": "[[workspace]]/src/content/post",
+      "previewPath": "'/'",
+      "contentTypes": [
+        "default"
+      ],
+      "filePrefix": null
+    },
+    {
+      "title": "author",
+      "path": "[[workspace]]/src/content/author",
+      "previewPath": "'author'",
+      "contentTypes": [
+        "author"
+      ],
+      "filePrefix": null
+    }
+  ],
+  "frontMatter.data.files": [
+    {
+      "id": "settings",
+      "title": "Settings",
+      "file": "[[workspace]]/src/data/settings.json",
+      "fileType": "json",
+      "labelField": "name",
+      "singleEntry": true,
+      "schema": {
+        "title": "Settings",
+        "type": "object",
+        "required": [
+          "title",
+          "description",
+          "url",
+          "ogImage"
+        ],
+        "properties": {
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "url": {
+            "type": "string",
+            "title": "URL"
+          },
+          "description": {
+            "type": "string",
+            "title": "Description",
+            "multiline": true
+          },
+          "ogImage": {
+            "type": "string",
+            "title": "Open Graph Image"
+          }
+        }
+      }
+    },
+    {
+      "id": "navigation",
+      "title": "Navigation",
+      "file": "[[workspace]]/src/data/navigation.json",
+      "fileType": "json",
+      "labelField": "name",
+      "singleEntry": false,
+      "schema": {
+        "title": "Navigation",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "children": {
+            "type": "boolean"
+          },
+          "childItems": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "frontMatter.content.fmHighlight": false,
+  "frontMatter.content.hideFm": false,
+  "frontMatter.content.hideFmMessage": "Use the editor panel to make front matter changes",
+  "frontMatter.dashboard.openOnStart": false
+}

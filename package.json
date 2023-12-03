@@ -7,14 +7,36 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "node -v"
   },
   "dependencies": {
     "@astrojs/check": "^0.3.1",
     "@astrojs/mdx": "^1.1.5",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.3",
-    "astro": "^3.6.3",
-    "typescript": "^5.3.2"
+    "astro": "^3.6.4",
+    "typescript": "^5.3.2",
+    "autoprefixer": "^10.4.16",
+    "open-props": "1.6.13",
+    "postcss": "^8.4.31",
+    "@csstools/postcss-global-data": "^2.1.0",
+    "postcss-custom-media": "^10.0.2",
+    "postcss-import": "^15.1.0",
+    "postcss-jit-props": "^1.0.14",
+    "postcss-preset-env": "^9.3.0"
+  },
+  "devDependencies": {
+    "prettier-plugin-astro": "^0.12.2"
+  },
+  "browserslist": [
+    "last 1 safari version",
+    "last 2 chrome versions",
+    "last 2 firefox versions",
+    "> 1% in US"
+  ],
+    "engines": {
+    "node": ">= 20.1.0",
+    "npm": ">= 10.2.3"
   }
 }

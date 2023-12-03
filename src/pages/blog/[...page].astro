@@ -1,0 +1,69 @@
+---
+import type { Page, GetStaticPaths } from "astro";
+import { getCollection, getEntry } from "astro:content"
+
+
+import FormattedDate from "@/components/FormattedDate.astro"
+import { Image } from "astro:assets"
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+
+export const getStaticPaths = (async ({ paginate }) => {
+
+  const postCollection = await getCollection('post');
+
+  const posts = postCollection.sort(
+  (a, b) => a.data.date.valueOf() - b.data.date.valueOf());
+
+
+
+const postsWithAuthors = await Promise.all(
+  posts.map(async (post) => {
+    const author = await getEntry(post.data.author)
+
+    return { post, author }
+  }),
+)
+
+	return paginate(postsWithAuthors, { pageSize: 3 });
+}) satisfies GetStaticPaths;
+
+
+
+
+const title = "The Blog";
+const description = "A blog about meh."
+const { page } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+      <section>
+        <ul>
+          {
+            page.data &&
+              page.data.map(({ post, author }) => (
+                <li>
+                  <a href={`/${post.slug}/`}>
+                    {post.data.thumbnail && (
+                      <Image
+                        width={720}
+                        height={360}
+                        src={post.data.thumbnail}
+                        alt=""
+                      />
+                    )}
+
+                    <h4 class="title">{post.data.title}</h4>
+
+                    <p>{author.data.name}</p>
+
+                    <p class="date">
+                      <FormattedDate date={post.data.date} />
+                    </p>
+                  </a>
+                </li>
+              ))
+          }
+        </ul>
+      </section>
+    </BaseLayout>

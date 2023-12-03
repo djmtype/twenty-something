@@ -1,0 +1,83 @@
+@media (--OSdark) {
+  :where(html) {
+    color-scheme: dark;
+
+
+    --accent-yellow: var(--yellow-4);
+		--accent-orange: var(--orange-4);
+		--accent-red: var(--red-4);
+		--accent-purple: var(--violet-4);
+		--accent-blue: var(--cyan-4);
+		--accent-green: var(--teal-4);
+
+    --brand-1: var(--yellow-4);
+		--brand-2: var(--cyan-4);
+
+    --link: var(--yellow-4);
+    --link-visited: var(--yellow-4);
+    --link-hover: var(--text-1);
+    
+    --text-0: var(--gray-0);
+    --text-1: var(--gray-1);
+    --text-2: var(--gray-4);
+    --text-3: var(--gray-5);
+
+
+    --surface-0: var(--gray-10);
+    --surface-1: var(--gray-9);
+    --surface-2: var(--gray-8);
+    --surface-3: var(--gray-7);
+    --surface-4: var(--gray-6);
+
+    --surface-trans: linear-gradient(-0.45turn, var(--cyan-9), hsl(0 0% 0% / 0) 40%);
+
+		--blend-mode: multiply;
+
+    --selection-text: var(--gray-10);
+    --selection-surface: var(--brand-2);
+
+  }
+}
+
+
+
+
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --accent-yellow: var(--yellow-4);
+  --accent-orange: var(--orange-4);
+  --accent-red: var(--red-4);
+  --accent-purple: var(--violet-4);
+  --accent-blue: var(--cyan-4);
+  --accent-green: var(--teal-4);
+
+  --brand-1: var(--yellow-4);
+  --brand-2: var(--cyan-4);
+
+  --link: var(--yellow-4);
+  --link-visited: var(--yellow-4);
+  --link-hover: var(--text-1);
+  
+  --text-0: var(--gray-0);
+  --text-1: var(--gray-1);
+  --text-2: var(--gray-4);
+  --text-3: var(--gray-5);
+
+
+  --surface-0: var(--gray-10);
+  --surface-1: var(--gray-9);
+  --surface-2: var(--gray-8);
+  --surface-3: var(--gray-7);
+  --surface-4: var(--gray-6);
+
+  --surface-trans: linear-gradient(-0.45turn, var(--cyan-9), hsl(0 0% 0% / 0) 40%);
+
+  --blend-mode: multiply;
+
+  --selection-text: var(--gray-10);
+  --selection-surface: var(--brand-2);
+
+  
+}
