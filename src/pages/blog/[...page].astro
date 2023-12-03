@@ -2,6 +2,8 @@
 import type { Page, GetStaticPaths } from "astro";
 import { getCollection, getEntry } from "astro:content"
 
+import { slugifyStr } from "@/utils/slugify";
+import Tag from "@/components/Tag.astro";
 
 import FormattedDate from "@/components/FormattedDate.astro"
 import { Image } from "astro:assets"
@@ -10,7 +12,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
 export const getStaticPaths = (async ({ paginate }) => {
 
-  const postCollection = await getCollection('post');
+  const postCollection = await getCollection('postCollection');
 
   const posts = postCollection.sort(
   (a, b) => a.data.date.valueOf() - b.data.date.valueOf());
@@ -43,6 +45,12 @@ const { page } = Astro.props;
             page.data &&
               page.data.map(({ post, author }) => (
                 <li>
+                  
+                  <ul class="tags-container">
+      {post.data.tags.map(tag => <Tag name={slugifyStr(tag)} />)}
+    </ul>
+
+
                   <a href={`/${post.slug}/`}>
                     {post.data.thumbnail && (
                       <Image

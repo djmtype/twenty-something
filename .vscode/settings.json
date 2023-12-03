@@ -109,6 +109,12 @@
     "files.associations": {
       "*.css": "postcss"
     },
-    "prettier.documentSelectors": ["**/*.astro"]
+    "prettier.documentSelectors": ["**/*.astro"],
+    "search.exclude": {
+      "_backup/": true,
+      "dist/": true,
+      ".output/": true,
+      "node_modules/": true,
+    },
   }
   

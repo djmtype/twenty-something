@@ -4,12 +4,12 @@ import { getEntry } from 'astro:content';
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 
-const home = await getEntry('page', 'home');
+const home = await getEntry('pageCollection', 'home');
 
 const title = SITE_TITLE
 const description = SITE_DESCRIPTION
 const { Content } = await home.render();
-console.log(home)
+
 ---
 
 <BaseLayout title={title} description={description}>

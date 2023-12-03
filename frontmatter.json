@@ -113,7 +113,7 @@
   "frontMatter.content.pageFolders": [
     {
       "title": "blog",
-      "path": "[[workspace]]/src/content/post",
+      "path": "[[workspace]]/src/content/postCollection",
       "previewPath": "'/'",
       "contentTypes": [
         "default"
@@ -122,7 +122,7 @@
     },
     {
       "title": "author",
-      "path": "[[workspace]]/src/content/author",
+      "path": "[[workspace]]/src/content/authorCollection",
       "previewPath": "'author'",
       "contentTypes": [
         "author"

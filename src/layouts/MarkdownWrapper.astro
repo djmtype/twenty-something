@@ -14,11 +14,11 @@ type EntryData = {
 };
 
 type Props = {
-  frontmatter: CollectionEntry<"post" | "page"> & { data: EntryData };
+  frontmatter: CollectionEntry<"postCollection" | "pageCollection"> & { data: EntryData };
 };
 
 const authorData = 
-frontmatter.collection === "post" && frontmatter.data?.author?.slug ? (await getEntry("author", frontmatter.data.author.slug)).data : undefined;
+frontmatter.collection === "postCollection" && frontmatter.data?.author?.slug ? (await getEntry("authorCollection", frontmatter.data.author.slug)).data : undefined;
 ---
 
 <BaseLayout title={frontmatter.data.title} description={frontmatter.data.description}>

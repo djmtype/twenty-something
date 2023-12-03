@@ -3,8 +3,8 @@ import { getCollection, type CollectionEntry } from "astro:content"
 import MarkdownWrapper from "@/layouts/MarkdownWrapper.astro"
 
 export async function getStaticPaths() {
-  const postEntries = await getCollection("post")
-  const pageEntries = await getCollection("page")
+  const postEntries = await getCollection("postCollection")
+  const pageEntries = await getCollection("pageCollection")
 
   const allEntries = [...postEntries, ...pageEntries]
 
@@ -21,7 +21,7 @@ type EntryData = {
 };
 
 type Props = {
-  entry: CollectionEntry<"post" | "page"> & { data: EntryData };
+  entry: CollectionEntry<"postCollection" | "pageCollection"> & { data: EntryData };
 };
 
 const { entry } = Astro.props
