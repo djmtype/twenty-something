@@ -1,5 +1,6 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content"
+
 import PostWrapper from "@/layouts/PostWrapper.astro"
 import PageWrapper from "@/layouts/PageWrapper.astro"
 export async function getStaticPaths() {
@@ -20,6 +21,8 @@ type Props = {
 
 const { entry } = Astro.props
 const { Content } = await entry.render()
+
+
 ---
 
 {
