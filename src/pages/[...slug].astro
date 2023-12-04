@@ -14,14 +14,14 @@ export async function getStaticPaths() {
   }))
 }
 
-type EntryData = {
+type AuthorData = {
   author: {
     slug: string;
   };
 };
 
 type Props = {
-  entry: CollectionEntry<"postCollection" | "pageCollection"> & { data: EntryData };
+  entry: CollectionEntry<"postCollection" | "pageCollection"> & { data: AuthorData };
 };
 
 const { entry } = Astro.props

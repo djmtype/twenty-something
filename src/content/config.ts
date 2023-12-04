@@ -45,8 +45,8 @@ const postCollection = defineCollection({
       message: "Thumbnail image must be at least 630 pixels wide!",
     }).optional(),
 		thumbnailAlt: z.string().optional(),
-		categories: z.array(z.string().optional()).optional(),
-		tags: z.array(z.string().optional()).default(["others"]),
+		categories: z.array(z.string()).default(["uncategorized"]),
+		tags: z.array(z.string()).default(["others"]),
 		status: z.string(z.enum(["draft", "publish"]).default("draft"))
 	}),
 });

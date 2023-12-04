@@ -9,6 +9,7 @@ slug: first-post-test
 tags:
   - vue
   - jamstack
+  - tag one
 categories:
   - watchlist
 status: publish
