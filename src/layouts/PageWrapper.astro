@@ -1,0 +1,36 @@
+---
+import { type CollectionEntry } from "astro:content";
+
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+import { Image } from "astro:assets"
+
+const { frontmatter } = Astro.props;
+
+
+type Props = {
+  frontmatter: CollectionEntry<"pageCollection">;
+};
+
+---
+
+<BaseLayout title={frontmatter.data.title} description={frontmatter.data.description}>
+  <article>
+
+    <div class="hero-image">
+      {
+        frontmatter.data.thumbnail && (
+          <Image width={1020} height={510} src={frontmatter.data.thumbnail} alt="" />
+        )
+      }
+    </div>
+
+    <div class="prose">
+      <div class="title">
+        <h1>{frontmatter.data.title}</h1>
+        <hr />
+      </div>
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

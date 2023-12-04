@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets"
+import FormattedDate from "@/components/FormattedDate.astro"
+import { getEntry, type CollectionEntry } from "astro:content"
+import { slugifyStr } from "@/utils/slugify"
+import Tag from "@/components/Tag.astro"
+
+type Props = {
+  post: CollectionEntry<"postCollection">
+}
+
+const { post } = Astro.props
+const { author, description, title, date, thumbnail, thumbnailAlt } = post.data
+
+const { data: authorData } = await getEntry("authorCollection", author.slug)
+---
+
+<article class="post-card">
+  <div>
+    {thumbnail && <Image width={720} height={360} src={thumbnail} alt="" />}
+
+    <h2>{title}</h2>
+    <div class="meta">
+      <p>{authorData.name}</p>
+      <span>•</span>
+      <FormattedDate date={date} />
+
+      <ul class="tags-container">
+        {
+          post.data.tags &&
+            post.data.tags.map((tag) => (
+              <li>
+                <Tag name={slugifyStr(tag)} />
+              </li>
+            ))
+        }
+      </ul>
+    </div>
+  </div>
+  <p>{description}</p>
+  <a href={`/${post.slug}`}>Read Post</a>
+</article>

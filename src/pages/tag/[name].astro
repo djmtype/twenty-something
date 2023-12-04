@@ -1,6 +1,6 @@
 ---
 
-
+import { deslugify } from "@/utils/slugify"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import FormattedDate from "@/components/FormattedDate.astro"
 import getUniqueTags from "@/utils/getUniqueTags"
@@ -41,8 +41,8 @@ const tagPosts = getPostsByTag(posts, tag)
 const sortTagsPost = getSortedPosts(tagPosts)
 ---
 
-<BaseLayout title="tag" description="tag">
-  <h1>{`Tag: ${tag}`}</h1>
+<BaseLayout title={`Tag: ${deslugify(tag)}`} description={`All tags for ${deslugify(tag)}`}>
+  <h1>{`Tag: ${deslugify(tag)}`}</h1>
 
   <ul>
     {

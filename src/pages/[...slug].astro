@@ -1,7 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content"
-import MarkdownWrapper from "@/layouts/MarkdownWrapper.astro"
-
+import PostWrapper from "@/layouts/PostWrapper.astro"
+import PageWrapper from "@/layouts/PageWrapper.astro"
 export async function getStaticPaths() {
   const postEntries = await getCollection("postCollection")
   const pageEntries = await getCollection("pageCollection")
@@ -14,21 +14,22 @@ export async function getStaticPaths() {
   }))
 }
 
-type AuthorData = {
-  author: {
-    slug: string;
-  };
-};
-
 type Props = {
-  entry: CollectionEntry<"postCollection" | "pageCollection"> & { data: AuthorData };
-};
+  entry: CollectionEntry<"postCollection" | "pageCollection">
+}
 
 const { entry } = Astro.props
-const { Content } = await entry.render();
-
+const { Content } = await entry.render()
 ---
 
-<MarkdownWrapper frontmatter={entry}>
-  <Content />
-</MarkdownWrapper>
+{
+  entry.collection === "postCollection" ? (
+    <PostWrapper frontmatter={entry}>
+      <Content />
+    </PostWrapper>
+  ) : entry.collection === "pageCollection" ? (
+    <PageWrapper frontmatter={entry}>
+      <Content />
+    </PageWrapper>
+  ) : undefined
+}

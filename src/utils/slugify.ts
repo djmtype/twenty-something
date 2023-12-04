@@ -8,9 +8,11 @@ const slugify = (post: CollectionEntry<"postCollection">) => {
   return post.slug ? slugger(post.slug) : data && data.title ? slugger(data.title) : '';
 };
 
-
-
 export const slugifyAll = (arr: string[]) => arr.map(str => slugifyStr(str));
+
+export const deslugify = (str: string): string => {
+  return str.toString().replace(/-/g, ' ');
+};
 
 export default slugify;
 

@@ -1,0 +1,56 @@
+---
+import { getEntry, type CollectionEntry } from "astro:content";
+
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import FormattedDate from "@/components/FormattedDate.astro"
+import { Image } from "astro:assets"
+
+
+
+type AuthorData = {
+  author: {
+    slug: string;
+  };
+};
+
+type Props = {
+  frontmatter: CollectionEntry<"postCollection"> & { data: AuthorData };
+};
+
+const { frontmatter } = Astro.props;
+
+const authorData = 
+frontmatter.collection === "postCollection" && frontmatter.data?.author?.slug ? (await getEntry("authorCollection", frontmatter.data.author.slug)).data : undefined;
+---
+
+<BaseLayout title={frontmatter.data.title} description={frontmatter.data.description}>
+  <article>
+ {authorData && authorData.name}
+    <div class="hero-image">
+      {
+        frontmatter.data.thumbnail && (
+          <Image width={1020} height={510} src={frontmatter.data.thumbnail} alt="" />
+        )
+      }
+    </div>
+
+    <div class="prose">
+      <div class="title">
+      
+        <div class="date">
+          <FormattedDate date={frontmatter.data.date} />
+          {
+            frontmatter.data.updatedDate && (
+              <div class="last-updated-on">
+                Last updated on <FormattedDate date={frontmatter.data.updatedDate} />
+              </div>
+            )
+          }
+        </div>
+        <h1>{frontmatter.data.title}</h1>
+        <hr />
+      </div>
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
