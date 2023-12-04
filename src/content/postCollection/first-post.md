@@ -1,7 +1,7 @@
 ---
 title: 'First post'
 description: 'Lorem ipsum dolor sit amet'
-date: '2022-07-01'
+date: 2022-07-01
 thumbnail: '../../assets/uploads/blog-placeholder-1.jpg'
 thumbnailAlt: 'For placement only'
 author: scott-rod

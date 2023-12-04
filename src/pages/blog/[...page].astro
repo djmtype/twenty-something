@@ -1,6 +1,10 @@
 ---
 import type { GetStaticPaths } from "astro"
 import { getCollection, getEntry } from "astro:content"
+import settings, { blog } from "@/data/settings.json";
+
+import getSortedPosts from "@/utils/getSortedPosts"
+
 import PostCard from "@/components/PostCard.astro"
 import Pagination from "@/components/Pagination.astro"
 
@@ -9,19 +13,21 @@ import BaseLayout from "@/layouts/BaseLayout.astro"
 export const getStaticPaths = (async ({ paginate }) => {
   const postCollection = await getCollection("postCollection")
 
-  const posts = postCollection.sort(
-    (a, b) => a.data.date.valueOf() - b.data.date.valueOf(),
-  )
 
-  return paginate(posts, { pageSize: 3 })
+  const posts = getSortedPosts(postCollection);
+
+  // const posts = postCollection.sort(
+  //   (a, b) => a.data.date.valueOf() - b.data.date.valueOf(),
+  // )
+
+  return paginate(posts, { pageSize: 10 })
 }) satisfies GetStaticPaths
 
-const title = "The Blog"
-const description = "A blog about meh."
+
 const { page } = Astro.props
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={blog.title || 'Blog'} description={blog.description || settings.description}>
   <section>
     {
       page.data.map((post) => (

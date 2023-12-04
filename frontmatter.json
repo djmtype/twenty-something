@@ -164,6 +164,21 @@
           "ogImage": {
             "type": "string",
             "title": "Open Graph Image"
+          },
+          "blog": {
+            "type": "object",
+            "title": "Blog",
+            "properties": {
+              "title": {
+                "type": "string",
+                "title": "Title"
+              },
+              "description": {
+                "type": "string",
+                "title": "Description",
+                "multiline": true
+              }
+            }
           }
         }
       }

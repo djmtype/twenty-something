@@ -2,6 +2,14 @@
     "title": "Twenty Something",
     "description": "From Wordpress to Markdown",
     "url": "https://twentysomething.netlify.app",
-    "ogImage": "/og-image.jpg"
+    "ogImage": "/og-image.jpg",
+    "locale": "en-US",
+
+    "blog": {
+      "title": "The Best Blog",
+      "description": "A blog for all occassions"
+    }
+
+
   }
   
