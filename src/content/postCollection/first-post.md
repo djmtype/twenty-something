@@ -11,6 +11,9 @@ tags:
   - jamstack
   - tag one
 categories:
+  - post one cat
+  - wishing upon a star
+  - first of post
   - watchlist
 status: publish
 ---

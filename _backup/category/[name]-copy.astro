@@ -1,0 +1,52 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import FormattedDate from "@/components/FormattedDate.astro"
+import getUniqueCategories from "@/utils/getUniqueCategories"
+import getPostsByCategory from "@/utils/getPostsByCategory"
+import getSortedPosts from "@/utils/getSortedPosts"
+
+import { type CollectionEntry, getCollection } from "astro:content"
+
+
+export interface Props {
+  post: CollectionEntry<"postCollection">
+  category: string
+}
+
+export async function getStaticPaths() {
+  const posts = await getCollection("postCollection")
+  
+  const categories = getUniqueCategories(posts)
+  // console.dir(tags, { depth: null })
+  return categories.map((category) => {
+    return {
+      params: { name: category },
+      props: { category },
+    }
+  })
+}
+
+const { category } = Astro.props
+
+
+
+const posts = await getCollection("postCollection")
+
+const categoryPosts = getPostsByCategory(posts, category)
+
+// console.log(categoryPosts)
+
+const sortCategoriesPost = getSortedPosts(categoryPosts)
+---
+
+<BaseLayout title="category" description="category">
+  <h1>{`Category: ${category}`}</h1>
+
+  <ul>
+    {
+     sortCategoriesPost.map((p) => (
+       <li><a href={`/${p.slug}`}>{p.data.title} - </a><FormattedDate date={p.data.date} /></li> 
+      ))
+    }
+  </ul>
+</BaseLayout>

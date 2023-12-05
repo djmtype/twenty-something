@@ -19,6 +19,7 @@
     "astro": "^3.6.4",
     "autoprefixer": "^10.4.16",
     "github-slugger": "^2.0.0",
+    "marked": "^11.0.0",
     "open-props": "1.6.13",
     "postcss": "^8.4.31",
     "postcss-custom-media": "^10.0.2",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@types/github-slugger": "^2.0.0",
+    "@types/marked": "^6.0.0",
     "prettier-plugin-astro": "^0.12.2"
   },
   "browserslist": [
