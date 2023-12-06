@@ -1,0 +1,67 @@
+---
+
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import { Image } from "astro:assets"
+import { slugify } from "@/utils/textConverter"
+import BlogCard from "@/components/BlogCard.astro"
+
+import { type CollectionEntry, getCollection } from "astro:content"
+
+
+
+type Props = {
+  data: CollectionEntry<"postCollection" | "authorCollection">["data"];
+  author: CollectionEntry<"authorCollection">;
+};
+
+export async function getStaticPaths() {
+  const COLLECTION_FOLDER = "authorCollection"
+  const authors = await getCollection(
+    COLLECTION_FOLDER,
+    ({ data }) => data.status === "publish",
+  )
+
+  const paths = authors.map((author) => ({
+    params: { name: author.slug },
+    props: { author },
+  }))
+  return paths
+}
+
+const { author } = Astro.props
+
+const { name, description, thumbnail } = author.data
+const { Content } = await author.render()
+const posts = await getCollection(
+  "postCollection",
+  ({ data }) => data.status === "publish",
+)
+
+// const postFilterByAuthor = posts.filter(
+//   (post) => slugify(post.data.author) === slugify(name),
+// )
+
+const postFilterByAuthor = posts.filter(
+  (post) => post.data.author.slug === slugify(name),
+)
+
+---
+
+<BaseLayout title={`Author Profile: ${name}`} description={description ?? `A list of posts by ${name}`}>
+  <section>
+    {thumbnail ? 
+    <Image width={150} height={150} src={thumbnail} alt="" />
+    : <div class="thumbnail">Thumbnail FPO</div>
+  }
+    <h1>{name}</h1>
+    <div class="content">
+      <Content />
+      {postFilterByAuthor.length > 0 ? (
+        postFilterByAuthor.map((post) => <BlogCard data={post} />)
+      ) : (
+        <p>This author has no posts</p>
+      )}
+      
+    </div>
+  </section>
+</BaseLayout>

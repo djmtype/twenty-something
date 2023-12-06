@@ -1,12 +1,12 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
-import settings from './src/data/settings.json';
+import { site } from './src/data/config.json';
 
 import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: settings.url,
+	site: site.url,
 	integrations: [mdx(), sitemap()],
 	vite: {
 		server: {

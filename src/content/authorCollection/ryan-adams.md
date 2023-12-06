@@ -3,7 +3,8 @@ name: Ryan Adams
 description: I am a writer of things.
 slug: ryan-adams
 type: author
-status: draft
+thumbnail: "../../assets/uploads/avatar.png"
+status: publish
 ---
 
 A little something about me.

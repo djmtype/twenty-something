@@ -1,0 +1,25 @@
+{
+  "site": {
+    "title": "Twenty Something",
+    "description": "An Astro theme to help transition from Wordpress to Markdown",
+    "url": "https://twentysomething.netlify.app",
+    "ogImage": "/images/og-image.jpg",
+    "locale": "en-US",
+    "favicon": "/images/favicon.svg",
+    "tagline": "From WP to MD"
+  },
+  "logo": {
+    "image": "/images/logo.svg",
+    "height": 39,
+    "width": 174
+  },
+  "blog": {
+    "title": "The Blog",
+    "description": "A blog for all occassions"
+  },
+  "metadata": {
+    "ogTitle": "",
+    "ogImage": "/images/og-image.jpg",
+    "ogImageAlt": "logo over ambiguous smokey background"
+  }
+}

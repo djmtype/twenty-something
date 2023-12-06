@@ -1,9 +1,10 @@
 ---
 import type { GetStaticPaths } from "astro"
-import { getCollection, getEntry } from "astro:content"
-import settings, { blog } from "@/data/settings.json";
+import { getCollection } from "astro:content"
+import { site, blog } from "@/data/config.json";
 
-import getSortedPosts from "@/utils/getSortedPosts"
+import { sortByDate, filterByStatus } from "@/utils/postFunctions"
+
 
 import PostCard from "@/components/PostCard.astro"
 import Pagination from "@/components/Pagination.astro"
@@ -12,22 +13,18 @@ import BaseLayout from "@/layouts/BaseLayout.astro"
 
 export const getStaticPaths = (async ({ paginate }) => {
   const postCollection = await getCollection("postCollection")
-
-
-  const posts = getSortedPosts(postCollection);
-
-  // const posts = postCollection.sort(
-  //   (a, b) => a.data.date.valueOf() - b.data.date.valueOf(),
-  // )
-
+  const allPosts = sortByDate(postCollection);
+  const posts = filterByStatus(allPosts)
   return paginate(posts, { pageSize: 10 })
 }) satisfies GetStaticPaths
 
 
-const { page } = Astro.props
+const { page } = Astro.props;
+
+// console.dir(page, { depth: null });
 ---
 
-<BaseLayout title={blog.title || 'Blog'} description={blog.description || settings.description}>
+<BaseLayout title={blog.title || 'Blog'} description={blog.description || site.description}>
   <section>
     {
       page.data.map((post) => (

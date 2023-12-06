@@ -1,52 +1,48 @@
 ---
+import { metafy } from "@/utils/textConverter";
 
-import { deslugify } from "@/utils/slugify"
+import { getTaxonomy } from "@/utils/taxonomyParser"
+import taxonomyFilter from "@/utils/taxonomyFilter"
+
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import FormattedDate from "@/components/FormattedDate.astro"
-import getUniqueTags from "@/utils/getUniqueTags"
-import getPostsByTag from "@/utils/getPostsByTag"
-import getSortedPosts from "@/utils/getSortedPosts"
-
-import { type CollectionEntry, getCollection } from "astro:content"
 
 
-export interface Props {
-  post: CollectionEntry<"postCollection">
-  tag: string
-}
+import { getCollection } from "astro:content"
+
+
+
 
 export async function getStaticPaths() {
-  const posts = await getCollection("postCollection")
-  
-  const tags = getUniqueTags(posts)
-  // console.dir(tags, { depth: null })
-  return tags.map((tag) => {
-    return {
-      params: { name: tag },
-      props: { tag },
-    }
-  })
+
+const tags = await getTaxonomy("postCollection", "tags");
+
+return tags.map((tag) => {
+  return {
+    params: { name: tag },
+    props: { tag },
+  }
+})
 }
 
 const { tag } = Astro.props
 
 
 
-const posts = await getCollection("postCollection")
+const posts = await getCollection(
+  "postCollection",
+  ({ data, slug }) => data.status === "publish" && slug !== "-index",
+);
 
-const tagPosts = getPostsByTag(posts, tag)
-
-// console.log(tagPosts)
-
-const sortTagsPost = getSortedPosts(tagPosts)
+const filterByTags = taxonomyFilter(posts, "tags", tag!)
 ---
 
-<BaseLayout title={`Tag: ${deslugify(tag)}`} description={`All tags for ${deslugify(tag)}`}>
-  <h1>{`Tag: ${deslugify(tag)}`}</h1>
+<BaseLayout title={metafy(tag)} description={`A list of entries with tag, ${metafy(tag)}`}>
+  <h1>{`Tag: ${metafy(tag)}`}</h1>
 
   <ul>
     {
-     sortTagsPost.map((p) => (
+     filterByTags.map((p) => (
        <li><a href={`/${p.slug}`}>{p.data.title} - </a><FormattedDate date={p.data.date} /></li> 
       ))
     }

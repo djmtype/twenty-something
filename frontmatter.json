@@ -132,39 +132,98 @@
   ],
   "frontMatter.data.files": [
     {
-      "id": "settings",
-      "title": "Settings",
-      "file": "[[workspace]]/src/data/settings.json",
+      "id": "config",
+      "title": "Configuration",
+      "file": "[[workspace]]/src/data/config.json",
       "fileType": "json",
       "labelField": "name",
       "singleEntry": true,
       "schema": {
-        "title": "Settings",
+        "title": "Configuration",
         "type": "object",
-        "required": [
-          "title",
-          "description",
-          "url",
-          "ogImage"
-        ],
         "properties": {
-          "title": {
-            "type": "string",
-            "title": "Title"
+          "site": {
+            "type": "object",
+            "title": "Site",
+            "required": [
+              "title",
+              "url",
+              "locale"
+            ],
+            "properties": {
+              "title": {
+                "type": "string",
+                "title": "Title"
+              },
+              "tagline": {
+                "type": "string",
+                "title": "Tagline"
+              },
+              "url": {
+                "type": "string",
+                "title": "URL"
+              },
+              "description": {
+                "type": "string",
+                "title": "Description",
+                "multiline": true
+              },
+              "locale": {
+                "type": "string",
+                "title": "Language"
+              },
+              "favicon": {
+                "type": "string",
+                "title": "Favicon"
+              }
+            }
           },
-          "url": {
-            "type": "string",
-            "title": "URL"
+          "metadata": {
+            "type": "object",
+            "title": "Metadata",
+            "required": [
+              "ogImage",
+              "ogImageAlt"
+            ],
+            "properties": {
+              "ogTitle": {
+                "type": "string",
+                "title": "OpenGraph Title"
+              },
+              "ogDescription": {
+                "type": "string",
+                "title": "OpenGraph Description",
+                "multiline": true
+              },
+              "ogImage": {
+                "type": "string",
+                "title": "OpenGraph Image"
+              },
+              "ogImageAlt": {
+                "type": "string",
+                "title": "OpenGraph Image Alt Text"
+              }
+            }
           },
-          "description": {
-            "type": "string",
-            "title": "Description",
-            "multiline": true
+          "logo": {
+            "type": "object",
+            "title": "Logo",
+            "properties": {
+              "image": {
+                "type": "string",
+                "title": "Image"
+              },
+              "width": {
+                "type": "number",
+                "title": "Width"
+              },
+              "height": {
+                "type": "number",
+                "title": "Height"
+              }
+            }
           },
-          "ogImage": {
-            "type": "string",
-            "title": "Open Graph Image"
-          },
+
           "blog": {
             "type": "object",
             "title": "Blog",

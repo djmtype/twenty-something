@@ -2,7 +2,7 @@
 import { Image } from "astro:assets"
 import FormattedDate from "@/components/FormattedDate.astro"
 import { getEntry, type CollectionEntry } from "astro:content"
-import { slugifyStr } from "@/utils/slugify"
+import { slugify } from "@/utils/textConverter"
 import Tag from "@/components/Tag.astro"
 
 type Props = {
@@ -21,7 +21,7 @@ const { data: authorData } = await getEntry("authorCollection", author.slug)
 
     <h2>{title}</h2>
     <div class="meta">
-      <p>{authorData.name}</p>
+      <p><a href=`/author/${author.slug}`>{authorData.name}</a></p>
       <span>•</span>
       <FormattedDate date={date} />
 
@@ -30,7 +30,7 @@ const { data: authorData } = await getEntry("authorCollection", author.slug)
           post.data.tags &&
             post.data.tags.map((tag) => (
               <li>
-                <Tag name={slugifyStr(tag)} />
+                <Tag name={slugify(tag)} />
               </li>
             ))
         }
