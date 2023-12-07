@@ -148,7 +148,7 @@
             "required": [
               "title",
               "url",
-              "locale"
+              "language"
             ],
             "properties": {
               "title": {
@@ -168,9 +168,13 @@
                 "title": "Description",
                 "multiline": true
               },
-              "locale": {
+              "language": {
                 "type": "string",
                 "title": "Language"
+              },
+              "country": {
+                "type": "string",
+                "title": "Country"
               },
               "favicon": {
                 "type": "string",

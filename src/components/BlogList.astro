@@ -1,0 +1,56 @@
+---
+import { Image } from "astro:assets"
+import Taxonomy from "@/components/Taxonomy.astro"
+import FormattedDate from "@/components/FormattedDate.astro"
+import { getEntry, type CollectionEntry } from "astro:content"
+import { humanize, slugify, plainify, metafy } from "@/utils/textConverter"
+
+type Props = {
+  post: CollectionEntry<"postCollection">
+}
+
+const { post } = Astro.props
+const {
+  author,
+  description,
+  title,
+  date,
+  dateUpdated,
+  thumbnail,
+  thumbnailAlt,
+  tags,
+  categories,
+} = post.data
+
+const { data: authorData } = await getEntry("authorCollection", author.slug)
+---
+
+<li>
+  {thumbnail && <Image width="60" height="60" src={thumbnail} quality={50} alt="" densities={[1,2]} />}
+  <h3><a href={"/" + post.slug}>{title}</a></h3>
+  <div>
+    <FormattedDate date={date} /> &mdash; by <a href={author.slug}
+      >{authorData.name}</a
+    >
+    {
+      categories.length > 0 && (
+        <>
+          {' in '}
+          {categories.map((category) => (
+              <Taxonomy type="category" name={metafy(category)} />
+          )).reduce((prev, curr) => [prev, ', ', curr])}
+        </>
+      )
+    }
+    
+    
+  </div>
+</li>
+
+<style>
+  li img {
+    object-fit: cover;
+    height: 60px;
+    width: 60px;
+  }
+</style>

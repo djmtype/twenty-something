@@ -2,15 +2,16 @@
 import { Image } from "astro:assets"
 import FormattedDate from "@/components/FormattedDate.astro"
 import { getEntry, type CollectionEntry } from "astro:content"
-import { slugify } from "@/utils/textConverter"
-import Tag from "@/components/Tag.astro"
+
+
+import Taxonomy from "@/components/Taxonomy.astro"
 
 type Props = {
   post: CollectionEntry<"postCollection">
 }
 
 const { post } = Astro.props
-const { author, description, title, date, thumbnail, thumbnailAlt } = post.data
+const { author, description, title, date, dateUpdated, thumbnail, thumbnailAlt, tags, categories } = post.data
 
 const { data: authorData } = await getEntry("authorCollection", author.slug)
 ---
@@ -25,12 +26,25 @@ const { data: authorData } = await getEntry("authorCollection", author.slug)
       <span>•</span>
       <FormattedDate date={date} />
 
+      <p>Categories</p>
+      <ul class="tax-container">
+        {
+          categories &&
+            categories.map((category) => (
+              <li>
+                <Taxonomy type="category" name={category} />
+              </li>
+            ))
+        }
+      </ul>
+
+      <p>Tags</p>
       <ul class="tags-container">
         {
-          post.data.tags &&
-            post.data.tags.map((tag) => (
-              <li>
-                <Tag name={slugify(tag)} />
+          tags &&
+            tags.map((tag) => (
+            <li>
+                <Taxonomy type="tag" name={tag} />
               </li>
             ))
         }

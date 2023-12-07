@@ -4,7 +4,8 @@
     "description": "An Astro theme to help transition from Wordpress to Markdown",
     "url": "https://twentysomething.netlify.app",
     "ogImage": "/images/og-image.jpg",
-    "locale": "en-US",
+    "language": "en",
+    "country": "US",
     "favicon": "/images/favicon.svg",
     "tagline": "From WP to MD"
   },

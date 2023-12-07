@@ -26,9 +26,11 @@ export async function getStaticPaths() {
 
 const { category } = Astro.props;
 
+
+
 const posts = await getCollection(
   "postCollection",
-  ({ data, slug }) => data.status === "publish" && slug !== "-index",
+  ({ data }) => data.status === "publish",
 );
 
 // console.log(categoryPosts)

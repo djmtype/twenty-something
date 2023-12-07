@@ -2,6 +2,7 @@
 title: 'First post'
 description: 'Lorem ipsum dolor sit amet'
 date: 2022-07-01
+dateUpdated: 2022-08-02
 thumbnail: '../../assets/uploads/blog-placeholder-1.jpg'
 thumbnailAlt: 'For placement only'
 author: ryan-adams

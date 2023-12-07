@@ -1,0 +1,32 @@
+---
+import { slugify } from "@/utils/textConverter"
+
+type Props = {
+  name: string
+  type: "category" | "tag"
+}
+
+const { name, type } = Astro.props
+
+
+type ModifiedType = "category" | "tag" | null
+
+let modifiedType: ModifiedType
+
+if (type === "tag") {
+  modifiedType = "tag"
+} else if (type === "category") {
+  modifiedType = "category"
+} else {
+  // Set modifiedType to null for other cases
+  modifiedType = null
+}
+---
+
+{
+  modifiedType && (
+    <a href={modifiedType ? `/${modifiedType}/${slugify(name).toLowerCase()}` : "#"}>
+      <span>{name}</span>
+    </a>
+  )
+}

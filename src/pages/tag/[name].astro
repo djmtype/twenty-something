@@ -31,7 +31,7 @@ const { tag } = Astro.props
 
 const posts = await getCollection(
   "postCollection",
-  ({ data, slug }) => data.status === "publish" && slug !== "-index",
+  ({ data }) => data.status === "publish",
 );
 
 const filterByTags = taxonomyFilter(posts, "tags", tag!)

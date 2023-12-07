@@ -22,7 +22,7 @@
     "editor.overviewRulerBorder": false,
     "editor.foldingHighlight": false,
     "editor.renderLineHighlight": "none",
-    "editor.occurrencesHighlight": false,
+    "editor.occurrencesHighlight": "off",
   
     // =misc
   

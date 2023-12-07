@@ -15,7 +15,7 @@ const pageCollection = defineCollection({
       updatedDate: z
         .string()
         .optional()
-        .transform((str) => (str ? new Date(str) : undefined)),
+        .transform((val) => (val ? new Date(val) : undefined)),
       thumbnail: image()
         .refine((img) => img.width >= 630, {
           message: "Cover image must be at least 630 pixels wide!",
@@ -39,10 +39,10 @@ const postCollection = defineCollection({
         .string()
         .or(z.date())
         .transform((val) => new Date(val)),
-      updatedDate: z
+      dateUpdated: z
         .string()
-        .optional()
-        .transform((str) => (str ? new Date(str) : undefined)),
+        .or(z.date())
+        .transform((str) => (str ? new Date(str) : undefined)).optional(),
       thumbnail: image()
         .refine((img) => img.width >= 630, {
           message: "Thumbnail image must be at least 630 pixels wide!",

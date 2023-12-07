@@ -9,12 +9,12 @@
     "children": true,
     "childItems": [
       {
-        "name": "Tags",
-        "url": "/tags"
+        "name": "Blog",
+        "url": "/blog"
       },
       {
-        "name": "Categories",
-        "url": "/categories"
+        "name": "About",
+        "url": "/about"
       }
     ]
   }

@@ -6,15 +6,21 @@ interface Props {
 
 }
 
+function locale(language: string, country?: string): string {
+    // Use a ternary operator to conditionally include the country code with a hyphen
+    return country ? `${language}-${country}` : language;
+}
+
+
 const { date } = Astro.props;
 ---
 
 <time datetime={date.toISOString()}>
 	{
-		date.toLocaleDateString(site.locale || 'en-US', {
+		date.toLocaleDateString(locale(site.language, site.country) || 'en-US', {
 			timeZone: "UTC",
 			year: 'numeric',
-			month: 'short',
+			month: 'long',
 			day: 'numeric',
 		})
 	}

@@ -12,7 +12,7 @@ export const sortByDate = (array: any[]) => {
 // filter by status
 export const filterByStatus = (array: any[]) => {
   const filteredArray = array.filter((item: any) => 
-    item.data.status === "publish" && item.id !== "-index.md"
+    item.data.status === "publish"
   );
   return filteredArray;
 };

@@ -3,7 +3,7 @@
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import { Image } from "astro:assets"
 import { slugify } from "@/utils/textConverter"
-import BlogCard from "@/components/BlogCard.astro"
+import BlogList from "@/components/BlogList.astro"
 
 import { type CollectionEntry, getCollection } from "astro:content"
 
@@ -15,9 +15,8 @@ type Props = {
 };
 
 export async function getStaticPaths() {
-  const COLLECTION_FOLDER = "authorCollection"
   const authors = await getCollection(
-    COLLECTION_FOLDER,
+   "authorCollection",
     ({ data }) => data.status === "publish",
   )
 
@@ -57,10 +56,18 @@ const postFilterByAuthor = posts.filter(
     <div class="content">
       <Content />
       {postFilterByAuthor.length > 0 ? (
-        postFilterByAuthor.map((post) => <BlogCard data={post} />)
+        <div>
+          <h2>Post List</h2>
+          <ul>
+          {postFilterByAuthor.map((post) => (
+            <BlogList post={post} />
+          ))}
+        </ul>
+        </div>
       ) : (
         <p>This author has no posts</p>
       )}
+      
       
     </div>
   </section>
