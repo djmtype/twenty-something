@@ -1,6 +1,7 @@
 ---
 import "../styles/app.css"
 import { site } from "@/data/config.json"
+import SkipLink from "@/components/SkipLink.astro"
 import Header from "@/components/Header.astro"
 import Footer from "@/components/Footer.astro"
 
@@ -19,7 +20,7 @@ const {
 } = Astro.props
 ---
 
-<html lang={site.language}>
+<html lang={site.language} class="no-js">
   <head>
 
     <meta charset="utf-8" />
@@ -28,7 +29,7 @@ const {
     <meta name="generator" content={Astro.generator} />
 
 
-    <link
+    <!-- <link
       rel="preload"
       href="/fonts/atkinson-regular.woff"
       as="font"
@@ -41,7 +42,7 @@ const {
       as="font"
       type="font/woff"
       crossorigin
-    />
+    /> -->
 
 
     <link rel="canonical" href={canonicalURL} />
@@ -70,9 +71,14 @@ const {
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(thumbnail, Astro.url)} />
+
+    <script is:inline>
+      document.documentElement.classList.remove("no-js")
+      </script>
   </head>
 
   <body>
+    <SkipLink />
     <Header />
     <main>
       <slot />
@@ -80,3 +86,4 @@ const {
     <Footer />
   </body>
 </html>
+

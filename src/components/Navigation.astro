@@ -1,0 +1,314 @@
+---
+import navigation from "@/data/navigation.json"
+import { slugify } from "@/utils/textConverter"
+
+type ChildItem = {
+  name: string;
+  url: string;
+  target?: string;
+  rel?: string;
+}
+
+type NavigationItem = {
+  name: string;
+  url: string;
+  target?: string;
+  rel?: string;
+  childItems?: ChildItem[];
+}
+
+const { pathname } = Astro.url
+// const currentPage = Astro.url.pathname
+---
+
+<nav class="nav-primary" id="primary-navigation">
+    <ul role="list" class="nav-primary__list">
+      {navigation.map((nav: NavigationItem) => (
+        <li
+          class={`nav-primary__item ${
+            nav.childItems ? "nav-primary__item--parent" : ""
+          }`}
+        >
+          {nav.childItems ? (
+            <a
+              role="button"
+              data-toggle="subnav"
+              aria-haspopup="true"
+              aria-expanded="false"
+              href="#0"
+              class={`nav-primary__link ${
+                nav.childItems?.some(
+                  (child: ChildItem) =>
+                    child.url === pathname || `${child.url}/` === pathname
+                )
+                  ? "active"
+                  : ""
+              }`}
+            >
+              {nav.name}
+            </a>
+          ) : (
+            <a
+              href={nav.url}
+              id={`nav-primary__link--${slugify(nav.name).toLowerCase()}`}
+              class={`nav-primary__link ${
+                pathname === `${nav.url}/` || pathname === nav.url
+                  ? "active"
+                  : ""
+              }`}
+              aria-current={
+                pathname === `${nav.url}/` || pathname === nav.url
+                  ? "page"
+                  : undefined
+              }
+              target={nav.target}
+              rel={nav.rel || (nav.target ? "noopener noreferrer" : undefined)}
+            >
+              {nav.name}
+            </a>
+          )}
+  
+          {nav.childItems && (
+            <ul role="list" id="subnav" class="nav-primary__sublist" aria-hidden="true">
+              {nav.childItems.map((child: ChildItem) => (
+                <li
+                  class="nav-primary__item nav-primary__item--child"
+                >
+                  <a
+                    id={`nav-primary__link--${slugify(child.url).toLowerCase()}`}
+                    href={child.url}
+                    class={`nav-primary__link ${
+                      pathname === `${child.url}/` || pathname === child.url
+                        ? "active"
+                        : ""
+                    }`}
+                    aria-current={
+                      pathname === `${child.url}/` || pathname === child.url
+                        ? "page"
+                        : undefined
+                    }
+                    target={child.target}
+                    rel={
+                      child.rel || (child.target ? "noopener noreferrer" : undefined)
+                    }
+                  >
+                    {child.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+
+
+  <script>
+    // Add click event listeners for submenu toggles
+    var submenuToggles = document.querySelectorAll('[data-toggle="subnav"]')
+    submenuToggles.forEach(function (toggleElement) {
+      toggleElement.addEventListener("click", function (event) {
+        event.preventDefault()
+        toggleSubmenu(toggleElement)
+      })
+    })
+  
+    // Function to open/close the submenu associated with a toggle element
+    function toggleSubmenu(toggleElement) {
+      var submenu = toggleElement.nextElementSibling // Assuming the submenu follows the toggle element
+      var expanded = toggleElement.getAttribute("aria-expanded") === "true"
+  
+      // Close all other submenus
+      submenuToggles.forEach(function (otherToggleElement) {
+        if (otherToggleElement !== toggleElement) {
+          closeSubmenu(otherToggleElement)
+        }
+      })
+  
+      // Toggle the clicked submenu
+      toggleElement.setAttribute("aria-expanded", !expanded)
+      submenu.setAttribute("aria-hidden", expanded ? "true" : "false")
+    }
+  
+    // Function to close a submenu
+    function closeSubmenu(toggleElement) {
+      var submenu = toggleElement.nextElementSibling // Assuming the submenu follows the toggle element
+      toggleElement.setAttribute("aria-expanded", "false")
+      submenu.setAttribute("aria-hidden", "true")
+    }
+  
+    // Add a click event listener on the document body to close all submenus when clicking outside the nav area
+  
+    document.body.addEventListener("click", function (event) {
+      if (
+        event.target instanceof HTMLElement &&
+        !document.getElementById("primary-navigation").contains(event.target)
+      ) {
+        closeAllSubmenus()
+      }
+    })
+  
+    // Add a keydown event listener to close all submenus when the ESC key is pressed
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        closeAllSubmenus()
+      }
+    })
+  
+    // Function to close all submenus
+    function closeAllSubmenus() {
+      submenuToggles.forEach(function (toggleElement) {
+        closeSubmenu(toggleElement)
+      })
+    }
+  </script>
+  
+  <style lang="postcss" is:global>
+ .nav-primary {
+    display: none;
+    flex: 1 1 100%;
+    @media (--lg-n-above) {
+      display: flex;
+      flex: 0 1 auto;
+      align-items: center;
+      padding-inline: var(--gutter);
+    }
+  }
+
+  .nav-primary.show {
+    display: flex;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+  }
+
+  .nav__item {
+    flex: 1 1 100%;
+    @media (--lg-n-above) {
+      flex: unset;
+    }
+  }
+
+  .nav-primary > .nav__item {
+    border-top: 1px solid var(--separator-color);
+    @media (--lg-n-above) {
+      border-top: unset;
+    }
+    /* width: 100%; */
+  }
+
+  .nav-primary > .nav__item > .nav__link {
+    padding-block: var(--space-xs);
+    @media (--lg-n-above) {
+      height: 100%;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5ch;
+    }
+  }
+
+  .nav__link {
+    font-weight: var(--font-bold);
+    text-decoration: none;
+    padding-inline: var(--gutter);
+    padding-block: var(--space-xs);
+    display: flex;
+    @media (--lg-n-above) {
+      padding-inline: var(--space-xs);
+    }
+  }
+
+  .nav__item--parent {
+    position: relative;
+  }
+
+
+
+  .subnav__link {
+    padding-block: var(--space-2xs);
+    @media (--lg-n-above) {
+      padding-inline: var(--space-sm);
+    }
+  }
+
+  .nav__link--parent {
+    position: relative;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .nav__item--parent:has(a[aria-expanded="true"]) {
+    background: var(--color-light-glare);
+    @media (--lg-n-above) {
+      box-shadow: var(--shadow-separator);
+      border-radius: var(--radius-2xs);
+    }
+  }
+
+  .nav__link--parent svg {
+    height: 1ex;
+    width: auto;
+  }
+
+
+
+  .subnav {
+    
+    transition: opacity linear 250ms, visibility linear 250ms;
+    @media (--lg-n-above) {
+      transition: all ease 250ms;
+      border-radius: var(--radius-2xs);
+      z-index: 4;
+      position: absolute;
+      top: calc(100% + var(--space-2xs));
+      background: var(--color-light-glare);
+      box-shadow: var(--shadow-separator);
+      right: 0;
+      min-width: 20ch;
+      overflow: hidden;
+      padding-block: var(--space-xs);
+      
+    }
+  }
+
+  .nav__item--parent:focus-within > a {
+    color: var(--color-accent);
+  }
+
+
+
+  #subnav[aria-hidden="true"] {
+    overflow: hidden;
+    padding-block-end: 0;
+    /* display: none; */
+    max-height: 0;
+    visibility: hidden;
+    opacity: 0;
+    @media (--lg-n-above) {
+      max-height: unset;
+    transform: translateY(10%);
+    }
+  }
+
+  #subnav[aria-hidden="false"] {
+    padding-block-end: var(--space-xs);
+    /* display: block; */
+    max-height: 100%;
+    visibility: visible;
+    @media (--lg-n-above) {
+      max-height: unset;
+    opacity: 1;
+    transform: translateY(0%);
+    }
+  }
+
+  a[aria-current="page"],
+  li:has(a[aria-current="page"]) > a {
+    color: var(--color-accent);
+  }
+
+  a[aria-current="page"] {
+    cursor: default;
+  }
+  </style>

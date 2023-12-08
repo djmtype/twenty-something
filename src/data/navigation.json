@@ -4,17 +4,24 @@
     "url": "/"
   },
   {
+    "name": "Github Site",
+    "url": "https://github.io",
+    "target": "_blank"
+  },
+  {
     "name": "Pages",
     "url": "",
     "children": true,
     "childItems": [
       {
         "name": "Blog",
-        "url": "/blog"
+        "url": "/blog",
+        "rel": "prefetch"
       },
       {
         "name": "About",
-        "url": "/about"
+        "url": "/about",
+        "rel": "prefetch"
       }
     ]
   }

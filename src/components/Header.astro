@@ -1,85 +1,33 @@
 ---
 import { site, logo } from "@/data/config.json"
-import navigation from "@/data/navigation.json"
+import NavToggle from "@/components/NavToggle.astro"
+import Navigation from "@/components/Navigation.astro"
 
-const { pathname } = Astro.url
+
 ---
 
-<header>
-  <a href={site.url}
-    ><img
-      src={logo.image}
-      width={logo.width}
-      height={logo.height}
-      alt=""
-    /><span class="sr-only">{site.title}</span></a
-  >
-
-  <nav>
-    <ul>
-      {
-        navigation.map((nav) => (
-          <>
-            {nav.children ? (
-              <li class="nav-item">
-                <a
-                  role="button"
-                  href="#0"
-                  class={`nav-link ${
-                    nav.childItems?.map(({ url }) => url).includes(pathname) ||
-                    nav.childItems
-                      ?.map(({ url }) => `${url}/`)
-                      .includes(pathname)
-                      ? "active"
-                      : ""
-                  }`}
-                >
-                  {nav.name}
-                </a>
-                <ul class="nav-dropdown-list">
-                  {nav.childItems?.map((child) => (
-                    <li class="nav-dropdown-item">
-                      <a
-                        href={child.url}
-                        class={`nav-dropdown-link ${
-                          (pathname === `${child.url}/` ||
-                            pathname === child.url) &&
-                          "active"
-                        }`}
-                        aria-current={
-                          pathname === `${child.url}/` || pathname === child.url
-                            ? "page"
-                            : undefined
-                        }
-                      >
-                        {child.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ) : (
-              <li class="nav-item">
-                <a
-                  href={nav.url}
-                  class={`nav-link ${
-                    pathname === `${nav.url}/` || pathname === nav.url
-                      ? "active"
-                      : ""
-                  }`}
-                  aria-current={
-                    pathname === `${nav.url}/` || pathname === nav.url
-                      ? "page"
-                      : undefined
-                  }
-                >
-                  {nav.name}
-                </a>
-              </li>
-            )}
-          </>
-        ))
-      }
-    </ul>
-  </nav>
+<header id="main-header">
+  <div class="container">
+    <a href={site.url}
+      ><img
+        src={logo.image}
+        width={logo.width}
+        height={logo.height}
+        alt=""
+      /><span class="sr-only">{site.title}</span></a
+    >
+     <Navigation />
+     <NavToggle />
+  </div>
 </header>
+
+<style>
+  header {
+    padding-block: var(--size-4); 
+  }
+
+  header > .container {
+    display: flex;
+    justify-content: space-between;
+  }
+</style>

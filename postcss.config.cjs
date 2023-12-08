@@ -2,11 +2,13 @@ const postcssJitProps = require("postcss-jit-props");
 const postcssPresetEnv = require("postcss-preset-env");
 const postcssGlobalData = require("@csstools/postcss-global-data");
 const OpenProps = require("open-props");
+// const path = require('path');
 
 module.exports = {
   plugins: [
     postcssGlobalData({
-      files: ["./node_modules/open-props/src/props.media.css"],
+      files: [
+        "./node_modules/open-props/src/props.media.css"],
     }),
     postcssPresetEnv({
       stage: 0,
@@ -20,12 +22,12 @@ module.exports = {
         "focus-visible-pseudo-class": false,
         "color-functional-notation": false,
       },
-      autoprefixer: true,
+      autoprefixer: false,
     }),
     postcssJitProps(OpenProps),
     // postcssJitProps({
     //   files: [
-    //     "./node_modules/open-props/open-props.min.css",
+    //     path.resolve(__dirname, 'node_modules/open-props/open-props.min.css'),
     //     // "./src/styles/themes/light.css",
     //     // "./src/styles/themes/dark.css",
     //     // "./src/styles/common/variables.css",

@@ -1,0 +1,20 @@
+:root {
+    --container-width: var(--size-container-xl);
+  }
+  
+  .container {
+    width: 100%;
+    max-width: var(--container-width-value, var(--container-width));
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+    position: relative;
+  }
+  
+  .container .container {
+    padding-inline: unset;
+  }
+  
+  
+  
+  
+  

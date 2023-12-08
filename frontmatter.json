@@ -258,10 +258,20 @@
         "type": "object",
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "title": "Name"
           },
           "url": {
-            "type": "string"
+            "type": "string",
+            "title": "URL"
+          },
+          "target": {
+            "type": "string",
+            "title": "Target"
+          },
+          "rel": {
+            "type": "string",
+            "title": "Relationship"
           },
           "children": {
             "type": "boolean"
@@ -272,10 +282,20 @@
               "type": "object",
               "properties": {
                 "name": {
-                  "type": "string"
+                  "type": "string",
+                  "title": "Name"
                 },
                 "url": {
-                  "type": "string"
+                  "type": "string",
+                  "title": "URL"
+                },
+                "target": {
+                  "type": "string",
+                  "title": "Target"
+                },
+                "rel": {
+                  "type": "string",
+                  "title": "Relationship"
                 }
               }
             }

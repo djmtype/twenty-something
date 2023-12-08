@@ -1,0 +1,83 @@
+---
+import navigation from "@/data/navigation.json"
+import { slugify } from "@/utils/textConverter"
+const { pathname } = Astro.url
+// const currentPage = Astro.url.pathname
+---
+
+<nav class="nav-primary" id="primary-navigation">
+  <ul role="list" class="nav-primary__list">
+    {navigation.map((nav) => (
+      <li
+        class={`nav-primary__item ${
+          nav.children ? "nav-primary__item--parent" : ""
+        }`}
+      >
+        {nav.children ? (
+          <a
+            role="button"
+            data-toggle="subnav"
+            aria-haspopup="true"
+            aria-expanded="false"
+            href="#0"
+            class={`nav-primary__link ${
+              nav.childItems?.some(
+                ({ url }) => url === pathname || `${url}/` === pathname
+              )
+                ? "active"
+                : ""
+            }`}
+          >
+            {nav.name}
+          </a>
+        ) : (
+          <a
+            href={nav.url}
+            id={"nav-primary__link--" + slugify(nav.name).toLowerCase()}
+            class={`nav-primary__link ${
+              pathname === `${nav.url}/` || pathname === nav.url
+                ? "active"
+                : ""
+            }`}
+            aria-current={
+              pathname === `${nav.url}/` || pathname === nav.url
+                ? "page"
+                : undefined
+            }
+            target={nav.target}
+            rel={nav.rel || (nav.target ? "noopener noreferrer" : "")}
+          >
+            {nav.name}
+          </a>
+        )}
+
+        {nav.children && (
+          <ul class="nav-primary__sublist">
+            {nav.childItems?.map((child) => (
+              <li class="nav-primary__item nav-primary__item--child">
+                <a
+                  id={"nav-primary__link--" + slugify(child.url).toLowerCase()}
+                  href={child.url}
+                  class={`nav-primary__link ${
+                    pathname === `${child.url}/` || pathname === child.url
+                      ? "active"
+                      : ""
+                  }`}
+                  aria-current={
+                    pathname === `${child.url}/` || pathname === child.url
+                      ? "page"
+                      : undefined
+                  }
+                  target={child.target}
+                  rel={child.rel || (child.target ? "noopener noreferrer" : "")}
+                >
+                  {child.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </li>
+    ))}
+  </ul>
+</nav>

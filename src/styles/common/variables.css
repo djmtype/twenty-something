@@ -1,52 +1,18 @@
-/* Alias variables and sensible extras  */
 :root {
-  /* typography */
-  --font-sans: Plus Jakarta Sans, system-ui, -apple-system, Segoe UI, Roboto,
+  --font-sans: "Inter Variable", system-ui, -apple-system, Segoe UI, Roboto,
     Ubuntu, Cantarell, Noto Sans, sans-serif;
   --font-mono: ui-monospace, SF Mono, Menolo, Dank Mono, Operator Mono,
     Inconsolata, Fira Mono, Monaco, Droid Sans Mono, Source Code Pro, monospace;
+  --font-serif: Cardo, serif;
 
-  --font-weight-normal: var(--font-weight-4);
-  --font-weight-medium: var(--font-weight-6);
-  --font-weight-bold: var(--font-weight-8);
-
-  --font-lineheight-fluid: calc(1em + 0.5rem);
-  --font-size-smaller: 0.9em;
-}
-:root {
-  /* colors */
-  --gray-0: #ffffff;
-  --gray-10: #000000;
-  --separator-surface: var(--surface-3);
-  --muted: var(--text-3);
-
-  --gradient-brand: linear-gradient(45deg, var(--brand-1), var(--brand-2));
-}
-
-:root {
-  /* sizes */
   --size-0: 0;
-	--size-container-xxs: 240px;
-	--size-container-xs: 360px;
-	--size-container-sm: 480px;
-	--size-container-md: 768px;
-	--size-container-lg: 1024px;
-	--size-container-xl: 1440px;
-	--size-container-xxl: 1920px;
+  --size-container-xxs: 240px;
+  --size-container-xs: 360px;
+  --size-container-sm: 480px;
+  --size-container-md: 768px;
+  --size-container-lg: 1024px;
+  --size-container-xl: 1440px;
+  --size-container-xxl: 1920px;
 
   --gutter: var(--size-fluid-3);
-
-  --tile-size: 15rem;
-}
-
-:root {
-  /* radius */
-  --radius-rounded: var(--radius-2);
-  --radius-pill: var(--radius-round);
-  --radius-circle: var(--radius-round);
-}
-
-:root {
-  /* layers */
-  --layer-00: -1;
 }
