@@ -9,10 +9,14 @@
     "favicon": "/images/favicon.svg",
     "tagline": "From WP to MD"
   },
+  "settings": {
+    "themeSwitcher": true
+  },
   "logo": {
-    "image": "/images/logo.svg",
-    "height": 39,
-    "width": 174
+    "image": "/images/logo-light-theme.svg",
+    "imageDarkMode": "/images/logo-dark-theme.svg",
+    "height": 41,
+    "width": 170
   },
   "blog": {
     "title": "The Blog",

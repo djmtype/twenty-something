@@ -13,6 +13,37 @@ const { Content } = await home.render();
 ---
 
 <BaseLayout title={title} description={description}>
-  <h1>{home.data.title}</h1>
-  <Content />
+  
+  <div class="prose">
+    <Content />
+  </div>
 </BaseLayout>
+
+<style is:global lang="postcss">
+  body {
+    background-color: tex;
+  }
+ .prose h1 {
+    font-size: var(--font-size-6);
+  }
+
+  .hero {
+    text-align: center;
+    background-color: var(--surface-0);
+  }
+
+  .hero > * {
+    margin-inline: auto;
+  }
+
+
+
+  img {
+    border-radius: var(--radius-3);
+    overflow: hidden;
+  }
+
+  figure, figure + * {
+    --flow-space-value: var(--size-9);
+  }
+</style>

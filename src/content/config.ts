@@ -12,7 +12,7 @@ const pageCollection = defineCollection({
         .string()
         .or(z.date())
         .transform((val) => new Date(val)),
-      updatedDate: z
+      dateUpdated: z
         .string()
         .optional()
         .transform((val) => (val ? new Date(val) : undefined)),

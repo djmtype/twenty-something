@@ -1,32 +1,87 @@
 ---
-import { site, logo } from "@/data/config.json"
+import config, { site } from "@/data/config.json"
+// import { site, logo, settings } from "@/data/config.json"
+import { Image } from "astro:assets"
 import NavToggle from "@/components/NavToggle.astro"
 import Navigation from "@/components/Navigation.astro"
 
+const { src, srcDarkmode }: { src?: string; srcDarkmode?: string } = Astro.props
 
+const {
+  image: logoImage,
+  imageDarkMode: logoDarkMode,
+  width: logoWidth,
+  height: logoHeight,
+}: {
+  image: string
+  imageDarkMode: string
+  width: number
+  height: number
+} = config.logo
+
+const { themeSwitcher }: { themeSwitcher: boolean } = config.settings
 ---
 
-<header id="main-header">
-  <div class="container">
-    <a href={site.url}
-      ><img
-        src={logo.image}
-        width={logo.width}
-        height={logo.height}
-        alt=""
-      /><span class="sr-only">{site.title}</span></a
-    >
-     <Navigation />
-     <NavToggle />
+<header id="main-header" class="content-grid">
+  <div class="breakout">
+    <a href={site.url}>
+      {
+        src || srcDarkmode || logoImage || logoDarkMode ? (
+          <>
+            <Image
+              src={src ? src : logoImage}
+              class="logo"
+              style={`${themeSwitcher ? "" : "display: block"}`}
+              width={logoWidth}
+              height={logoHeight}
+              alt={site.title}
+            />
+            {themeSwitcher && (
+              <Image
+                src={srcDarkmode ? srcDarkmode : logoDarkMode}
+                class="logo-darkmode"
+                width={logoWidth}
+                height={logoHeight}
+                alt={site.title}
+              />
+            )}
+          </>
+        ) : (
+          site.title
+        )
+      }
+
+      <span class="sr-only"> {site.title}</span>
+    </a>
+    <NavToggle />
+    <Navigation />
   </div>
 </header>
 
-<style>
+<style is:global lang="postcss">
+
+  .logo {
+    display: block;
+  }
+
+  .logo-darkmode {
+    display: none;
+  }
+
+  @media (--OSdark) {
+    .logo {
+      display: none;
+    }
+    .logo-darkmode {
+      display: block;
+    }
+  }
+
   header {
     padding-block: var(--size-4); 
   }
 
-  header > .container {
+  header > * {
     display: flex;
     justify-content: space-between;
   }

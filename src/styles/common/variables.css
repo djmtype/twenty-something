@@ -1,9 +1,9 @@
 :root {
   --font-sans: "Inter Variable", system-ui, -apple-system, Segoe UI, Roboto,
     Ubuntu, Cantarell, Noto Sans, sans-serif;
-  --font-mono: ui-monospace, SF Mono, Menolo, Dank Mono, Operator Mono,
+  --font-mono: ui-monospace, SF Mono, Menlo, Dank Mono, Operator Mono,
     Inconsolata, Fira Mono, Monaco, Droid Sans Mono, Source Code Pro, monospace;
-  --font-serif: Cardo, serif;
+  --font-serif: "Playfair Display Variable", serif;
 
   --size-0: 0;
   --size-container-xxs: 240px;
@@ -11,8 +11,26 @@
   --size-container-sm: 480px;
   --size-container-md: 768px;
   --size-container-lg: 1024px;
-  --size-container-xl: 1440px;
-  --size-container-xxl: 1920px;
+  --size-container-xl: 1280px;
+  --size-container-xxl: 1440px;
+  --size-container-xxxl: 1600px;
 
   --gutter: var(--size-fluid-3);
+
+
+		--gray-00: #ffffff;
+		--gray-100: #000000;
+
+		--surface-0: var(--gray-00);
+    --text-0: var(--gray-100);
+
+
+}
+
+
+@media (--OSdark) {
+  :root {
+    --surface-0: var(--gray-100);
+    --text-0: var(--gray-00);
+  }
 }

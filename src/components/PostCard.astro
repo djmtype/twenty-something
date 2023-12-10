@@ -11,7 +11,7 @@ type Props = {
 }
 
 const { post } = Astro.props
-const { author, description, title, date, dateUpdated, thumbnail, thumbnailAlt, tags, categories } = post.data
+const { author, description, title, date, thumbnail, tags, categories } = post.data
 
 const { data: authorData } = await getEntry("authorCollection", author.slug)
 ---

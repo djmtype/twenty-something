@@ -9,3 +9,4 @@ slug: contact
 ---
 
 Contact page goes here. Yay!
+

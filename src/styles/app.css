@@ -19,3 +19,14 @@
 @import 'common/variables.css';
 @import 'utilities/accessibility.css';
 @import 'utilities/container.css';
+
+@import 'utilities/flow.css';
+@import 'utilities/content.css';
+
+:where(h2, h3, h4, h5):not([class]) {
+    letter-spacing: var(--font-letterspacing-1);
+}
+
+h1 {
+    line-height: var(--font-lineheight-0);
+}

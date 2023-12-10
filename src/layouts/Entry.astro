@@ -9,7 +9,7 @@ type Props = CollectionEntry<"postCollection" | "pageCollection">["data"]
 
 
 
-const { title, description, date, updatedDate, thumbnail} = Astro.props
+const { title, description, date, dateUpdated, thumbnail} = Astro.props
 
 
 
@@ -33,9 +33,9 @@ const { title, description, date, updatedDate, thumbnail} = Astro.props
             <div class="date">
               <FormattedDate date={date} />
               {
-                updatedDate && (
+                dateUpdated && (
                   <div class="last-updated-on">
-                    Last updated on <FormattedDate date={updatedDate} />
+                    Last updated on <FormattedDate date={dateUpdated} />
                   </div>
                 )
               }

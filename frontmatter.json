@@ -100,10 +100,7 @@
   "frontMatter.content.draftField": {
     "name": "status",
     "type": "choice",
-    "choices": [
-      "draft",
-      "publish"
-    ]
+    "choices": ["draft", "publish"]
   },
   "frontMatter.content.publicFolder": {
     "path": "src/assets/uploads",
@@ -115,18 +112,14 @@
       "title": "blog",
       "path": "[[workspace]]/src/content/postCollection",
       "previewPath": "'/'",
-      "contentTypes": [
-        "default"
-      ],
+      "contentTypes": ["default"],
       "filePrefix": null
     },
     {
       "title": "author",
       "path": "[[workspace]]/src/content/authorCollection",
       "previewPath": "'author'",
-      "contentTypes": [
-        "author"
-      ],
+      "contentTypes": ["author"],
       "filePrefix": null
     }
   ],
@@ -145,11 +138,7 @@
           "site": {
             "type": "object",
             "title": "Site",
-            "required": [
-              "title",
-              "url",
-              "language"
-            ],
+            "required": ["title", "url", "language"],
             "properties": {
               "title": {
                 "type": "string",
@@ -182,13 +171,20 @@
               }
             }
           },
+          "settings": {
+            "type": "object",
+            "title": "Settings",
+            "properties": {
+              "themeSwitcher": {
+                "type": "boolean",
+                "title": "Theme Switcher"
+              }
+            }
+          },
           "metadata": {
             "type": "object",
             "title": "Metadata",
-            "required": [
-              "ogImage",
-              "ogImageAlt"
-            ],
+            "required": ["ogImage", "ogImageAlt"],
             "properties": {
               "ogTitle": {
                 "type": "string",
@@ -217,6 +213,10 @@
                 "type": "string",
                 "title": "Image"
               },
+              "imageDarkMode": {
+                "type": "string",
+                "title": "Image for Dark Mode"
+              },
               "width": {
                 "type": "number",
                 "title": "Width"
@@ -243,6 +243,7 @@
               }
             }
           }
+          
         }
       }
     },
