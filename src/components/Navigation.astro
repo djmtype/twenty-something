@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon'
 import navigation from "@/data/navigation.json"
 import { slugify } from "@/utils/textConverter"
 
@@ -46,7 +47,7 @@ const { pathname } = Astro.url
                   : ""
               }`}
             >
-              {nav.name}
+              {nav.name} <Icon name="bx:bxs-chevron-down" />
             </a>
           ) : (
             <a
@@ -175,11 +176,23 @@ const { pathname } = Astro.url
   }
 </script>
 
-<style lang="postcss" is:global>
- .nav-primary {
-    display: none;
+<style is:global>
+  .nav-primary {
+    display: flex;
+    max-height: 0;
+    overflow: hidden;
+
     flex: 1 1 100%;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: all ease-in 300ms;
+
     @media (--lg-n-above) {
+      opacity: unset;
+      max-height: unset;
+      visibility: unset;
+      overflow: unset;
       display: flex;
       flex: 0 1 auto;
       align-items: center;
@@ -188,37 +201,88 @@ const { pathname } = Astro.url
   }
 
   .nav-primary.show {
-    display: flex;
-    flex-wrap: wrap;
-    /* flex-direction: column; */
+    opacity: 1;
+    visibility: visible;
+
+    max-height: 100svh;
+    overflow-y: auto;
   }
 
- 
+  .nav-primary.hiding {
+    transition: all ease-out 300ms;
+  }
 
-  #subnav[aria-hidden="true"] {
+  .nav-primary__list {
+    flex: 1 1 100%;
     overflow: hidden;
-    padding-block-end: 0;
-    /* display: none; */
-    max-height: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-block: var(--gutter);
+    @media (--lg-n-above) {
+      padding: unset;
+      overflow: initial;
+      flex-direction: initial;
+    }
+  }
+
+  .nav-primary__item {
+    /* unset open props */
+    max-inline-size: unset;
+  }
+
+  .nav-primary__link {
+    display: flex;
+    padding-block: var(--size-2);
+    font-weight: var(--font-weight-5);
+    @media (--lg-n-above) {
+      padding: var(--size-2) var(--size-3);
+    }
+  }
+
+
+
+  /* child */
+
+  .nav-primary__item--parent {
+    position: relative;
+    /* overflow: hidden; */
+  }
+
+  .nav-sub__list {
+    transition: all linear 300ms;
+
+    @media (--lg-n-above) {
+      transition: all ease 250ms;
+      z-index: 4;
+      position: absolute;
+      top: calc(100% + var(--size-2));
+      background: var(--surface-0);
+     border: var(--border-size-1) solid var(--surface-2);
+      right: var(--size-3);
+      min-width: var(--size-content-1);
+      overflow: hidden;
+      padding-block: var(--size-2);
+    }
+  }
+
+  .nav-sub__list[aria-hidden="true"] {
     visibility: hidden;
     opacity: 0;
-    @media (--lg-n-above) {
-      max-height: unset;
-    transform: translateY(10%);
-    }
+    max-height: 0;
   }
 
-  #subnav[aria-hidden="false"] {
-    padding-block-end: var(--size-1);
-    /* display: block; */
-    max-height: 100%;
+  .nav-sub__list[aria-hidden="false"] {
     visibility: visible;
-    @media (--lg-n-above) {
-      max-height: unset;
     opacity: 1;
-    transform: translateY(0%);
-    }
+    max-height: 100svh;
+    overflow: visible;
   }
 
- 
-  </style>
+  .nav-primary__link--parent [astro-icon] {
+    color: currentColor;
+    width: var(--size-relative-6);
+    height: auto;
+  }
+
+</style>

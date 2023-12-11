@@ -1,4 +1,5 @@
 ---
+import NavTest from "@/components/NavTest.astro"
 import config, { site } from "@/data/config.json"
 // import { site, logo, settings } from "@/data/config.json"
 import { Image } from "astro:assets"
@@ -22,7 +23,10 @@ const {
 const { themeSwitcher }: { themeSwitcher: boolean } = config.settings
 ---
 
-<header id="main-header" class="content-grid">
+<header
+  id="main-header"
+  class="content-grid banner"
+>
   <div class="breakout">
     <a href={site.url}>
       {
@@ -55,9 +59,11 @@ const { themeSwitcher }: { themeSwitcher: boolean } = config.settings
     </a>
     <NavToggle />
     <Navigation />
+
+    
   </div>
 </header>
-
+<NavTest />
 <style is:global lang="postcss">
 
   .logo {
@@ -77,12 +83,13 @@ const { themeSwitcher }: { themeSwitcher: boolean } = config.settings
     }
   }
 
-  header {
+  .banner {
     padding-block: var(--size-4); 
   }
 
-  header > * {
+  .banner > * {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 </style>

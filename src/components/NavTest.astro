@@ -1,0 +1,52 @@
+<div x-data="{ isOpen: false, isSmallScreen: window.matchMedia('(min-width: 1024px)').matches }"
+x-on:resize.window="isSmallScreen = window.matchMedia('(min-width: 1024px)').matches">
+  <button 
+    x-bind:class="{ 'hidden': !isSmallScreen }" 
+    x-bind:aria-expanded="isOpen.toString()" 
+    aria-controls="nav-list" 
+    x-bind:aria-label="isOpen ? 'Close menu navigation' : 'Open menu navigation'"
+    @click="isOpen = !isOpen"
+  >
+    Alpine.js a11y Navigation
+  </button>
+
+  <nav x-bind:class="{ 'hidden': !isSmallScreen || !isOpen }" aria-labelledby="nav-heading" :aria-expanded="isOpen">
+
+    <ul x-cloak id="nav-list">
+      <li>
+        <a href="https://github.com/alpinejs/alpine">Alpine.js Docs</a>
+      </li>
+      <li>
+        <a href="https://github.com/alpinejs/awesome-alpine">Awesome Alpine.js list</a>
+      </li>
+      <li>
+        <a href="https://alpinejs.codewithhugo.com/newsletter">Alpine.js Weekly Newsletter</a>
+      </li>
+    </ul>
+  </nav>
+
+</div>
+
+
+
+
+<style>
+  /* Initially hide the menu on small screens */
+  nav {
+    display: none;
+  }
+
+nav[aria-expanded="true"] {
+  display: block;
+}
+
+  /* Show the menu on large screens */
+  @media (--lg-n-above) {
+    button {
+      display: none;
+    }
+    nav {
+      display: block;
+    }
+  }
+</style>
