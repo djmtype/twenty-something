@@ -1,0 +1,135 @@
+<button class="navigation-toggle">
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    focusable="false"
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <line
+      x1="4"
+      y1="8.25"
+      x2="20"
+      y2="8.25"
+      stroke="currentColor"
+      stroke-width="1.5"></line>
+    <line
+      x1="4"
+      y1="15.75"
+      x2="20"
+      y2="15.75"
+      stroke="currentColor"
+      stroke-width="1.5"></line>
+  </svg>
+</button>
+
+<script is:inline>
+ const setupNav = () => {
+  // variables
+  let responsiveToggle = document.querySelector(".navigation-toggle");
+
+  const icon = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <line x1="4" y1="8.25" x2="20" y2="8.25" stroke="currentColor" stroke-width="1.5"/>
+    <line x1="4" y1="15.75" x2="20" y2="15.75" stroke="currentColor" stroke-width="1.5"/>
+  </svg>`;
+
+  const iconClosed = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5 5L19.1421 19.1421" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M19.1421 5L5 19.1421" stroke="currentColor" stroke-width="1.5"/>
+  </svg>`;
+
+  // functions
+  const openMenu = (toggle) => {
+    toggle.setAttribute("aria-expanded", true);
+    toggle.setAttribute("aria-label", "Close menu navigation");
+    toggle.innerHTML = iconClosed;
+  };
+
+  const closeMenu = (toggle) => {
+    toggle.setAttribute("aria-expanded", false);
+    toggle.setAttribute("aria-label", "Open menu navigation");
+    toggle.innerHTML = icon;
+  };
+
+  const removeHidingClass = () => {
+    const navPrimary = document.querySelector(".nav-primary");
+    navPrimary.classList.remove("hiding");
+    navPrimary.removeEventListener("animationend", removeHidingClass);
+  };
+
+  // execution
+  responsiveToggle.addEventListener("click", (_) => {
+    const mainNavigation = document.querySelector("#primary-navigation");
+    const navPrimary = document.querySelector(".nav-primary");
+
+    if (!mainNavigation.classList.contains("show")) {
+      mainNavigation.classList.add("show");
+      navPrimary.classList.remove("hiding");
+      openMenu(responsiveToggle);
+    } else {
+      mainNavigation.classList.remove("show");
+      navPrimary.classList.add("hiding");
+      closeMenu(responsiveToggle);
+      // Add event listener for animationend after applying hiding class
+      navPrimary.addEventListener("animationend", removeHidingClass, { once: true });
+    }
+  });
+
+  // check if responsive menu is open when resized and then remove
+  window.addEventListener("resize", (_) => {
+    const mainNavigation = document.querySelector("#primary-navigation");
+
+    if (
+      mainNavigation.classList.contains("show") &&
+      window.matchMedia("(min-width: 1024px)").matches
+    ) {
+      mainNavigation.classList.remove("show");
+      closeMenu(responsiveToggle);
+    }
+  });
+};
+
+setupNav();
+
+
+
+
+</script>
+
+<style is:global>
+  .navigation-toggle {
+    color: var(--link);
+    appearance: none;
+    border: 0;
+    background-color: transparent;
+    align-self: center;
+    border-radius: 100%;
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    place-content: center;
+  }
+
+  .navigation-toggle svg {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  @media (--lg-n-above) {
+    .navigation-toggle {
+      display: none;
+    }
+  }
+
+  .navigation-toggle[aria-expanded="true"] {
+    color: var(--color-primary);
+    background-color: transparent;
+  }
+
+  .no-js .navigation-toggle {
+    display: none;
+  }
+</style>

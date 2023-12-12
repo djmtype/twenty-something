@@ -3,8 +3,8 @@ import NavTest from "@/components/NavTest.astro"
 import config, { site } from "@/data/config.json"
 // import { site, logo, settings } from "@/data/config.json"
 import { Image } from "astro:assets"
-import NavToggle from "@/components/NavToggle.astro"
-import Navigation from "@/components/Navigation.astro"
+// import NavToggle from "@/components/NavToggle.astro"
+// import Navigation from "@/components/Navigation.astro"
 
 const { src, srcDarkmode }: { src?: string; srcDarkmode?: string } = Astro.props
 
@@ -57,13 +57,13 @@ const { themeSwitcher }: { themeSwitcher: boolean } = config.settings
 
       <span class="sr-only"> {site.title}</span>
     </a>
-    <NavToggle />
-    <Navigation />
+    
 
+    <NavTest />
     
   </div>
 </header>
-<NavTest />
+
 <style is:global lang="postcss">
 
   .logo {

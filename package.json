@@ -8,7 +8,8 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "node -v"
+    "test": "node -v",
+    "disable": "astro preferences disable devToolbar"
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.3.1",

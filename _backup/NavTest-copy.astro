@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon'
 import navigation from "@/data/navigation.json"
 import { slugify } from "@/utils/textConverter"
-import NavToggle from '@/components/NavToggle.astro'
+import NavToggle from '../src/components/NavToggle.astro'
 
 type ChildItem = {
   name: string
@@ -42,8 +42,7 @@ const { pathname } = Astro.url
               <a
                 role="button"
                 aria-haspopup="true"
-                @click.prevent="open = !open"
-
+                @click="open = !open"
     :aria-expanded="open.toString()"
                 href="#0"
                 class={`nav-primary__link nav-primary__link--parent ${
@@ -130,7 +129,7 @@ const { pathname } = Astro.url
 }
 
 .nav-sub__list[aria-hidden="false"] {
-  display: block;
+display: block;
 }
 
 [x-cloak] {
