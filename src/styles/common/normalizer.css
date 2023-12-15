@@ -1,2 +1,51 @@
 @import 'open-props/postcss/normalize';
 
+:is(h1, h2, h3, h4, h5, h6):not([class]) {
+    font-weight: var(--font-weight-4);
+    font-family: var(--font-serif);
+}
+
+
+:where(ul[role='list'], ol[role='list']) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  :where(a) {
+      padding-inline: 0;
+      margin-inline: 0;
+  }
+
+  :where(li) {
+    padding: 0;
+  }
+
+  :where(a) {
+    text-underline-offset: .25ex;
+  
+  }
+
+  :where(a):where([href]) {
+    text-decoration-color: inherit;
+  }
+
+
+
+  :where(a):where([href]):where(:visited) {
+    text-decoration-color: inherit;
+  }
+
+  :where(a):where([href]):where(:hover) {
+    color: var(--link-hover);
+  }
+
+  :where(a):where([href]):where(:active) {
+    color: var(--link-active);
+    text-decoration: none;
+    transform: scale(.96)
+  }
+
+
+  
+  

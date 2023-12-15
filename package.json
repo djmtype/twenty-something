@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "test": "node -v",
-    "disable": "astro preferences disable devToolbar"
+    "tools": "astro preferences enable devToolbar",
+    "notools": "astro preferences disable devToolbar"
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.3.1",

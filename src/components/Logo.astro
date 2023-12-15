@@ -1,0 +1,50 @@
+---
+import config, { site } from "@/data/config.json"
+import { Image } from "astro:assets"
+
+const { src, srcDarkmode }: { src?: string; srcDarkmode?: string } = Astro.props
+
+const {
+  image: logoImage,
+  imageDarkMode: logoDarkMode,
+  width: logoWidth,
+  height: logoHeight,
+}: {
+  image: string
+  imageDarkMode: string
+  width: number
+  height: number
+} = config.logo
+
+const { themeSwitcher }: { themeSwitcher: boolean } = config.settings
+---
+
+<a href={site.url}>
+    {
+      src || srcDarkmode || logoImage || logoDarkMode ? (
+        <>
+          <Image
+            src={src ? src : logoImage}
+            class="logo"
+            style={`${themeSwitcher ? "" : "display: block"}`}
+            width={logoWidth}
+            height={logoHeight}
+            alt={site.title}
+          />
+          {themeSwitcher && (
+            <Image
+              src={srcDarkmode ? srcDarkmode : logoDarkMode}
+              class="logo-darkmode"
+              width={logoWidth}
+              height={logoHeight}
+              alt={site.title}
+            />
+          )}
+        </>
+      ) : (
+        site.title
+      )
+    }
+
+    <span class="sr-only"> {site.title}</span>
+  </a>

@@ -20,7 +20,11 @@ const {
 } = Astro.props
 ---
 
-<html lang={site.language} class="no-js">
+<html lang={site.language} class="no-js" x-data="{darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system')}" x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))" x-bind:class="{'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches), 'light': darkMode === 'light'}" x-cloak>
+
+
+
+
   <head>
 
     <meta charset="utf-8" />
@@ -81,9 +85,13 @@ const {
     <SkipLink />
     <Header />
     <main>
+      
       <slot />
     </main>
     <Footer />
   </body>
 </html>
+
+
+
 

@@ -1,0 +1,54 @@
+button {
+  --_size: initial /* your size */;
+
+  --_text-light: var(--gray-1);
+  --_text-dark: var(--gray-11);
+
+  --_bg-light: var(--gray-11);
+  --_bg-dark: var(--gray-2);
+
+  --_bg-hover-light: var(--gray-7);
+  --_bg-hover-dark: var(--gray-0);
+
+  --_text: var(--_text-light);
+  --_bg: var(--_bg-light);
+
+  --_border: var(--_bg);
+  --_bg-hover: var(--_bg-hover-light);
+
+  font-size: var(--_size);
+  background: var(--_bg);
+  color: var(--_text);
+  border: var(--border-size-2) solid var(--_border);
+
+  font-weight: var(--font-weight-5);
+  padding: var(--size-2) var(--size-3);
+
+  border-radius: var(--radius-2);
+
+  &:where(:not(:active):hover) {
+    background: var(--_bg-hover);
+    border-color: var(--_bg-hover);
+  }
+  &:where(:active) {
+    transform: scale(0.96);
+  }
+
+  @media (--OSdark) {
+    --_text: var(--_text-dark);
+    --_bg: var(--_bg-dark);
+    --_bg-hover: var(--_bg-hover-dark);
+  }
+}
+
+.light button {
+  --_text: var(--_text-light);
+  --_bg: var(--_bg-light);
+  --_bg-hover: var(--_bg-hover-light);
+}
+
+.dark button {
+  --_text: var(--_text-dark);
+  --_bg: var(--_bg-dark);
+  --_bg-hover: var(--_bg-hover-dark);
+}

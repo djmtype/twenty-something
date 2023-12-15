@@ -17,20 +17,11 @@
 
   --gutter: var(--size-fluid-3);
 
-
-		--gray-00: #ffffff;
-		--gray-100: #000000;
-
-		--surface-0: var(--gray-00);
-    --text-0: var(--gray-100);
+--gray-0: #ffffff;
+	
 
 
 }
 
 
-@media (--OSdark) {
-  :root {
-    --surface-0: var(--gray-100);
-    --text-0: var(--gray-00);
-  }
-}
+
