@@ -20,7 +20,9 @@ const {
 } = Astro.props
 ---
 
-<html lang={site.language} class="no-js" x-data="{darkMode: localStorage.getItem('darkMode') || localStorage.setItem('darkMode', 'system')}" x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))" x-bind:class="{'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches), 'light': darkMode === 'light'}" x-cloak>
+<html lang={site.language} class="no-js" x-data="{darkMode: localStorage.getItem('darkMode') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')}" x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))" x-bind:class="{'dark': darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches), 'light': darkMode === 'light'}" x-cloak>
+
+
 
 
 
@@ -82,6 +84,9 @@ const {
   </head>
 
   <body>
+    
+
+
     <SkipLink />
     <Header />
     <main>
@@ -93,5 +98,15 @@ const {
 </html>
 
 
-
+<script is:inline>
+  function handleThemeChange() {
+    if (localStorage.theme === "dark" || (!("darkMode" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }
+  handleThemeChange();
+  
+</script>
 

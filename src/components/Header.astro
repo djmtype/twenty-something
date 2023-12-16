@@ -1,26 +1,9 @@
 ---
 import NavTest from "@/components/NavTest.astro"
 import config, { site } from "@/data/config.json"
-// import { site, logo, settings } from "@/data/config.json"
-import { Image } from "astro:assets"
-// import NavToggle from "@/components/NavToggle.astro"
-// import Navigation from "@/components/Navigation.astro"
+import Logo from "@/components/Logo.astro"
 
-const { src, srcDarkmode }: { src?: string; srcDarkmode?: string } = Astro.props
 
-const {
-  image: logoImage,
-  imageDarkMode: logoDarkMode,
-  width: logoWidth,
-  height: logoHeight,
-}: {
-  image: string
-  imageDarkMode: string
-  width: number
-  height: number
-} = config.logo
-
-const { themeSwitcher }: { themeSwitcher: boolean } = config.settings
 ---
 
 <header
@@ -31,7 +14,7 @@ const { themeSwitcher }: { themeSwitcher: boolean } = config.settings
 
    
 
-
+<Logo />
 
     <NavTest />
     
@@ -40,7 +23,7 @@ const { themeSwitcher }: { themeSwitcher: boolean } = config.settings
 
 <style is:global lang="postcss">
 
-  .logo {
+  /* .logo {
     display: block;
   }
 
@@ -55,7 +38,7 @@ const { themeSwitcher }: { themeSwitcher: boolean } = config.settings
     .logo-darkmode {
       display: block;
     }
-  }
+  } */
 
   .banner {
     padding-block: var(--size-4); 
