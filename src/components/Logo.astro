@@ -48,7 +48,7 @@ const { src, srcDarkmode } = Astro.props
 
 
 
-    <template x-if="darkMode === 'light' || (darkMode === 'system' && !window.matchMedia('(prefers-color-scheme: dark)').matches)">
+    <template x-if="darkMode === 'light' || (darkMode === 'system' && !window.matchMedia('(prefers-color-scheme: dark)').matches) || (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)">
       <Image 
       src={src ? src : logoImage}
       

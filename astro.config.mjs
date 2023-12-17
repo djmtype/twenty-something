@@ -9,7 +9,9 @@ import alpinejs from "@astrojs/alpinejs";
 // https://astro.build/config
 export default defineConfig({
   site: site.url,
-  integrations: [mdx(), sitemap(), alpinejs()],
+  integrations: [mdx(), sitemap(), 
+    alpinejs()
+  ],
   markdown: {
     // Applied to .md and .mdx files
     remarkPlugins: [remarkUnwrapImages]
