@@ -13,19 +13,21 @@
     "notools": "astro preferences disable devToolbar"
   },
   "dependencies": {
+    "@alpinejs/persist": "^3.13.3",
     "@astrojs/alpinejs": "^0.3.1",
-    "@astrojs/check": "^0.3.1",
-    "@astrojs/mdx": "^2.0.0",
+    "@astrojs/check": "^0.3.3",
+    "@astrojs/mdx": "^2.0.1",
     "@astrojs/rss": "^4.0.1",
     "@astrojs/sitemap": "^3.0.3",
-    "@csstools/postcss-global-data": "^2.1.0",
+    "@csstools/postcss-global-data": "^2.1.1",
     "@types/alpinejs": "^3.13.5",
     "alpinejs": "^3.13.3",
-    "astro": "^4.0.3",
+    "astro": "^4.0.6",
     "astro-icon": "^0.8.2",
     "autoprefixer": "^10.4.16",
     "github-slugger": "^2.0.0",
-    "marked": "^11.0.1",
+    "markdown-it": "^14.0.0",
+    "marked": "^11.1.0",
     "open-props": "^1.6.16",
     "postcss": "^8.4.32",
     "postcss-custom-media": "^10.0.2",
@@ -36,6 +38,7 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
+    "@types/alpinejs__persist": "^3.13.3",
     "@types/github-slugger": "^2.0.0",
     "@types/marked": "^6.0.0",
     "prettier-plugin-astro": "^0.12.2"

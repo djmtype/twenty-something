@@ -1,5 +1,5 @@
 ---
-import { metafy } from "@/utils/textConverter";
+import { metafy, plainify } from "@/utils/textConverter";
 
 import { getTaxonomy } from "@/utils/taxonomyParser"
 import taxonomyFilter from "@/utils/taxonomyFilter"
@@ -25,6 +25,11 @@ export async function getStaticPaths() {
 
 
 const { category } = Astro.props;
+// const plainifyCategory = await plainify(category);
+
+
+const metafyCategory = await metafy(category);
+
 
 
 
@@ -38,8 +43,8 @@ const posts = await getCollection(
 const filterByCategories = taxonomyFilter(posts, "categories", category!)
 ---
 
-<BaseLayout title={metafy(category)} description={`A list of entries with category, ${metafy(category)}`}>
-  <h1>{`Category: ${metafy(category)}`}</h1>
+<BaseLayout title={metafyCategory} description={`A list of entries with category, ${metafyCategory}`}>
+  <h1>{`Category: ${metafyCategory}`}</h1>
 
   <ul>
     {

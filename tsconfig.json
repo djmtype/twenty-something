@@ -1,6 +1,7 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
+    "types": ["alpinejs"],
     "strictNullChecks": true,
     "allowJs": true,
     "baseUrl": ".",

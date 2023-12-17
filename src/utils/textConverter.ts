@@ -1,6 +1,10 @@
 import { slug } from "github-slugger";
 import { marked } from "marked";
 
+import MarkdownIt from 'markdown-it';
+
+const md = new MarkdownIt();
+
 // slugify
 export const slugify = (content: string) => {
   return slug(content);
@@ -24,12 +28,10 @@ export const humanize = (content: string) => {
 };
 
 // plainify
-export const plainify = (content: string) => {
-  const parseMarkdown = marked.parse(content);
-  const filterBrackets = parseMarkdown.replace(/<\/?[^>]+(>|$)/gm, "");
-  const filterSpaces = filterBrackets.replace(/[\r\n]\s*[\r\n]/gm, "");
-  const stripHTML = htmlEntityDecoder(filterSpaces);
-  return stripHTML;
+export const plainify = async (content: string) => {
+  const parsedContent = await marked.parse(content);
+  const filteredContent = parsedContent.replace(/<\/?[^>]+(>|$)/gm, "").replace(/[\r\n]\s*[\r\n]/gm, "");
+  return htmlEntityDecoder(filteredContent);
 };
 
 // strip entities for plainify
@@ -52,10 +54,11 @@ const htmlEntityDecoder = (htmlWithEntities: string) => {
 };
 
 
-export const metafy = (content: string) => {
-  // Perform the operations similar to plainify function
-  const parseMarkdown = marked.parse(content);
-  const filterBrackets = parseMarkdown.replace(/<\/?[^>]+(>|$)/gm, "");
+export const metafy = async (content: string) => {
+  const parseMarkdown = await marked.parse(content); // Wait for the promise to resolve
+  const parseMarkdownString = typeof parseMarkdown === 'string' ? parseMarkdown : '';
+
+  const filterBrackets = parseMarkdownString.replace(/<\/?[^>]+(>|$)/gm, "");
   const filterSpaces = filterBrackets.replace(/[\r\n]\s*[\r\n]/gm, "");
   const stripHTML = htmlEntityDecoder(filterSpaces);
 
@@ -63,7 +66,7 @@ export const metafy = (content: string) => {
   const replaceHyphensUnderscores = stripHTML.replace(/[-_]/g, " ");
 
   // Define common words that should not be capitalized
-  const nonCapitalizedWords = ["a", "an", "and", "of", "with", /* Add more words as needed */];
+  const nonCapitalizedWords = ["a", "an", "and", "of", "with" /* Add more words as needed */];
 
   // Capitalize each word, excluding common words if they don't appear at the beginning
   const capitalizeWords = replaceHyphensUnderscores.replace(/\b\w+\b/g, (match, index) => {
@@ -78,4 +81,5 @@ export const metafy = (content: string) => {
 
   return trimmedResult;
 };
+
 

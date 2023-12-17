@@ -34,32 +34,34 @@ const { src, srcDarkmode } = Astro.props
 
 <a href={site.url}>
 
-  <template x-if="darkMode === 'dark' || (darkMode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)">
 
-    <Image
-    src={logoDarkMode}
-    class="logo-darkmode"
-    :class="{'logo--inactive': darkMode === 'light' || (darkMode === 'system' && !window.matchMedia('(prefers-color-scheme: dark)').matches)}"
-    width={logoWidth}
-    height={logoHeight}
-    alt={site.title}
+  <template x-if="theme === 'light' || (theme === 'auto' && !window.matchMedia('(prefers-color-scheme: dark)').matches)">
+  <Image 
+  src={src ? src : logoImage}
+  
+  class="logo-lightmode"
+  
+  width={logoWidth}
+  height={logoHeight}
+  alt={site.title}
   />
+
+   
+</template>
+
+
+
+<template x-if="theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches)">
+
+  <Image
+  src={logoDarkMode}
+  class="logo-darkmode"
+  width={logoWidth}
+  height={logoHeight}
+  alt={site.title}
+/>
+     
     </template>
-
-
-
-    <template x-if="darkMode === 'light' || (darkMode === 'system' && !window.matchMedia('(prefers-color-scheme: dark)').matches) || (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)">
-      <Image 
-      src={src ? src : logoImage}
-      
-      class="logo-lightmode"
-      
-      width={logoWidth}
-      height={logoHeight}
-      alt={site.title}
-      />
-    </template>
-
 
 
   <span class="sr-only"> {site.title}</span>

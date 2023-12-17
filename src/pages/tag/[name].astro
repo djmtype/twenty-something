@@ -26,7 +26,7 @@ return tags.map((tag) => {
 }
 
 const { tag } = Astro.props
-
+const metafyTag = await metafy(tag);
 
 
 const posts = await getCollection(
@@ -37,8 +37,8 @@ const posts = await getCollection(
 const filterByTags = taxonomyFilter(posts, "tags", tag!)
 ---
 
-<BaseLayout title={metafy(tag)} description={`A list of entries with tag, ${metafy(tag)}`}>
-  <h1>{`Tag: ${metafy(tag)}`}</h1>
+<BaseLayout title={metafyTag} description={`A list of entries with tag, ${metafyTag}`}>
+  <h1>{`Tag: ${metafyTag}`}</h1>
 
   <ul>
     {

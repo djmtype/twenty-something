@@ -4,13 +4,13 @@ import { site } from './src/data/config.json';
 import remarkUnwrapImages from "remark-unwrap-images";
 import sitemap from '@astrojs/sitemap';
 
-import alpinejs from "@astrojs/alpinejs";
+// import alpinejs from "@astrojs/alpinejs";
 
 // https://astro.build/config
 export default defineConfig({
   site: site.url,
   integrations: [mdx(), sitemap(), 
-    alpinejs()
+    // alpinejs()
   ],
   markdown: {
     // Applied to .md and .mdx files
