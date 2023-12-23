@@ -1,20 +1,2 @@
-:is(h1, h2, h3, h4, h5, h6):not([class]) {
-    font-weight: var(--font-weight-4);
-    font-family: var(--font-serif);
-}
 
 
-:where(ul[role='list'], ol[role='list']) {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  :where(a) {
-      padding-inline: 0;
-      margin-inline: 0;
-  }
-
-  :where(li) {
-    padding: 0;
-  }

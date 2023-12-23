@@ -1,6 +1,6 @@
 ---
 import "../styles/app.css"
-import ThemeButton from "@/components/ThemeButton.astro"
+import ThemeSelector from "@/components/ThemeSelector.astro"
 import { site } from "@/data/config.json"
 import SkipLink from "@/components/SkipLink.astro"
 import Header from "@/components/Header.astro"
@@ -30,20 +30,7 @@ const { title, description, thumbnail = site.ogImage } = Astro.props
     <link rel="icon" type="image/svg+xml" href={site.favicon} />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- <link
-      rel="preload"
-      href="/fonts/atkinson-regular.woff"
-      as="font"
-      type="font/woff"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="/fonts/atkinson-bold.woff"
-      as="font"
-      type="font/woff"
-      crossorigin
-    /> -->
+  
 
     <link rel="canonical" href={canonicalURL} />
 
@@ -85,27 +72,34 @@ const { title, description, thumbnail = site.ogImage } = Astro.props
     <SkipLink />
     <Header />
     <main>
-      <ThemeButton />
+      
       <slot />
     </main>
+    <ThemeSelector />
     <Footer />
   </body>
 </html>
 
+
+
 <script>
 
+import Alpine from "alpinejs";
+import persist from "@alpinejs/persist";
 
-  import Alpine from "alpinejs";
-  import persist from "@alpinejs/persist";
+Alpine.plugin(persist);
 
-  Alpine.plugin(persist);
+// Explicitly declare 'Alpine' on the 'window' object
+window.Alpine = Alpine;
 
-
-  Alpine.start();
+Alpine.start();
 </script>
 
 <style is:global>
   [x-cloak] {
     display: none !important;
   }
+
+
+  
 </style>

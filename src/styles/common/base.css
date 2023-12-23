@@ -1,21 +1,19 @@
-:where(html) {
-	/* transition: background-color 200ms, color 200ms; */
-	/* font-size: clamp(1rem, 0.25vw + 0.9rem, 1.2rem); */
-	font-size: clamp(1.00rem, calc(0.93rem + 0.36vw), 1.25rem);
-}
 
+:where(html) {
+  /* transition: background-color 200ms, color 200ms; */
+  /* font-size: clamp(1rem, 0.25vw + 0.9rem, 1.2rem); */
+  font-size: clamp(1rem, calc(0.93rem + 0.36vw), 1.25rem);
+}
 
 :where(h1, h2, h3, h4, h5, h6) {
-	font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold);
 }
-
-
 
 
 
 :where(button) {
-	background: var(--surface-3);
-	color: var(--text-1);
+  background: var(--surface-3);
+  color: var(--text-1);
 }
 
 :where(h1) {
@@ -23,11 +21,12 @@
 }
 
 :where(a):visited {
-	color: var(--brand-1);
+  color: var(--brand-1);
 }
 
 :where(a) {
-&:hover, &:focus-visible {
-color: var(--text-1);
-}
+  &:hover,
+  &:focus-visible {
+    color: var(--text-1);
+  }
 }

@@ -1,9 +1,7 @@
 import { slug } from "github-slugger";
 import { marked } from "marked";
 
-import MarkdownIt from 'markdown-it';
 
-const md = new MarkdownIt();
 
 // slugify
 export const slugify = (content: string) => {

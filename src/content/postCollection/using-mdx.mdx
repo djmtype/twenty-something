@@ -18,9 +18,43 @@ This theme comes with the [@astrojs/mdx](https://docs.astro.build/en/guides/inte
 
 ![Building exterior in Toronto, Canada](../../assets/uploads/building-exterior.webp)
 
+```css
+:where(html) {
+  /* transition: background-color 200ms, color 200ms; */
+  /* font-size: clamp(1rem, 0.25vw + 0.9rem, 1.2rem); */
+  font-size: clamp(1rem, calc(0.93rem + 0.36vw), 1.25rem);
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  font-weight: var(--font-weight-bold);
+}
+
+:where(button) {
+  background: var(--surface-3);
+  color: var(--text-1);
+}
+
+:where(h1) {
+  font-size: var(--font-size-7);
+}
+
+:where(a):visited {
+  color: var(--brand-1);
+}
+
+:where(a) {
+  &:hover,
+  &:focus-visible {
+    color: var(--text-1);
+  }
+}
+```
+
 ## Why MDX?
 
 MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into your Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
+
+![Building exterior in Toronto, Canada](../../assets/uploads/building-exterior.webp)
 
 If you have existing content authored in MDX, this integration will hopefully make migrating to Astro a breeze.
 

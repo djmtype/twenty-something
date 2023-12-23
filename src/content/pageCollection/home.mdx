@@ -7,6 +7,11 @@ thumbnailAlt: A description of this photo
 status: publish
 slug: home
 ---
+
+import Heading from "@/components/Heading.astro";
+import Card from "@/components/Card.astro";
+import Grid from "@/components/Grid.astro";
+
 <div class="hero content-grid flow">
     # A commitment to innovation and sustainability
     
@@ -16,3 +21,58 @@ slug: home
 
 <figure class="breakout">![Building exterior in Toronto, Canada](../../assets/uploads/building-exterior.webp)</figure>
 </div>
+
+<section style="background: var(--surface-0)">
+<div class="hero content-grid flow">
+    ## A passion for creating spaces
+    
+    Our comprehensive suite of professional services caters to a diverse clientele, ranging from homeowners to commercial developers.
+</div>
+
+    <Grid styles={'--grid-column-value: breakout; --_column: 30ch; --_row-gap: var(--size-8);'}>
+        <Card>
+        <Heading>
+        ### Renovation and restoration
+        </Heading>
+Experience the fusion of imagination and expertise with Études Architectural Solutions.
+        </Card>
+
+
+         <Card>
+        <Heading>
+        ### Continuous Support
+        </Heading>
+Experience the fusion of imagination and expertise with Études Architectural Solutions.
+        </Card>
+
+         <Card>
+        <Heading>
+        ### App Access
+        </Heading>
+Experience the fusion of imagination and expertise with Études Architectural Solutions.
+        </Card>
+
+         <Card>
+        <Heading>
+        ### Consulting
+        </Heading>
+        Experience the fusion of imagination and expertise with Études Architectural Solutions.
+        </Card>
+
+        <Card>
+        <Heading>
+        ### Project Management
+        </Heading>
+        Experience the fusion of imagination and expertise with Études Architectural Solutions.
+        </Card>
+
+
+        <Card>
+        <Heading>
+        ### Architectural Solutions
+        </Heading>
+        Experience the fusion of imagination and expertise with Études Architectural Solutions.
+        </Card>
+    </Grid>
+
+</section>

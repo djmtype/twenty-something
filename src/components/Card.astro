@@ -1,0 +1,14 @@
+---
+type Props = {
+  styles?: any
+  
+}
+
+const { styles } =
+  Astro.props as Props
+
+
+---
+
+<div class="card flow" style={styles}><slot /></div>
+

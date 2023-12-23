@@ -1,66 +1,99 @@
 ---
-import { getEntry, type CollectionEntry } from "astro:content";
+import { getEntry, type CollectionEntry } from "astro:content"
 
-import BaseLayout from "@/layouts/BaseLayout.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro"
 import FormattedDate from "@/components/FormattedDate.astro"
 import { Image } from "astro:assets"
 
-
-
 type AuthorData = {
   author: {
-    slug: string;
-  };
-};
+    slug: string
+  }
+}
 
 type Props = {
-  frontmatter: CollectionEntry<"postCollection"> & { data: AuthorData };
-};
+  frontmatter: CollectionEntry<"postCollection"> & { data: AuthorData }
+}
 
-const { frontmatter } = Astro.props;
-const { title, description, date, dateUpdated, thumbnail, thumbnailAlt, author } = frontmatter.data;
+const { frontmatter } = Astro.props
+const {
+  title,
+  description,
+  date,
+  dateUpdated,
+  thumbnail,
+  thumbnailAlt,
+  author,
+} = frontmatter.data
 
-const authorData = 
-frontmatter.collection === "postCollection" && author?.slug 
-? (await getEntry("authorCollection", author.slug)).data 
-: undefined;
-
-
-
+const authorData =
+  frontmatter.collection === "postCollection" && author?.slug
+    ? (await getEntry("authorCollection", author.slug)).data
+    : undefined
 ---
 
 <BaseLayout title={title} description={description}>
-  <article>
-
+  <article class="content-grid">
     <div class="hero-image">
       {
         thumbnail && (
-          <Image width={1020} height={510} src={thumbnail} alt={thumbnailAlt ? thumbnailAlt : ""} />
+          <Image
+            width={1020}
+            height={510}
+            src={thumbnail}
+            alt={thumbnailAlt ? thumbnailAlt : ""}
+          />
         )
       }
     </div>
 
-    <div class="prose">
-      <div class="title">
-      
-        <div class="date">
-          <FormattedDate date={date} />
-          {
-            dateUpdated && (
-              <div class="last-updated-on">
-                Last updated on <FormattedDate date={dateUpdated} />
-              </div>
-            )
-          }
-        </div>
-        <h1>{title}</h1>
-        <p>By 
-          {authorData && 
-        <a href={`/author/${author.slug}`}>{authorData.name}</a>}
-        </p>
-        <hr />
+    <div class="title">
+      <div class="date">
+        <FormattedDate date={date} />
+        {
+          dateUpdated && (
+            <div class="last-updated-on">
+              Last updated on <FormattedDate date={dateUpdated} />
+            </div>
+          )
+        }
       </div>
+      <h1>{title}</h1>
+      <p>
+        By
+        {
+          authorData && (
+            <a href={`/author/${author.slug}`}>{authorData.name}</a>
+          )
+        }
+      </p>
+      <hr />
+    </div>
+
+    <div class="prose flow content-grid" style="--grid-column-value: full-width; --flow-space-value: 1.5em">
+      
       <slot />
     </div>
   </article>
 </BaseLayout>
+
+<style is:global>
+
+
+:where(.prose > *) {
+  --grid-column-value: content;
+}
+
+p:has(img){
+
+  max-inline-size: unset;
+   & img {
+    width: 100%;
+    
+   }
+ 
+}
+
+
+
+</style>

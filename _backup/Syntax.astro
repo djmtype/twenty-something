@@ -1,0 +1,108 @@
+---
+import { Icon } from "astro-icon"
+---
+
+<div
+  class="code-wrapper"
+  x-data="{ code: '', copyState: 'default', copyCode: function() { const codeElement = this.$refs.code; const code = codeElement.innerText || codeElement.textContent; this.copyState = 'processing'; navigator.clipboard.writeText(code).then(() => { this.copyState = 'success'; setTimeout(() => { this.copyState = 'default'; }, 750); }).catch((err) => { console.error('Unable to copy to clipboard', err); this.copyState = 'error'; }); } }"
+  x-model="code"
+  x-ref="code"
+  x-cloak
+>
+  <pre
+    class="astro-code css-variables"
+    style="background-color:var(--astro-code-color-background);color:var(--astro-code-color-text);overflow-x:auto"
+    tabindex="0"><slot /></pre>
+
+  <button x-show="copyState === 'default'" x-on:click="copyCode">
+    <Icon name="bx:bxs-copy" /> Copy
+  </button>
+  <button x-show="copyState === 'success'" disabled>
+    <Icon name="bx:bxs-check-circle" /> Copied!
+  </button>
+  <button x-show="copyState === 'error'" disabled>
+    <Icon name="bx:bxs-error-circle" /> Failed
+  </button>
+</div>
+
+<style is:global>
+  :root {
+    --astro-code-color-text: var(--text-1);
+    --astro-code-color-background: var(--surface-0);
+    --astro-code-token-constant: var(--text-1);
+    --astro-code-token-string: var(--brand);
+
+    --astro-code-token-parameter: var(--brand);
+    --astro-code-token-punctuation: var(--text-1);
+    --astro-code-token-link: var(--brand);
+
+    --astro-code-token-comment: var(--text-muted);
+
+    --astro-code-token-keyword: var(--blue-9);
+    --astro-code-token-function: var(--cyan-9);
+    --astro-code-token-string-expression: var(--violet-9);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --astro-code-token-keyword: var(--blue-3);
+      --astro-code-token-function: var(--cyan-3);
+      --astro-code-token-string-expression: var(--violet-3);
+    }
+  }
+
+  .light {
+    --astro-code-token-keyword: var(--blue-9);
+    --astro-code-token-function: var(--cyan-9);
+    --astro-code-token-string-expression: var(--violet-9);
+  }
+
+  .dark {
+    --astro-code-token-keyword: var(--blue-3);
+    --astro-code-token-function: var(--cyan-3);
+    --astro-code-token-string-expression: var(--violet-3);
+  }
+
+  .code-wrapper {
+    max-inline-size: fit-content;
+    position: relative;
+  }
+
+  .code-wrapper button {
+    position: absolute;
+    top: var(--size-1);
+    right: var(--size-1);
+    z-index: var(--layer-2);
+    padding: var(--size-1);
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--font-size-0);
+
+  }
+
+
+
+
+  .code-wrapper [astro-icon] {
+    width: var(--size-relative-8);
+    height: auto;
+    aspect-ratio: 3/2;
+  }
+
+  pre {
+    position: relative;
+    overflow-x: auto;
+
+    z-index: 1;
+    max-inline-size: var(--size-content-3);
+
+    padding: var(--size-3) var(--size-3);
+
+    border-radius: var(--radius-2);
+    writing-mode: lr;
+  }
+
+  pre > code {
+    max-inline-size: var(--size-content-3);
+  }
+</style>

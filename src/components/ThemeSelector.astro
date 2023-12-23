@@ -1,0 +1,51 @@
+---
+import { Icon } from "astro-icon"
+---
+
+<div class="theme-switcher" x-cloak>
+  <button x-on:click="theme = 'light'" :class="{'active': theme === 'light'}">
+    <Icon name="bx:bxs-sun" />
+    <span class="sr-only">Light</span>
+  </button>
+
+  <button x-on:click="theme = 'dark'" :class="{'active': theme === 'dark'}">
+    <Icon name="bx:bxs-moon" />
+    <span class="sr-only">Dark</span>
+  </button>
+
+  <button x-on:click="theme = 'auto'" :class="{'active': theme === 'auto'}">
+    <Icon name="bx:bxs-cog" />
+    <span class="sr-only">Auto</span>
+  </button>
+
+  <span
+    class="sr-only"
+    x-show="theme !== 'auto'"
+    x-text="'Theme is now in ' + theme + ' mode'"></span>
+  <span class="sr-only" x-show="theme === 'auto'"
+    >Theme is now in system mode</span
+  >
+</div>
+
+<style>
+  .theme-switcher {
+    display: flex;
+    gap: var(--size-1);
+  }
+
+  button {
+    padding: var(--size-2);
+  }
+
+  [astro-icon] {
+    width: var(--size-relative-8);
+    height: auto;
+    aspect-ratio: 3/2;
+  }
+  button.active {
+    color: var(--surface-1);
+    background-color: var(--brand);
+    border-color: var(--brand);
+    cursor: default;
+  }
+</style>

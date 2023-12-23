@@ -1,0 +1,13 @@
+---
+import { Code } from 'astro:components';
+---
+
+<div
+  x-data="{ code: '', copyNotification: false,copyCode: function() { const codeElement = this.$refs.code;const code = codeElement.innerText || codeElement.textContent;const textarea = document.createElement('textarea');textarea.value = code;document.body.appendChild(textarea);textarea.select();document.execCommand('copy');document.body.removeChild(textarea);}}"
+>
+  <pre
+    x-model="code"
+    x-ref="code"><slot /></pre>
+
+  <button x-on:click="copyCode">Copy Code</button>
+</div>

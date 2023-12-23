@@ -7,6 +7,7 @@
     (var(--breakout-max-width) - var(--content-max-width)) / 2
   );
 
+
   display: grid;
   grid-template-columns:
     [full-width-start] minmax(var(--padding-inline), 1fr)
@@ -22,7 +23,7 @@
 
 .content-grid > :not(.breakout, .full-width),
 .full-width > :not(.breakout, .full-width) {
-  grid-column: content;
+  grid-column: var(--grid-column-value, content);
 }
 
 .content-grid > .breakout {

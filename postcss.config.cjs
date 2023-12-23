@@ -2,7 +2,7 @@ const postcssJitProps = require("postcss-jit-props");
 const postcssPresetEnv = require("postcss-preset-env");
 const postcssGlobalData = require("@csstools/postcss-global-data");
 const OpenProps = require("open-props");
-// const path = require('path');
+
 
 module.exports = {
   plugins: [
@@ -24,7 +24,7 @@ module.exports = {
       },
       autoprefixer: false,
     }),
-    postcssJitProps(OpenProps),
+    // postcssJitProps(OpenProps),
     // postcssJitProps({
     //   files: [
     //     path.resolve(__dirname, 'node_modules/open-props/open-props.min.css'),

@@ -3,7 +3,7 @@ import { Image } from "astro:assets"
 import Taxonomy from "@/components/Taxonomy.astro"
 import FormattedDate from "@/components/FormattedDate.astro"
 import { getEntry, type CollectionEntry } from "astro:content"
-import { humanize, slugify, plainify, metafy } from "@/utils/textConverter"
+import { metafy } from "@/utils/textConverter"
 
 type Props = {
   post: CollectionEntry<"postCollection">
@@ -12,13 +12,9 @@ type Props = {
 const { post } = Astro.props
 const {
   author,
-  description,
   title,
   date,
-  dateUpdated,
   thumbnail,
-  thumbnailAlt,
-  tags,
   categories,
 } = post.data
 

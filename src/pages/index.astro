@@ -15,21 +15,23 @@ const { Content } = await home.render();
 
 <BaseLayout title={title} description={description}>
 
-  <div class="prose">
+ 
     <Content />
-  </div>
+
 </BaseLayout>
 
 <style is:global lang="postcss">
-
- .prose h1 {
-    font-size: var(--font-size-6);
-  }
-
   .hero {
+    padding: var(--size-fluid-5) 0 var(--size-fluid-6);
     text-align: center;
-    background-color: var(--surface-0);
   }
+
+ .hero h1 {
+    font-size: var(--font-size-6);
+    max-inline-size: var(--size-header-2);
+  }
+
+
 
   .hero > * {
     margin-inline: auto;

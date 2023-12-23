@@ -2,6 +2,8 @@ html {
   --brand-dark: var(--indigo-3);
   --text-1-dark: var(--gray-1);
   --text-2-dark: var(--gray-2);
+  --text-muted-dark: var(--gray-5);
+
   --surface-0-dark: var(--gray-12);
   --surface-1-dark: var(--gray-10);
   --surface-2-dark: var(--gray-9);
@@ -13,6 +15,8 @@ html {
   --link-visited-dark: var(--indigo-3);
   --link-hover-dark: var(--indigo-2);
   --link-active-dark: var(--indigo-4);
+
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,6 +26,7 @@ html {
     --brand: var(--brand-dark);
     --text-1: var(--text-1-dark);
     --text-2: var(--text-2-dark);
+    --text-muted: var(--text-muted-dark);
     --surface-0: var(--surface-0-dark);
     --surface-1: var(--surface-1-dark);
     --surface-2: var(--surface-2-dark);
@@ -34,6 +39,8 @@ html {
     --link-visited: var(--link-visited-dark);
     --link-hover: var(--link-hover-dark);
     --link-active: var(--link-active-dark);
+
+ 
   }
 }
 

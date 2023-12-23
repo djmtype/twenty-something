@@ -1,9 +1,8 @@
 @import 'open-props/postcss/normalize';
 
-:is(h1, h2, h3, h4, h5, h6):not([class]) {
-    font-weight: var(--font-weight-4);
-    font-family: var(--font-serif);
-}
+
+
+
 
 
 :where(ul[role='list'], ol[role='list']) {
@@ -43,9 +42,29 @@
   :where(a):where([href]):where(:active) {
     color: var(--link-active);
     text-decoration: none;
-    transform: scale(.96)
+
   }
 
-
+  :where(:not(pre) > code) {
+    background: var(--surface-0);
+  }
   
+  :where(h2, h3, h4, h5):not([class]) {
+    letter-spacing: var(--font-letterspacing-1);
+}
+
+
+:where(a) {
+    padding-inline: 0;
+    margin-inline: 0;
+}
+
+:where(li) {
+  padding: 0;
+}
+
+:where(h1, h2, h3, h4, h5, h6):not([class]) {
+  font-weight: var(--font-weight-4);
+  font-family: var(--font-serif);
+}
   

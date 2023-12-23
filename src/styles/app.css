@@ -1,24 +1,14 @@
 
-
-
-/* @import "themes/light.css";
-@import "themes/dark.css"; */
-
-/* @import 'common/variables.css'; */
-
-/* @import 'common/base.css'; */
-
-
-
-
 @import 'common/fonts.css';
 
+@import 'open-props/postcss/style';
+@import 'common/variables.css';
 @import 'common/normalizer.css';
 
 
 @import 'themes/theme.css';
 
-@import 'common/variables.css';
+
 
 @import 'components/button.css';
 @import 'utilities/accessibility.css';
@@ -28,10 +18,4 @@
 @import 'utilities/flow.css';
 @import 'utilities/content.css';
 
-:where(h2, h3, h4, h5):not([class]) {
-    letter-spacing: var(--font-letterspacing-1);
-}
 
-h1 {
-    line-height: var(--font-lineheight-0);
-}
