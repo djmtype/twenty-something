@@ -10,6 +10,7 @@
     }
   },
   "exclude": [
-    "_backup"
+    "_backup",
+    "dist"
   ]
 }

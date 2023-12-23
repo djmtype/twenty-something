@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
+import remarkUnwrapImages from "remark-unwrap-images";
 import mdx from "@astrojs/mdx";
 import { site } from "./src/data/config.json";
-import remarkUnwrapImages from "remark-unwrap-images";
 import sitemap from "@astrojs/sitemap";
 
 
@@ -19,10 +19,12 @@ export default defineConfig({
       // wrap: true,
     }
   },
-  integrations: [mdx(), sitemap()],
-  experimental: {
-    optimizeHoistedScript: true,
-  },
+  integrations: [mdx({
+    remarkPlugins: [remarkUnwrapImages],
+  }), sitemap()],
+  // experimental: {
+  //   optimizeHoistedScript: true,
+  // },
   output: 'static',
 
   vite: {

@@ -61,39 +61,39 @@ const authorData =
       <h1>{title}</h1>
       <p>
         By
-        {
-          authorData && (
-            <a href={`/author/${author.slug}`}>{authorData.name}</a>
-          )
-        }
+        {authorData && <a href={`/author/${author.slug}`}>{authorData.name}</a>}
       </p>
       <hr />
     </div>
 
-    <div class="prose flow content-grid" style="--grid-column-value: full-width; --flow-space-value: 1.5em">
-      
+    <div
+      class="prose flow content-grid"
+      style="--grid-column: full-width; --flow-space-value: 1.5em"
+    >
       <slot />
     </div>
   </article>
 </BaseLayout>
 
 <style is:global>
+  :where(.prose > *) {
+    --grid-column: content;
+  }
 
+  :where(figure) {
+    --flow-space-value: var(--size-fluid-4);
+    & + *:not(h2) {
+      --flow-space-value: var(--size-fluid-4);
+    }
+  }
 
-:where(.prose > *) {
-  --grid-column-value: content;
-}
+  .frame {
+    background-color: var(--surface-0);
+    padding: var(--gutter);
+  }
 
-p:has(img){
-
-  max-inline-size: unset;
-   & img {
+  .img-full-width img {
     width: 100%;
-    
-   }
- 
-}
-
-
-
+    max-inline-size: unset;
+  }
 </style>

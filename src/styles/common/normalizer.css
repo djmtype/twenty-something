@@ -67,4 +67,15 @@
   font-weight: var(--font-weight-4);
   font-family: var(--font-serif);
 }
+
+
+:where(figcaption) {
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+:where(p) {
+  max-inline-size: var(--size-content-4);
+}
+
   

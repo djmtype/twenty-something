@@ -1,4 +1,5 @@
 ---
+import "@/styles/common/syntax.css"
 import { Icon } from "astro-icon"
 ---
 
@@ -26,43 +27,7 @@ import { Icon } from "astro-icon"
 </div>
 
 <style is:global>
-  :root {
-    --astro-code-color-text: var(--text-1);
-    --astro-code-color-background: var(--surface-0);
-    --astro-code-token-constant: var(--text-1);
-    --astro-code-token-string: var(--brand);
-
-    --astro-code-token-parameter: var(--brand);
-    --astro-code-token-punctuation: var(--text-1);
-    --astro-code-token-link: var(--brand);
-
-    --astro-code-token-comment: var(--text-muted);
-
-    --astro-code-token-keyword: var(--blue-9);
-    --astro-code-token-function: var(--cyan-9);
-    --astro-code-token-string-expression: var(--violet-9);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --astro-code-token-keyword: var(--blue-3);
-      --astro-code-token-function: var(--cyan-3);
-      --astro-code-token-string-expression: var(--violet-3);
-    }
-  }
-
-  .light {
-    --astro-code-token-keyword: var(--blue-9);
-    --astro-code-token-function: var(--cyan-9);
-    --astro-code-token-string-expression: var(--violet-9);
-  }
-
-  .dark {
-    --astro-code-token-keyword: var(--blue-3);
-    --astro-code-token-function: var(--cyan-3);
-    --astro-code-token-string-expression: var(--violet-3);
-  }
-
+  
   .code-wrapper {
     max-inline-size: fit-content;
     position: relative;

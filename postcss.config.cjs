@@ -1,7 +1,7 @@
-const postcssJitProps = require("postcss-jit-props");
+// const postcssJitProps = require("postcss-jit-props");
 const postcssPresetEnv = require("postcss-preset-env");
 const postcssGlobalData = require("@csstools/postcss-global-data");
-const OpenProps = require("open-props");
+// const OpenProps = require("open-props");
 
 
 module.exports = {

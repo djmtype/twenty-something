@@ -100,7 +100,10 @@
   "frontMatter.content.draftField": {
     "name": "status",
     "type": "choice",
-    "choices": ["draft", "publish"]
+    "choices": [
+      "draft",
+      "publish"
+    ]
   },
   "frontMatter.content.publicFolder": {
     "path": "src/assets/uploads",
@@ -112,14 +115,18 @@
       "title": "blog",
       "path": "[[workspace]]/src/content/postCollection",
       "previewPath": "'/'",
-      "contentTypes": ["default"],
+      "contentTypes": [
+        "default"
+      ],
       "filePrefix": null
     },
     {
       "title": "author",
       "path": "[[workspace]]/src/content/authorCollection",
       "previewPath": "'author'",
-      "contentTypes": ["author"],
+      "contentTypes": [
+        "author"
+      ],
       "filePrefix": null
     }
   ],
@@ -138,7 +145,11 @@
           "site": {
             "type": "object",
             "title": "Site",
-            "required": ["title", "url", "language"],
+            "required": [
+              "title",
+              "url",
+              "language"
+            ],
             "properties": {
               "title": {
                 "type": "string",
@@ -184,7 +195,10 @@
           "metadata": {
             "type": "object",
             "title": "Metadata",
-            "required": ["ogImage", "ogImageAlt"],
+            "required": [
+              "ogImage",
+              "ogImageAlt"
+            ],
             "properties": {
               "ogTitle": {
                 "type": "string",
@@ -227,7 +241,6 @@
               }
             }
           },
-
           "blog": {
             "type": "object",
             "title": "Blog",
@@ -243,7 +256,6 @@
               }
             }
           }
-          
         }
       }
     },
@@ -308,5 +320,35 @@
   "frontMatter.content.fmHighlight": false,
   "frontMatter.content.hideFm": false,
   "frontMatter.content.hideFmMessage": "Use the editor panel to make front matter changes",
-  "frontMatter.dashboard.openOnStart": false
+  "frontMatter.snippets.wrapper.enabled": false,
+  "frontMatter.dashboard.openOnStart": false,
+  "frontMatter.content.snippets": {
+    "Image with Caption": {
+      "description": "",
+      "body": "<figure>![ [[alt]] ](../../assets/uploads/[[filename]]) <figcaption>[[caption]]</figcaption></figure>",
+      "fields": [
+        {
+          "name": "alt",
+          "title": "Alt Text",
+          "type": "string",
+          "single": true,
+          "default": ""
+        },
+        {
+          "name": "filename",
+          "title": "Filename",
+          "type": "string",
+          "single": true,
+          "default": ""
+        },
+        {
+          "name": "caption",
+          "title": "Caption",
+          "type": "string",
+          "single": true,
+          "default": ""
+        }
+      ]
+    }
+  }
 }
