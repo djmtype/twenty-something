@@ -49,9 +49,7 @@
     background: var(--surface-0);
   }
   
-  :where(h2, h3, h4, h5):not([class]) {
-    letter-spacing: var(--font-letterspacing-1);
-}
+
 
 
 :where(a) {
@@ -74,8 +72,5 @@
   color: var(--text-muted);
 }
 
-:where(p) {
-  max-inline-size: var(--size-content-4);
-}
 
   

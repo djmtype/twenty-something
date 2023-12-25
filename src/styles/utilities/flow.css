@@ -1,6 +1,6 @@
 /* Space between text blocks */
 
 .flow > * + * {
-    margin-block-start: var(--flow-space-value, var(--size-5));
+    margin-block-start: var(--_flow, var(--size-5));
   }
   

@@ -1,0 +1,8 @@
+.section {
+    --_padding-block-start: var(--size-fluid-5);
+    --_padding-block-end: var(--size-fluid-5);
+    --_background-color: initial;
+    padding-block-start: var(--_padding-block, var(--_padding-block-start));
+    padding-block-end: var(--_padding-block, var(--_padding-block-end));
+    background-color: var(--_background-color);
+}

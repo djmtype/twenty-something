@@ -11,6 +11,7 @@ slug: home
 import Heading from "@/components/Heading.astro";
 import Card from "@/components/Card.astro";
 import Grid from "@/components/Grid.astro";
+import Group from "@/components/Group.astro";
 
 <div class="hero content-grid flow">
     # A commitment to innovation and sustainability
@@ -22,45 +23,51 @@ import Grid from "@/components/Grid.astro";
 <figure class="breakout">![Building exterior in Toronto, Canada](../../assets/uploads/building-exterior.webp)</figure>
 </div>
 
-<section style="background: var(--surface-0)">
-<div class="hero content-grid flow">
+
+<section class="section flow" style="--_background-color: var(--surface-0); --_padding-block: var(--size-fluid-6); --_flow: var(--size-fluid-5)">
+
+<div class="content-grid flow text--center inline-child--auto" style="--_flow: initial">
+    <Heading fontSize="6" textAlign="center">
     ## A passion for creating spaces
-    
+    </Heading>
     Our comprehensive suite of professional services caters to a diverse clientele, ranging from homeowners to commercial developers.
 </div>
 
+
+
     <Grid styles={'--grid-column: breakout; --_column: 30ch; --_row-gap: var(--size-8);'}>
         <Card>
-        <Heading>
+        <Heading fontFamily="sans-serif" fontSize="2" fontWeight="bold">
         ### Renovation and restoration
         </Heading>
 Experience the fusion of imagination and expertise with Études Architectural Solutions.
         </Card>
-
+        
 
          <Card>
-        <Heading>
+        <Heading fontFamily="sans-serif" fontSize="2" fontWeight="bold">
         ### Continuous Support
         </Heading>
 Experience the fusion of imagination and expertise with Études Architectural Solutions.
         </Card>
 
          <Card>
-        <Heading>
+        <Heading fontFamily="sans-serif" fontSize="2" fontWeight="bold">
         ### App Access
         </Heading>
 Experience the fusion of imagination and expertise with Études Architectural Solutions.
         </Card>
 
+
          <Card>
-        <Heading>
+        <Heading fontFamily="sans-serif" fontSize="2" fontWeight="bold">
         ### Consulting
         </Heading>
         Experience the fusion of imagination and expertise with Études Architectural Solutions.
         </Card>
 
         <Card>
-        <Heading>
+        <Heading fontFamily="sans-serif" fontSize="2" fontWeight="bold">
         ### Project Management
         </Heading>
         Experience the fusion of imagination and expertise with Études Architectural Solutions.
@@ -68,7 +75,7 @@ Experience the fusion of imagination and expertise with Études Architectural So
 
 
         <Card>
-        <Heading>
+        <Heading fontFamily="sans-serif" fontSize="2" fontWeight="bold">
         ### Architectural Solutions
         </Heading>
         Experience the fusion of imagination and expertise with Études Architectural Solutions.

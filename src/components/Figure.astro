@@ -11,7 +11,7 @@ const { frame, caption, gridColumn } = Astro.props
 <figure class:list={[`prose__figure`, frame ? `frame` : null]} 
 style={{
     '--grid-column': gridColumn || 'content', 
-    borderRadius: frame || gridColumn !== 'full-width' ? 'var(--radius-3)' : '',
+    borderRadius: frame && gridColumn !== 'full-width' ? 'var(--radius-3)' : '',
   }}>
     <slot />
     <slot name="figcaption"/>

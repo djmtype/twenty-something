@@ -10,5 +10,13 @@ const { styles } =
 
 ---
 
-<div class="card flow" style={styles}><slot /></div>
+<div class="card" style={styles}><slot /></div>
 
+<style>
+  .card {
+    --_row-gap: var(--size-3);
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--_row-gap);
+  }
+</style>

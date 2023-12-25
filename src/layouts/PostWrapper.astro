@@ -68,7 +68,7 @@ const authorData =
 
     <div
       class="prose flow content-grid"
-      style="--grid-column: full-width; --flow-space-value: 1.5em"
+      style="--grid-column: full-width; --_flow: 1.5em"
     >
       <slot />
     </div>
@@ -81,9 +81,9 @@ const authorData =
   }
 
   :where(figure) {
-    --flow-space-value: var(--size-fluid-4);
+    --_flow: var(--size-fluid-4);
     & + *:not(h2) {
-      --flow-space-value: var(--size-fluid-4);
+      --_flow: var(--size-fluid-4);
     }
   }
 
