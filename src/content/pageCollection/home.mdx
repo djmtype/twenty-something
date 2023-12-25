@@ -11,14 +11,18 @@ slug: home
 import Heading from "@/components/Heading.astro";
 import Card from "@/components/Card.astro";
 import Grid from "@/components/Grid.astro";
-import Group from "@/components/Group.astro";
+import MediaText from "@/components/MediaText.astro";
 
 <div class="hero content-grid flow">
     # A commitment to innovation and sustainability
-    
+
+  
     Études is a pioneering firm that seamlessly merges creativity and functionality to redefine architectural excellence.
     
-    <button>About us</button>
+    <a href="/about" class="btn btn--accent">About us</a>
+
+    <button>Disabled Action</button>
+
 
 <figure class="breakout">![Building exterior in Toronto, Canada](../../assets/uploads/building-exterior.webp)</figure>
 </div>
@@ -82,4 +86,43 @@ Experience the fusion of imagination and expertise with Études Architectural So
         </Card>
     </Grid>
 
+</section>
+
+
+
+<section class="section flow" style="--_padding-block: var(--size-fluid-6); --_flow: var(--size-fluid-5)">
+
+<div class="content-grid flow text--center inline-child--auto" style="--_flow: initial">
+    <Heading fontSize="6" textAlign="center">
+    ## An array of resources
+    </Heading>
+   Our comprehensive suite of professional services caters to a diverse clientele, ranging from homeowners to commercial developers.
+</div>
+
+<MediaText style="--grid-column: breakout; --_column-gap: var(--size-fluid-4)">
+        <Card>
+        <Heading>
+        ### Études Architect App
+        </Heading>
+        - Collaborate with fellow architects.
+        - Showcase your projects.
+        - Experience the world of architecture.
+        </Card>
+
+        <figure>![Building exterior in Toronto, Canada](../../assets/uploads/tourist-and-building.webp)</figure>
+  </MediaText>
+
+  <MediaText style="--grid-column: breakout; --_column-gap: var(--size-fluid-4)">
+  <figure>![Building exterior in Toronto, Canada](../../assets/uploads/tourist-and-building.webp)</figure>
+        <Card>
+        <Heading>
+        ### Études Architect App
+        </Heading>
+        - Collaborate with fellow architects.
+        - Showcase your projects.
+        - Experience the world of architecture.
+        </Card>
+
+        
+  </MediaText>
 </section>

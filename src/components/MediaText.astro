@@ -1,0 +1,27 @@
+---
+const { ...restProps } =
+  Astro.props
+
+---
+<div class="content-grid">
+    <div class="layout-grid" {...restProps}>
+        <slot />
+    </div>
+  </div>
+
+  <style>
+    .layout-grid {
+  --_column: var(--size-content-2);
+  --_column-gap: var(--gutter);
+  --_row-gap: var(--gutter);
+
+  display: grid;
+  column-gap: var(--_column-gap);
+  row-gap: var(--_row-gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--_column)), 1fr));
+}
+
+.layout-grid {
+align-items: center;
+}
+</style>

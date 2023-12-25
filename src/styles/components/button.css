@@ -1,21 +1,17 @@
-button {
-  --_size: initial /* your size */;
 
-  --_text-light: var(--gray-1);
-  --_text-dark: var(--gray-11);
 
-  --_bg-light: var(--gray-11);
-  --_bg-dark: var(--gray-2);
 
-  --_bg-hover-light: var(--gray-7);
-  --_bg-hover-dark: var(--gray-0);
-
-  --_text: var(--_text-light);
-  --_bg: var(--_bg-light);
+:where(.btn,button,input:is([type="button"],[type="submit"],[type="reset"])),
+:where(input[type="file"])::-webkit-file-upload-button,
+:where(input[type="file"])::file-selector-button {
+  --_accent: initial;
+  --_text: initial;
+  --_size: initial;
 
   --_border: var(--_bg);
-  --_bg-hover: var(--_bg-hover-light);
-
+  
+ 
+  text-decoration: none;
   font-size: var(--_size);
   background: var(--_bg);
   color: var(--_text);
@@ -26,34 +22,84 @@ button {
 
   border-radius: var(--radius-2);
 
-  &:where(:not(:active):hover) {
+  &:where(:not(:active):hover), &:where(:not(:active):focus-visible) {
     background: var(--_bg-hover);
     border-color: var(--_bg-hover);
   }
   &:where(:active) {
-    transform: scale(0.96);
+    transform: scale(0.98);
+
   }
+ transition: 250ms all;
+  --_text: var(--_text-light);
+  --_bg: var(--_bg-light);
+
+  --_bg-hover: var(--_bg-hover-light);
+
+
 
   @media (--OSdark) {
     --_text: var(--_text-dark);
     --_bg: var(--_bg-dark);
     --_bg-hover: var(--_bg-hover-dark);
   }
+
 }
 
-.light button {
+button:not([class="btn"]), .btn--default {
+  --_bg-light: var(--gray-11);
+  --_text-light: var(--gray-1);
+  --_bg-hover-light: var(--gray-7);
+
+  --_bg-dark: var(--gray-2);
+  --_text-dark: var(--gray-11);
+  --_bg-hover-dark: var(--gray-0);
+
+
+
+}
+
+.btn--accent {
+  --_bg: var(--brand);
+  --_text: var(--surface-1);
+  --_bg-hover: var(--link-hover);
+
+}
+
+
+
+.light {
+  & .btn--default, & button:not([class]) {
   --_text: var(--_text-light);
   --_bg: var(--_bg-light);
   --_bg-hover: var(--_bg-hover-light);
+
+}
 }
 
-.dark button {
+.dark {
+  & .btn--default, & button:not([class]) {
   --_text: var(--_text-dark);
   --_bg: var(--_bg-dark);
   --_bg-hover: var(--_bg-hover-dark);
+
+}
 }
 
-.btn--primary {
-  --_bg-dark: var(--brand);
-  --_bg-hover-dark: purple;
+button, .btn {
+  &[disabled] {
+    opacity: .7;
+    --_bg-hover: var(--_bg); 
+  }
 }
+
+.light, .dark {
+  button, .btn {
+    &[disabled] {
+      opacity: .7;
+      --_bg-hover: var(--_bg); 
+    }
+  }
+}
+
+
