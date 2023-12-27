@@ -1,0 +1,76 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content"
+import FormattedDate from "@/components/FormattedDate.astro"
+import { metafy } from "@/utils/textConverter"
+import { sortByDate } from "@/utils/postFunctions"
+import Taxonomy from "@/components/Taxonomy.astro"
+
+const postCollection = await getCollection("postCollection")
+
+const allPosts = sortByDate(postCollection);
+
+type Props = {
+  post: CollectionEntry<"postCollection">
+};
+---
+
+<div class="recent-posts breakout flow">
+  <slot />
+
+  <ul role="list" class="recent-posts__list">
+    {
+      allPosts.map((post) => (
+        <li class="recent-posts__item">
+          <h3>
+            <a href={post.slug}>{post.data.title}</a>
+          </h3>
+          <div class="recent-posts__details">
+            <FormattedDate date={post.data.date} /> &mdash;
+            <a href={`/author/${post.data.author.slug}`}>
+              {metafy(post.data.author.slug)}
+            </a>
+            in <Taxonomy type="category" name={post.data.categories[0]} />
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style is:global>
+  .recent-posts__list > li {
+    border-block-start: var(--border-size-1) solid var(--separator);
+    padding-block-start: var(--size-3);
+    margin-block-start: var(--size-3);
+  }
+
+  .recent-posts__list li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    max-inline-size: unset;
+
+    flex-wrap: wrap;
+  }
+  .recent-posts__list li > :first-child {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: 65%;
+  }
+
+  .recent-posts__list li > *:last-child {
+    flex-basis: 30ch;
+    flex-grow: 1;
+  }
+
+  .recent-posts__list h3 {
+    font-size: var(--font-size-4);
+  }
+  .recent-posts hr {
+    margin-block-end: var(--size-4);
+  }
+
+  .recent-posts__details {
+    font-size: var(--font-size-1);
+  }
+</style>

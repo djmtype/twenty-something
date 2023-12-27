@@ -1,0 +1,27 @@
+---
+const { ...restProps } = Astro.props
+---
+
+<div class="signup breakout" {...restProps}>
+    
+    <slot />
+
+</div>
+
+<style is:global>
+    .signup {
+        --_bg: var(--surface-0);
+        background-color: var(--_bg); 
+        border-radius: var(--radius-3);
+        padding: var(--size-fluid-6) var(--size-fluid-4);
+        display: grid;
+        place-content: center;
+        gap: var(--size-5);
+        text-align: center;
+        
+    }
+
+    .signup > * {
+        margin-inline: auto;
+    }
+</style>

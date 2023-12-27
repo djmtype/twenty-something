@@ -1,0 +1,44 @@
+---
+type Props = {
+  variant?: "default" | "accent";
+  size?: "small" | "medium" | "large";
+  className?: string;
+  href?: string;
+  externalTarget?: boolean;
+  id?: string;
+  ariaLabel?: boolean;
+}
+
+const {
+  id,
+  variant,
+  size = "medium",
+  className,
+  href,
+  externalTarget,
+  ariaLabel,
+  ...restProps
+} = Astro.props as Props;
+---
+
+{
+  href && (
+    <a
+      id={id}
+      target={externalTarget ? "_blank" : null}
+      rel={externalTarget ? "noreferrer noopener" : null}
+      href={href}
+      class:list={[
+        variant ? "btn btn--" + variant : null,
+        size ? "btn--" + size : null,
+        className,
+      ]}
+      {...restProps}
+    >
+      <slot />
+    </a>
+  )
+}
+
+
+

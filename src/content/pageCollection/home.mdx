@@ -11,11 +11,14 @@ slug: home
 import Heading from "@/components/Heading.astro";
 import Card from "@/components/Card.astro";
 import Grid from "@/components/Grid.astro";
-import MediaText from "@/components/MediaText.astro";
+import List from "@/components/List.astro";
+import Blockquote from "@/components/Blockquote.astro";
+import PostList from "@/components/PostList.astro";
+import NewsletterSignup from "@/components/NewsletterSignup.astro";
+import ButtonLink from "@/components/ButtonLink.astro";
 
 <div class="hero content-grid flow">
     # A commitment to innovation and sustainability
-
   
     Études is a pioneering firm that seamlessly merges creativity and functionality to redefine architectural excellence.
     
@@ -39,7 +42,7 @@ import MediaText from "@/components/MediaText.astro";
 
 
 
-    <Grid styles={'--grid-column: breakout; --_column: 30ch; --_row-gap: var(--size-8);'}>
+    <Grid style="--grid-column: breakout; --_column: 30ch; --_row-gap: var(--size-8);">
         <Card>
         <Heading fontFamily="sans-serif" fontSize="2" fontWeight="bold">
         ### Renovation and restoration
@@ -99,30 +102,57 @@ Experience the fusion of imagination and expertise with Études Architectural So
    Our comprehensive suite of professional services caters to a diverse clientele, ranging from homeowners to commercial developers.
 </div>
 
-<MediaText style="--grid-column: breakout; --_column-gap: var(--size-fluid-4)">
+<Grid style="--grid-column: breakout; --_column-gap: var(--size-fluid-4); --_align-items: center;">
         <Card>
         <Heading>
         ### Études Architect App
         </Heading>
-        - Collaborate with fellow architects.
-        - Showcase your projects.
-        - Experience the world of architecture.
+        <List>
+            - Collaborate with fellow architects.
+            - Showcase your projects.
+            - Experience the world of architecture.
+        </List>
         </Card>
 
         <figure>![Building exterior in Toronto, Canada](../../assets/uploads/tourist-and-building.webp)</figure>
-  </MediaText>
-
-  <MediaText style="--grid-column: breakout; --_column-gap: var(--size-fluid-4)">
+  </Grid>
+  <Grid style="--grid-column: breakout; --_column-gap: var(--size-fluid-4); --_align-items: center;">
   <figure>![Building exterior in Toronto, Canada](../../assets/uploads/tourist-and-building.webp)</figure>
+
         <Card>
         <Heading>
-        ### Études Architect App
+        ### Études Newsletter
         </Heading>
-        - Collaborate with fellow architects.
-        - Showcase your projects.
-        - Experience the world of architecture.
+        <List>
+            - A world of thought-provoking articles.
+            - Case studies that celebrate architecture.
+            - Exclusive access to design insights.
+        </List>
         </Card>
+  </Grid>
 
-        
-  </MediaText>
+</section>
+
+
+<section class="section flow content-grid" style="--_padding-block: var(--size-fluid-6); --_flow: var(--size-fluid-5); --_background-color: var(--brand);">
+<Blockquote citeName="Annie Steiner" citeTitle="CEO, Greenprint">
+Études has saved us thousands of hours of work and has unlocked insights we never thought possible.
+</Blockquote>
+</section>
+
+<section class="section flow content-grid" style="--_padding-block: var(--size-fluid-6); --_flow: var(--size-fluid-5);">
+<PostList>
+## Watch, Read, Listen
+</PostList>
+</section>
+
+<section class="section flow content-grid" style="--_padding-block: var(--size-fluid-6); --_flow: var(--size-fluid-5);">
+<NewsletterSignup>
+## Join 900+ subscribers
+
+Stay in the loop with everything you need to know.
+
+<ButtonLink variant="accent" href="#">Sign up</ButtonLink>
+</NewsletterSignup>
+
 </section>

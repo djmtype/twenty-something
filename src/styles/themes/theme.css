@@ -14,6 +14,7 @@
     --surface-2: var(--surface-2-light);
     --surface-3: var(--surface-3-light);
     --surface-4: var(--surface-4-light);
+    --separator: var(--separator-light);
     --surface-shadow: var(--surface-shadow-light);
     --shadow-strength: var(--shadow-strength-light);
   
@@ -37,6 +38,7 @@
       --surface-2: var(--surface-2-dark);
       --surface-3: var(--surface-3-dark);
       --surface-4: var(--surface-4-dark);
+      --separator: var(--separator-dark);
       --surface-shadow: var(--surface-shadow-dark);
       --shadow-strength: var(--shadow-strength-dark);
       --link: var(--link-dark);

@@ -1,0 +1,44 @@
+{
+  "about": [
+    {
+      "name": "Team",
+      "url": "#"
+    },
+    {
+      "name": "History",
+      "url": "#"
+    },
+    {
+      "name": "Careers",
+      "url": "#"
+    }
+  ],
+  "privacy": [
+    {
+      "name": "Privacy Policy",
+      "url": "#"
+    },
+    {
+      "name": "Terms & Conditions",
+      "url": "#"
+    },
+    {
+      "name": "Contact Us",
+      "url": "#"
+    }
+  ],
+  "social": [
+    {
+      "name": "Facebook",
+      "url": "#"
+    },
+    {
+      "name": "Instagram",
+      "url": "#"
+    },
+    {
+      "name": "Twitter/X",
+      "url": "#"
+    }
+  ]
+}

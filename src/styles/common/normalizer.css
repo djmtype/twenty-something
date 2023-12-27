@@ -61,11 +61,19 @@
   padding: 0;
 }
 
+:where(h1, h2, h3, h4, h5, h6, dt) {
+  font-weight: var(--font-weight-5);
+
+}
+
 :where(h1, h2, h3, h4, h5, h6):not([class]) {
   font-weight: var(--font-weight-4);
   font-family: var(--font-serif);
 }
 
+:where(strong, b) {
+  font-weight: var(--font-weight-5);
+}
 
 :where(figcaption) {
   font-style: italic;
@@ -75,4 +83,6 @@
 [disabled] {
   cursor: not-allowed;
 }
+
+
   

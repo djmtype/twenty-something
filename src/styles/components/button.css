@@ -7,10 +7,12 @@
   --_accent: initial;
   --_text: initial;
   --_size: initial;
+  --_display: inline-flex;
 
   --_border: var(--_bg);
   
- 
+  display: var(--_display);
+ text-align: center;
   text-decoration: none;
   font-size: var(--_size);
   background: var(--_bg);

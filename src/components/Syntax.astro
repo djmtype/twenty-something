@@ -1,6 +1,6 @@
 ---
 import "@/styles/common/syntax.css"
-import { Icon } from "astro-icon"
+import { Icon } from 'astro-icon/components';
 ---
 
 <div
@@ -16,13 +16,13 @@ import { Icon } from "astro-icon"
     tabindex="0"><slot /></pre>
 
   <button x-show="copyState === 'default'" x-on:click="copyCode">
-    <Icon name="bx:bxs-copy" /> Copy
+    <Icon name="bxs:copy" /> Copy
   </button>
   <button x-show="copyState === 'success'" disabled>
-    <Icon name="bx:bxs-check-circle" /> Copied!
+    <Icon name="bxs:check-circle" /> Copied!
   </button>
   <button x-show="copyState === 'error'" disabled>
-    <Icon name="bx:bxs-error-circle" /> Failed
+    <Icon name="bxs:error-circle" /> Failed
   </button>
 </div>
 
@@ -48,7 +48,7 @@ import { Icon } from "astro-icon"
 
 
 
-  .code-wrapper [astro-icon] {
+  .code-wrapper [data-icon] {
     width: var(--size-relative-8);
     height: auto;
     aspect-ratio: 3/2;

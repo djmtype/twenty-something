@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon'
+import { Icon } from 'astro-icon/components';
 import navigation from "@/data/navigation.json"
 import { slugify } from "@/utils/textConverter"
 import NavToggle from '@/components/NavToggle.astro'
@@ -55,7 +55,7 @@ const { pathname } = Astro.url
                     : ""
                 }`}
               >
-                {nav.name} <Icon name="bx:bxs-chevron-down" />
+                {nav.name} <Icon name="bxs:chevron-down" />
               </a>
             ) : (
               <a
@@ -211,9 +211,9 @@ const { pathname } = Astro.url
       transition: all ease 250ms;
       z-index: 4;
       position: absolute;
-      top: calc(100% + var(--size-2));
+      top: calc(100% + var(--size-1));
       background: var(--surface-0);
-     border: var(--border-size-1) solid var(--surface-2);
+     border: var(--border-size-1) solid var(--separator);
       right: var(--size-3);
       min-width: var(--size-content-1);
       overflow: hidden;
@@ -234,7 +234,7 @@ const { pathname } = Astro.url
     overflow: visible;
   }
 
-  .nav-primary__link--parent [astro-icon] {
+  .nav-primary__link--parent [data-icon] {
     color: currentColor;
     width: var(--size-relative-6);
     height: auto;

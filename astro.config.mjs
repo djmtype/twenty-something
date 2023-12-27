@@ -4,7 +4,7 @@ import mdx from "@astrojs/mdx";
 import { site } from "./src/data/config.json";
 import sitemap from "@astrojs/sitemap";
 
-
+import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,24 +15,31 @@ export default defineConfig({
     extendMarkdownConfig: true,
     syntaxHighlight: "shiki",
     shikiConfig: {
-      theme: "css-variables"
+      theme: "css-variables",
       // wrap: true,
-    }
+    },
   },
-  integrations: [mdx({
-    remarkPlugins: [remarkUnwrapImages],
-  }), sitemap()],
+  integrations: [
+    mdx({
+      remarkPlugins: [remarkUnwrapImages],
+    }),
+    sitemap(),
+    icon({
+      include: {
+        bxs: ["chevron-down", "copy", "check-circle", "error-circle", "sun", "moon", "cog"],
+      },
+    }),
+  ],
   // experimental: {
   //   optimizeHoistedScript: true,
   // },
-  output: 'static',
-
+  output: "static",
   vite: {
     server: {},
     plugins: [],
     ssr: {},
     css: {
-       devSourcemap: true
-    }
-  }
+      devSourcemap: true,
+    },
+  },
 });

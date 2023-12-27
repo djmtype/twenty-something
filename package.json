@@ -21,7 +21,7 @@
     "@csstools/postcss-global-data": "^2.1.1",
     "alpinejs": "^3.13.3",
     "astro": "^4.0.7",
-    "astro-icon": "^0.8.2",
+    "astro-icon": "^1.0.0",
     "autoprefixer": "^10.4.16",
     "github-slugger": "^2.0.0",
     "marked": "^11.1.0",
@@ -35,11 +35,12 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
+    "@iconify-json/bxs": "^1.1.10",
     "@types/alpinejs": "^3.13.5",
     "@types/alpinejs__persist": "^3.13.3",
     "@types/github-slugger": "^2.0.0",
     "@types/marked": "^6.0.0",
-    "prettier-plugin-astro": "^0.12.2"
+    "prettier-plugin-astro": "^0.12.3"
   },
   "browserslist": [
     "last 1 safari version",

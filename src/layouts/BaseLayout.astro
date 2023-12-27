@@ -1,6 +1,5 @@
 ---
 import "../styles/app.css"
-import ThemeSelector from "@/components/ThemeSelector.astro"
 import { site } from "@/data/config.json"
 import SkipLink from "@/components/SkipLink.astro"
 import Header from "@/components/Header.astro"
@@ -75,7 +74,7 @@ const { title, description, thumbnail = site.ogImage } = Astro.props
       
       <slot />
     </main>
-    <ThemeSelector />
+    
     <Footer />
   </body>
 </html>
