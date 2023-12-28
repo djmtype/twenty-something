@@ -19,7 +19,7 @@
   color: var(--_text);
   border: var(--border-size-2) solid var(--_border);
 
-  font-weight: var(--font-weight-5);
+  font-weight: var(--font-weight-bold);
   padding: var(--size-2) var(--size-3);
 
   border-radius: var(--radius-2);

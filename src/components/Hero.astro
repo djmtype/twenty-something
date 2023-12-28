@@ -1,0 +1,19 @@
+<div class="hero content-grid flow">
+  <slot />
+</div>
+
+<style is:global>
+  .hero {
+    padding: var(--size-fluid-5) 0 var(--size-fluid-6);
+    text-align: center;
+  }
+
+  .hero :is(h1, h2) {
+    font-size: var(--font-size-6);
+    max-inline-size: var(--size-header-2);
+  }
+
+  .hero > * {
+    margin-inline: auto;
+  }
+</style>

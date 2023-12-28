@@ -1,28 +1,23 @@
 .content-grid {
   --padding-inline: var(--gutter, 1rem);
+  --passage-max-width: var(--size-content-4);
   --content-max-width: var(--size-container-lg);
   --breakout-max-width: var(--size-container-xl);
-
-  --breakout-size: calc(
-    (var(--breakout-max-width) - var(--content-max-width)) / 2
-  );
-
+  --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
 
   display: grid;
   grid-template-columns:
     [full-width-start] minmax(var(--padding-inline), 1fr)
-    [breakout-start] minmax(0, var(--breakout-size))
-    [content-start] min(
-      100% - (var(--padding-inline) * 2),
-      var(--content-max-width)
-    )
-    [content-end]
-    minmax(0, var(--breakout-size)) [breakout-end]
+    [breakout-start] minmax(0, calc((var(--breakout-max-width) - var(--content-max-width)) / 2))
+    [content-start] minmax(0, calc((var(--content-max-width) - var(--passage-max-width)) / 2))
+    [passage-start] min(100% - (var(--padding-inline) * 2), var(--passage-max-width)) [passage-end]
+    minmax(0, calc((var(--content-max-width) - var(--passage-max-width)) / 2)) [content-end]
+    minmax(0, calc((var(--breakout-max-width) - var(--content-max-width)) / 2)) [breakout-end]
     minmax(var(--padding-inline), 1fr) [full-width-end];
 }
 
-.content-grid > :not(.breakout, .full-width),
-.full-width > :not(.breakout, .full-width) {
+.content-grid > :not(.passage, .breakout, .full-width),
+.full-width > :not(.content, .breakout, .full-width) {
   grid-column: var(--grid-column, content);
 }
 
@@ -30,9 +25,16 @@
   grid-column: breakout;
 }
 
+.content-grid > .content {
+  grid-column: content;
+}
+
+.content-grid > .passage {
+  grid-column: passage;
+}
+
 .content-grid > .full-width {
   grid-column: full-width;
-
   display: grid;
   grid-template-columns: inherit;
 }

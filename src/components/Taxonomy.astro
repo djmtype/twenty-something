@@ -1,5 +1,6 @@
 ---
 import { slugify } from "@/utils/textConverter"
+import { metafy } from "@/utils/textConverter"
 
 type Props = {
   name: any
@@ -26,7 +27,7 @@ if (type === "tag") {
 {
   modifiedType && (
     <a href={modifiedType ? `/${modifiedType}/${slugify(name).toLowerCase()}` : "#"}>
-      <span>{name}</span>
+      <span>{metafy(name)}</span>
     </a>
   )
 }

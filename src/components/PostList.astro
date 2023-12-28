@@ -25,7 +25,7 @@ type Props = {
             <a href={post.slug}>{post.data.title}</a>
           </h3>
           <div class="recent-posts__details">
-            <FormattedDate date={post.data.date} /> &mdash;
+            <FormattedDate date={post.data.date} /> &mdash; by 
             <a href={`/author/${post.data.author.slug}`}>
               {metafy(post.data.author.slug)}
             </a>
@@ -51,6 +51,7 @@ type Props = {
     max-inline-size: unset;
 
     flex-wrap: wrap;
+ 
   }
   .recent-posts__list li > :first-child {
     flex-basis: 0;

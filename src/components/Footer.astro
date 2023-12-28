@@ -1,53 +1,62 @@
 ---
+import config from "@/data/config.json"
 import colophon from "@/data/colophon.json"
 import Grid from "@/components/Grid.astro"
 import { metafy } from "@/utils/textConverter"
-import ThemeSelector from "@/components/ThemeSelector.astro";
+import ThemeSelector from "@/components/ThemeSelector.astro"
 const today = new Date()
 ---
 
 <footer class="colophon section flow content-grid">
   <div class="colophon__wrapper breakout">
-	<div class="colophon__details">
-	  &copy; {today.getFullYear()} Your name here. All rights reserved.
-	</div>
-	<Grid gridLayout={false} className="colophon__links" style="--_column: 12ch">
-	  {
-		Object.entries(colophon).map(([section, items]) => (
-		  <dl class="colophon__links__list">
-			<dt>{metafy(section)}</dt>
-			{items.map((item) => (
-			  <dd>
-				<a href={item.url}>{item.name}</a>
-			  </dd>
-			))}
-		  </dl>
-		))
-	  }
-	</Grid>
+    <div class="colophon__details">
+		<p class="colophon__title">{config.site.title}</p>
+    </div>
+    <Grid
+      gridLayout={false}
+      className="colophon__links"
+      style="--_column: 12ch"
+    >
+      {
+        Object.entries(colophon).map(([section, items]) => (
+          <dl class="colophon__links__list">
+            <dt>{metafy(section)}</dt>
+            {items.map((item) => (
+              <dd>
+                <a href={item.url}>{item.name}</a>
+              </dd>
+            ))}
+          </dl>
+        ))
+      }
+    </Grid>
   </div>
   <div class="colophon__extra" style="--grid-column: breakout;">
-	<ThemeSelector />
+    <ThemeSelector />
 
-	<div>Made with <a href="https://astro.build">Astro</a></span>
-	
- </div>
+    <div>Made with <a href="https://frontmatter.codes/">Front Matter</a> and <a href="https://astro.build">Astro</a></div>
+  </div>
 </footer>
 
 <style is:global>
-
-	.colophon {
-		--_flow: var(--size-fluid-5);
-	}
+  .colophon {
+    --_flow: var(--size-fluid-5);
+  }
 
   .colophon__wrapper {
     display: flex;
     flex-wrap: wrap;
+	row-gap: var(--gutter);
   }
 
   .colophon__details {
     flex-basis: max(var(--size-content-2), 50%);
     flex-grow: 1;
+  }
+
+  .colophon__title {
+	font-weight: var(--font-weight-bold);
+
   }
 
   .colophon__links {
@@ -57,32 +66,26 @@ const today = new Date()
   }
 
   .colophon__links__list :is(dt, dd) {
-	max-inline-size: unset;
+    max-inline-size: unset;
   }
 
-
-
   .colophon__links__list dd {
-	font-size: var(--font-size-1);
+    font-size: var(--font-size-1);
   }
 
   .colophon__links__list a {
-	padding-block: var(--size-2);
-	display: inline-block;
+    padding-block: var(--size-2);
+    display: inline-block;
   }
 
-.colophon__extra {
-	
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--gutter);
-	justify-content: space-between;
-	align-items: center;
-	text-align: center;
-	padding-block-start: var(--size-5);
-	border-block-start: var(--border-size-1) solid var(--separator);
-	
-}
-
-
+  .colophon__extra {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gutter);
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding-block-start: var(--size-5);
+    border-block-start: var(--border-size-1) solid var(--separator);
+  }
 </style>

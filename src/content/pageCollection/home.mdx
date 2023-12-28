@@ -16,22 +16,22 @@ import Blockquote from "@/components/Blockquote.astro";
 import PostList from "@/components/PostList.astro";
 import NewsletterSignup from "@/components/NewsletterSignup.astro";
 import ButtonLink from "@/components/ButtonLink.astro";
+import Hero from "@/components/Hero.astro";
 
-<div class="hero content-grid flow">
-    # A commitment to innovation and sustainability
+<Hero>
+
+# A commitment to innovation and sustainability
   
-    Études is a pioneering firm that seamlessly merges creativity and functionality to redefine architectural excellence.
-    
-    <a href="/about" class="btn btn--accent">About us</a>
+Études is a pioneering firm that seamlessly merges creativity and functionality to redefine architectural excellence.
 
-    <button>Disabled Action</button>
-
+<ButtonLink variant="accent" href="/about">About us</ButtonLink>
 
 <figure class="breakout">![Building exterior in Toronto, Canada](../../assets/uploads/building-exterior.webp)</figure>
-</div>
+
+</Hero>
 
 
-<section class="section flow" style="--_background-color: var(--surface-0); --_padding-block: var(--size-fluid-6); --_flow: var(--size-fluid-5)">
+<section class="section flow" style="--_bg: var(--surface-0); --_padding-block: var(--size-fluid-6); --_flow: var(--size-fluid-5)">
 
 <div class="content-grid flow text--center inline-child--auto" style="--_flow: initial">
     <Heading fontSize="6" textAlign="center">
@@ -88,7 +88,6 @@ Experience the fusion of imagination and expertise with Études Architectural So
         Experience the fusion of imagination and expertise with Études Architectural Solutions.
         </Card>
     </Grid>
-
 </section>
 
 
@@ -116,6 +115,7 @@ Experience the fusion of imagination and expertise with Études Architectural So
 
         <figure>![Building exterior in Toronto, Canada](../../assets/uploads/tourist-and-building.webp)</figure>
   </Grid>
+
   <Grid style="--grid-column: breakout; --_column-gap: var(--size-fluid-4); --_align-items: center;">
   <figure>![Building exterior in Toronto, Canada](../../assets/uploads/tourist-and-building.webp)</figure>
 
@@ -130,11 +130,9 @@ Experience the fusion of imagination and expertise with Études Architectural So
         </List>
         </Card>
   </Grid>
-
 </section>
 
-
-<section class="section flow content-grid" style="--_padding-block: var(--size-fluid-6); --_flow: var(--size-fluid-5); --_background-color: var(--brand);">
+<section class="section flow content-grid" style="--_padding-block: var(--size-fluid-6); --_flow: var(--size-fluid-5); --_bg: var(--brand);">
 <Blockquote citeName="Annie Steiner" citeTitle="CEO, Greenprint">
 Études has saved us thousands of hours of work and has unlocked insights we never thought possible.
 </Blockquote>
@@ -146,13 +144,11 @@ Experience the fusion of imagination and expertise with Études Architectural So
 </PostList>
 </section>
 
-<section class="section flow content-grid" style="--_padding-block: var(--size-fluid-6); --_flow: var(--size-fluid-5);">
-<NewsletterSignup>
+
+<NewsletterSignup className="breakout">
 ## Join 900+ subscribers
 
 Stay in the loop with everything you need to know.
 
 <ButtonLink variant="accent" href="#">Sign up</ButtonLink>
 </NewsletterSignup>
-
-</section>

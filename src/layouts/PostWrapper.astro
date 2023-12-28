@@ -24,50 +24,62 @@ const {
   thumbnail,
   thumbnailAlt,
   author,
+  tags
 } = frontmatter.data
 
 const authorData =
   frontmatter.collection === "postCollection" && author?.slug
     ? (await getEntry("authorCollection", author.slug)).data
     : undefined
+
+
 ---
 
 <BaseLayout title={title} description={description}>
-  <article class="content-grid">
-    <div class="hero-image">
-      {
-        thumbnail && (
-          <Image
-            width={1020}
-            height={510}
-            src={thumbnail}
-            alt={thumbnailAlt ? thumbnailAlt : ""}
-          />
-        )
-      }
-    </div>
+  <article
+    class="entry section content-grid"
+    style="--grid-column: passage;"
+  >
 
-    <div class="title">
-      <div class="date">
-        <FormattedDate date={date} />
-        {
-          dateUpdated && (
-            <div class="last-updated-on">
-              Last updated on <FormattedDate date={dateUpdated} />
-            </div>
-          )
-        }
+  <figure class="entry__figure">
+    {
+      thumbnail && (
+        <Image
+          class="entry__thumbnail"
+          width={1020}
+          height={510}
+          src={thumbnail}
+          alt={thumbnailAlt ? thumbnailAlt : ""}
+        />
+      )
+    }
+  </figure>
+  
+  <div class="entry__heading flow">
+    
+
+    
+      <h1 class="entry__title">{title}</h1>
+      <div class="entry__meta">
+        <span class="entry__date">
+          <FormattedDate date={date} />
+          {
+            dateUpdated && (
+              <span class="entry__date-updated">
+                Last updated on <FormattedDate date={dateUpdated} />
+              </span>
+            )
+          } — by {
+            authorData && (
+              <a href={`/author/${author.slug}`}>{authorData.name}</a>
+            )
+          } in {tags[0]}
+        </span>
       </div>
-      <h1>{title}</h1>
-      <p>
-        By
-        {authorData && <a href={`/author/${author.slug}`}>{authorData.name}</a>}
-      </p>
-      <hr />
     </div>
 
     <div
-      class="prose flow content-grid"
+      class="entry__prose content-grid flow"
       style="--grid-column: full-width; --_flow: 1.5em"
     >
       <slot />
@@ -76,11 +88,44 @@ const authorData =
 </BaseLayout>
 
 <style is:global>
-  :where(.prose > *) {
-    --grid-column: content;
+  :where(.entry__prose > *) {
+    --grid-column: passage;
   }
 
-  :where(figure) {
+  .entry__heading {
+    --_flow: var(--size-4);
+    margin-block-start: var(--size-fluid-4);
+    display: grid;
+    
+  }
+
+  .entry__title {
+    font-weight: var(--font-weight-4);
+    font-family: var(--font-serif);
+    font-size: var(--font-size-6);
+  }
+
+  .entry__thumbnail {
+    border-radius: var(--radius-3);
+  }
+
+  .entry__meta {
+    color: var(--text-muted);
+  }
+
+  .entry__heading + .entry__prose {
+    margin-block-start: var(--size-fluid-5);
+  }
+
+  .entry__prose h2:not([class]) {
+    font-size: var(--font-size-5);
+  }
+
+  .entry__prose h3:not([class]) {
+    font-size: var(--font-size-4);
+  }
+
+  .entry__prose figure {
     --_flow: var(--size-fluid-4);
     & + *:not(h2) {
       --_flow: var(--size-fluid-4);
@@ -96,6 +141,4 @@ const authorData =
     width: 100%;
     max-inline-size: unset;
   }
-
-  
 </style>

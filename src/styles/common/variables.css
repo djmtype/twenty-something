@@ -1,5 +1,5 @@
 :root {
-  --font-sans: "Inter Variable", system-ui, -apple-system, sans-serif;
+  --font-sans: system-ui, -apple-system, sans-serif;
   
   --font-mono: ui-monospace, SF Mono, Menlo, monospace;
 
@@ -16,7 +16,7 @@
   --size-container-xxxl: 1600px;
 
   --size-content-4: 72ch;
-
+--font-weight-bold: var(--font-weight-6);
   --gutter: var(--size-fluid-3);
 
   --gray-0: #ffffff;
