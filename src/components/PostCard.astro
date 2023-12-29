@@ -3,7 +3,6 @@ import { Image } from "astro:assets"
 import FormattedDate from "@/components/FormattedDate.astro"
 import { getEntry, type CollectionEntry } from "astro:content"
 
-
 import Taxonomy from "@/components/Taxonomy.astro"
 
 type Props = {
@@ -11,46 +10,79 @@ type Props = {
 }
 
 const { post } = Astro.props
-const { author, description, title, date, thumbnail, tags, categories } = post.data
+const {
+  author,
+  description,
+  title,
+  date,
+  thumbnail,
+  thumbnailAlt = "",
+  tags,
+  categories,
+} = post.data
 
 const { data: authorData } = await getEntry("authorCollection", author.slug)
 ---
 
-<article class="post-card">
-  <div>
-    {thumbnail && <Image width={720} height={360} src={thumbnail} alt="" />}
+<article class="entry-card">
+  {
+    thumbnail && (
+      <figure class="entry-card__figure">
+        <a href={`/${post.slug}`}>
+        <Image
+          class="entry-card__image"
+          width={400}
+          height={400}
+          densities={[1, 2]}
+          quality={50}
+          src={thumbnail}
+          alt={thumbnailAlt}
+        />
+      </a>
+      </figure>
+    )
+  }
 
-    <h2>{title}</h2>
-    <div class="meta">
-      <p><a href=`/author/${author.slug}`>{authorData.name}</a></p>
-      <span>•</span>
+  <div class="entry-card__content">
+    <h2 class="entry-card__title"><a href={`/${post.slug}`}>{title}</a></h2>
+    <div class="entry-card__meta">
       <FormattedDate date={date} />
-
-      <p>Categories</p>
-      <ul class="tax-container">
-        {
-          categories &&
-            categories.map((category) => (
-              <li>
-                <Taxonomy type="category" name={category} />
-              </li>
-            ))
-        }
-      </ul>
-
-      <p>Tags</p>
-      <ul class="tags-container">
-        {
-          tags &&
-            tags.map((tag) => (
-            <li>
-                <Taxonomy type="tag" name={tag} />
-              </li>
-            ))
-        }
-      </ul>
+      – by <a href=`/author/${author.slug}`>{authorData.name}</a> in
+      <Taxonomy type="category" name={categories[0]} />
     </div>
+
+    <p class="entry-card__description">{description}</p>
+
+    
   </div>
-  <p>{description}</p>
-  <a href={`/${post.slug}`}>Read Post</a>
 </article>
+
+<style>
+  .entry-card__image {
+    aspect-ratio: 1/1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-3);
+  }
+  .entry-card__title {
+    font-size: var(--font-size-5);
+    font-weight: var(--font-weight-4);
+    font-family: var(--font-serif);
+  }
+  .entry-card__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-3);
+    margin-block-start: var(--size-fluid-3);
+  }
+
+  .entry-card__meta {
+    color: var(--text-muted);
+  }
+
+  .entry-card__description {
+    font-size: var(--font-size-1);
+    color: var(--text-muted);
+  }
+</style>

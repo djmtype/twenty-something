@@ -1,0 +1,11 @@
+<p>Tags</p>
+<ul class="tags-container">
+  {
+    tags &&
+      tags.map((tag) => (
+        <li>
+          <Taxonomy type="tag" name={tag} />
+        </li>
+      ))
+  }
+</ul>
