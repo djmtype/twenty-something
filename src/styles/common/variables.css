@@ -17,7 +17,7 @@
 
   --size-content-4: 72ch;
 --font-weight-bold: var(--font-weight-6);
-  --gutter: var(--size-fluid-3);
+  --gutter: var(--size-fluid-4);
 
   --gray-0: #ffffff;
 }

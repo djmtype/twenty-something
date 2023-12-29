@@ -1,6 +1,7 @@
 ---
 import { getEntry, type CollectionEntry } from "astro:content"
-
+import { metafy } from "@/utils/textConverter"
+import Taxonomy from "@/components/Taxonomy.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import FormattedDate from "@/components/FormattedDate.astro"
 import { Image } from "astro:assets"
@@ -23,42 +24,44 @@ const {
   dateUpdated,
   thumbnail,
   thumbnailAlt,
+  thumbnailSize,
   author,
-  tags
+  tags,
+  categories,
 } = frontmatter.data
 
 const authorData =
   frontmatter.collection === "postCollection" && author?.slug
     ? (await getEntry("authorCollection", author.slug)).data
     : undefined
-
-
 ---
 
 <BaseLayout title={title} description={description}>
-  <article
-    class="entry section content-grid"
-    style="--grid-column: passage;"
-  >
+  <article class="entry section content-grid" style="--grid-column: passage;">
+    <figure
+      class={`entry__figure ${
+        thumbnailSize === "content"
+          ? "figure--content"
+          : thumbnailSize === "breakout"
+            ? "figure--breakout"
+            : ""
+      }`}
+    >
+      {
+        thumbnail && (
+          <Image
+            class="entry__thumbnail"
+            quality={50}
+            alt=""
+            densities={[1, 2]}
+            src={thumbnail}
+            alt={thumbnailAlt ? thumbnailAlt : ""}
+          />
+        )
+      }
+    </figure>
 
-  <figure class="entry__figure">
-    {
-      thumbnail && (
-        <Image
-          class="entry__thumbnail"
-          width={1020}
-          height={510}
-          src={thumbnail}
-          alt={thumbnailAlt ? thumbnailAlt : ""}
-        />
-      )
-    }
-  </figure>
-  
-  <div class="entry__heading flow">
-    
-
-    
+    <div class="entry__heading flow">
       <h1 class="entry__title">{title}</h1>
       <div class="entry__meta">
         <span class="entry__date">
@@ -73,17 +76,41 @@ const authorData =
             authorData && (
               <a href={`/author/${author.slug}`}>{authorData.name}</a>
             )
-          } in {tags[0]}
+          } in <a href=`/category/${categories[0]}`>{metafy(categories[0])}</a>
         </span>
       </div>
     </div>
 
     <div
       class="entry__prose content-grid flow"
-      style="--grid-column: full-width; --_flow: 1.5em"
+      style="--grid-column: full-width;"
     >
       <slot />
+      
     </div>
+
+    <footer class="entry__footer section" x-data="{ hasHistory: window.history.length > 1 }">
+      <ul role="list" class="entry__tags">
+        {
+          tags &&
+            tags.map((tag) => (
+            <li class="tags__item">
+                <Taxonomy type="tag" name={tag} className="tags__link" />
+              </li>
+            ))
+        }
+      </ul>
+
+
+      <div class="entry__back">
+      <button x-show="hasHistory" @click="window.history.back()"><span aria-hidden="true">←</span> Go Back</button>
+     
+         <a x-show="!hasHistory" class="btn btn--default" href="/blog"><span aria-hidden="true">←</span> Go Back</a>
+      
+
+    </div>
+      
+    </footer>
   </article>
 </BaseLayout>
 
@@ -96,16 +123,16 @@ const authorData =
     --_flow: var(--size-4);
     margin-block-start: var(--size-fluid-4);
     display: grid;
-    
   }
 
   .entry__title {
     font-weight: var(--font-weight-4);
     font-family: var(--font-serif);
-    font-size: var(--font-size-6);
+    font-size: var(--font-size-fluid-2);
+    max-inline-size: initial;
   }
 
-  .entry__thumbnail {
+  :where(.entry__thumbnail) {
     border-radius: var(--radius-3);
   }
 
@@ -125,10 +152,61 @@ const authorData =
     font-size: var(--font-size-4);
   }
 
+  .entry__prose :is(h2, h3, h4) {
+    --_flow: 1.5em;
+  }
+
   .entry__prose figure {
     --_flow: var(--size-fluid-4);
     & + *:not(h2) {
       --_flow: var(--size-fluid-4);
+    }
+  }
+  .entry__prose pre {
+    --grid-column: content;
+    margin-block-start: var(--size-fluid-4);
+    + * {
+      margin-block-start: var(--size-fluid-4);
+    }
+  }
+
+  .figure--breakout {
+    --grid-column: breakout;
+    .entry__thumbnail {
+      width: 100%;
+    }
+  }
+
+  .figure--content {
+    --grid-column: content;
+    .entry__thumbnail {
+      width: 100%;
+    }
+  }
+
+
+
+  .entry__prose blockquote:not([class]) {
+    grid-column: content;
+    border: 0;
+    padding: 0;
+    text-align: center;
+    max-inline-size: initial;
+    gap: var(--size-fluid-5);
+    margin-block-start: var(--size-fluid-6);
+    + * {
+      margin-block-start: var(--size-fluid-6);
+    }
+
+    p {
+      font-size: var(--font-size-fluid-2);
+      font-family: var(--font-serif);
+      line-height: var(--font-lineheight-2);
+      font-style: italic;
+    }
+    cite {
+      font-style: normal;
+      font-size: var(--font-size-2);
     }
   }
 
@@ -137,8 +215,22 @@ const authorData =
     padding: var(--gutter);
   }
 
-  .img-full-width img {
-    width: 100%;
-    max-inline-size: unset;
+
+
+  .entry__tags {
+    display: flex;
+    gap: var(--size-2);
   }
+
+  .entry__tags .tags__link {
+    display: inline-block;
+    border-radius: var(--radius-round);
+    background-color: var(--surface-0);
+    padding: var(--size-relative-2) var(--size-relative-4);
+    font-size: var(--font-size-1);
+  }
+
+.entry__back {
+  margin-block-start: var(--size-fluid-5);
+}
 </style>

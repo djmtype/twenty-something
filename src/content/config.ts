@@ -49,6 +49,7 @@ const postCollection = defineCollection({
         })
         .optional(),
       thumbnailAlt: z.string().optional(),
+      thumbnailSize: z.string(z.enum(["content", "breakout"])).optional(),
       categories: z.array(z.string()).default(["uncategorized"]),
       tags: z.array(z.string()).default(["others"]),
       status: z.string(z.enum(["draft", "publish"]).default("draft")),

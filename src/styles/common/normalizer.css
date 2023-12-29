@@ -84,5 +84,10 @@
   cursor: not-allowed;
 }
 
+:where(table tr:hover td), :where(tbody tr:nth-child(even):hover td) {
+  background-color: var(--surface-0);
+}
+
+
 
   

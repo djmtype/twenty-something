@@ -8,9 +8,10 @@
   --_text: initial;
   --_size: initial;
   --_display: inline-flex;
-
+--_gap: var(--size-relative-2);
   --_border: var(--_bg);
   
+  gap: var(--_gap);
   display: var(--_display);
  text-align: center;
   text-decoration: none;

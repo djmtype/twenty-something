@@ -39,6 +39,6 @@
 
     max-inline-size: unset;
     padding: var(--gutter);
-    border-radius: var(--radius-2);
+    border-radius: var(--radius-3);
   }
 

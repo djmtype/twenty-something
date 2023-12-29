@@ -5,9 +5,10 @@ import { metafy } from "@/utils/textConverter"
 type Props = {
   name: any
   type: "category" | "tag"
+  className?: string
 }
 
-const { name, type } = Astro.props
+const { name, type, className } = Astro.props
 
 
 type ModifiedType = "category" | "tag" | null
@@ -26,7 +27,7 @@ if (type === "tag") {
 
 {
   modifiedType && (
-    <a href={modifiedType ? `/${modifiedType}/${slugify(name).toLowerCase()}` : "#"}>
+    <a class={className} href={modifiedType ? `/${modifiedType}/${slugify(name).toLowerCase()}` : "#"}>
       <span>{metafy(name)}</span>
     </a>
   )
