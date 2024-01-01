@@ -33,7 +33,7 @@ const { data: authorData } = await getEntry("authorCollection", author.slug)
         <>
           {' in '}
           {categories.map((category) => (
-              <Taxonomy type="category" name={metafy(category)} />
+              <Taxonomy type="category" name={category} />
           )).reduce((prev, curr) => [prev, ', ', curr])}
         </>
       )

@@ -1,0 +1,17 @@
+---
+type Props = {
+    className?: string
+}
+const { className, ...restProps } = Astro.props
+---
+
+<span class={`styled-link ${className}`} {...restProps}>
+    <slot />
+</span>
+
+<style>
+    .styled-link {
+        display: inline-flex;
+        gap: var(--size-relative-2);
+    }
+</style>

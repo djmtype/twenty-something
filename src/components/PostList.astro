@@ -14,7 +14,7 @@ type Props = {
 };
 ---
 
-<div class="recent-posts breakout flow">
+<div class="recent-posts column-breakout flow">
   <slot />
 
   <ul role="list" class="recent-posts__list">
@@ -27,9 +27,7 @@ type Props = {
           <div class="recent-posts__details">
             <FormattedDate date={post.data.date} /> &mdash; by 
             <a href={`/author/${post.data.author.slug}`}>
-              {metafy(post.data.author.slug)}
-            </a>
-            in <Taxonomy type="category" name={post.data.categories[0]} />
+              {metafy(post.data.author.slug)}</a> in <Taxonomy type="category" name={post.data.categories[0]} />
           </div>
         </li>
       ))
@@ -40,19 +38,19 @@ type Props = {
 <style is:global>
   .recent-posts__list > li {
     border-block-start: var(--border-size-1) solid var(--separator);
-    padding-block-start: var(--size-3);
-    margin-block-start: var(--size-3);
-  }
-
-  .recent-posts__list li {
+    padding-block-start: var(--size-5);
+    margin-block-start: var(--size-5);
+    
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     max-inline-size: unset;
-
+    row-gap: var(--size-2);
+    column-gap: var(--gutter);
     flex-wrap: wrap;
- 
   }
+
+
   .recent-posts__list li > :first-child {
     flex-basis: 0;
     flex-grow: 999;

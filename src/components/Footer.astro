@@ -1,19 +1,18 @@
 ---
 import config from "@/data/config.json"
 import colophon from "@/data/colophon.json"
-import Grid from "@/components/Grid.astro"
+import LayoutGrid from "@/components/LayoutGrid.astro"
 import { metafy } from "@/utils/textConverter"
 import ThemeSelector from "@/components/ThemeSelector.astro"
 const today = new Date()
 ---
 
-<footer class="colophon section flow content-grid">
-  <div class="colophon__wrapper breakout">
+<footer class="colophon section flow container">
+  <div class="colophon__wrapper column-breakout">
     <div class="colophon__details">
 		<p class="colophon__title">{config.site.title}</p>
     </div>
-    <Grid
-      gridLayout={false}
+    <LayoutGrid
       className="colophon__links"
       style="--_column: 12ch"
     >
@@ -29,9 +28,9 @@ const today = new Date()
           </dl>
         ))
       }
-    </Grid>
+    </LayoutGrid>
   </div>
-  <div class="colophon__extra" style="--grid-column: breakout;">
+  <div class="colophon__extra" style="--_container-column: column-breakout;">
     <ThemeSelector />
 
     <div>Made with <a href="https://frontmatter.codes/">Front Matter</a> and <a href="https://astro.build">Astro</a></div>

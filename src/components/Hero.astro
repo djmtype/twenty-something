@@ -1,10 +1,11 @@
-<div class="hero content-grid flow">
-  <slot />
-</div>
+<section class="hero section">
+  <div class="container flow">
+    <slot />
+  </div>
+</section>
 
 <style is:global>
-  .hero {
-    padding: var(--size-fluid-5) 0 var(--size-fluid-6);
+  .hero * {
     text-align: center;
   }
 
@@ -13,7 +14,7 @@
     max-inline-size: var(--size-header-2);
   }
 
-  .hero > * {
+  .hero * {
     margin-inline: auto;
   }
 </style>

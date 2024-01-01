@@ -1,6 +1,9 @@
 ---
 import { metafy } from "@/utils/textConverter";
 
+import PostCard from "@/components/PostCard.astro"
+import LayoutGrid from "@/components/LayoutGrid.astro";
+
 import { getTaxonomy } from "@/utils/taxonomyParser"
 import taxonomyFilter from "@/utils/taxonomyFilter"
 
@@ -44,13 +47,25 @@ const filterByCategories = taxonomyFilter(posts, "categories", category!)
 ---
 
 <BaseLayout title={metafyCategory} description={`A list of entries with category, ${metafyCategory}`}>
-  <h1>{`Category: ${metafyCategory}`}</h1>
 
-  <ul>
-    {
-     filterByCategories.map((p) => (
-       <li><a href={`/${p.slug}`}>{p.data.title} - </a><FormattedDate date={p.data.date} /></li> 
-      ))
-    }
-  </ul>
+  <section class="section container">
+    <div class="column-breakout flow" style="--_flow: var(--size-fluid-6)">
+      <h1>{`Category: ${metafyCategory}`}</h1>
+    
+      <LayoutGrid maxColumnWidth style="--_column: 30ch; --_row-gap: var(--size-fluid-5); --_align-items: start">
+        {
+          filterByCategories.map((post) => <PostCard post={post} />)
+        }
+      </LayoutGrid>
+    
+    </div>
+   
+  </section>
+  
 </BaseLayout>
+
+<style>
+  h1 {
+    font-size: var(--font-size-fluid-3);
+  }
+</style>

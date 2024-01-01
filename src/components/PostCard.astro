@@ -5,11 +5,20 @@ import { getEntry, type CollectionEntry } from "astro:content"
 
 import Taxonomy from "@/components/Taxonomy.astro"
 
+type PostOptions = {
+  hideImage?: boolean;
+};
+
 type Props = {
   post: CollectionEntry<"postCollection">
-}
+} & PostOptions
 
-const { post } = Astro.props
+
+
+const { post, hideImage } = Astro.props
+
+
+
 const {
   author,
   description,
@@ -22,11 +31,14 @@ const {
 } = post.data
 
 const { data: authorData } = await getEntry("authorCollection", author.slug)
+
+
+
 ---
 
 <article class="entry-card">
   {
-    thumbnail && (
+    thumbnail && !hideImage && (
       <figure class="entry-card__figure">
         <a href={`/${post.slug}`}>
         <Image
@@ -58,6 +70,31 @@ const { data: authorData } = await getEntry("authorCollection", author.slug)
 </article>
 
 <style>
+  .entry-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--size-fluid-3);
+    
+  }
+
+  .entry-card > *:first-child {
+    flex-basis: var(--size-content-1);
+    flex-grow: 1;
+
+    
+  }
+
+
+  .entry-card > *:last-child {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: 60%;
+  }
+
+  .entry-card__figure a {
+    width: 100%;
+
+  }
   .entry-card__image {
     aspect-ratio: 1/1;
     height: 100%;
@@ -74,15 +111,16 @@ const { data: authorData } = await getEntry("authorCollection", author.slug)
     display: flex;
     flex-direction: column;
     gap: var(--size-3);
-    margin-block-start: var(--size-fluid-3);
+
   }
 
   .entry-card__meta {
-    color: var(--text-muted);
+    font-size: var(--font-size-1);
+    color: var(--text-2);
   }
 
   .entry-card__description {
     font-size: var(--font-size-1);
-    color: var(--text-muted);
+    color: var(--text-2);
   }
 </style>

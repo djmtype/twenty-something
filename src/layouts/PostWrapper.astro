@@ -1,10 +1,13 @@
 ---
+import "@/styles/layouts/prose.css"
 import { getEntry, type CollectionEntry } from "astro:content"
 import { metafy } from "@/utils/textConverter"
 import Taxonomy from "@/components/Taxonomy.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import FormattedDate from "@/components/FormattedDate.astro"
 import { Image } from "astro:assets"
+import StyledLink from "@/components/StyledLink.astro"
+import { Icon } from 'astro-icon/components';
 
 type AuthorData = {
   author: {
@@ -37,14 +40,14 @@ const authorData =
 ---
 
 <BaseLayout title={title} description={description}>
-  <article class="entry section content-grid" style="--grid-column: passage;">
+  <article class="entry section container">
     <figure
       class={`entry__figure ${
-        thumbnailSize === "content"
-          ? "figure--content"
-          : thumbnailSize === "breakout"
-            ? "figure--breakout"
-            : ""
+        thumbnailSize === "breakout"
+          ? "column-breakout"
+          : thumbnailSize === "passage"
+            ? "column-passage"
+            : "column-content"
       }`}
     >
       {
@@ -82,8 +85,7 @@ const authorData =
     </div>
 
     <div
-      class="entry__prose content-grid flow"
-      style="--grid-column: full-width;"
+      class="entry__prose flow container"
     >
       <slot />
       
@@ -103,9 +105,16 @@ const authorData =
 
 
       <div class="entry__back">
-      <button x-show="hasHistory" @click="window.history.back()"><span aria-hidden="true">←</span> Go Back</button>
+
+        <StyledLink x-show="hasHistory">
+          <Icon name="bx:left-arrow-alt" style="color: var(--link)" /> <a role="button" href="#0" @click.prevent="window.history.back()">Go Back</a>
+        </StyledLink>
+      
      
-         <a x-show="!hasHistory" class="btn btn--default" href="/blog"><span aria-hidden="true">←</span> Go Back</a>
+      <StyledLink x-show="!hasHistory">
+        <Icon name="bx:left-arrow-alt" style="color: var(--link)" /> <a href="/blog"> Go Back</a>
+      </StyledLink>
+         
       
 
     </div>
@@ -114,123 +123,3 @@ const authorData =
   </article>
 </BaseLayout>
 
-<style is:global>
-  :where(.entry__prose > *) {
-    --grid-column: passage;
-  }
-
-  .entry__heading {
-    --_flow: var(--size-4);
-    margin-block-start: var(--size-fluid-4);
-    display: grid;
-  }
-
-  .entry__title {
-    font-weight: var(--font-weight-4);
-    font-family: var(--font-serif);
-    font-size: var(--font-size-fluid-2);
-    max-inline-size: initial;
-  }
-
-  :where(.entry__thumbnail) {
-    border-radius: var(--radius-3);
-  }
-
-  .entry__meta {
-    color: var(--text-muted);
-  }
-
-  .entry__heading + .entry__prose {
-    margin-block-start: var(--size-fluid-5);
-  }
-
-  .entry__prose h2:not([class]) {
-    font-size: var(--font-size-5);
-  }
-
-  .entry__prose h3:not([class]) {
-    font-size: var(--font-size-4);
-  }
-
-  .entry__prose :is(h2, h3, h4) {
-    --_flow: 1.5em;
-  }
-
-  .entry__prose figure {
-    --_flow: var(--size-fluid-4);
-    & + *:not(h2) {
-      --_flow: var(--size-fluid-4);
-    }
-  }
-  .entry__prose pre {
-    --grid-column: content;
-    margin-block-start: var(--size-fluid-4);
-    + * {
-      margin-block-start: var(--size-fluid-4);
-    }
-  }
-
-  .figure--breakout {
-    --grid-column: breakout;
-    .entry__thumbnail {
-      width: 100%;
-    }
-  }
-
-  .figure--content {
-    --grid-column: content;
-    .entry__thumbnail {
-      width: 100%;
-    }
-  }
-
-
-
-  .entry__prose blockquote:not([class]) {
-    grid-column: content;
-    border: 0;
-    padding: 0;
-    text-align: center;
-    max-inline-size: initial;
-    gap: var(--size-fluid-5);
-    margin-block-start: var(--size-fluid-6);
-    + * {
-      margin-block-start: var(--size-fluid-6);
-    }
-
-    p {
-      font-size: var(--font-size-fluid-2);
-      font-family: var(--font-serif);
-      line-height: var(--font-lineheight-2);
-      font-style: italic;
-    }
-    cite {
-      font-style: normal;
-      font-size: var(--font-size-2);
-    }
-  }
-
-  .frame {
-    background-color: var(--surface-0);
-    padding: var(--gutter);
-  }
-
-
-
-  .entry__tags {
-    display: flex;
-    gap: var(--size-2);
-  }
-
-  .entry__tags .tags__link {
-    display: inline-block;
-    border-radius: var(--radius-round);
-    background-color: var(--surface-0);
-    padding: var(--size-relative-2) var(--size-relative-4);
-    font-size: var(--font-size-1);
-  }
-
-.entry__back {
-  margin-block-start: var(--size-fluid-5);
-}
-</style>

@@ -1,0 +1,122 @@
+:where(.entry > *) {
+  --_container-column: column-passage;
+}
+
+.entry__prose {
+  --_container-column: column-full;
+}
+
+.entry__prose > * {
+  --_container-column: column-passage;
+}
+
+.entry__heading {
+  --_flow: var(--size-4);
+  margin-block-start: var(--size-fluid-4);
+  display: grid;
+}
+
+.entry__title {
+  font-weight: var(--font-weight-4);
+  font-family: var(--font-serif);
+  font-size: var(--font-size-fluid-2);
+  max-inline-size: initial;
+}
+
+:where(.entry__thumbnail) {
+  border-radius: var(--radius-3);
+}
+
+.entry__meta {
+  color: var(--text-muted);
+}
+
+.entry__heading + .entry__prose {
+  margin-block-start: var(--size-fluid-5);
+}
+
+.entry__prose h2:not([class]) {
+  font-size: var(--font-size-5);
+}
+
+.entry__prose h3:not([class]) {
+  font-size: var(--font-size-4);
+}
+
+.entry__prose :is(h2, h3, h4) {
+  --_flow: 1.5em;
+}
+
+.entry__prose figure,
+.entry__prose p:has(img:only-child) {
+  --_flow: var(--size-fluid-4);
+  & + *:not(h2) {
+    --_flow: var(--size-fluid-4);
+  }
+}
+.entry__prose pre {
+  --_container-column: column-content;
+  margin-block-start: var(--size-fluid-4);
+  + * {
+    margin-block-start: var(--size-fluid-4);
+  }
+}
+
+.entry__thumbnail {
+  width: 100%;
+}
+
+.entry__prose blockquote:not([class]) {
+  grid-column: column-content;
+  border: 0;
+  padding: 0;
+  text-align: center;
+  max-inline-size: initial;
+  gap: var(--size-fluid-5);
+  margin-block-start: var(--size-fluid-6);
+  + * {
+    margin-block-start: var(--size-fluid-6);
+  }
+
+  p {
+    font-size: var(--font-size-fluid-2);
+    font-family: var(--font-serif);
+    line-height: var(--font-lineheight-2);
+    font-style: italic;
+  }
+  cite {
+    font-style: normal;
+    font-size: var(--font-size-2);
+  }
+}
+
+.frame {
+  background-color: var(--surface-0);
+  padding: var(--gutter);
+}
+
+.entry__tags {
+  display: flex;
+  gap: var(--size-2);
+}
+
+.entry__tags .tags__link {
+  display: inline-block;
+  border-radius: var(--radius-round);
+  background-color: var(--surface-0);
+  padding: var(--size-relative-2) var(--size-relative-4);
+  font-size: var(--font-size-1);
+}
+
+.entry__back {
+  margin-block-start: var(--size-fluid-5);
+}
+
+p:has(> img:nth-child(1)) {
+  --_container-column: column-content;
+  max-inline-size: none;
+}
+
+p:has(> img:nth-child(1)) img {
+  margin-inline: auto;
+}

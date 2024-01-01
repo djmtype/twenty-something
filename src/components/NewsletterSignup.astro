@@ -6,7 +6,7 @@ type Props = {
 const { className, ...restProps } = Astro.props
 ---
 
-<section class="section flow content-grid" style="--_padding-block: var(--size-fluid-6); --_flow: var(--size-fluid-5);">
+<section class="section flow container" style="--_padding-block: var(--size-fluid-6); --_flow: var(--size-fluid-5);">
 <div class={`signup ${className}`} {...restProps}>
     <slot />
 </div>

@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import StyledLink from '@/components/StyledLink.astro';
 // Pagination Props type helpers
 export type NumericalString = `${number}`
 export type RouteString = string | null | undefined
@@ -25,30 +26,18 @@ const {
 
 <nav class="pagination" aria-label="Pagination">
   <ul role="list" class="pagination__list">
-    <li>
-      {
-        firstPage ? (
-          <a class="btn btn--accent" href={firstPage} aria-label="Go to the first page">
-            <Icon name="bx:chevrons-left" />
-            
-          </a>
-        ) : (
-          <span class="disabled btn btn--default">
-            <Icon name="bx:chevrons-left" />
-          </span>
-        )
-      }
-    </li>
+   
     <li>
       {
         previousPage ? (
-          <a class="btn btn--accent" href={previousPage} aria-label={`Go back to ${previousPage}`}>
-            <Icon name="bx:chevron-left" />
-          </a>
+          <StyledLink>
+            <Icon name="bx:left-arrow-alt" /> <a href={previousPage} aria-label={`Go back to ${previousPage}`}>Previous Page</a>
+          </StyledLink>
+          
         ) : (
-          <span class="disabled btn btn--default">
-            <Icon name="bx:chevron-left" />
-          </span>
+        <StyledLink className="disabled">
+            <Icon name="bx:left-arrow-alt" /> Previous Page
+        </StyledLink>
         )
       }
     </li>
@@ -58,30 +47,17 @@ const {
     <li>
       {
         nextPage ? (
-          <a class="btn btn--accent" href={nextPage} aria-label={`Go to ${nextPage}`}>
-            <Icon name="bx:chevron-right" />
-          </a>
+        <StyledLink>
+          <a href={nextPage} aria-label={`Go to ${nextPage}`}>Next Page</a> <Icon name="bx:right-arrow-alt" />
+          </StyledLink>
         ) : (
-          <span class="disabled btn btn--default">
-            <Icon name="bx:chevron-right" />
-          </span>
+        <StyledLink className="disabled">
+          Next Page <Icon name="bx:right-arrow-alt" />
+          </StyledLink>
         )
       }
     </li>
-    <li>
-      {
-        lastPage ? (
-          <a class="btn btn--accent" href={lastPage} aria-label="Go to the last page">
-           
-            <Icon name="bx:chevrons-right" />
-          </a>
-        ) : (
-          <span class="disabled btn btn--default">
-            <Icon name="bx:chevrons-right" />
-          </span>
-        )
-      }
-    </li>
+   
   </ul>
 </nav>
 
@@ -90,7 +66,7 @@ const {
   .pagination .pagination__list {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: var(--size-2);
   }
 
@@ -100,7 +76,7 @@ const {
 
 
 .pagination .disabled {
-  --_bg-hover: var(--_bg); 
+
   opacity: .7;
   cursor: not-allowed;
 
@@ -114,9 +90,17 @@ const {
 }
 .pagination__status {
   padding-inline: var(--size-2);
-  font-size: var(--font-size-1);
+  
   color: var(--text-2);
 }
 
+.pagination li {
+  display: flex;
+
+}
+
+.pagination li:has(a)  {
+  color: var(--link);
+}
 </style>
 

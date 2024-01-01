@@ -1,0 +1,40 @@
+.container {
+  --_gap: var(--gutter, 1rem);
+  --_passage-width: var(--size-content-3);
+  --_content-width: var(--size-container-lg);
+  --_breakout-width: var(--size-container-xl);
+  --_breakout-size: calc((var(--_breakout-width) - var(--_content-width)) / 2);
+
+  display: grid;
+  grid-template-columns:
+    [column-full-start] minmax(var(--_gap), 1fr)
+    [column-breakout-start] minmax(0, var(--_breakout-size))
+    [column-content-start] minmax(0, calc((var(--_content-width) - var(--_passage-width)) / 2))
+    [column-passage-start] min(100% - (var(--_gap) * 2), var(--_passage-width)) [column-passage-end]
+    minmax(0, calc((var(--_content-width) - var(--_passage-width)) / 2)) [column-content-end]
+    minmax(0, var(--_breakout-size)) [column-breakout-end]
+    minmax(var(--_gap), 1fr) [column-full-end];
+}
+
+.container > :not(.column-passage, .column-breakout, .column-full),
+.column-full > :not(.column-content, .column-breakout, .column-full) {
+  grid-column: var(--_container-column, column-content);
+}
+
+.container > .column-breakout {
+  grid-column: column-breakout;
+}
+
+.container > .column-content {
+  grid-column: column-content;
+}
+
+.container > .column-passage {
+  grid-column: column-passage;
+}
+
+.container > .column-full {
+  grid-column: column-full;
+  display: grid;
+  grid-template-columns: inherit;
+}

@@ -1,39 +1,24 @@
 ---
 type Props = {
-  gridLayout?: boolean
+  maxColumnWidth?: boolean
   style?: string
   className?: string
 }
-const { className, gridLayout = true, ...restProps } = Astro.props
+const { className, maxColumnWidth, ...restProps } = Astro.props
 ---
 
-{
-  gridLayout && (
-    <div class={gridLayout ? `container ${className ? className : ''}` : null}>
-      <div class="layout-grid" {...restProps}>
-        <slot />
-      </div>
-    </div>
-  )
-}
+<div class={`layout-grid${maxColumnWidth ? ' max-column-width' : ''}${className ? ` ${className}` : ''}`} {...restProps}>
+  <slot />
+</div>
 
-{
-  !gridLayout && (
-    <div class={`layout-grid ${className ? className : ''}`} {...restProps}>
-      <slot />
-    </div>
-  )
-}
 
 <style>
-  .contents {
-    display: contents;
-  }
   .layout-grid {
     --_column: var(--size-content-2);
     --_column-gap: var(--gutter);
     --_row-gap: var(--gutter);
     --_align-items: initial;
+    
 
     display: grid;
     column-gap: var(--_column-gap);
@@ -45,3 +30,5 @@ const { className, gridLayout = true, ...restProps } = Astro.props
     );
   }
 </style>
+
+

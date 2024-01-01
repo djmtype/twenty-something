@@ -1,22 +1,20 @@
 ---
-
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import { Image } from "astro:assets"
 import { slugify } from "@/utils/textConverter"
 import BlogList from "@/components/BlogList.astro"
-
+import PostCard from "@/components/PostCard.astro"
+import Blockquote from "@/components/Blockquote.astro"
 import { type CollectionEntry, getCollection } from "astro:content"
 
-
-
 type Props = {
-  data: CollectionEntry<"postCollection" | "authorCollection">["data"];
-  author: CollectionEntry<"authorCollection">;
-};
+  data: CollectionEntry<"postCollection" | "authorCollection">["data"]
+  author: CollectionEntry<"authorCollection">
+}
 
 export async function getStaticPaths() {
   const authors = await getCollection(
-   "authorCollection",
+    "authorCollection",
     ({ data }) => data.status === "publish",
   )
 
@@ -43,32 +41,130 @@ const posts = await getCollection(
 const postFilterByAuthor = posts.filter(
   (post) => post.data.author.slug === slugify(name),
 )
-
 ---
 
-<BaseLayout title={`Author Profile: ${name}`} description={description ?? `A list of posts by ${name}`}>
-  <section>
-    {thumbnail ? 
-    <Image width={150} height={150} src={thumbnail} alt="" />
-    : <div class="thumbnail">Thumbnail FPO</div>
-  }
-    <h1>{name}</h1>
-    <div class="content">
-      <Content />
-      {postFilterByAuthor.length > 0 ? (
-        <div>
-          <h2>Post List</h2>
-          <ul>
-          {postFilterByAuthor.map((post) => (
-            <BlogList post={post} />
-          ))}
-        </ul>
+<BaseLayout
+  title={`Author Profile: ${name}`}
+  description={description ?? `A list of posts by ${name}`}
+>
+  <section class="section flow" style="--_flow: var(--size-fluid-6)">
+    <div class="container">
+      {
+        description && (
+          <div class="column-breakout">
+            <Blockquote style="--_text: var(--text-1); --_quote-size: var(--font-size-fluid-2);">
+              <p>{description}</p>
+            </Blockquote>
+          </div>
+        )
+      }
+    </div>
+
+    <div class="container">
+      <div class="grid column-breakout">
+
+        <div class="posts">
+          {
+            postFilterByAuthor.length > 0 ? (
+              <ul role="list" class="posts__list">
+                {postFilterByAuthor.map((post) => (
+                  <PostCard post={post} />
+                ))}
+              </ul>
+            ) : (
+              <p>This author has no posts</p>
+            )
+          }
         </div>
-      ) : (
-        <p>This author has no posts</p>
-      )}
-      
-      
+
+
+        <div class="author">
+          <div class="author__heading">
+            {
+              thumbnail ? (
+                <Image
+                  class="author__thumbnail"
+                  width={150}
+                  height={150}
+                  src={thumbnail}
+                  alt={`Headshot of ${name}`}
+                />
+              ) : (
+                <div class="author__thumbnail">Thumbnail FPO</div>
+              )
+            }
+
+            <h1 class="author__title">
+              {name}
+            </h1>
+            </div>
+
+            <div class="author__summary flow" style="--_flow: var(--size-2)">
+              <Content />
+            </div>
+
+     
+        </div>
+      </div>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+
+  .posts__list {
+    display: grid;
+    gap: var(--size-fluid-5);
+  }
+  .grid {
+    display: grid;
+    column-gap: var(--gutter);
+    row-gap: var(--size-fluid-5);
+    
+  }
+
+  .grid {
+    align-items: start;
+  }
+
+  @media (--lg-n-above) {
+    .grid {
+      grid-template-columns: minmax(min(100%, var(--size-content-3)), 2fr) minmax(min(100%, var(--size-content-1)),
+        1fr
+      );
+    }
+  }
+  .author {
+    display: grid;
+    gap: var(--size-5);
+    position: sticky;
+    top: var(--gutter);
+  }
+
+  .author__heading {
+    display: grid;
+    gap: var(--size-2);
+  }
+
+  .author__title {
+    font-size: var(--font-size-5);
+    font-weight: var(--font-weight-4);
+    font-family: var(--font-serif);
+  }
+
+  .author__thumbnail {
+    border-radius: var(--radius-3);
+    height: var(--size-relative-11);
+    width: var(--size-relative-11);
+    object-fit: cover;
+  }
+
+
+</style>
+
+<style is:global>
+ .author__summary p {
+    color: var(--text-2);
+    font-size: var(--font-size-1);
+  }
+</style>

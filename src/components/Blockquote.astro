@@ -1,29 +1,35 @@
 ---
 type Props = {
-  citeName: string
-  citeTitle?: string
+  citeName?: string
+  citeTitle?: string,
+  style?: string
 }
 
-const { citeName, citeTitle, ...restProps } = Astro.props
+const { citeName, citeTitle, style, ...restProps } = Astro.props
 ---
 
-<blockquote class="pullquote" {...restProps}>
+<blockquote class="pullquote" style={style} {...restProps}>
   <slot />
-  <cite
-    ><span class="cite-name">{citeName}</span>
-    {
-      citeTitle && (
-        <Fragment
-          set:html={`<br /><span class="cite-title">${citeTitle}</span>`}
-        />
-      )
-    }</cite
-  >
+  {
+    citeName && (
+      <cite>
+        <span class="cite-name">{citeName}</span>
+        {citeTitle && (
+          <Fragment
+            set:html={`<br /><span class="cite-title">${citeTitle}</span>`}
+          />
+        )}
+      </cite>
+    )
+  }
 </blockquote>
 
 <style is:global>
   .pullquote {
     --_text: var(--surface-0);
+--_quote-size: var(--font-size-6);
+--_cite-name-size: var(--font-size-2);
+--_cite-title-size: var(--font-size-1);
 
     color: var(--_text);
     border: 0;
@@ -38,7 +44,7 @@ const { citeName, citeTitle, ...restProps } = Astro.props
 
   .pullquote > p {
     font-family: var(--font-serif);
-    font-size: var(--font-size-6);
+    font-size: var(--_quote-size);
     font-style: italic;
     position: relative;
     line-height: var(--font-lineheight-1);
@@ -55,11 +61,11 @@ const { citeName, citeTitle, ...restProps } = Astro.props
     font-style: normal;
   }
   .pullquote .cite-name {
-    font-size: var(--font-size-2);
+    font-size: var(--_cite-name-size);
   }
 
   .pullquote .cite-title {
-    font-size: var(--font-size-1);
+    font-size: var(--_cite-title-size);
     opacity: 0.7;
   }
 </style>

@@ -27,7 +27,7 @@ export default defineConfig({
     icon({
       include: {
         bxs: ["chevron-down", "copy", "check-circle", "error-circle", "sun", "moon", "cog"],
-        bxs: ["bx:chevrons-left", "bx:chevron-left", "bx:chevrons-right", "bx:chevron-right"]
+        bx: ["chevrons-left", "chevron-left", "chevrons-right", "chevron-right", "right-arrow-alt", "left-arrow-alt"]
       },
     }),
   ],
