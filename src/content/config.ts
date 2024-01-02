@@ -22,6 +22,7 @@ const pageCollection = defineCollection({
         })
         .optional(),
       thumbnailAlt: z.string().optional(),
+      thumbnailSize: z.string(z.enum(["passage", "content", "breakout"])).optional(),
       status: z.string(z.enum(["draft", "publish"]).default("draft")),
     }),
 });

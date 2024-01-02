@@ -1,37 +1,68 @@
 ---
-import { type CollectionEntry } from "astro:content";
+import "@/styles/layouts/entry.css"
 
-import BaseLayout from "@/layouts/BaseLayout.astro";
+import { type CollectionEntry } from "astro:content"
+
+import BaseLayout from "@/layouts/BaseLayout.astro"
 
 import { Image } from "astro:assets"
 
-const { frontmatter } = Astro.props;
-
-
 type Props = {
-  frontmatter: CollectionEntry<"pageCollection">;
-};
+  frontmatter: CollectionEntry<"pageCollection">
+}
 
+const { frontmatter } = Astro.props
+
+const {
+  title,
+  description,
+  date,
+  dateUpdated,
+  thumbnail,
+  thumbnailAlt,
+  thumbnailSize,
+} = frontmatter.data
 ---
 
-<BaseLayout title={frontmatter.data.title} description={frontmatter.data.description}>
-  <article>
+<BaseLayout
+  title={frontmatter.data.title}
+  description={frontmatter.data.description}
+>
+  <article class="entry section container">
+   
 
-    <div class="hero-image">
+    <figure
+      class={`entry__figure ${
+        thumbnailSize === "breakout"
+          ? "column-breakout"
+          : thumbnailSize === "passage"
+            ? "column-passage"
+            : "column-content"
+      }`}
+    >
       {
-        frontmatter.data.thumbnail && (
-          <Image width={1020} height={510} src={frontmatter.data.thumbnail} alt="" />
+        thumbnail && (
+          <Image
+            class="entry__thumbnail"
+            quality={50}
+            alt=""
+            densities={[1, 2]}
+            src={thumbnail}
+            alt={thumbnailAlt ? thumbnailAlt : ""}
+          />
         )
       }
-    </div>
+    </figure>
 
-    <div class="prose">
-      <div class="title">
-        <h1>{frontmatter.data.title}</h1>
-        <hr />
-      </div>
+
+    <div class="entry__heading">
+      <h1 class="entry__title">{title}</h1>
+    </div>
+    
+    <div class="entry__prose flow container">
       <slot />
     </div>
   </article>
 </BaseLayout>
+
 

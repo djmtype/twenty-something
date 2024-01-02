@@ -6,6 +6,6 @@ type: author
 status: publish
 ---
 
-A little something about me.
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, velit beatae? Quia delectus hic cupiditate itaque? Doloremque ipsam unde maxime incidunt, animi, ad tempore commodi alias, quibusdam dolorum veniam velit.
 
-Plus another thing.
+Doloremque ipsam unde maxime incidunt, animi, ad tempore commodi alias, quibusdam dolorum veniam velit.

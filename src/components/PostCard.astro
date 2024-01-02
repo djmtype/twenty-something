@@ -6,7 +6,8 @@ import { getEntry, type CollectionEntry } from "astro:content"
 import Taxonomy from "@/components/Taxonomy.astro"
 
 type PostOptions = {
-  hideImage?: boolean;
+  hideImage?: boolean
+  style?: string
 };
 
 type Props = {
@@ -15,7 +16,7 @@ type Props = {
 
 
 
-const { post, hideImage } = Astro.props
+const { post, hideImage, style, ...restProps } = Astro.props
 
 
 
@@ -36,7 +37,7 @@ const { data: authorData } = await getEntry("authorCollection", author.slug)
 
 ---
 
-<article class="entry-card">
+<article class="entry-card" style={style} {...restProps}>
   {
     thumbnail && !hideImage && (
       <figure class="entry-card__figure">
@@ -71,14 +72,17 @@ const { data: authorData } = await getEntry("authorCollection", author.slug)
 
 <style>
   .entry-card {
+    --_thumbnail-size: var(--size-content-1);
+    --_summary-size: 60%;
     display: flex;
     flex-wrap: wrap;
     gap: var(--size-fluid-3);
+    align-items: start;
     
   }
 
   .entry-card > *:first-child {
-    flex-basis: var(--size-content-1);
+    flex-basis: var(--_thumbnail-size);
     flex-grow: 1;
 
     
@@ -88,7 +92,7 @@ const { data: authorData } = await getEntry("authorCollection", author.slug)
   .entry-card > *:last-child {
     flex-basis: 0;
     flex-grow: 999;
-    min-inline-size: 60%;
+    min-inline-size: var(--_summary-size);
   }
 
   .entry-card__figure a {

@@ -26,9 +26,15 @@ const { page } = Astro.props;
 
 <BaseLayout title={blog.title || 'Blog'} description={blog.description || site.description}>
 
-  <section class="section">
-    <div class="container">
-      <LayoutGrid className="column-breakout" style="--_column: 30ch; --_row-gap: var(--size-fluid-5); --_align-items: start;">
+  <section class="entry section container">
+    <div class="entry__content column-breakout flow">
+
+      <h1 class="entry__title text--serif">
+        Blog
+      </h1>
+
+
+      <LayoutGrid className="entry__grid">
         {
           page.data.map((post) => <PostCard post={post} />)
         }
@@ -58,3 +64,15 @@ const { page } = Astro.props;
   </section>
 
 </BaseLayout>
+
+<style>
+  .entry__grid {
+    --_column: 30ch; 
+    --_row-gap: var(--size-fluid-5); 
+    --_align-items: start;
+  }
+
+  .entry__content {
+    --_flow: var(--size-fluid-6);
+  }
+</style>

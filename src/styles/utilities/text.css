@@ -17,3 +17,8 @@
 .inline-child--auto > * {
     margin-inline: auto;
 }
+
+.text--serif {
+    font-family: var(--font-serif);
+    font-weight: var(--font-weight-4);
+}

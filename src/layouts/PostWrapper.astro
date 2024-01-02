@@ -1,5 +1,5 @@
 ---
-import "@/styles/layouts/prose.css"
+import "@/styles/layouts/entry.css"
 import { getEntry, type CollectionEntry } from "astro:content"
 import { metafy } from "@/utils/textConverter"
 import Taxonomy from "@/components/Taxonomy.astro"
@@ -91,7 +91,7 @@ const authorData =
       
     </div>
 
-    <footer class="entry__footer section" x-data="{ hasHistory: window.history.length > 1 }">
+    <footer class="entry__footer" x-data="{ hasHistory: window.history.length > 1 }">
       <ul role="list" class="entry__tags">
         {
           tags &&

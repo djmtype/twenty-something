@@ -63,13 +63,21 @@ const {
 
 <style is:global>
   
-  .pagination .pagination__list {
+  .pagination__list {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--size-2);
+    gap: var(--size-3);
+    flex-wrap: wrap;
   }
 
+
+
+
+  .pagination__list > * > * {
+      margin-inline: auto;
+      text-wrap: nowrap;
+  }
 
 
 
@@ -85,11 +93,11 @@ const {
 .pagination [data-icon] {
     width: var(--size-relative-7);
     height: auto;
+    flex: 1 0 auto;
 
     
 }
 .pagination__status {
-  padding-inline: var(--size-2);
   
   color: var(--text-2);
 }

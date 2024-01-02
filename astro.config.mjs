@@ -26,7 +26,7 @@ export default defineConfig({
     sitemap(),
     icon({
       include: {
-        bxs: ["chevron-down", "copy", "check-circle", "error-circle", "sun", "moon", "cog"],
+        bxs: ["chevron-down", "copy", "check-circle", "error-circle", "sun", "moon", "cog", "user"],
         bx: ["chevrons-left", "chevron-left", "chevrons-right", "chevron-right", "right-arrow-alt", "left-arrow-alt"]
       },
     }),

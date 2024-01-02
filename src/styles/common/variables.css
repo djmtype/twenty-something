@@ -18,6 +18,7 @@
   --size-content-4: 72ch;
 --font-weight-bold: var(--font-weight-6);
   --gutter: var(--size-fluid-4);
-
+  --flow-size-0: calc(var(--font-lineheight-0) * 1rem);
+--flow-size-3: calc(var(--font-lineheight-3) * 1rem);
  
 }

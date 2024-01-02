@@ -1,13 +1,12 @@
 ---
 type Props = {
-  maxColumnWidth?: boolean
   style?: string
   className?: string
 }
-const { className, maxColumnWidth, ...restProps } = Astro.props
+const { className, ...restProps } = Astro.props
 ---
 
-<div class={`layout-grid${maxColumnWidth ? ' max-column-width' : ''}${className ? ` ${className}` : ''}`} {...restProps}>
+<div class={`layout-grid${className ? ` ${className}` : ''}`} {...restProps}>
   <slot />
 </div>
 
