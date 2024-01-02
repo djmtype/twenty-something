@@ -30,7 +30,7 @@ const {
 >
   <article class="entry section container">
    
-
+{thumbnail && 
     <figure
       class={`entry__figure ${
         thumbnailSize === "breakout"
@@ -40,8 +40,6 @@ const {
             : "column-content"
       }`}
     >
-      {
-        thumbnail && (
           <Image
             class="entry__thumbnail"
             quality={50}
@@ -50,15 +48,13 @@ const {
             src={thumbnail}
             alt={thumbnailAlt ? thumbnailAlt : ""}
           />
-        )
-      }
     </figure>
-
+  }
 
     <div class="entry__heading">
-      <h1 class="entry__title">{title}</h1>
+      <h1 class="entry__title" style={!thumbnail ? 'font-size: var(--font-size-fluid-3)' : ''}>{title}</h1>
     </div>
-    
+
     <div class="entry__prose flow container">
       <slot />
     </div>

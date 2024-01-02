@@ -1,35 +1,42 @@
 ---
 type Props = {
+  attributionName?: string
+  attributionTitle?: string
   citeName?: string
-  citeTitle?: string,
+  citeUrl?: string
   style?: string
+  addCite?: boolean
 }
 
-const { citeName, citeTitle, style, ...restProps } = Astro.props
+const { attributionName, attributionTitle, citeName, style, citeUrl, addCite, ...restProps } = Astro.props
 ---
 
-<blockquote class="pullquote" style={style} {...restProps}>
+<blockquote class="pullquote" style={style} cite={citeUrl ? citeUrl : ''} {...restProps}>
   <slot />
   {
-    citeName && (
-      <cite>
-        <span class="cite-name">{citeName}</span>
-        {citeTitle && (
-          <Fragment
-            set:html={`<br /><span class="cite-title">${citeTitle}</span>`}
-          />
+    attributionName && (
+      <footer>
+        <span class="pullquote__attribution-name">{attributionName}</span> 
+        {attributionTitle && (
+          <br />
+          <span class="pullquote__attribution-title">{attributionTitle}</span>
         )}
-      </cite>
+        {citeName && (
+          <br />
+          <cite class="pullquote__cite">{citeName}</cite>
+        )}
+      </footer>
     )
   }
 </blockquote>
 
 <style is:global>
   .pullquote {
-    --_text: var(--surface-0);
+    --_text: var(--surface-overlay);
 --_quote-size: var(--font-size-6);
---_cite-name-size: var(--font-size-2);
---_cite-title-size: var(--font-size-1);
+--_attribution-name-size: var(--font-size-2);
+--_attribution-title-size: var(--font-size-1);
+--_cite-size: var(--font-size-1);
 
     color: var(--_text);
     border: 0;
@@ -49,23 +56,21 @@ const { citeName, citeTitle, style, ...restProps } = Astro.props
     position: relative;
     line-height: var(--font-lineheight-1);
 
-    &::before {
-      content: "\201C";
-    }
-    &::after {
-      content: "\201D";
-    }
+    
   }
 
-  .pullquote cite {
-    font-style: normal;
-  }
-  .pullquote .cite-name {
-    font-size: var(--_cite-name-size);
+ 
+ .pullquote__attribution-name {
+    font-size: var(--_attribution-name-size);
   }
 
-  .pullquote .cite-title {
-    font-size: var(--_cite-title-size);
+  .pullquote__attribution-title {
+    opacity: 0.7;
+    font-size: var(--_attribution-title-size);
+  }
+
+ .pullquote__cite {
+    font-size: var(--_cite-size);
     opacity: 0.7;
   }
 </style>

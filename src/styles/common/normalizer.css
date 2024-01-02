@@ -46,7 +46,7 @@
   }
 
   :where(:not(pre) > code) {
-    background: var(--surface-0);
+    background: var(--surface-overlay);
   }
   
 
@@ -85,9 +85,15 @@
 }
 
 :where(table tr:hover td), :where(tbody tr:nth-child(even):hover td) {
-  background-color: var(--surface-0);
+  background-color: var(--surface-overlay);
 }
 
+:where(:not(blockquote) > cite) {
+  padding-inline-start: 0;
+}
 
+:where(blockquote, :not(blockquote) > cite) {
+  border: none;
+}
 
   
