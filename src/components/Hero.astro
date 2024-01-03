@@ -7,6 +7,7 @@
 <style is:global>
   .hero * {
     text-align: center;
+    margin-inline: auto;
   }
 
   .hero :is(h1, h2) {
@@ -14,7 +15,15 @@
     max-inline-size: var(--size-header-2);
   }
 
-  .hero * {
-    margin-inline: auto;
+  .hero figure, .hero figure + * {
+    --_flow: var(--size-10);
   }
+
+  .hero img {
+    border-radius: var(--radius-3);
+    overflow: hidden;
+  }
+
+
+
 </style>

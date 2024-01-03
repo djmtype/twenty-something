@@ -9,14 +9,14 @@
   --_size: initial;
   --_display: inline-flex;
 --_gap: var(--size-relative-2);
-  --_border: var(--_bg);
+  --_border: var(--_surface);
   
   gap: var(--_gap);
   display: var(--_display);
  text-align: center;
   text-decoration: none;
   font-size: var(--_size);
-  background: var(--_bg);
+  background: var(--_surface);
   color: var(--_text);
   border: var(--border-size-2) solid var(--_border);
 
@@ -26,8 +26,8 @@
   border-radius: var(--radius-2);
 
   &:where(:not(:active):hover), &:where(:not(:active):focus-visible) {
-    background: var(--_bg-hover);
-    border-color: var(--_bg-hover);
+    background: var(--_surface-hover);
+    border-color: var(--_surface-hover);
   }
   &:where(:active) {
     transform: scale(0.98);
@@ -35,37 +35,37 @@
   }
  transition: 250ms all;
   --_text: var(--_text-light);
-  --_bg: var(--_bg-light);
+  --_surface: var(--_surface-light);
 
-  --_bg-hover: var(--_bg-hover-light);
+  --_surface-hover: var(--_surface-hover-light);
 
 
 
   @media (--OSdark) {
     --_text: var(--_text-dark);
-    --_bg: var(--_bg-dark);
-    --_bg-hover: var(--_bg-hover-dark);
+    --_surface: var(--_surface-dark);
+    --_surface-hover: var(--_surface-hover-dark);
   }
 
 }
 
 button:not([class="btn"]), .btn--default {
-  --_bg-light: var(--gray-11);
+  --_surface-light: var(--gray-11);
   --_text-light: var(--gray-1);
-  --_bg-hover-light: var(--gray-7);
+  --_surface-hover-light: var(--gray-7);
 
-  --_bg-dark: var(--gray-2);
+  --_surface-dark: var(--gray-2);
   --_text-dark: var(--gray-11);
-  --_bg-hover-dark: var(--gray-0);
+  --_surface-hover-dark: var(--gray-0);
 
 
 
 }
 
 .btn--accent {
-  --_bg: var(--brand);
+  --_surface: var(--brand);
   --_text: var(--surface-1);
-  --_bg-hover: var(--link-hover);
+  --_surface-hover: var(--link-hover);
 
 }
 
@@ -74,8 +74,8 @@ button:not([class="btn"]), .btn--default {
 .light {
   & .btn--default, & button:not([class]) {
   --_text: var(--_text-light);
-  --_bg: var(--_bg-light);
-  --_bg-hover: var(--_bg-hover-light);
+  --_surface: var(--_surface-light);
+  --_surface-hover: var(--_surface-hover-light);
 
 }
 }
@@ -83,8 +83,8 @@ button:not([class="btn"]), .btn--default {
 .dark {
   & .btn--default, & button:not([class]) {
   --_text: var(--_text-dark);
-  --_bg: var(--_bg-dark);
-  --_bg-hover: var(--_bg-hover-dark);
+  --_surface: var(--_surface-dark);
+  --_surface-hover: var(--_surface-hover-dark);
 
 }
 }
@@ -92,7 +92,7 @@ button:not([class="btn"]), .btn--default {
 button, .btn {
   &[disabled], &.disabled {
     opacity: .7;
-    --_bg-hover: var(--_bg); 
+    --_surface-hover: var(--_surface); 
   }
 }
 
@@ -100,7 +100,7 @@ button, .btn {
   button, .btn {
     &[disabled], &.disabled {
       opacity: .7;
-      --_bg-hover: var(--_bg); 
+      --_surface-hover: var(--_surface); 
     }
   }
 }

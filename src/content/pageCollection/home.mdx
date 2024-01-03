@@ -7,16 +7,29 @@ thumbnailAlt: A description of this photo
 status: publish
 slug: home
 ---
-
+import Group from "@/components/Group.astro"
+import Container from "@/components/Container.astro"
+import Column from "@/components/Column.astro"
 import Heading from "@/components/Heading.astro";
 import Card from "@/components/Card.astro";
 import Grid from "@/components/Grid.astro";
+import LayoutGrid from "@/components/LayoutGrid.astro";
 import List from "@/components/List.astro";
-import Blockquote from "@/components/Blockquote.astro";
+import Testimonial from "@/components/Testimonial.astro";
 import PostList from "@/components/PostList.astro";
 import NewsletterSignup from "@/components/NewsletterSignup.astro";
 import ButtonLink from "@/components/ButtonLink.astro";
 import Hero from "@/components/Hero.astro";
+import Figure from "@/components/Figure.astro";
+
+<Group type="section" container>
+  <Column name="passage" flow>
+  # Hello World!
+  
+  This is a sentence
+  </Column>
+</Group>
+
 
 <Hero>
 
@@ -26,22 +39,24 @@ import Hero from "@/components/Hero.astro";
 
 <ButtonLink variant="accent" href="/about">About us</ButtonLink>
 
-<figure class="column-breakout">![Building exterior in Toronto, Canada](../../assets/uploads/building-exterior.webp)</figure>
+<Figure containerColumn="column-breakout">![Building exterior in Toronto, Canada](../../assets/uploads/building-exterior.webp)</Figure>
 
 </Hero>
 
-<section class="section flow" style="--_bg: var(--surface-overlay); --_padding-block: var(--size-fluid-6); --_flow: var(--size-fluid-5)">
+<section class="section flow" style="--_surface: var(--surface-overlay); --_flow: var(--size-fluid-5)">
 
-<div class="container flow text--center inline-child--auto" style="--_flow: initial">
+<Container flow flowSize="initial" className="text-center margin-inline-auto">
+
     <Heading fontSize="6" textAlign="center">
     ## A passion for creating spaces
     </Heading>
     Our comprehensive suite of professional services caters to a diverse clientele, ranging from homeowners to commercial developers.
-</div>
 
+</Container>
 
-
-    <Grid style="--_container-column: column-breakout; --_column: 30ch; --_row-gap: var(--size-8);">
+<Container>
+<Column name="breakout">
+    <LayoutGrid style="--_column: 30ch; --_row-gap: var(--size-8);">
         <Card>
         <Heading fontFamily="sans-serif" fontSize="2" fontWeight="bold">
         ### Renovation and restoration
@@ -86,14 +101,16 @@ Experience the fusion of imagination and expertise with Études Architectural So
         </Heading>
         Experience the fusion of imagination and expertise with Études Architectural Solutions.
         </Card>
-    </Grid>
+    </LayoutGrid>
+    </Column>
+    </Container>
 </section>
 
 
 
 <section class="section flow" style="--_padding-block: var(--size-fluid-6); --_flow: var(--size-fluid-5)">
 
-<div class="container flow text--center inline-child--auto" style="--_flow: initial">
+<div class="container flow text-center margin-inline-auto" style="--_flow: initial">
     <Heading fontSize="6" textAlign="center">
     ## An array of resources
     </Heading>
@@ -131,11 +148,10 @@ Experience the fusion of imagination and expertise with Études Architectural So
   </Grid>
 </section>
 
-<section class="section flow container" style="--_padding-block: var(--size-fluid-6); --_flow: var(--size-fluid-5); --_bg: var(--brand);">
-<Blockquote addCite attributionName="Annie Steiner" attributionTitle="CEO, Greenprint">
+
+<Testimonial authorName="Annie Steiner" jobTitle="CEO" organization="Greenprint" style="--_text: var(--surface-overlay); --_surface: var(--brand)">
 Études has saved us thousands of hours of work and has unlocked insights we never thought possible.
-</Blockquote>
-</section>
+</Testimonial>
 
 <section class="section flow container" style="--_padding-block: var(--size-fluid-6); --_flow: var(--size-fluid-5);">
 <PostList>

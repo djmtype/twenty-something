@@ -2,16 +2,17 @@
 type Props = {
     frame?: boolean
     caption?: string
+    className?: string
     containerColumn: 'column-content' | 'column-breakout' | 'column-full'
 }
 
-const { frame, caption, containerColumn } = Astro.props
+const { frame, caption, className, containerColumn } = Astro.props
 ---
 
-<figure class:list={[`prose__figure`, frame ? `frame` : null]} 
+<figure class:list={[className, frame ? `figure--frame` : null]} 
 style={{
     '--_container-column': containerColumn || 'column-content', 
-    borderRadius: frame && containerColumn !== 'column-full' ? 'var(--radius-3)' : '',
+    borderRadius: frame && containerColumn !== 'column-full' ? 'var(--radius-4)' : '',
   }}>
     <slot />
     <slot name="figcaption"/>
@@ -19,3 +20,10 @@ style={{
         <figcaption>{caption}</figcaption>
     )}
 </figure>
+
+<style>
+      .figure--frame {
+    background-color: var(--surface-overlay);
+    padding: var(--gutter);
+  }
+</style>

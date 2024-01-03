@@ -105,10 +105,7 @@
 
 
   
-  .frame {
-    background-color: var(--surface-overlay);
-    padding: var(--gutter);
-  }
+
   
   .entry__footer {
     margin-block-start: var(--size-fluid-5);

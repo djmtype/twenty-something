@@ -1,21 +1,32 @@
 ---
 type Props = {
-    type: 'div' | 'section',
-    styles?: string
-    class: string
+  type: "div" | "section"
+  style?: string
+  className?: string
+  container?: boolean
+  flow?: boolean
 }
 
-const { type = 'div', styles, ...restProps} = Astro.props
+const { type = "div", container, flow, className, style, ...restProps } = Astro.props
 
 let GROUP = `${type}` as any
 ---
 
-<GROUP class={`group ${restProps.class ? restProps.class : ''}`} style={styles}><slot /></GROUP>
-
+<GROUP
+  class:list={[`group`, container ? "container" : "", flow ? "flow" : "", className ? className : ""]}
+  style={style}
+  {...restProps}
+>
+  <slot />
+</GROUP>
 
 <style>
-   .group {
-        padding-block-start: var(--_padding-block-start, var(--size-fluid-5));
-        padding-block-end: var(--_padding-block-end, var(--size-fluid-5));
-    }
+  .group {
+    --_size-start: var(--size-fluid-6);
+    --_size-end: var(--size-fluid-6);
+    --_surface: initial;
+    padding-block-start: var(--_size-block, var(--_size-start));
+    padding-block-end: var(--_size-block, var(--_size-end));
+    background: var(--_surface);
+  }
 </style>

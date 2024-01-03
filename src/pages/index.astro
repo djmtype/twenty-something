@@ -1,36 +1,16 @@
 ---
-import { getEntry } from 'astro:content';
+import { getEntry } from "astro:content"
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 
-
-const home = await getEntry('pageCollection', 'home');
+const home = await getEntry("pageCollection", "home")
 
 const title = SITE_TITLE
 const description = SITE_DESCRIPTION
-const { Content } = await home.render();
-
+const { Content } = await home.render()
 ---
 
 <BaseLayout title={title} description={description}>
-
- 
-    <Content />
-
+  <Content />
 </BaseLayout>
-
-<style is:global lang="postcss">
- 
-
-  img {
-    border-radius: var(--radius-3);
-    overflow: hidden;
-  }
-
-  figure, figure + * {
-    --_flow: var(--size-9);
-  }
-
- 
-</style>

@@ -1,0 +1,13 @@
+---
+type Props = {
+  className?: string
+  flow?: boolean
+  flowSize?: string
+}
+
+const { className, flow, flowSize, ...restProps } = Astro.props
+---
+
+<div class:list={['container', flow ? 'flow' : '', className]} style={flowSize ? `--_flow: ${flowSize};` : ''} {...restProps}>
+  <slot />
+</div>

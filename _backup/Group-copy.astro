@@ -1,0 +1,25 @@
+---
+type Props = {
+    type: 'div' | 'section',
+    style?: string
+    class: string
+}
+
+const { type = 'div', style, ...restProps} = Astro.props
+
+let GROUP = `${type}` as any
+---
+
+<GROUP class={`group ${restProps.class ? restProps.class : ''}`} style={style}><slot /></GROUP>
+
+
+<style>
+   .group {
+    --_size-start: var(--size-fluid-6);
+    --_size-end: var(--size-fluid-6);
+    --_surface: initial;
+    padding-block-start: var(--_size-block, var(--_size-start));
+    padding-block-end: var(--_size-block, var(--_size-end));
+    background: var(--_surface);
+    }
+</style>

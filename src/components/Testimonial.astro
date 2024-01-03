@@ -1,0 +1,91 @@
+---
+type Props = {
+  authorName?: string
+  jobTitle?: string
+  organization?: string
+  style?: string
+}
+
+const { authorName, jobTitle, style, organization, ...restProps } = Astro.props
+---
+
+<section
+  itemscope
+  itemtype="http://schema.org/Quote"
+  class="testimonial section flow container"
+  style={style}
+  {...restProps}
+>
+  <blockquote class="testimonial__quote">
+    <slot />
+  <footer class="testimonial__footer">
+    {
+      authorName && (
+        <cite class="testimonial__cite" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="testimonial__author" itemprop="name">{authorName}</span>{jobTitle ? `, ` : null}
+        {jobTitle ? <span itemprop="jobTitle">{jobTitle}</span> : ''}
+      </cite>
+      )
+    }
+{organization && (
+<span class="testimonial__affiliation" itemprop="affiliation" itemscope itemtype="http://schema.org/Organization">
+  <span itemprop="name">{organization}</span>
+</span>
+)}
+
+  </footer>
+  </blockquote>
+</section>
+
+<style is:global>
+  .testimonial {
+    --_text: initial;
+    --_surface: initial;
+    --_font-size-quote: var(--font-size-6);
+    --_font-size-author: var(--font-size-2);
+    --_font-size-affiliation: var(--font-size-1);
+
+    background: var(--_surface);
+    text-align: center;
+    
+  }
+
+  .testimonial{
+    color: var(--_text);
+  }
+
+  .testimonial__quote {
+    max-inline-size: var(--size-content-4);
+    padding-block: unset;
+    padding-inline: unset;
+    border: 0;
+    margin-inline: auto;
+    display: grid;
+    gap: var(--size-fluid-5);
+  }
+
+  .testimonial__quote p {
+    font-family: var(--font-serif);
+    font-size: var(--_font-size-quote);
+    font-style: italic;
+    position: relative;
+    line-height: var(--font-lineheight-1);
+  }
+
+  .testimonial__cite {
+    font-style: normal;
+  }
+
+  .testimonial__author {
+    font-size: var(--_font-size-author);
+  }
+
+  .testimonial__affiliation {
+    display: block;
+    opacity: 0.7;
+    font-size: var(--_font-size-name);
+  }
+
+
+
+</style>

@@ -1,24 +1,20 @@
-.text--center {
+.text-center {
     text-align: center;
 }
 
-.text--left {
+.text-left {
     text-align: left;
 }
 
-.text--right {
+.text-right {
     text-align: right;
 }
 
-.inline--auto > * {
+.margin-inline-auto > * {
     margin-inline: auto;
 }
 
-.inline-child--auto > * {
-    margin-inline: auto;
-}
-
-.text--serif {
+.text-serif {
     font-family: var(--font-serif);
     font-weight: var(--font-weight-4);
 }
