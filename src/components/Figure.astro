@@ -1,19 +1,20 @@
 ---
 type Props = {
-    frame?: boolean
+    hasFrame?: boolean
     caption?: string
     className?: string
-    containerColumn: 'column-content' | 'column-breakout' | 'column-full'
+    columnName?: "passage" | "content" | "breakout" | "full"
+    hasRadius?: boolean
+    style?: string
 }
 
-const { frame, caption, className, containerColumn } = Astro.props
+const { hasFrame, caption, className, columnName, hasRadius, style } = Astro.props
+
+const styles = `${columnName ? `--_container-column: column-${columnName};` : ""} ${hasRadius ? `--_radius: var(--radius-3)` : ""} ${style || ""}`
 ---
 
-<figure class:list={[className, frame ? `figure--frame` : null]} 
-style={{
-    '--_container-column': containerColumn || 'column-content', 
-    borderRadius: frame && containerColumn !== 'column-full' ? 'var(--radius-4)' : '',
-  }}>
+<figure class:list={[`figure`, className, hasFrame ? `figure--frame` : null]} 
+style={styles}>
     <slot />
     <slot name="figcaption"/>
     {caption && (
@@ -21,7 +22,18 @@ style={{
     )}
 </figure>
 
-<style>
+<style is:global>
+  .figure {
+    --_radius: initial;
+    
+  }
+
+  .figure img {
+    border-radius: var(--_radius);
+  }
+  </style>
+
+  <style>
       .figure--frame {
     background-color: var(--surface-overlay);
     padding: var(--gutter);

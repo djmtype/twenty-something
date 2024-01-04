@@ -1,8 +1,7 @@
 .section {
-    --_size-start: var(--size-fluid-6);
-    --_size-end: var(--size-fluid-6);
-    --_surface: initial;
-    padding-block-start: var(--_size-block, var(--_size-start));
-    padding-block-end: var(--_size-block, var(--_size-end));
+    --_padding-top: var(--size-fluid-6);
+    --_padding-bottom: var(--size-fluid-6);
+    padding-block-start: var(--_padding, var(--_padding-top));
+    padding-block-end: var(--_padding, var(--_padding-bottom));
     background: var(--_surface);
 }

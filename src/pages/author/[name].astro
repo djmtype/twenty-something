@@ -48,13 +48,13 @@ const postFilterByAuthor = posts.filter(
   title={`Author Profile: ${name}`}
   description={description ?? `A list of posts by ${name}`}
 >
-  <section class="section">
+  <section class="section" style="--_padding: var(--size-fluid-4);">
     <div class="container">
       {
         description && (
           <div class="column-breakout">
-            <Testimonial style="--_text: var(--text-1); --_quote-size: var(--font-size-fluid-2);">
-              <p>{description}</p>
+            <Testimonial style="--_text: var(--text-1); --_font-size-quote: var(--font-size-fluid-2);">
+              <p set:html={description} />
             </Testimonial>
           </div>
         )

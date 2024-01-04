@@ -1,6 +1,6 @@
 ---
 name: Scott Rod
-description: I am a writer of things.
+description: I write about finance, management and economy, my book <a href="#0">Money Studies</a> is out now.
 slug: scott-rod
 type: author
 status: publish
