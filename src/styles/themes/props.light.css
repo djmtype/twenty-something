@@ -3,6 +3,7 @@ html {
   --brand-2-light: var(--blue-9);
   --text-1-light: var(--gray-9);
   --text-2-light: var(--gray-8);
+  --text-overlay-light: var(--gray-0);
   --text-muted-light: var(--gray-7);
   --surface-overlay-light: var(--gray-0);
   --surface-0-light: var(--gray-0);
@@ -28,6 +29,7 @@ html {
   --brand-2: var(--brand-2-light);
   --text-1: var(--text-1-light);
   --text-2: var(--text-2-light);
+  --text-overlay: var(--text-overlay-light);
   --text-muted: var(--text-muted-light);
   --surface-overlay: var(--surface-overlay-light);
   --surface-0: var(--surface-0-light);

@@ -1,8 +1,10 @@
 <div class="list"><slot /></div>
 
 <style is:global>
-  .list ul {
+  .list {
     --checkmark: "\2713";
+  }
+  .list ul {
     padding-left: 1em;
     list-style-type: var(--_marker, var(--checkmark));
     & > li {

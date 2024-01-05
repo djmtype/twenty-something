@@ -88,12 +88,26 @@
   background-color: var(--surface-overlay);
 }
 
+:where(blockquote:not([class]) br) {
+  display: none;
+}
+
+:where(blockquote) {
+  max-inline-size: inherit;
+}
+
+/* :where(blockquote) {
+    padding-block: unset;
+    padding-inline: unset;
+    max-inline-size: unset;
+}
+
 :where(:not(blockquote) > cite) {
-  padding-inline-start: 0;
+  padding-inline-start: unset;
 }
 
 :where(blockquote, :not(blockquote) > cite) {
-  border: none;
-}
+  border: unset;
+} */
 
   

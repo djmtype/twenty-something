@@ -16,7 +16,6 @@ const styles = `${columnName ? `--_container-column: column-${columnName};` : ""
 <figure class:list={[`figure`, className, hasFrame ? `figure--frame` : null]} 
 style={styles}>
     <slot />
-    <slot name="figcaption"/>
     {caption && (
         <figcaption>{caption}</figcaption>
     )}

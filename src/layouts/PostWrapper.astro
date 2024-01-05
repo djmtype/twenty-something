@@ -64,7 +64,7 @@ const authorData =
       }
     </figure>
 
-    <div class="entry__heading flow">
+    <div class="entry__heading column-passage flow">
       <h1 class="entry__title">{title}</h1>
       <div class="entry__meta">
         <span class="entry__date">
@@ -72,7 +72,7 @@ const authorData =
           {
             dateUpdated && (
               <span class="entry__date-updated">
-                Last updated on <FormattedDate date={dateUpdated} />
+                (Last updated on <FormattedDate date={dateUpdated} />)
               </span>
             )
           } — by {
@@ -85,7 +85,7 @@ const authorData =
     </div>
 
     <div
-      class="entry__prose flow container"
+      class="entry__prose flow container column-full"
     >
       <slot />
       
