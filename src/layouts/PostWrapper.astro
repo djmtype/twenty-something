@@ -6,8 +6,8 @@ import Taxonomy from "@/components/Taxonomy.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import FormattedDate from "@/components/FormattedDate.astro"
 import { Image } from "astro:assets"
-import StyledLink from "@/components/StyledLink.astro"
-import { Icon } from 'astro-icon/components';
+
+import BackLink from "@/components/BackLink.astro"
 
 type AuthorData = {
   author: {
@@ -91,7 +91,7 @@ const authorData =
       
     </div>
 
-    <footer class="entry__footer" x-data="{ hasHistory: window.history.length > 1 }">
+    <footer class="entry__footer">
       <ul role="list" class="entry__tags">
         {
           tags &&
@@ -105,19 +105,8 @@ const authorData =
 
 
       <div class="entry__back">
-
-        <StyledLink x-show="hasHistory">
-          <Icon name="bx:left-arrow-alt" style="color: var(--link)" /> <a role="button" href="#0" @click.prevent="window.history.back()">Go Back</a>
-        </StyledLink>
-      
-     
-      <StyledLink x-show="!hasHistory">
-        <Icon name="bx:left-arrow-alt" style="color: var(--link)" /> <a href="/blog"> Go Back</a>
-      </StyledLink>
-         
-      
-
-    </div>
+        <BackLink />
+      </div>
       
     </footer>
   </article>

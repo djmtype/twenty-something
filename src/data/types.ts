@@ -29,6 +29,7 @@ type Settings = {
   type Blog = {
     title: string;
     description: string;
+    pageSize: number
   }
   
   // Define types for the "metadata" object

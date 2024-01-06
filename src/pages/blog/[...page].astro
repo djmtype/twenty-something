@@ -1,4 +1,7 @@
 ---
+import type { ConfigObj } from '@/data/types';
+import config from "@/data/config.json"
+
 import type { GetStaticPaths } from "astro"
 import { getCollection } from "astro:content"
 import { site, blog } from "@/data/config.json";
@@ -15,7 +18,7 @@ export const getStaticPaths = (async ({ paginate }) => {
   const postCollection = await getCollection("postCollection")
   const allPosts = sortByDate(postCollection);
   const posts = filterByStatus(allPosts)
-  return paginate(posts, { pageSize: 3 })
+  return paginate(posts, { pageSize: config.blog.pageSize || 3 })
 }) satisfies GetStaticPaths
 
 
@@ -44,10 +47,11 @@ const { page } = Astro.props;
     
   </section>
 
+  {
+    page.lastPage > 1 && (
   <section class="section" style="--_size-end: var(--size-fluid-7);">
     <div class="container" style="--_container-column: column-breakout">
-      {
-        page.lastPage > 1 && (
+      
           <Pagination
             firstPage={page.url.prev ? "/blog" : null}
             previousPage={page.url.prev ? page.url.prev : null}
@@ -58,10 +62,11 @@ const { page } = Astro.props;
             currentPage={page.currentPage}
             totalPages={Math.round(page.total / page.size)}
           />
-        )
-      }
+       
     </div>
   </section>
+  )
+      }
 
 </BaseLayout>
 

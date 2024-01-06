@@ -43,6 +43,11 @@
           "type": "string"
         },
         {
+          "title": "thumbnail size",
+          "name": "thumbnailSize",
+          "type": "string"
+        },
+        {
           "name": "author",
           "type": "contentRelationship",
           "contentTypeName": "author",
@@ -92,6 +97,23 @@
           "title": "description",
           "name": "description",
           "type": "string"
+        },
+        {
+          "title": "type",
+          "name": "type",
+          "type": "string"
+        },
+        {
+          "title": "thumbnail",
+          "name": "thumbnail",
+          "type": "image",
+          "isPreviewImage": true
+        },
+        {
+          "title": "status",
+          "name": "status",
+          "type": "draft",
+          "default": "draft"
         }
       ]
     }
@@ -253,6 +275,10 @@
                 "type": "string",
                 "title": "Description",
                 "multiline": true
+              },
+              "pageSize": {
+                "type": "number",
+                "title": "Page Size"
               }
             }
           }

@@ -20,7 +20,8 @@
   },
   "blog": {
     "title": "The Blog",
-    "description": "A blog for all occassions"
+    "description": "A blog for all occassions",
+    "pageSize": 6
   },
   "metadata": {
     "ogTitle": "",

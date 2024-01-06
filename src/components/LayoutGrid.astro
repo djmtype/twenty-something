@@ -11,7 +11,7 @@ const { className, ...restProps } = Astro.props
 </div>
 
 
-<style>
+<style is:global>
   .layout-grid {
     --_column: var(--size-content-2);
     --_column-gap: var(--gutter);

@@ -1,0 +1,22 @@
+---
+import BackLink from "@/components/BackLink.astro"
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts"
+import BaseLayout from "@/layouts/BaseLayout.astro"
+
+
+
+const title = '404' + SITE_TITLE
+const description = SITE_DESCRIPTION
+
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="section">
+    <div class="container flow">
+      <h1>Error 404</h1>
+      <p>I don't know how you got here, but go back from whence you came.</p>
+
+      <BackLink />
+    </div>
+  </section>
+</BaseLayout>
