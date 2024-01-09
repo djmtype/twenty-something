@@ -7,67 +7,87 @@
       "previewPath": null,
       "fields": [
         {
-          "title": "title",
+          "title": "Title",
           "name": "title",
-          "type": "string"
+          "type": "string",
+          "required": true,
+          "single": true
         },
         {
-          "title": "slug",
+          "title": "Slug",
           "name": "slug",
           "type": "slug",
           "editable": true,
-          "default": "{{slug}}"
+          "default": "{{slug}}",
+          "required": true
         },
         {
-          "title": "description",
+          "title": "Description",
           "name": "description",
-          "type": "string"
+          "type": "string",
+          "required": true
         },
         {
-          "title": "date",
+          "title": "Date",
           "name": "date",
           "type": "datetime",
           "default": "{{now}}",
           "isPublishDate": true,
-          "dateFormat": "YYYY-MM-DD"
+          "dateFormat": "YYYY-MM-DD",
+          "required": true
         },
         {
-          "title": "thumbnail",
+          "title": "Date Updated",
+          "name": "dateUpdated",
+          "type": "datetime",
+          "isModifiedDate": true
+        },
+        {
+          "title": "Thumbnail",
           "name": "thumbnail",
           "type": "image",
           "isPreviewImage": true
         },
         {
-          "title": "thumbnail alt text",
+          "title": "Thumbnail Alternative Text",
           "name": "thumbnailAlt",
-          "type": "string"
+          "type": "string",
+          "single": true
         },
         {
-          "title": "thumbnail size",
+          "title": "Thumbnail Size",
+          "description": "Default size is programmatically set to content",
           "name": "thumbnailSize",
-          "type": "string"
+          "type": "choice",
+          "choices": [
+            "passage",
+            "content",
+            "breakout",
+            "full"
+          ]
         },
         {
           "name": "author",
+          "title": "Author",
           "type": "contentRelationship",
           "contentTypeName": "author",
           "contentTypeValue": "slug",
           "required": false
         },
         {
-          "title": "categories",
+          "title": "Categories",
           "name": "categories",
           "type": "categories",
           "taxonomyLimit": 1
         },
         {
-          "title": "tags",
+          "title": "Tags",
           "name": "tags",
           "type": "tags",
           "taxonomyLimit": 6
         },
         {
-          "title": "status",
+          "title": "Status",
           "name": "status",
           "type": "draft",
           "default": "draft"
@@ -80,37 +100,40 @@
       "previewPath": null,
       "fields": [
         {
-          "title": "name",
+          "title": "Name",
           "name": "name",
           "type": "string",
           "default": "{{title}}",
-          "single": true
+          "required": true
         },
         {
-          "title": "slug",
+          "title": "Slug",
           "name": "slug",
           "type": "slug",
           "editable": true,
-          "default": "{{slug}}"
+          "default": "{{slug}}",
+          "required": true
         },
         {
-          "title": "description",
+          "title": "Description",
           "name": "description",
-          "type": "string"
+          "type": "string",
+          "required": true
         },
         {
-          "title": "type",
+          "title": "Type",
           "name": "type",
-          "type": "string"
+          "type": "string",
+          "single": true
         },
         {
-          "title": "thumbnail",
+          "title": "Thumbnail",
           "name": "thumbnail",
           "type": "image",
           "isPreviewImage": true
         },
         {
-          "title": "status",
+          "title": "Status",
           "name": "status",
           "type": "draft",
           "default": "draft"

@@ -1,10 +1,10 @@
 ---
-title: 'Second post'
-description: 'Lorem ipsum dolor sit amet'
-date: '2022-07-02'
-thumbnail: '../../assets/uploads/blog-placeholder-4.jpg'
-thumbnailAlt: 'For placement only'
-author: scott-rod
+title: Second post
+description: Lorem ipsum dolor sit amet
+date: 2022-07-02
+thumbnail: ../../assets/uploads/blog-placeholder-4.jpg
+thumbnailAlt: For placement only
+author: jimmy-stakes
 slug: second-post
 tags:
   - vue
