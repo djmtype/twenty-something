@@ -60,6 +60,7 @@
           "name": "thumbnailSize",
           "type": "choice",
           "choices": [
+            "",
             "passage",
             "content",
             "breakout",

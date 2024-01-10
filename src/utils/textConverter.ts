@@ -1,12 +1,20 @@
 import { slug } from "github-slugger";
 import { marked } from "marked";
-
+import smartypants from 'smartypants';
 
 
 // slugify
 export const slugify = (content: string) => {
   return slug(content);
 };
+
+
+// smartify
+export const smartify = (content: string) => {
+  return smartypants(content);
+};
+
+
 
 
 

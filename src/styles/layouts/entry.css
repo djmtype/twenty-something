@@ -144,3 +144,42 @@ p:has(> img:nth-child(1)) {
 p:has(> img:nth-child(1)) img {
   margin-inline: auto;
 }
+
+/* blockquote.callout {
+  background: var(--surface-2);
+
+}
+
+.callout-title {
+  font-size: var(--font-size-3);
+  }
+
+.callout-title > * {
+font-size: 1em;
+
+}
+
+.callout-title svg {
+  height: 1em;
+  width: 1em;
+  
+  }
+
+.callout.note {
+  color: var(--brand);
+}
+
+.callout-icon {
+  color: currentColor !important;
+}
+
+.callout-content {
+  color: var(--text-1);
+}
+
+.callout-title {
+  font-weight: var(--font-weight-bold);
+  display: flex;
+    align-items: center;
+    gap: var(--size-relative-2);
+} */
