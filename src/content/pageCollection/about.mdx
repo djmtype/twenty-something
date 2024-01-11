@@ -1,0 +1,268 @@
+---
+title: About
+date: 2022-07-15
+description: Lorem ipsum dolor sit amet
+thumbnail: ../../assets/uploads/blog-placeholder-2.jpg
+thumbnailAlt: A description of this photo
+status: publish
+slug: about
+---
+
+## Overview
+
+In the beginning, Wordpress was the *defacto* content management tool. Now, 20-something years later, you may not need Wordpress. In fact, your site could be less expensive to run, and more secure without it. The purpose of this tutorial is to migrate your current Wordpress content into a markdown CMS (Content Management System). The CMS includes a WYSIWYG (What You See Is What You Get) toolbar, therefore, no knowledge of markdown is required. Although, you'll soon realize markdown is a super simple, flexible language to comprehend.
+
+Understand, this approach might not be for everyone. If you are a writer who mostly writes long form content, then stick around. Regardless, this tutorial will intentionally try to avoid using the Terminal or Command Line. 
+
+The setup instructions will cover running the CMS locally, although it's possible to edit content remotely, too.
+
+## Requirements 
+
+Don't feel deterred by the number of software packages and accounts required for this tutorial. My goal was to be thorough for those just starting out. 
+
+### Software
+
+The software required to run this CMS is free and/or open source.
+
+#### [WP Gatsby Markdown Exporter](https://wordpress.org/plugins/wp-gatsby-markdown-exporter/)
+
+A plugin for Wordpress which makes exporting your content a breeze. Don't be fooled by its name nor the warning for not being compliant with Wordpress 6.4.x. This plugin still works today – created by the folks of [Tina](https://tina.io) – another great markdown CMS. The plugin exports pages, posts, or other post types as markdown files. 
+
+#### [NodeJS](https://nodejs.org)
+
+The software package is necessary to test and preview your site on your local computer. Install the LTS version, or at least version 20.x.x. [A list of all downloads](https://nodejs.org/en/download/)
+
+#### [Github Desktop](https://desktop.github.com/)
+
+While this app won't be used often, it's required for authenticating changes and revisions with your project. Using this app, instead, avoids trips to the Command Line.
+
+#### [Microsoft Visual Studio (VS Code)](https://code.visualstudio.com/)
+
+Although, this software might be targeted at developers, with predefined settings along with the help of the FrontMatter extension, VS Code will look more simplified and comprehensible.
+
+#### [FrontMatter for VS Code](https://frontmatter.codes/)
+
+This is the extension that helps turn VS Code into a visual CMS by adding a dashboard, content fields, and live preview. 
+
+### Accounts
+
+The services below are free, or offer a generous free tier. Personally, I never had to pay for either service.
+
+#### [Github](https://github.com/)
+
+Github will be used to store and manage content, and track changes. [Account signup](https://github.com/signup)
+
+#### [Netlify](https://www.netlify.com/)
+
+Netlify will be used to deploy your project to the world. Netlify automatically serves your content over a CDN (Content Delivery Network), which simply means, your content loads closest to your visitor. 
+
+When ever changes are made to your project and published, Netlify will automatically regenerate your website. Sign up using your Github account to save yourself a step later on in the process.
+
+### Project Theme
+
+#### *Twenty Something* Theme
+
+The *Twenty Something* theme serves as a jumping-off point. VS Code's project settings, FrontMatter's configuration, and project setup are all defined. This theme leverages [Astro](https://astro.build/) in a big way. [More about the theme](https://github.com/djmtype/twenty-something)
+
+Although, Astro is my framework of choice, it's possible to use any library or framework that handles markdown files such as [11ty](https://11ty.dev). 
+
+---
+
+## Getting Started
+
+### Wordpress Preparation
+
+Install and activate the *WP Gatsby Markdown Exporter* plugin in your Wordpress Site.
+
+Find and press the *Export to Gatsby* item in the sidebar.
+
+On the *Export to Gatsby* settings screen: 
+
+   - Make sure the *posts* and *pages* post types' checkboxes have been ticked.  
+   - Find the *Export date format* field. The format needs to be changed to `Y-m-d`.  
+   - Under *Exclude fields*, add `id`, `footnotes`, and `post_format`.
+   - Under *Change field name*, add `permalink,slug`, and on the next line  `excerpt,description`.
+   - Tick the box next to *Create post type directories*. 
+   - Change any other options that might be specific to your site. 
+   - Press the button, *Download zip file*, and save to your device. 
+
+After unzipping the file, you should see `post`, `page` and `uploads` directories. 
+
+Notice a lack of an `author` post type? Adding `author` content will be addressed further on in this tutorial. 
+
+Opening one of the `post` markdown files should appear similar to the following: 
+
+```markdown
+---
+title: 'Hello world!'
+date: 2024-01-23
+status: publish
+author: john-doe
+type: post
+thumbnail: ../../uploads/2024/01/fpo-image.jpg
+category:
+  - News
+tag: 
+  - updates
+slug: /hello-world
+description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+---
+
+And Hello to You!
+-----------------
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+
+![a city landscape in the rain](../../uploads/2024/01/fpo-image.jpg)
+
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+```
+
+There are a couple fields that aren't exported by the plugin. In order for images to be transformed by Astro, they need to reside in the `assets` directory. 
+
+Use VS Code's global find/replace feature.  
+In VS Code's top menu, press *Edit*, then select the *Replace in Files* item.  
+
+Search: `../../uploads`  
+Replace: `../../assets/uploads`
+
+The `slug` field will also require modification. Essentially, the absolute path needs to be removed. Once again, utilize *Replace in Files*.
+
+Search: `slug: /`  
+Replace: `slug: `
+
+<Callout variant="caution" title="Attention">Be sure to include a space after the colon.</Callout>
+
+### Install NodeJS
+
+NodeJS is required to run a preview of the site locally. Install it onto your device by choosing the appropriate installer for your operating system.  
+[List of installers](https://nodejs.org/en/download/)
+
+Also, make sure to choose the LTS version, or at least Node version 20.x.x.
+
+### Prep for Git
+
+1. Register for a free Github account. [Account signup](https://github.com/signup) 
+2. Download and install Github Desktop. [Download installer](https://desktop.github.com/)
+
+### Set Up the Theme
+
+1. Port the *Twenty Something* theme template over to your Github account. [Visit the theme repo](https://github.com/djmtype/twenty-something) 
+4. Find and press *Use this template* and select *Create a new repository*. You'll be directed to a page to create a new repository under your account. 
+5. In the *Repository Name* field, enter *twenty something*. Press the *Create repository* button. Upon success, you'll be redirected to your own *Twenty Something* repo.
+6. Find and press the *Code* button. Under the *Local* tab, select the *Open with Github Desktop* item. You'll be prompt to save *twenty-something* to a location on your device.
+
+### Set Up Visual Studio Code
+
+1. Install [VS Code](https://code.visualstudio.com/) from Microsoft.
+2. After installation, open VS Code. In the top menu, select *File > Open Folder*, and select *twenty-something* folder from your device. 
+3. Add the FrontMatter extension if you weren't prompted to install. In VS Code's top menu, select *View > Extensions*. Search for *Front Matter CMS*, and enable it. 
+4. Install the theme's dependencies. (This is the only one time you'll need to use VS Code's Terminal.)  
+   - From the top menu, select *View > Terminal*. 
+   - Inside the Terminal, type `npm i` followed by the `Return` key.
+
+If everything was a success, you should see a similar screenshot as shown below. *A couple dummy posts, pages, and authors have been added just for illustration purposes.*
+
+### Transport Files
+
+The files you exported earlier from Wordpress can be moved to the appropriate directories inside the *Twenty Something* folder within the `src` directory as illustrated below. 
+
+```
+/
+├── src/
+│   ├── assets/
+│   │   ├── uploads/
+│   ├── content/
+│   │   ├── page/
+│   │   ├── post/
+│   │   ├── author/
+```
+
+Since the *WP Gatsby Markdown Exporter* doesn't add author information to the export, these files must be added manually. Follow the `john-doe.md` example inside `/src/content/author`. 
+
+Author names defined in any `author` field must be declared as lowercase, in kebab format, using a hyphen instead of a space.
+
+---
+
+## Manage Content
+
+Upon opening VS Code, FrontMatter's Dashboard should be shown. Press the *FM* icon in the left sidebar if it isn't preselected. From the Dashboard, open a page or post by selecting it.
+
+Now find the *Metadata* panel in the sidebar. FrontMatter provides a helpful user interface for the corresponding fields declared within the markdown files. These fields should seem similar to Wordpress such as *title*, *date*, *category*, etc.
+
+There are a number of ways to return to the FrontMatter's Dashboard. 
+
+Press the *FrontMatter Dashboard* tab;  
+or press the smaller *FM* icon located within the sidebar, on top;  
+or use the keyboard shortcut: `option` + `D` on Mac; `alt` + `D` on Windows
+
+### Get Acquainted with the Dashboard
+
+At the top of the Dashboard are several tabs: Contents, Media, Snippets, Data, and Taxonomies.
+
+- **Contents** essentially reveals all the markdown files. 
+- **Media** displays all files within the `assets` directory. In order to modify metadata of an image, hover over the vertical ellipsis and press the pencil icon. From there, it is possible to set the alternative text, and add a caption if needed. 
+- **Data** is where all the global site settings can be managed – including the overall configuration and primary navigation.
+- **Snippets**, can probably be ignored unless you want to add your own. Otherwise, it contains some pre-defined components which can be incorporated into your files.
+- **Taxonomies** reveal all the terms for categories and tags found within your markdown files. They can also be managed here. For example, modifying any category or tag term will automatically update across every file. 
+
+### Get Acquainted with the Editor
+
+FrontMatter provides a handy WYSIWYG toolbar displayed on top of each document for styling text, adding links, inserting snippets, etc. Otherwise, learning markdown will really speed up your writing.  [Cheatsheet for Markdown](https://www.markdownguide.org/cheat-sheet/)
+
+For more than text and images, pre-defined components can be added to your page. Components are akin to Wordpress shortcodes. While shortcodes are written inside square brackets, components are written inside angled brackets. 
+
+Example of a Wordpress *ButtonLink* shortcode: 
+
+```html
+[ButtonLink variant="primary" href="https://website.com"]My Button[/ButtonLink]
+```
+
+Example of a *ButtonLink* component: 
+
+```html
+<ButtonLink variant="primary" href="https://website.com">My Button</ButtonLink>
+```
+
+There are a few predefined components provided with this theme. They can be accessed from FrontMatter's toolbar. Pressing on the scissors button will direct you to the *Snippets* area. Adding any of the snippets will place the corresponding component's markup into your file.
+
+<Callout variant="info">Components are always written in `PascalCase`; not to be be confused with traditional HTML elements which are written in `lowercase`.</Callout>
+
+Example of the HTML *figure* element: 
+
+```html
+<figure>…</figure>
+```
+
+Example of a component called, *Figure*: 
+
+```html
+<Figure>…</Figure>
+```
+
+### Launch a Preview
+
+In order to see a rendered view of your markdown file, launch the simple browser. 
+
+1. Press the FrontMatter icon in the left sidebar.
+2. Find and expand the *Actions* panel in the sidebar. 
+3. Press the *Start server* button. 
+4. Open a post from FrontMatter's Dashboard. 
+5. Within the *Actions* panel, press the *Open preview* button. 
+
+A live preview of the opened post should display next to the markdown file. Try modifying content inside the markdown file. Saving the file should update the live preview. 
+
+<Callout variant="caution" title="Attention">
+When previewing other markdown files, it is necessary to press the *Open preview* button for each file.
+</Callout>
+
+---
+
+## Deployment
+
+### Publish Changes
+
+Whenever content is modified, be it a text edit or file change, you'll probably want those changes reflected in your website. This is where *Github Desktop* might be easier than using the Terminal. 
+
+1. Open Github Desktop
+2. Select `twenty-something` as the current repository

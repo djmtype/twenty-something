@@ -38,7 +38,7 @@
   pre {
 
     max-inline-size: unset;
-    padding: var(--gutter);
+    padding: var(--size-fluid-3);
     border-radius: var(--radius-3);
   }
 

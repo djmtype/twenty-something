@@ -1,10 +1,5 @@
 import { defineConfig } from "astro/config";
 
-import remarkCallout from "remark-callout";
-// import remarkDirective from "remark-directive"
-// import remarkCalloutDirectives from "@microflash/remark-callout-directives"
-
-import remarkUnwrapImages from "remark-unwrap-images";
 import AutoImport from "astro-auto-import";
 import mdx from "@astrojs/mdx";
 import { site } from "./src/data/config.json";
@@ -14,6 +9,14 @@ import icon from "astro-icon";
 // https://astro.build/config
 export default defineConfig({
   site: site.url,
+  // markdown: {
+  //   extendMarkdownConfig: true,
+  //   syntaxHighlight: "shiki",
+  //   shikiConfig: {
+  //     theme: "css-variables",
+  //     // wrap: true,
+  //   },
+  // },
   integrations: [
     AutoImport({
       imports: [
@@ -33,7 +36,13 @@ export default defineConfig({
         "./src/components/Callout.astro",
       ],
     }),
-    mdx(),
+    mdx({
+        syntaxHighlight: "shiki",
+    shikiConfig: {
+      theme: "css-variables",
+      // wrap: true,
+    },
+    }),
     sitemap(),
     icon({
       include: {
@@ -64,24 +73,8 @@ export default defineConfig({
       },
     }),
   ],
-  markdown: {
-    // Applied to .md and .mdx files
-    remarkPlugins: [
-      remarkCallout,
-      // remarkDirective,
-      // remarkCalloutDirectives,
-      remarkUnwrapImages,
-    ],
-    // extendMarkdownConfig: true,
-    syntaxHighlight: "shiki",
-    shikiConfig: {
-      theme: "css-variables",
-      // wrap: true,
-    },
-  },
-  // experimental: {
-  //   optimizeHoistedScript: true,
-  // },
+
+
   output: "static",
   vite: {
     server: {},

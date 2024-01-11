@@ -55,7 +55,11 @@
   font-size: var(--font-size-4);
 }
 
-.entry__prose :is(h2, h3, h4) {
+.entry__prose h4:not([class]) {
+  font-size: var(--font-size-3);
+}
+
+.entry__prose :is(h2, h3, h4, h5) {
   --_flow: 1.5em;
 }
 
@@ -143,6 +147,14 @@ p:has(> img:nth-child(1)) {
 
 p:has(> img:nth-child(1)) img {
   margin-inline: auto;
+}
+
+.entry__prose hr {
+  margin-block-end: unset;
+  --_flow: var(--size-fluid-4);
+  + * {
+    --_flow: var(--size-fluid-4);
+  }
 }
 
 /* blockquote.callout {

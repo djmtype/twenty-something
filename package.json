@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "add": "npm install",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
@@ -33,20 +34,16 @@
     "postcss-import": "^15.1.0",
     "postcss-jit-props": "^1.0.14",
     "postcss-preset-env": "^9.3.0",
-    "remark-directive": "^3.0.0",
-    "remark-unwrap-images": "^4.0.0",
     "smartypants": "^0.2.2",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
     "@iconify-json/bxs": "^1.1.10",
-    "@microflash/remark-callout-directives": "^2.0.0",
     "@types/alpinejs": "^3.13.5",
     "@types/alpinejs__persist": "^3.13.3",
     "@types/github-slugger": "^2.0.0",
     "@types/marked": "^6.0.0",
-    "prettier-plugin-astro": "^0.12.3",
-    "remark-callout": "^1.0.2"
+    "prettier-plugin-astro": "^0.12.3"
   },
   "browserslist": [
     "last 1 safari version",
