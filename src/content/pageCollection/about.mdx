@@ -6,6 +6,7 @@ thumbnail: ../../assets/uploads/blog-placeholder-2.jpg
 thumbnailAlt: A description of this photo
 status: publish
 slug: about
+dateUpdated: 2024-01-11
 ---
 
 ## Overview
@@ -18,7 +19,7 @@ The setup instructions will cover running the CMS locally, although it's possibl
 
 ## Requirements 
 
-Don't feel deterred by the number of software packages and accounts required for this tutorial. My goal was to be thorough for those just starting out. 
+Don't feel deterred by the number of software packages and accounts required for this tutorial. My goal is to be thorough, therefore, inclusive for almost everyone. 
 
 ### Software
 
@@ -26,15 +27,15 @@ The software required to run this CMS is free and/or open source.
 
 #### [WP Gatsby Markdown Exporter](https://wordpress.org/plugins/wp-gatsby-markdown-exporter/)
 
-A plugin for Wordpress which makes exporting your content a breeze. Don't be fooled by its name nor the warning for not being compliant with Wordpress 6.4.x. This plugin still works today – created by the folks of [Tina](https://tina.io) – another great markdown CMS. The plugin exports pages, posts, or other post types as markdown files. 
+A plugin for Wordpress which makes exporting your content a breeze. Don't be fooled by its name. Ignore the warning for not being compliant with Wordpress 6.4.x. This plugin still works today. It exports pages, posts, or other post types as markdown files. 
 
 #### [NodeJS](https://nodejs.org)
 
-The software package is necessary to test and preview your site on your local computer. Install the LTS version, or at least version 20.x.x. [A list of all downloads](https://nodejs.org/en/download/)
+The software package is necessary to test and preview your site on your local computer. Install the LTS version, or at least version 20.x.x. 
 
 #### [Github Desktop](https://desktop.github.com/)
 
-While this app won't be used often, it's required for authenticating changes and revisions with your project. Using this app, instead, avoids trips to the Command Line.
+A nice GUI for authenticating changes and revisions with your project. Using this app instead avoids trips to the Command Line.
 
 #### [Microsoft Visual Studio (VS Code)](https://code.visualstudio.com/)
 
@@ -42,7 +43,7 @@ Although, this software might be targeted at developers, with predefined setting
 
 #### [FrontMatter for VS Code](https://frontmatter.codes/)
 
-This is the extension that helps turn VS Code into a visual CMS by adding a dashboard, content fields, and live preview. 
+This brilliant extension helps turn VS Code into a visual CMS by adding a dashboard, content fields, live preview, and more. 
 
 ### Accounts
 
@@ -50,7 +51,7 @@ The services below are free, or offer a generous free tier. Personally, I never 
 
 #### [Github](https://github.com/)
 
-Github will be used to store and manage content, and track changes. [Account signup](https://github.com/signup)
+Github will be used to store and manage content, and track changes. 
 
 #### [Netlify](https://www.netlify.com/)
 
@@ -62,9 +63,8 @@ When ever changes are made to your project and published, Netlify will automatic
 
 #### *Twenty Something* Theme
 
-The *Twenty Something* theme serves as a jumping-off point. VS Code's project settings, FrontMatter's configuration, and project setup are all defined. This theme leverages [Astro](https://astro.build/) in a big way. [More about the theme](https://github.com/djmtype/twenty-something)
-
-Although, Astro is my framework of choice, it's possible to use any library or framework that handles markdown files such as [11ty](https://11ty.dev). 
+The *Twenty Something* theme serves as a jumping-off point. VS Code's project settings, FrontMatter's configuration, and project setup are all defined. This theme leverages [Astro](https://astro.build/) in a big way.  
+[More about the theme](https://github.com/djmtype/twenty-something)
 
 ---
 
@@ -72,19 +72,19 @@ Although, Astro is my framework of choice, it's possible to use any library or f
 
 ### Wordpress Preparation
 
-Install and activate the *WP Gatsby Markdown Exporter* plugin in your Wordpress Site.
+Install and activate the [*WP Gatsby Markdown Exporter*]((https://wordpress.org/plugins/wp-gatsby-markdown-exporter/)) plugin in your Wordpress Site.
 
-Find and press the *Export to Gatsby* item in the sidebar.
+Find and press the *Export to Gatsby* link in the sidebar.
 
-On the *Export to Gatsby* settings screen: 
+On the **Export to Gatsby** settings screen: 
 
-   - Make sure the *posts* and *pages* post types' checkboxes have been ticked.  
-   - Find the *Export date format* field. The format needs to be changed to `Y-m-d`.  
-   - Under *Exclude fields*, add `id`, `footnotes`, and `post_format`.
-   - Under *Change field name*, add `permalink,slug`, and on the next line  `excerpt,description`.
-   - Tick the box next to *Create post type directories*. 
-   - Change any other options that might be specific to your site. 
-   - Press the button, *Download zip file*, and save to your device. 
+   1. Make sure the *posts* and *pages* post types' checkboxes have been ticked.  
+   2. Find the *Export date format* field. The format needs to be changed to `Y-m-d`.  
+   3. Under *Exclude fields*, add `id`, `footnotes`, and `post_format`.
+   4. Under *Change field name*, add `permalink,slug`, and on the next line  `excerpt,description`.
+   5. Tick the box next to *Create post type directories*. 
+   6. Change any other options that might be specific to your site. 
+   7. Press the button, *Download zip file*, and save to your device. 
 
 After unzipping the file, you should see `post`, `page` and `uploads` directories. 
 
@@ -260,9 +260,57 @@ When previewing other markdown files, it is necessary to press the *Open preview
 
 ## Deployment
 
+### Connect to Netlify
+In order to publish your site, you'll need a server. We'll be using Netlify in this instance.
+
+1. Visit [Netlify.com](https://netlify.com).
+2. Press the *Sign up* button.
+3. Press the *Sign up with Github* button.
+4. Enter your Github account credentials, press the *Sign in* button, and grant Netlify access if required.
+5. After you have access to Netlify, press the *Sites* link in the sidebar.
+6. Press the *Add new site* button. Select *Import an existing project* from the popup menu.
+7. Press *Deploy with Github* button. Authorize Netlify to access your repositories.
+8. Select your `twenty-something` repo.
+9. Press the *Deploy twenty-something* button.
+
+<Callout variant="info" title="More Help">Read the [*Add a new site* section](https://docs.netlify.com/welcome/add-new-site/#import-from-an-existing-repository) from Netlify's documentation if some instructions were unclear or outdated.</Callout>
+
+#### Rename the Netlify Domain
+
+Feel free to change the auto-generated url provided by Netlify. 
+
+1. Visit the *Domain management* link in the sidebar.
+2. Press the *Options* button, select *Edit site name*.  
+A popup should be revealed with an input. Enter a new name and press *Save*.
+
+#### Add a Custom Domain
+
+It's also possible to apply a custom domain, one without `*.netlify.app`. 
+
+Still on the *Domain management* page, press the *Add a domain* button. Enter and verify your pre-owned domain name.
+
+Next, modify your DNS records with your registrar, whether it be NameCheap, GoDaddy, or whomever. 
+
+Add `A` and `CNAME` records. Obviously, replace `custom-name` with your own details.
+
+In brief, the `A` record points your domain at Netlify's server IP address. And the `CNAME` is an alias for anyone visiting `www.custom-name.com`.
+
+| Type  | Name                 | Content
+|:------|:---------------------|:------------------------
+| A     | custom-name.com      | 75.2.60.5
+| CNAME | www                  | custom-name.netlify.app
+
+<Callout variant="info">It could take up to 48 hours for the DNS records to propagate.</Callout>
+
 ### Publish Changes
 
-Whenever content is modified, be it a text edit or file change, you'll probably want those changes reflected in your website. This is where *Github Desktop* might be easier than using the Terminal. 
+These next steps will be used whenever content has been modified, and you want changes reflected on your website. 
 
-1. Open Github Desktop
-2. Select `twenty-something` as the current repository
+1. Open *Github Desktop*.
+2. Select `twenty-something` as the current repository.  
+For any reason, should `twenty-something` not be shown in *Github Desktop*, select `File > Add Local Repository` from its menu.
+3. If there are changes to be made, fill out the required *Summary* field.
+4. Press the *Commit to…* button.
+5. Press the *Push origin* button.
+
+All changes will be sent off to Netlify. Soon after, those updates will make their way to your website. It may take a few moments depending on the amount of files.
