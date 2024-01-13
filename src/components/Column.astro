@@ -1,34 +1,37 @@
 ---
 type Props = {
-  className?: string
-  style?: string
+  class?: string
   name: "passage" | "content" | "breakout" | "full"
   hasFlow?: boolean
   flowSize?: string
-  surface?: string
+  background?: string
   hasRadius?: boolean
+  style?: any
 }
 
 const {
-  className,
-  style,
+  class: className,
   name = "content",
   hasFlow,
-  flowSize,
-  surface,
+  background,
   hasRadius,
+  style: restStyles, flowSize
 } = Astro.props
 
-const styles = `${flowSize ? `--_flow: ${flowSize};` : ""} ${
-  name === "full" ? `--_container-column: column-full;` : ""
-} ${surface ? `--_column-surface: ${surface};` : ""} ${
-  hasRadius ? `--_column-radius: var(--radius-3);` : ""
-} ${hasRadius ? `--_padding: var(--gutter);` : ""} ${style || ""}`
+const myStyles = {
+  ...(name === "full" ? { '--_container-column': 'column-full' } : {}),
+  ...(background ? { '--_column-background': `var(--${background})`, '--_padding': 'var(--gutter)' } : {}),
+  ...(hasRadius ? { '--_column-radius': 'var(--radius-3)' } : {}),
+};
 ---
 
 <div
   class:list={["column", `column-${name}`, hasFlow ? "flow" : "", className]}
-  style={styles}
+  style={{ 
+    ...(flowSize && { '--_flow': `var(--size-${flowSize})` }),
+    ...myStyles,
+    ...restStyles,
+  }}
 >
   <slot />
 </div>
@@ -38,7 +41,7 @@ const styles = `${flowSize ? `--_flow: ${flowSize};` : ""} ${
     --_padding-block: initial;
     --_padding-inline: initial;
     --_padding: initial;
-    background: var(--_column-surface);
+    background: var(--_column-background);
     padding-block: var(--_padding, var(--_padding-block));
     padding-inline: var(--_padding, var(--_padding-inline));
     border-radius: var(--_column-radius);

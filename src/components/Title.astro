@@ -2,43 +2,54 @@
 import { slugify } from "@/utils/textConverter"
 
 type Props = {
-  level: "h2" | "h3" | "h4" | "h5"
-  className?: string
+  level: "h2" | "h3" | "h4" | "h5" | "p" | "span"
+  class?: string
   textAlign?: string
   textColor?: string
-  title?: any
-  idTitle?: boolean
-  anchorLink?: boolean
+  hasId?: boolean
+  hasAnchor?: boolean
+  hasIcon?: boolean
 }
 
-const { level, idTitle, title, className, textAlign, textColor, anchorLink } =
-  Astro.props as Props;
+const html = await Astro.slots.render('default');
 
-  let HL = `${level}` as any;
+const {
+  level = 'span',
+  hasId,
+  class: className,
+  textAlign,
+  textColor,
+  hasAnchor,
+  hasIcon,
+} = Astro.props as Props
 
-  const hlProps = {
-  id: title && idTitle ? slugify(title) : "",
+
+
+let HL = `${level}` as any
+
+const hlProps = {
+  ...(hasId && html ? { id: slugify(html) } : {}),
   class: [
     "text-headline",
     textAlign === "center" ? "text-center" : "",
     textColor ? `text-color-${textColor}` : "",
-    anchorLink ? "text-anchor" : "",
-    className || "",
-  ],
-};
-
+    hasAnchor ? "text-anchor" : "",
+    hasIcon ? "title--icon" : "",
+    className || ""
+  ].filter(Boolean).join(" "),
+}
 ---
 
 <HL {...hlProps}>
   <slot />
   {
-    anchorLink ? (
-      <a class="anchor-link" href={"#" + slugify(title)}>
+    hasAnchor ? (
+      <a class="anchor-link" href={"#" + slugify(html)}>
         <>
           <span class="anchor-icon" aria-hidden="true">
             #
           </span>
-          <span class="sr-only">Anchor for &ldquo;{title}&rdquo;</span>
+          <span class="sr-only">Anchor for &ldquo;{html}&rdquo;</span>
         </>
       </a>
     ) : null
@@ -46,7 +57,7 @@ const { level, idTitle, title, className, textAlign, textColor, anchorLink } =
 </HL>
 
 <style>
-  *::before {
+  .title--icon::before {
     content: "";
     width: 1.5rem;
     height: 3rem;

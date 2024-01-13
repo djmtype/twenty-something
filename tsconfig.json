@@ -1,7 +1,7 @@
 {
-  "extends": "astro/tsconfigs/base",
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "types": ["alpinejs"],
+    "types": ["alpinejs", "@types/mdx"],
     "strictNullChecks": true,
     "allowJs": true,
     "baseUrl": ".",

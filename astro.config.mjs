@@ -20,6 +20,7 @@ export default defineConfig({
   integrations: [
     AutoImport({
       imports: [
+        "./src/components/Title.astro",
         "./src/components/ButtonLink.astro",
         "./src/components/Figure.astro",
         "./src/components/Group.astro",
@@ -46,6 +47,27 @@ export default defineConfig({
     sitemap(),
     icon({
       include: {
+        lucide: [
+          "chevron-down",
+          "copy",
+          "sun",
+          "moon",
+          "cog",
+          "user",
+          "chevrons-left",
+          "chevron-left",
+          "chevrons-right",
+          "chevron-right",
+          "move-right",
+          "move-left",
+          "info",
+          "pin",
+          "check-circle",
+          "alert-circle",
+          "alert-octagon",
+          "alert-triangle",
+          "zap"
+        ],
         bxs: [
           "chevron-down",
           "copy",

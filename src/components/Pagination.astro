@@ -31,12 +31,12 @@ const {
       {
         previousPage ? (
           <StyledLink>
-            <Icon name="bx:left-arrow-alt" /> <a href={previousPage} aria-label={`Go back to ${previousPage}`}>Previous Page</a>
+            <Icon name="lucide:move-left" /> <a href={previousPage} aria-label={`Go back to ${previousPage}`}>Previous Page</a>
           </StyledLink>
           
         ) : (
         <StyledLink className="disabled">
-            <Icon name="bx:left-arrow-alt" /> Previous Page
+            <Icon name="lucide:move-left" /> Previous Page
         </StyledLink>
         )
       }
@@ -48,11 +48,11 @@ const {
       {
         nextPage ? (
         <StyledLink>
-          <a href={nextPage} aria-label={`Go to ${nextPage}`}>Next Page</a> <Icon name="bx:right-arrow-alt" />
+          <a href={nextPage} aria-label={`Go to ${nextPage}`}>Next Page</a> <Icon name="lucide:move-right" />
           </StyledLink>
         ) : (
         <StyledLink className="disabled">
-          Next Page <Icon name="bx:right-arrow-alt" />
+          Next Page <Icon name="lucide:move-right" />
           </StyledLink>
         )
       }

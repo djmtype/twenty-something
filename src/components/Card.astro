@@ -1,16 +1,13 @@
 ---
-type Props = {
-  styles?: any
-  
-}
 
-const { styles } =
-  Astro.props as Props
+
+const { ...restProps } =
+  Astro.props
 
 
 ---
 
-<div class="card" style={styles}><slot /></div>
+<div class="card" {...restProps}><slot /></div>
 
 <style>
   .card {

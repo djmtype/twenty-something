@@ -16,13 +16,13 @@ import { Icon } from 'astro-icon/components';
     tabindex="0"><slot /></pre>
 
   <button x-show="copyState === 'default'" x-on:click="copyCode">
-    <Icon name="bxs:copy" /> Copy
+    <Icon name="lucide:copy" /> Copy
   </button>
   <button x-show="copyState === 'success'" disabled>
-    <Icon name="bxs:check-circle" /> Copied!
+    <Icon name="lucide:check-circle" /> Copied!
   </button>
   <button x-show="copyState === 'error'" disabled>
-    <Icon name="bxs:error-circle" /> Failed
+    <Icon name="lucide:alert-circle" /> Failed
   </button>
 </div>
 

@@ -5,17 +5,17 @@ import { Icon } from 'astro-icon/components';
 
   <div class="theme-switcher" x-cloak>
     <button x-on:click="theme = 'light'" :class="{'active': theme === 'light'}">
-      <Icon name="bxs:sun" />
+      <Icon name="lucide:sun" />
       <span class="sr-only">Light</span>
     </button>
   
     <button x-on:click="theme = 'dark'" :class="{'active': theme === 'dark'}">
-      <Icon name="bxs:moon" />
+      <Icon name="lucide:moon" />
       <span class="sr-only">Dark</span>
     </button>
   
     <button x-on:click="theme = 'auto'" :class="{'active': theme === 'auto'}">
-      <Icon name="bxs:cog" />
+      <Icon name="lucide:cog" />
       <span class="sr-only">Auto</span>
     </button>
   

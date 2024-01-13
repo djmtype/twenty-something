@@ -1,42 +1,27 @@
 ---
 import { smartify } from '@/utils/textConverter'
-import { Icon } from 'astro-icon/components';
+import { Icon } from 'astro-icon/components'
+import Title from './Title.astro'
 
 type Props = {
     title?: string
     variant: 'tip' | 'info' | 'caution' | 'danger'
+    class?: string
 }
 
-const { title, variant = 'tip' } = Astro.props
+const { title, variant = 'info', class: className } = Astro.props
 
-const getDefaultTitle = () => {
-    switch (variant) {
-      case 'tip':
-        return 'Tip';
-      case 'info':
-        return 'Info';
-      case 'caution':
-        return 'Caution';
-      case 'danger':
-        return 'Danger';
-      default:
-        return '';
-    }
-  };
-
-  const defaultTitle = getDefaultTitle();
-  const finalTitle = title || defaultTitle;
 
 const getIcon = () => {
     switch (variant) {
       case 'tip':
         return 'pin';
       case 'info':
-        return 'info-circle';
+        return 'info';
       case 'caution':
-        return 'error';
+        return 'alert-triangle';
       case 'danger':
-        return 'error-alt';
+        return 'alert-octagon';
       default:
         return '';
     }
@@ -47,9 +32,13 @@ const getIcon = () => {
 ---
 
 
-<aside aria-label={finalTitle} class={`callout callout--${variant}`}>
-  <p set:html={smartify(finalTitle)} class="callout__title" />
-  <Icon class="callout__icon" name={`bx:${iconName}`} aria-hidden="true" />
+<aside class:list={[`callout callout--${variant}`, className]}>
+ {title ? (
+<p set:html={smartify(title)} class="callout__title" />
+ ) : 
+ <Title level="p" class="callout__title"><slot name="title" /></Title>
+ }
+  <Icon class="callout__icon" name={`lucide:${iconName}`} aria-hidden="true" />
   <section class="callout__content flow">
       <slot />
   </section>

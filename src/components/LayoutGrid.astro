@@ -1,15 +1,27 @@
 ---
 type Props = {
-  style?: string
-  className?: string
+  class?: string
+  columnSize?: string
+  gap?: string
+  columnGap?: string
+  rowGap?: string
+  alignItems?: string
+  style?: any
 }
-const { className, ...restProps } = Astro.props
+const { style: additionalStyles, columnSize, gap, columnGap, rowGap, alignItems, class: className, ...restProps } = Astro.props
 ---
 
-<div class={`layout-grid${className ? ` ${className}` : ''}`} {...restProps}>
+<div class:list={[`layout-grid`, className]} 
+style={{
+  ...(columnSize && { '--_column': `var(--${columnSize})` }),
+  ...(gap && { '--_gap': `var(--${gap})` }),
+  ...(columnGap && { '--_column-gap': `var(--${columnGap})` }),
+  ...(rowGap && { '--_row-gap': `var(--${rowGap})` }),
+  ...(alignItems && { '--_align-items': alignItems }),
+  ...additionalStyles
+}} {...restProps}>
   <slot />
 </div>
-
 
 <style is:global>
   .layout-grid {
@@ -18,10 +30,9 @@ const { className, ...restProps } = Astro.props
     --_row-gap: var(--gutter);
     --_align-items: initial;
     
-
     display: grid;
-    column-gap: var(--_column-gap);
-    row-gap: var(--_row-gap);
+    column-gap: var(--_gap, var(--_column-gap));
+    row-gap: var(--_gap, var(--_row-gap));
     align-items: var(--_align-items);
     grid-template-columns: repeat(
       auto-fit,
@@ -29,5 +40,3 @@ const { className, ...restProps } = Astro.props
     );
   }
 </style>
-
-
