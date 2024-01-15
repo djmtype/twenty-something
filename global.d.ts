@@ -1,3 +1,8 @@
 interface Window {
-    Alpine: any;
-  }
+  Alpine: any;
+}
+
+declare module "smartypants" {
+  const smartypants: any;
+  export default smartypants;
+}

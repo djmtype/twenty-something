@@ -2,23 +2,27 @@
 type Props = {
   class?: string
   columnSize?: string
-  gap?: string
-  columnGap?: string
-  rowGap?: string
+  gapSize?: string
+  columnGapSize?: string
+  rowGapSize?: string
   alignItems?: string
   style?: any
 }
-const { style: additionalStyles, columnSize, gap, columnGap, rowGap, alignItems, class: className, ...restProps } = Astro.props
+const { columnSize, gapSize, columnGapSize, rowGapSize, class: className, ...restProps } = Astro.props
+
+
+const styles = {
+  ...(columnSize && { '--_column': `var(--size-${columnSize})` }),
+  ...(gapSize && { '--_gap': `var(--size-${gapSize})` }),
+  ...(columnGapSize && { '--_column-gap': `var(--size-${columnGapSize})` }),
+  ...(rowGapSize && { '--_row-gap': `var(--size-${rowGapSize})` }),
+}
 ---
 
 <div class:list={[`layout-grid`, className]} 
 style={{
-  ...(columnSize && { '--_column': `var(--${columnSize})` }),
-  ...(gap && { '--_gap': `var(--${gap})` }),
-  ...(columnGap && { '--_column-gap': `var(--${columnGap})` }),
-  ...(rowGap && { '--_row-gap': `var(--${rowGap})` }),
-  ...(alignItems && { '--_align-items': alignItems }),
-  ...additionalStyles
+  ...styles, 
+  ...restProps.style
 }} {...restProps}>
   <slot />
 </div>
@@ -28,12 +32,10 @@ style={{
     --_column: var(--size-content-2);
     --_column-gap: var(--gutter);
     --_row-gap: var(--gutter);
-    --_align-items: initial;
     
     display: grid;
     column-gap: var(--_gap, var(--_column-gap));
     row-gap: var(--_gap, var(--_row-gap));
-    align-items: var(--_align-items);
     grid-template-columns: repeat(
       auto-fit,
       minmax(min(100%, var(--_column)), 1fr)

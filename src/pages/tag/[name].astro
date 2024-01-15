@@ -47,7 +47,7 @@ const filterByTags = taxonomyFilter(posts, "tags", tag!)
     Tag: <span>{metafyTag}</span>
   </h1>
 
-  <LayoutGrid className="entry__grid">
+  <LayoutGrid class="entry__grid">
     {filterByTags.map((post) => <PostCard post={post} />)}
   </LayoutGrid>
 

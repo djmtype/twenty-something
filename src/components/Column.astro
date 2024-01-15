@@ -15,10 +15,12 @@ const {
   hasFlow,
   background,
   hasRadius,
-  style: restStyles, flowSize
+  flowSize, 
+  ...restProps
 } = Astro.props
 
-const myStyles = {
+const styles = {
+  ...(flowSize && { '--_flow': `var(--size-${flowSize})` }),
   ...(name === "full" ? { '--_container-column': 'column-full' } : {}),
   ...(background ? { '--_column-background': `var(--${background})`, '--_padding': 'var(--gutter)' } : {}),
   ...(hasRadius ? { '--_column-radius': 'var(--radius-3)' } : {}),
@@ -28,10 +30,10 @@ const myStyles = {
 <div
   class:list={["column", `column-${name}`, hasFlow ? "flow" : "", className]}
   style={{ 
-    ...(flowSize && { '--_flow': `var(--size-${flowSize})` }),
-    ...myStyles,
-    ...restStyles,
+    ...styles,
+    ...restProps.style,
   }}
+  {...restProps}
 >
   <slot />
 </div>

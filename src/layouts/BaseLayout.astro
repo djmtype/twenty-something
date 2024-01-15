@@ -20,7 +20,7 @@ const { title, description, thumbnail = site.ogImage } = Astro.props
   lang={site.language}
   class="no-js"
   x-data="{ theme: $persist('auto').as('theme') }"
-  :class="{'dark': theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches), 'light': theme === 'light' || (theme === 'auto' && !window.matchMedia('(prefers-color-scheme: dark)').matches)}"
+  x-init="() => { document.documentElement.setAttribute('data-theme', theme);}"
   x-cloak
 >
   <head>
@@ -92,6 +92,8 @@ Alpine.plugin(persist);
 window.Alpine = Alpine;
 
 Alpine.start();
+
+
 </script>
 
 <style is:global>

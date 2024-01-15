@@ -1,13 +1,37 @@
 ---
 type Props = {
-  className?: string
+  class?: string
   hasFlow?: boolean
   flowSize?: string
+  style?: any
 }
 
-const { className, hasFlow, flowSize, ...restProps } = Astro.props
+const {
+  class: className,
+  hasFlow,
+  flowSize,
+  ...restProps
+} = Astro.props
+
+const styles = {
+  ...(flowSize ? { "--_flow": `var(--size-${flowSize})` } : {}),
+}
 ---
 
-<div class:list={['container', hasFlow ? 'flow' : '', className]} style={flowSize ? `--_flow: ${flowSize};` : ''} {...restProps}>
+<div
+  class:list={["container", hasFlow ? "flow" : "", className]}
+  style={{ ...styles, ...restProps.style }}
+  {...restProps}
+>
   <slot />
 </div>
+
+<style is:global>
+  .container {
+    --_items-margin-inline: initial;
+  }
+
+  .container > * {
+    margin-inline: var(--_items-margin-inline);
+  }
+</style>

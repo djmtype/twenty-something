@@ -8,6 +8,7 @@ status: publish
 slug: home
 ---
 
+
 <Hero>
 # A commitment to innovation and sustainability
 
@@ -20,29 +21,30 @@ slug: home
 
 </Hero>
 
-<Group type="section" hasFlow flowSize="var(--size-fluid-5)" surface="var(--surface-overlay)">
+<Group type="section" hasFlow flowSize="fluid-5" surface="overlay">
+<Container class="margin-inline-auto" hasFlow flowSize="initial" style={{ textAlign: 'center' }}>
 
-<Container hasFlow flowSize="initial" className="text-center margin-inline-auto">
-
-    <Heading fontSize="6" textAlign="center">
+    <Heading hasIcon hasAlignCenter fontSize="6">
     ## A passion for creating spaces
     </Heading>
     Our comprehensive suite of professional services caters to a diverse clientele, ranging from homeowners to commercial developers.
-
 </Container>
+
 
 <Container>
 <Column name="breakout">
-   <LayoutGrid columnSize="size-14" rowGap="size-8">
+   <LayoutGrid columnSize="14" rowGapSize="8">
+
+
         <Card>
-        <Heading fontFamily="sans-serif" fontSize="2" fontWeight="bold">
+        <Heading hasIcon fontFamily="sans" fontSize="2" fontWeight="bold">
         ### Renovation and restoration
         </Heading>
 Experience the fusion of imagination and expertise with Études Architectural Solutions.
         </Card>
 
          <Card>
-        <Heading fontFamily="sans-serif" fontSize="2" fontWeight="bold">
+        <Heading hasIcon fontFamily="sans" fontSize="2" fontWeight="bold">
         ### Continuous Support
         </Heading>
 
@@ -51,7 +53,7 @@ Experience the fusion of imagination and expertise with Études Architectural So
         </Card>
 
          <Card>
-        <Heading fontFamily="sans-serif" fontSize="2" fontWeight="bold">
+        <Heading hasIcon fontFamily="sans" fontSize="2" fontWeight="bold">
         ### App Access
         </Heading>
 
@@ -60,23 +62,22 @@ Experience the fusion of imagination and expertise with Études Architectural So
         </Card>
 
          <Card>
-        <Heading fontFamily="sans-serif" fontSize="2" fontWeight="bold">
+        <Heading hasIcon fontFamily="sans" fontSize="2" fontWeight="bold">
         ### Consulting
+        </Heading>
+        Experience the fusion of imagination and expertise with Études Architectural Solutions.
+        </Card>
+        
+        <Card>
+        <Heading hasIcon fontFamily="sans" fontSize="2" fontWeight="bold">
+        ### Project Management
         </Heading>
         Experience the fusion of imagination and expertise with Études Architectural Solutions.
         </Card>
         
 
         <Card>
-        <Heading fontFamily="sans-serif" fontSize="2" fontWeight="bold">
-        ### Project Management
-        </Heading>
-        Experience the fusion of imagination and expertise with Études Architectural Solutions.
-        </Card>
-
-
-        <Card>
-        <Heading fontFamily="sans-serif" fontSize="2" fontWeight="bold">
+       <Heading hasIcon fontFamily="sans" fontSize="2" fontWeight="bold">
         ### Architectural Solutions
         </Heading>
         Experience the fusion of imagination and expertise with Études Architectural Solutions.
@@ -84,54 +85,50 @@ Experience the fusion of imagination and expertise with Études Architectural So
     </LayoutGrid>
     </Column>
     </Container>
-
 </Group>
 
-<Group type="section" hasFlow flowSize="var(--size-fluid-5)">
+<Group type="section" hasFlow flowSize="fluid-5">
 
-<Container hasFlow flowSize="initial" className="text-center margin-inline-auto">
+<Container class="margin-inline-auto" hasFlow flowSize="initial" style={{ textAlign: 'center' }}>
 
-<Heading fontSize="6" textAlign="center">
+<Heading hasAlignCenter fontSize="6" hasIcon>
   ## An array of resources
 </Heading>
-
 Our comprehensive suite of professional services caters to a diverse clientele, ranging from homeowners to commercial developers.
-
 </Container>
 
 <Container hasFlow>
 <Column name="breakout">
-<LayoutGrid columnGap="size-fluid-4" alignItems="center">
-
+<LayoutGrid columnGapSize="fluid-4" style={{ alignItems: "center" }}>
         <Card>
-        <Heading>
-        ### Études Architect App
+        <Heading hasIcon fontSize="5">
+        ### Heading Études Architect App
         </Heading>
-        <List>
+        <List marker="\2713" markerColor="brand" lineGap="2">
             - Collaborate with fellow architects.
             - Showcase your projects.
             - Experience the world of architecture.
         </List>
         </Card>
-        
-
+      
 <Figure hasRadius>![Building exterior in Toronto, Canada](../../assets/uploads/tourist-and-building.webp)</Figure>
 
  </LayoutGrid>
  </Column>
  
 <Column name="breakout">
-  <LayoutGrid columnGap="size-fluid-4" alignItems="center">
+  <LayoutGrid columnGapSize="fluid-4" style={{ alignItems: "center" }}>
 
 <Figure hasRadius>![Building exterior in Toronto,
   Canada](../../assets/uploads/tourist-and-building.webp)</Figure>
 
+
   <Card>
-    <Heading>
+    <Heading hasIcon fontSize="5">
     ### Études Newsletter
     </Heading>
-    <List>
-      - A world of thought-provoking articles. 
+    <List marker="\2713" markerColor="brand" lineGap="2">
+      - A world of thought-provoking articles. A world of thought-provoking articles. A world of thought-provoking articles.
       - Case studies that celebrate architecture. 
       - Exclusive access to design insights.
     </List>
@@ -146,21 +143,21 @@ Our comprehensive suite of professional services caters to a diverse clientele, 
   authorName="Annie Steiner"
   jobTitle="CEO"
   organization="Greenprint"
-  style="--_text: var(--text-overlay); --_surface: var(--brand)"
+  textColor="text-overlay" 
+  surfaceColor="brand"
 >
   Études has saved us thousands of hours of work and has unlocked insights we
   never thought possible.
 </Testimonial>
 
-<section
-  class="section flow container"
-  style="--_padding-block: var(--size-fluid-6); --_flow: var(--size-fluid-5);"
->
+<Group type="section" hasFlow flowSize="fluid-5">
+<Container>
   <PostList>
     {/* Postlist */}
     ## Watch, Read, Listen
   </PostList>
-</section>
+</Container>
+</Group>
 
 <NewsletterSignup className="column-breakout">
 ## Join 900+ subscribers

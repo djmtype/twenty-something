@@ -5,6 +5,8 @@
 
   --font-serif: "Playfair Display", ui-serif, serif;
 
+  --size-initial: initial;
+  --size-unset: unset;
   --size-0: 0;
   --size-container-xxs: 240px;
   --size-container-xs: 360px;

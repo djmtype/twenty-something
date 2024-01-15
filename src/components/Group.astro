@@ -1,40 +1,40 @@
 ---
 type Props = {
   type: "div" | "section"
-  className?: string
+  class?: string
   hasContainer?: boolean
   hasFlow?: boolean
   flowSize?: string
   surface?: string
-  style?: string
+  style?: any
 }
 
 const {
   type = "div",
+  class: className,
   hasContainer,
   hasFlow,
-  className,
   flowSize,
   surface,
-  style,
+  style: restStyles,
   ...restProps
 } = Astro.props
 
 let GROUP = `${type}` as any
 
-const styles = `${flowSize ? `--_flow: ${flowSize};` : ""} ${
-  surface ? `--_surface: ${surface};` : ""
-} ${style || ""}`
+const styles = {
+  ...(flowSize ? { '--_flow': `var(--size-${flowSize})` } : {}),
+  ...(surface ? { '--_surface': `var(--surface-${surface})` } : {}),
+}
 ---
 
 <GROUP
   class:list={[
     `group`,
     hasContainer ? "container" : "",
-    hasFlow ? "flow" : "",
-    className ? className : "",
+    hasFlow ? "flow" : "", className
   ]}
-  style={styles}
+  style={{ ...styles, ...restStyles }}
   {...restProps}
 >
   <slot />
@@ -42,6 +42,7 @@ const styles = `${flowSize ? `--_flow: ${flowSize};` : ""} ${
 
 <style>
   .group {
+    --_surface: initial;
     --_padding-top: var(--size-fluid-6);
     --_padding-bottom: var(--size-fluid-6);
     padding-block-start: var(--_padding, var(--_padding-top));

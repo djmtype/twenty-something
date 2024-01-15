@@ -1,15 +1,56 @@
-<div class="list"><slot /></div>
+---
+type Props = {
+  marker?: string
+  markerColor?: string
+  markerSize?: string
+  lineGap?: string
+  class?: string
+  style?: any
+}
 
-<style is:global>
+const {
+  class: className, 
+  marker, markerColor, markerSize, lineGap, 
+  ...restProps
+} = Astro.props
+---
+
+<div class:list={[`list`, className]} 
+style={{ 
+  ...(marker && { '--_marker': `"${marker}"` }), 
+  ...(markerSize && { '--_marker-size': `var(--size-${markerSize})` }), 
+  ...(markerColor && { '--_marker-color': `var(--${markerColor})` }), 
+  ...(lineGap && { '--_line-gap': `var(--size-${lineGap})` }), 
+  ...restProps.style
+}}
+{...restProps}>
+<slot />
+</div>
+
+<style lang="postcss" is:global>
   .list {
     --checkmark: "\2713";
+    --_marker: initial;
+    --_marker-color: initial;
+    --_marker-size: 1em;
+    --_line-gap: initial;
   }
   .list ul {
-    padding-left: 1em;
-    list-style-type: var(--_marker, var(--checkmark));
+    padding-left: var(--_marker-size);
+    
+    /* list-style-type: var(--_marker, var(--checkmark)); */
     & > li {
       padding-inline-start: 1ch;
-      line-height: var(--font-lineheight-4);
+      
+      &::marker {
+        content: var(--_marker);
+        color: var(--_marker-color);
+        font-size: var(--_marker-size);
+      }
     }
+  }
+
+  .list ul > * + * {
+    margin-block-start: var(--_line-gap);
   }
 </style>

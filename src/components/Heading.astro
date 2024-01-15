@@ -1,37 +1,95 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 type Props = {
   fontSize?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
-  fontWeight?: "normal" | "bold"
-  fontFamily?: "serif" | "sans-serif" | "mono"
-  textAlign?: "default" | "center"
+  fontWeight?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "normal" | "bold"
+  fontFamily?: "serif" | "sans" | "mono"
+  hasIcon?: boolean,
+  hasAlignCenter?: boolean,
+  class?: string,
+  style?: any,
+  iconName?: string
 }
 
 const {
+  class: className,
   fontSize,
   fontWeight,
   fontFamily,
-  textAlign = "default",
+  hasIcon,
+  hasAlignCenter,
+  iconName,
+  ...restProps
 } = Astro.props
+
+const styles = {
+  ...(fontSize && { '--_font-size': `var(--font-size-${fontSize})` }),
+    ...(fontWeight && { '--_font-weight': `var(--font-weight-${fontWeight})` }),
+    ...(fontFamily && { '--_font-family': `var(--font-${fontFamily})` })
+}
 ---
 
 <div
   class:list={[
-    `heading--symbol`,
-    fontFamily ? `heading--${fontFamily}` : null,
-    fontSize ? `heading--size` : null,
-    fontWeight === 'bold' ? `heading--weight-bold` : null,
-    textAlign === 'center' ? `heading--center` : null,
+    `prose-heading`,
+    hasIcon ? `prose-heading--icon`: '', 
+    hasAlignCenter ? `prose-heading--center`: '', 
+    className
   ]}
   style={{
-    fontSize: fontSize ? ` var(--font-size-${fontSize});` : "",
+    ...styles,
+    ...restProps.style
   }}
+   {...restProps}
 >
+{((hasIcon && !iconName) || (!hasIcon && iconName)) &&
+  <Icon aria-hidden="true" name={hasIcon ? "lucide:asterisk" : iconName} style={ hasIcon ? `--_icon-offset: -.25ch` : '' } />
+}
   <slot />
 </div>
 
+
 <style is:global>
-  .heading--symbol :where(h2, h3, h4, h5)::before {
-    --_color: var(--brand);
+  .prose-heading {
+    --_font-size: initial;
+    --_font-family: var(--font-serif);
+    --_font-weight: initial;
+    display: grid;
+    gap: var(--size-5);
+
+   
+    
+  }
+
+
+
+  .prose-heading :is(h2, h3, h4, h5) {
+    font-size: var(--_font-size);
+    font-weight: var(--_font-weight);
+    font-family: var(--_font-family);
+    text-align: var(--_text-align);
+  }
+
+  .prose-heading [data-icon] {
+    --_icon-size: 2em;
+    --_icon-color: var(--brand);
+    --_icon-offset: initial;
+    font-size: var(--_icon-size);
+    color: var(--_icon-color, currentColor);
+    position: relative;
+    left: var(--_icon-offset);
+  }
+
+  .prose-heading--center > * {
+    text-align: center;
+    margin-inline: auto;
+    
+  }
+
+
+  /* .prose-heading--icon :where(h2, h3, h4, h5)::before {
+    margin-inline: var(--_icon-align);
     content: "";
     width: 1.5rem;
     height: 3rem;
@@ -40,26 +98,10 @@ const {
       "M11.93.684v8.039l5.633-5.633 1.216 1.23-5.66 5.66h8.04v1.737H13.2l5.701 5.701-1.23 1.23-5.742-5.742V21h-1.737v-8.094l-5.77 5.77-1.23-1.217 5.743-5.742H.842V9.98h8.162l-5.701-5.7 1.23-1.231 5.66 5.66V.684h1.737Z"
     );
     display: block;
-  }
+  } */
 
-  .heading--center {
-    text-align: center;
-    
-  }
 
-  .heading--center :where(h2, h3, h4, h5)::before {
-    margin-inline: auto;
-  }
 
-  .heading--sans-serif :is(h2, h3, h4, h5) {
-    font-family: var(--font-sans);
-  }
 
-  .heading--size :is(h2, h3, h4, h5) {
-    font-size: inherit;
-  }
 
-  .heading--weight-bold :is(h2, h3, h4, h5) {
-    font-weight: var(--font-weight-bold);
-  }
 </style>

@@ -2,12 +2,16 @@
 import { getCollection, type CollectionEntry } from "astro:content"
 import FormattedDate from "@/components/FormattedDate.astro"
 import { metafy } from "@/utils/textConverter"
-import { sortByDate } from "@/utils/postFunctions"
+import { sortByDate, filterByStatus } from "@/utils/postFunctions"
 import Taxonomy from "@/components/Taxonomy.astro"
 
 const postCollection = await getCollection("postCollection")
 
 const allPosts = sortByDate(postCollection);
+
+const publishedPosts = filterByStatus(allPosts)
+
+const posts = publishedPosts.slice(0, 5)
 
 type Props = {
   post: CollectionEntry<"postCollection">
@@ -19,7 +23,7 @@ type Props = {
 
   <ul role="list" class="recent-posts__list">
     {
-      allPosts.map((post) => (
+      posts.map((post) => (
         <li class="recent-posts__item">
           <h3>
             <a href={post.slug}>{post.data.title}</a>
