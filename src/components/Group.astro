@@ -23,8 +23,8 @@ const {
 let GROUP = `${type}` as any
 
 const styles = {
-  ...(flowSize ? { '--_flow': `var(--size-${flowSize})` } : {}),
-  ...(surface ? { '--_surface': `var(--surface-${surface})` } : {}),
+  ...(flowSize ? { '--_flow': `var(--${flowSize})` } : {}),
+  ...(surface ? { '--_surface': `var(--${surface})` } : {}),
 }
 ---
 

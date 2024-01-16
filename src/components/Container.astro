@@ -14,7 +14,7 @@ const {
 } = Astro.props
 
 const styles = {
-  ...(flowSize ? { "--_flow": `var(--size-${flowSize})` } : {}),
+  ...(flowSize ? { "--_flow": `var(--${flowSize})` } : {}),
 }
 ---
 

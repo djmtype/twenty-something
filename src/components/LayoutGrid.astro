@@ -12,10 +12,10 @@ const { columnSize, gapSize, columnGapSize, rowGapSize, class: className, ...res
 
 
 const styles = {
-  ...(columnSize && { '--_column': `var(--size-${columnSize})` }),
-  ...(gapSize && { '--_gap': `var(--size-${gapSize})` }),
-  ...(columnGapSize && { '--_column-gap': `var(--size-${columnGapSize})` }),
-  ...(rowGapSize && { '--_row-gap': `var(--size-${rowGapSize})` }),
+  ...(columnSize && { '--_column': `var(--${columnSize})` }),
+  ...(gapSize && { '--_gap': `var(--${gapSize})` }),
+  ...(columnGapSize && { '--_column-gap': `var(--${columnGapSize})` }),
+  ...(rowGapSize && { '--_row-gap': `var(--${rowGapSize})` }),
 }
 ---
 

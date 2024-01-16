@@ -13,8 +13,7 @@ const today = new Date()
 		<p class="colophon__title">{config.site.title}</p>
     </div>
     <LayoutGrid
-      class="colophon__links"
-      style={{ '--_column': '12ch' }}
+      class="colophon__links" columnSize="size-11"
     >
       {
         Object.entries(colophon).map(([section, items]) => (
