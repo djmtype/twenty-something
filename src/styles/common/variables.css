@@ -7,6 +7,8 @@
 
   --initial: initial;
   --unset: unset;
+  --none: none;
+  --auto: auto;
   --size-0: 0;
   --size-container-xxs: 240px;
   --size-container-xs: 360px;

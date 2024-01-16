@@ -1,11 +1,12 @@
 ---
+import type { SizeValue } from "@/data/props.types"
+
 type Props = {
   class?: string
-  columnSize?: string
-  gapSize?: string
-  columnGapSize?: string
-  rowGapSize?: string
-  alignItems?: string
+  columnSize?: SizeValue
+  gapSize?: SizeValue
+  columnGapSize?: SizeValue
+  rowGapSize?: SizeValue
   style?: any
 }
 const { columnSize, gapSize, columnGapSize, rowGapSize, class: className, ...restProps } = Astro.props

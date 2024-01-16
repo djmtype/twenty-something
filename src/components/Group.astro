@@ -1,12 +1,14 @@
 ---
+import type { SizeValue, ColorValue } from "@/data/props.types"
+
 type Props = {
   type: "div" | "section"
   class?: string
   hasContainer?: boolean
   hasFlow?: boolean
-  flowSize?: string
-  surface?: string
+  surface?: ColorValue
   style?: any
+  flowSize?: SizeValue
 }
 
 const {
