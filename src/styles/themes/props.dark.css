@@ -1,29 +1,50 @@
-html {
-  --brand-dark: var(--indigo-3);
-  --brand-2-dark: var(--blue-3);
-  --text-1-dark: var(--gray-1);
-  --text-2-dark: var(--gray-3);
-  --text-overlay-dark: var(--gray-9);
-  --text-muted-dark: var(--gray-5);
-  --surface-overlay-dark: var(--gray-9);
+@supports not (color: oklch(100% 0 0)) {
+  html {
+    --brand-dark: var(--indigo-3);
+    --brand-2-dark: var(--blue-3);
+    --text-1-dark: var(--gray-1);
+    --text-2-dark: var(--gray-3);
+    --text-overlay-dark: var(--gray-9);
+    --text-muted-dark: var(--gray-5);
+    --surface-overlay-dark: var(--gray-9);
 
-  --surface-0-dark: var(--gray-11);
-  --surface-1-dark: var(--gray-10);
-  --surface-2-dark: var(--gray-9);
-  --surface-3-dark: var(--gray-8);
-  --surface-4-dark: var(--gray-7);
-  --separator-dark: var(--gray-7);
-  --surface-shadow-dark: var(--gray-12);
-  --shadow-strength-dark: 80%;
-  --link-dark: var(--indigo-3);
-  --link-visited-dark: var(--indigo-3);
-  --link-hover-dark: var(--indigo-2);
-  --link-active-dark: var(--indigo-4);
-
-
+    --surface-0-dark: var(--gray-11);
+    --surface-1-dark: var(--gray-10);
+    --surface-2-dark: var(--gray-9);
+    --surface-3-dark: var(--gray-8);
+    --surface-4-dark: var(--gray-7);
+    --separator-dark: var(--gray-7);
+    --surface-shadow-dark: var(--gray-12);
+    --shadow-strength-dark: 80%;
+    --link-dark: var(--indigo-3);
+    --link-visited-dark: var(--indigo-3);
+    --link-hover-dark: var(--indigo-2);
+    --link-active-dark: var(--indigo-4);
+  }
 }
 
 
+@supports (color: oklch(100% 0 0)) {
+  html {
+    --brand-dark: var(--color-5);
+    --brand-2-dark: var(--color-9);
+    --text-1-dark: var(--gray-1);
+    --text-2-dark: var(--gray-3);
+    --text-overlay-dark: var(--gray-13);
+    --text-muted-dark: var(--gray-5);
+    --surface-overlay-dark: var(--gray-13);
 
-
-
+    --surface-0-dark: var(--gray-16);
+    --surface-1-dark: var(--gray-14);
+    --surface-2-dark: var(--gray-9);
+    --surface-3-dark: var(--gray-8);
+    --surface-4-dark: var(--gray-7);
+    --separator-dark: var(--gray-7);
+    --surface-shadow-dark: var(--gray-12);
+    --shadow-strength-dark: 80%;
+    --link-dark: var(--color-4);
+    --link-visited-dark: var(--color-4);
+    --link-hover-dark: var(--color-3);
+    --link-active-dark: var(--color-5);
+  }
+}

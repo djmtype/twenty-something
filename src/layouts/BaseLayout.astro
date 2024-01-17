@@ -14,6 +14,8 @@ type Props = {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
 const { title, description, thumbnail = site.ogImage } = Astro.props
+
+
 ---
 
 <html
@@ -92,6 +94,8 @@ Alpine.plugin(persist);
 window.Alpine = Alpine;
 
 Alpine.start();
+
+
 
 
 </script>

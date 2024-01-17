@@ -17,16 +17,16 @@
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --astro-code-token-keyword: var(--color-2);
-      --astro-code-token-function: var(--color-4);
-      --astro-code-token-string-expression: var(--color-7);
+      --astro-code-token-keyword: var(--blue-3);
+      --astro-code-token-function: var(--cyan-3);
+      --astro-code-token-string-expression: var(--violet-3);
     }
   }
 
-  [data-theme="light"] {
-    --astro-code-token-keyword: var(--color-7);
-    --astro-code-token-function: var(--color-10);
-    --astro-code-token-string-expression: var(--color-13);
+  .light {
+    --astro-code-token-keyword: var(--blue-9);
+    --astro-code-token-function: var(--cyan-9);
+    --astro-code-token-string-expression: var(--violet-9);
   }
 
   .dark {

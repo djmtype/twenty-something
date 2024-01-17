@@ -1,4 +1,5 @@
-html {
+@supports not (color: oklch(100% 0 0)) {
+  html {
   --brand-light: var(--indigo-9);
   --brand-2-light: var(--blue-9);
   --text-1-light: var(--gray-9);
@@ -20,9 +21,35 @@ html {
   --link-hover-light: var(--indigo-7);
   --link-active-light: var(--indigo-10);
 }
+}
 
 
+@supports (color: oklch(100% 0 0)) {
 
 
+  html {
+    --brand-light: var(--color-10);
+    --brand-2-light: var(--blue-9);
+    --text-1-light: var(--gray-13);
+    --text-2-light: var(--gray-10);
+    --text-overlay-light: var(--gray-0);
+    --text-muted-light: var(--gray-8);
+
+    --surface-overlay-light: var(--gray-0);
+    --surface-0-light: var(--gray-0);
+    --surface-1-light: var(--gray-1);
+    --surface-2-light: var(--gray-2);
+    --surface-3-light: var(--gray-3);
+    --surface-4-light: var(--gray-4);
+    --separator-light: var(--gray-4);
+    --surface-shadow-light: var(--gray-10);
+    --shadow-strength-light: 2%;
+  
+    --link-light: var(--color-10);
+    --link-visited-light: var(--color-10);
+    --link-hover-light: var(--color-8);
+    --link-active-light: var(--color-12);
+  }
+}
 
 
