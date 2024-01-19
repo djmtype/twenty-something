@@ -8,6 +8,8 @@ status: publish
 slug: home
 ---
 
+import Avatar from "@/assets/uploads/tt4_testimonial_avatar-1.jpg";
+
 
 <Hero>
 # A commitment to innovation and sustainability
@@ -33,8 +35,7 @@ slug: home
 
 <Container>
 <Column name="breakout">
-   <LayoutGrid columnSize="size-14" rowGapSize="size-8">
-
+   <LayoutGrid auto columnSize="size-14" rowGapSize="size-8">
 
         <Card>
         <Heading hasIcon fontFamily="sans" fontSize="2" fontWeight="bold">
@@ -99,7 +100,7 @@ Our comprehensive suite of professional services caters to a diverse clientele, 
 
 <Container hasFlow>
 <Column name="breakout">
-<LayoutGrid columnGapSize="size-fluid-4" style={{ alignItems: "center" }}>
+<LayoutGrid auto columnGapSize="size-fluid-4" style={{ alignItems: "center" }}>
         <Card>
         <Heading hasIcon fontSize="5">
         ### Heading Études Architect App
@@ -117,7 +118,7 @@ Our comprehensive suite of professional services caters to a diverse clientele, 
  </Column>
  
 <Column name="breakout">
-  <LayoutGrid columnGapSize="size-fluid-4" style={{ alignItems: "center" }}>
+  <LayoutGrid auto columnGapSize="size-fluid-4" style={{ alignItems: "center" }}>
 
 <Figure hasRadius>![Building exterior in Toronto,
   Canada](../../assets/uploads/tourist-and-building.webp)</Figure>
@@ -143,11 +144,11 @@ Our comprehensive suite of professional services caters to a diverse clientele, 
   authorName="Annie Steiner"
   jobTitle="CEO"
   organization="Greenprint"
+    thumbnail={Avatar}
   textColor="text-overlay" 
   surfaceColor="brand"
 >
-  Études has saved us thousands of hours of work and has unlocked insights we
-  never thought possible.
+  Études has saved us thousands of hours of work and has unlocked insights we never thought possible.
 </Testimonial>
 
 <Group type="section" hasFlow flowSize="size-fluid-5">

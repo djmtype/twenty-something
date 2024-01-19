@@ -16,4 +16,10 @@ const { ...restProps } =
     flex-direction: column;
     row-gap: var(--_row-gap);
   }
+
+  .card:has(> .card__body) {
+    border: var(--border-size-2) solid var(--surface-2);
+    padding: var(--size-4) var(--size-5);
+    border-radius: var(--radius-2);
+  }
 </style>

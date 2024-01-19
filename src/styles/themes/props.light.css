@@ -20,6 +20,8 @@
   --link-visited-light: var(--indigo-8);
   --link-hover-light: var(--indigo-7);
   --link-active-light: var(--indigo-10);
+
+  --text-strong-light: var(--indigo-12);
 }
 }
 
@@ -49,6 +51,8 @@
     --link-visited-light: var(--color-10);
     --link-hover-light: var(--color-8);
     --link-active-light: var(--color-12);
+
+    --text-strong-light: var(--color-12);
   }
 }
 

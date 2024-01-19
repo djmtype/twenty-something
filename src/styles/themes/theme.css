@@ -31,6 +31,7 @@
   --link-visited: var(--link-visited-light);
   --link-hover: var(--link-hover-light);
   --link-active: var(--link-active-light);
+  --text-strong: var(--text-strong-light);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -58,6 +59,7 @@
     --link-visited: var(--link-visited-dark);
     --link-hover: var(--link-hover-dark);
     --link-active: var(--link-active-dark);
+    --text-strong: var(--text-strong-dark);
   }
 }
 
@@ -85,4 +87,6 @@
   --link-visited: var(--link-visited-dark);
   --link-hover: var(--link-hover-dark);
   --link-active: var(--link-active-dark);
+
+  --text-strong: var(--text-strong-dark);
 }

@@ -13,13 +13,15 @@
     --astro-code-token-keyword: var(--blue-9);
     --astro-code-token-function: var(--cyan-9);
     --astro-code-token-string-expression: var(--violet-9);
+
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
+      
       --astro-code-token-keyword: var(--color-2);
       --astro-code-token-function: var(--color-4);
-      --astro-code-token-string-expression: var(--color-7);
+      --astro-code-token-string-expression: var(--color-6);
     }
   }
 
@@ -36,7 +38,6 @@
   }
 
   pre {
-
     max-inline-size: unset;
     padding: var(--size-fluid-3);
     border-radius: var(--radius-3);

@@ -20,6 +20,7 @@ export default defineConfig({
   integrations: [
     AutoImport({
       imports: [
+        {'astro-icon/components': ['Icon']},
         "./src/components/Title.astro",
         "./src/components/ButtonLink.astro",
         "./src/components/Figure.astro",

@@ -11,10 +11,12 @@
   --_display: inline-flex;
   --_gap: var(--size-relative-2);
   --_border: var(--_surface);
+  --_justify-content: center;
 
   gap: var(--_gap);
   display: var(--_display);
   text-align: center;
+  justify-content: var(--_justify-content);
   text-decoration: none;
   font-size: var(--_size);
   background: var(--_surface);
@@ -49,12 +51,12 @@
 
 button:not([class="button"]),
 .button--default {
-  --_surface-light: var(--gray-11);
+  --_surface-light: var(--gray-14);
   --_text-light: var(--gray-1);
-  --_surface-hover-light: var(--gray-7);
+  --_surface-hover-light: var(--gray-10);
 
   --_surface-dark: var(--gray-2);
-  --_text-dark: var(--gray-11);
+  --_text-dark: var(--gray-12);
   --_surface-hover-dark: var(--gray-0);
 }
 
@@ -66,7 +68,7 @@ button:not([class="button"]),
 
 [data-theme="light"] {
   & .button--default,
-  & button:not([class]) {
+  & button {
     --_text: var(--_text-light);
     --_surface: var(--_surface-light);
     --_surface-hover: var(--_surface-hover-light);
@@ -75,7 +77,7 @@ button:not([class="button"]),
 
 [data-theme="dark"] {
   & .button--default,
-  & button:not([class]) {
+  & button {
     --_text: var(--_text-dark);
     --_surface: var(--_surface-dark);
     --_surface-hover: var(--_surface-hover-dark);
@@ -101,4 +103,8 @@ button,
       --_surface-hover: var(--_surface);
     }
   }
+}
+
+.button--large {
+  --_size: var(--font-size-2);
 }

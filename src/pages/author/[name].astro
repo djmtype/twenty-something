@@ -48,19 +48,19 @@ const postFilterByAuthor = posts.filter(
   title={`Author Profile: ${name}`}
   description={description ?? `A list of posts by ${name}`}
 >
-  <section class="section" style="--_padding: var(--size-fluid-4);">
-    <div class="container">
+  
+
       {
         description && (
-          <div class="column-breakout">
-            <Testimonial style="--_text: var(--text-1); --_font-size-quote: var(--font-size-fluid-2);">
+   
+            <Testimonial textColor="text-1" authorName={name} hideCite style={{ '--_items-margin-inline': 'auto' }}>
               <p set:html={description} />
             </Testimonial>
-          </div>
+        
         )
       }
-    </div>
 
+    <section class="section" style="--_padding-top: var(--size-fluid-4);">
     <div class="container">
       <div class="grid column-breakout">
         <div class="posts">
@@ -84,15 +84,17 @@ const postFilterByAuthor = posts.filter(
           <div class="author__heading flow">
             {
               thumbnail ? (
-                <Image
-                  class="author__thumbnail"
-                  width={150}
-                  height={150}
-                  src={thumbnail}
-                  alt={`Headshot of ${name}`}
-                />
+                <figure class="author__figure">
+                  <Image
+                    class="author__thumbnail"
+                    width={150}
+                    height={150}
+                    src={thumbnail}
+                    alt={`Headshot of ${name}`}
+                  />
+                </figure>
               ) : (
-                <div class="author__thumbnail">
+                <div class="author__figure">
                   <Icon name="lucide:user" width={36} height={36} />
                 </div>
               )
@@ -113,9 +115,9 @@ const postFilterByAuthor = posts.filter(
 </BaseLayout>
 
 <style>
-  section > :last-child {
-    margin-block-start: var(--size-fluid-6);
-  }
+  /* section > :last-child {
+    margin-block-start: var(--size-fluid-4);
+  } */
   .posts__list {
     display: grid;
     gap: var(--size-fluid-5);
@@ -145,28 +147,30 @@ const postFilterByAuthor = posts.filter(
   }
 
   .author__title {
-    font-size: var(--font-size-5);
+    font-size: var(--font-size-4);
     font-weight: var(--font-weight-4);
     font-family: var(--font-serif);
   }
 
-  .author__thumbnail {
+  .author__figure {
+    display: grid;
+    place-content: center;
     border-radius: var(--radius-3);
     height: var(--size-relative-11);
     width: var(--size-relative-11);
-    background-color: var(--surface-3);
+    background-color: var(--surface-2);
     color: var(--text-muted);
+    overflow: hidden;
   }
-  .author__thumbnail img {
+
+
+  .author__thumbnail {
     object-fit: cover;
     height: 100%;
     width: 100%;
   }
 
-  .author__thumbnail {
-    display: grid;
-    place-content: center;
-  }
+
 </style>
 
 <style is:global>

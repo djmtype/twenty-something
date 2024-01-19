@@ -13,7 +13,7 @@ dateUpdated: 2024-01-11
 
 In the beginning, Wordpress was the *defacto* content management tool. Now, 20-something years later, you may not need Wordpress. In fact, your site could be less expensive to run, and more secure without it. The purpose of this tutorial is to migrate your current Wordpress content into a markdown CMS (Content Management System). The CMS includes a WYSIWYG (What You See Is What You Get) toolbar, therefore, no knowledge of markdown is required. Although, you'll soon realize markdown is a super simple, flexible language to comprehend.
 
-Understand, this approach might not be for everyone. If you are a writer who mostly writes long form content, then stick around. Regardless, this tutorial will intentionally try to avoid using the Terminal or Command Line. 
+Understand, this approach might not be for everyone. If you are a writer who mostly writes long form content, then stick around. Regardless, this tutorial will intentionally try to avoid using the Terminal or CLI (Command Line Interface). 
 
 The setup instructions will cover running the CMS locally, although it's possible to edit content remotely, too.
 
@@ -35,7 +35,7 @@ The software package is necessary to test and preview your site on your local co
 
 #### [Github Desktop](https://desktop.github.com/)
 
-A nice GUI for authenticating changes and revisions with your project. Using this app instead avoids trips to the Command Line.
+A nice GUI (Graphic User Interface) for authenticating changes and revisions with your project. Using this app, instead, avoids trips to the CLI.
 
 #### [Microsoft Visual Studio (VS Code)](https://code.visualstudio.com/)
 
@@ -57,7 +57,7 @@ Github will be used to store and manage content, and track changes.
 
 Netlify will be used to deploy your project to the world. Netlify automatically serves your content over a CDN (Content Delivery Network), which simply means, your content loads closest to your visitor. 
 
-When ever changes are made to your project and published, Netlify will automatically regenerate your website. Sign up using your Github account to save yourself a step later on in the process.
+When ever changes are made to your project and published, Netlify will automatically regenerate your website. 
 
 ### Project Theme
 
@@ -155,21 +155,25 @@ Be sure to choose the LTS version, or at least Node version 20.x.x.
 5. In the *Repository Name* field, enter *twenty something*. Press the *Create repository* button. Upon success, you'll be redirected to your own *Twenty Something* repo.
 6. Find and press the *Code* button. Under the *Local* tab, select the *Open with Github Desktop* item. You'll be prompt to save *twenty-something* to a location on your device.
 
+<Callout type="info" title="Info">Regardless of the name you give to your repository, `twenty-something` will be used throughout this tutorial.</Callout>
+
 ### Set Up Visual Studio Code
 
 1. Install [VS Code](https://code.visualstudio.com/) from Microsoft.
-2. After installation, open VS Code.  
-In the top menu, select *File > Open Folder*, and select *twenty-something* folder from your device. 
+2. With VS Code open, go to the top menu, select *File > Open Folder*, and select `twenty-something` folder from your device. 
 3. Add the FrontMatter extension if you weren't prompted to install. In VS Code's top menu, select *View > Extensions*. Search for *Front Matter CMS*, and enable it. 
-4. Install the theme's dependencies. (This is the only one time you'll need to use VS Code's Terminal.)  
+4. Install the theme's dependencies.  
+This is the only one time you'll need to use VS Code's Terminal.  
    - From the top menu, select *View > Terminal*. 
-   - Inside the Terminal, type `npm i` followed by the `Return` key.
+   - Inside the Terminal, type `npm i` followed by the <kbd>RETURN</kbd> key.
 
-If everything was a success, you should see a similar screenshot as shown below. *A couple dummy posts, pages, and authors have been added just for illustration purposes.*
+If everything was a success, you should see a similar screenshot as shown below. 
+
+*A couple dummy posts, pages, and authors have been added for illustrative purposes.*
 
 ### Transport Files
 
-The files you exported earlier from Wordpress can be moved to the corresponding directories inside your *twenty-something* folder within the `src` directory as illustrated below. 
+The files you exported earlier from Wordpress can be moved to the corresponding directories inside your `twenty-something` folder within the `src` directory as illustrated below. 
 
 ```
 /
@@ -184,7 +188,7 @@ The files you exported earlier from Wordpress can be moved to the corresponding 
 
 Since the *WP Gatsby Markdown Exporter* doesn't add author information to the export, these files must be added manually. Follow the `john-doe.md` example inside `/src/content/author`. 
 
-Author names defined in any `author` field must be declared as lowercase, in kebab format, using a hyphen instead of a space.
+Author names defined in any `author` field must be typed as lowercase, kebab format. Use a hyphen in place of a space.
 
 ---
 
@@ -198,16 +202,16 @@ There are a number of ways to return to the FrontMatter's Dashboard.
 
 Press the *FrontMatter Dashboard* tab;  
 or press the smaller *FM* icon located within the sidebar, on top;  
-or use the keyboard shortcut: `option` + `D` on Mac; `alt` + `D` on Windows
+or use the keyboard shortcut: <kbd>OPTION/ALT</kbd> + <kbd>D</kbd>
 
 ### Get Acquainted with the Dashboard
 
-At the top of the Dashboard are several tabs: Contents, Media, Snippets, Data, and Taxonomies.
+At the top of the Dashboard are several tabs: 
 
 - **Contents** essentially reveals all the markdown files. 
 - **Media** displays all files within the `assets` directory. In order to modify metadata of an image, hover over the vertical ellipsis and press the pencil icon. From there, it is possible to set the alternative text, and add a caption if needed. 
 - **Data** is where all the global site settings can be managed – including the overall configuration and primary navigation.
-- **Snippets**, can probably be ignored unless you want to add your own. Otherwise, it contains some pre-defined components which can be incorporated into your files.
+- **Snippets** are a pre-defined chunk of code/text that can be used to insert in your content. 
 - **Taxonomies** reveal all the terms for categories and tags found within your markdown files. They can also be managed here. For example, modifying any category or tag term will automatically update across every file. 
 
 ### Get Acquainted with the Editor
@@ -231,18 +235,6 @@ Example of a *ButtonLink* component:
 There are a few predefined components provided with this theme. They can be accessed from FrontMatter's toolbar. Pressing on the scissors button will direct you to the *Snippets* area. Adding any of the snippets will place the corresponding component's markup into your file.
 
 <Callout variant="info">Components are always written in `PascalCase`; not to be be confused with traditional HTML elements which are written in `lowercase`.</Callout>
-
-Example of the HTML *figure* element: 
-
-```html
-<figure>…</figure>
-```
-
-Example of a component called, *Figure*: 
-
-```html
-<Figure>…</Figure>
-```
 
 ### Launch a Preview
 
@@ -304,7 +296,7 @@ In brief, the `A` record points your domain at Netlify's server IP address. And 
 | A     | custom-name.com      | 75.2.60.5
 | CNAME | www                  | custom-name.netlify.app
 
-<Callout variant="info">It could take up to 48 hours for the DNS records to propagate.</Callout>
+<Callout variant="info" title="Info">It could take up to 48 hours for the DNS records to propagate.</Callout>
 
 ### Publish Changes
 

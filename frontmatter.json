@@ -2,7 +2,7 @@
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
   "frontMatter.taxonomy.contentTypes": [
     {
-      "name": "default",
+      "name": "blog",
       "pageBundle": false,
       "previewPath": null,
       "fields": [
@@ -96,6 +96,80 @@
       ]
     },
     {
+      "name": "page",
+      "pageBundle": false,
+      "previewPath": null,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string",
+          "required": true,
+          "single": true
+        },
+        {
+          "title": "Slug",
+          "name": "slug",
+          "type": "slug",
+          "editable": true,
+          "default": "{{slug}}",
+          "required": true
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string",
+          "required": true
+        },
+        {
+          "title": "Date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true,
+          "dateFormat": "YYYY-MM-DD",
+          "required": true
+        },
+        {
+          "title": "Date Updated",
+          "name": "dateUpdated",
+          "type": "datetime",
+          "isModifiedDate": true
+        },
+        {
+          "title": "Thumbnail",
+          "name": "thumbnail",
+          "type": "image",
+          "isPreviewImage": true
+        },
+        {
+          "title": "Thumbnail Alternative Text",
+          "name": "thumbnailAlt",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "Thumbnail Size",
+          "description": "Default size is programmatically set to content",
+          "name": "thumbnailSize",
+          "type": "choice",
+          "choices": [
+            "",
+            "passage",
+            "content",
+            "breakout",
+            "full"
+          ]
+        },
+        {
+          "title": "Status",
+          "name": "status",
+          "type": "draft",
+          "default": "draft"
+        }
+      ]
+    },
+    {
       "name": "author",
       "pageBundle": false,
       "previewPath": null,
@@ -162,7 +236,16 @@
       "path": "[[workspace]]/src/content/postCollection",
       "previewPath": "'/'",
       "contentTypes": [
-        "default"
+        "blog"
+      ],
+      "filePrefix": null
+    },
+    {
+      "title": "page",
+      "path": "[[workspace]]/src/content/pageCollection",
+      "previewPath": "'/'",
+      "contentTypes": [
+        "page"
       ],
       "filePrefix": null
     },
@@ -375,7 +458,9 @@
   "frontMatter.content.snippets": {
     "Image with Caption": {
       "description": "",
-      "body": "<figure>![ [[alt]] ](../../assets/uploads/[[filename]]) <figcaption>[[caption]]</figcaption></figure>",
+      "openingTags": "{{",
+      "closingTags": "}}",
+      "body": "<figure>![{{alt}}](../../assets/uploads/{{filename}})<figcaption>{{caption}}</figcaption></figure>",
       "fields": [
         {
           "name": "alt",

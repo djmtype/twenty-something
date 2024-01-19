@@ -47,7 +47,7 @@ const filterByCategories = taxonomyFilter(posts, "categories", category!)
         Category: <span>{metafyCategory}</span>
       </h1>
 
-      <LayoutGrid class="entry__grid">
+      <LayoutGrid auto class="entry__grid">
         {filterByCategories.map((post) => <PostCard post={post} />)}
       </LayoutGrid>
     </div>

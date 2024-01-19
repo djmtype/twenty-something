@@ -96,6 +96,34 @@
   max-inline-size: inherit;
 }
 
+:where(details) {
+  background: var(--surface-1);
+  box-shadow: var(--shadow-1);
+  border: var(--border-size-2) solid var(--surface-overlay);
+}
+
+:where(summary > *) {
+  display: inline-block;
+}
+
+:where(details > p) {
+  font-size: var(--font-size-1);
+}
+
+:where(details > *:not(summary) + *) {
+  margin-block-start: var(--size-3);
+}
+
+:where(summary) {
+  background: var(--surface-overlay);
+ 
+
+}
+
+
+
+
+
 /* :where(blockquote) {
     padding-block: unset;
     padding-inline: unset;

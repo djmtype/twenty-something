@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 type Props = {
   variant?: "default" | "accent";
   size?: "small" | "medium" | "large";
@@ -7,6 +9,7 @@ type Props = {
   externalTarget?: boolean;
   id?: string;
   ariaLabel?: boolean;
+  iconName?: string
 }
 
 const {
@@ -17,6 +20,7 @@ const {
   href,
   externalTarget,
   ariaLabel,
+  iconName,
   ...restProps
 } = Astro.props as Props;
 ---
@@ -35,6 +39,9 @@ const {
       ]}
       {...restProps}
     >
+    {iconName && 
+      <Icon name={iconName} />
+    }
       <slot />
     </a>
   )

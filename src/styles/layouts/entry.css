@@ -47,15 +47,15 @@
   margin-block-start: var(--size-fluid-5);
 }
 
-.entry__prose h2:not([class]) {
+:where(.entry__prose h2:not([class])) {
   font-size: var(--font-size-5);
 }
 
-.entry__prose h3:not([class]) {
+:where(.entry__prose h3:not([class])) {
   font-size: var(--font-size-4);
 }
 
-.entry__prose h4:not([class]) {
+:where(.entry__prose h4:not([class])) {
   font-size: var(--font-size-3);
 }
 
@@ -157,6 +157,29 @@ p:has(> img:nth-child(1)) img {
   }
 }
 
+.entry__prose table {
+  width: initial;
+}
+
+.entry__title small {
+  font-family: var(--font-sans);
+  font-size: 40%;
+  display: block;
+  color: var(--text-2);
+}
+
+.entry__prose {
+  em, strong {
+  color: var(--text-strong);
+}
+}
+
+.entry__prose a {
+  em, strong {
+  color: unset;
+}
+}
+
 /* blockquote.callout {
   background: var(--surface-2);
 
@@ -195,3 +218,5 @@ font-size: 1em;
     align-items: center;
     gap: var(--size-relative-2);
 } */
+
+

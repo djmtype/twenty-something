@@ -1,0 +1,128 @@
+---
+title: 'From WP to MD(X): Getting Started'
+date: 2022-07-15
+description: Lorem ipsum dolor sit amet
+status: publish
+slug: from-wp-to-md/getting-started
+dateUpdated: 2024-01-11
+---
+
+## Wordpress Preparation
+
+Install and activate the [*WP Gatsby Markdown Exporter*]((https://wordpress.org/plugins/wp-gatsby-markdown-exporter/)) plugin in your Wordpress Site.
+
+Find and press the *Export to Gatsby* link in the sidebar.
+
+On the **Export to Gatsby** settings screen: 
+
+   1. Make sure the *posts* and *pages* post types' checkboxes have been ticked.  
+   2. Find the *Export date format* field. The format needs to be changed to `Y-m-d`.  
+   3. Under *Exclude fields*, add `id`, `footnotes`, and `post_format`.
+   4. Under *Change field name*, add `permalink,slug`, and on the next line  `excerpt,description`.
+   5. Tick the box next to *Create post type directories*. 
+   6. Change any other options that might be specific to your site. 
+   7. Press the button, *Download zip file*, and save to your device. 
+
+After unzipping the file, you should see `post`, `page` and `uploads` directories. 
+
+Notice a lack of an `author` post type? Adding `author` content will be addressed further on in this tutorial. 
+
+Opening one of the `post` markdown files should appear similar to the following: 
+
+```markdown
+---
+title: 'Hello world!'
+date: 2024-01-23
+status: publish
+author: john-doe
+type: post
+thumbnail: ../../uploads/2024/01/fpo-image.jpg
+category:
+  - News
+tag: 
+  - updates
+slug: /hello-world
+description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+---
+
+And Hello to You!
+-----------------
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+
+![a city landscape in the rain](../../uploads/2024/01/fpo-image.jpg)
+
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+```
+
+There are a couple fields that aren't exported by the plugin. In order for images to be transformed by Astro, they need to reside in the `assets` directory. 
+
+Use VS Code's global find/replace feature.  
+In VS Code's top menu, press *Edit*, then select the *Replace in Files* item.  
+
+Search: `../../uploads`  
+Replace: `../../assets/uploads`
+
+The `slug` field will also require modification. Essentially, the absolute path needs to be removed. Once again, utilize *Replace in Files*.
+
+Search: `slug: /`  
+Replace: `slug: `
+
+<Callout variant="caution" title="Alert">
+Be sure to include a space after the colon in *slug*.
+</Callout>
+
+
+## Install NodeJS
+
+NodeJS is required to run a preview of the site locally. Install it onto your device by choosing the appropriate installer for your operating system.  
+[List of installers](https://nodejs.org/en/download/)
+
+Be sure to choose the LTS version, or at least Node version 20.x.x.
+
+## Prepare for Git
+
+1. Register for a free Github account. [Account signup](https://github.com/signup) 
+2. Download and install Github Desktop. [Download installer](https://desktop.github.com/)
+
+## Set Up the Theme
+
+1. Port the *Twenty Something* theme template over to your Github account. [Visit the theme repo](https://github.com/djmtype/twenty-something) 
+4. Find and press *Use this template* and select *Create a new repository*. You'll be directed to a page to create a new repository under your account. 
+5. In the *Repository Name* field, enter *twenty something*. Press the *Create repository* button. Upon success, you'll be redirected to your own *Twenty Something* repo.
+6. Find and press the *Code* button. Under the *Local* tab, select the *Open with Github Desktop* item. You'll be prompt to save *twenty-something* to a location on your device.
+
+<Callout type="info" title="Info">Regardless of the name you give to your repository, `twenty-something` will be used throughout this tutorial.</Callout>
+
+## Set Up Visual Studio Code
+
+1. Install [VS Code](https://code.visualstudio.com/) from Microsoft.
+2. With VS Code open, go to the top menu, select *File > Open Folder*, and select `twenty-something` folder from your device. 
+3. Add the FrontMatter extension if you weren't prompted to install. In VS Code's top menu, select *View > Extensions*. Search for *Front Matter CMS*, and enable it. 
+4. Install the theme's dependencies.  
+This is the only one time you'll need to use VS Code's Terminal.  
+   - From the top menu, select *View > Terminal*. 
+   - Inside the Terminal, type `npm i` followed by the <kbd>RETURN</kbd> key.
+
+If everything was a success, you should see a similar screenshot as shown below. 
+
+*A couple dummy posts, pages, and authors have been added for illustrative purposes.*
+
+## Transport Files
+
+The files you exported earlier from Wordpress can be moved to the corresponding directories inside your `twenty-something` folder within the `src` directory as illustrated below. 
+
+```
+/
+├── src/
+│   ├── assets/
+│   │   ├── uploads/
+│   ├── content/
+│   │   ├── page/
+│   │   ├── post/
+│   │   ├── author/
+```
+
+Since the *WP Gatsby Markdown Exporter* doesn't add author information to the export, these files must be added manually. Follow the `john-doe.md` example inside `/src/content/author`. 
+
+Author names defined in any `author` field must be typed as lowercase, kebab format. Use a hyphen in place of a space.

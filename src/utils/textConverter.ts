@@ -3,6 +3,28 @@ import { marked } from "marked";
 import smartypants from 'smartypants';
 
 
+
+export const setPageTitle = (inputString: string) => {
+  const colonIndex: number = inputString.indexOf(':');
+  
+  // Check if there is a colon in the string
+  if (colonIndex !== -1) {
+    // Extract the portion before and including the colon
+    const extractedText: string = inputString.substring(0, colonIndex + 1).trim();
+    
+    // Extract the portion after the colon
+    const remainingText: string = inputString.substring(colonIndex + 1).trim();
+    
+    // Wrap the extracted text in a span with the specified class, including a space after the colon
+    const result: string = `<small>${extractedText} </small>${remainingText}`;
+    
+    return result;
+  } else {
+    // If there is no colon, return the original string
+    return inputString;
+  }
+}
+
 // slugify
 export const slugify = (content: string) => {
   return slug(content);

@@ -22,6 +22,11 @@
         "name": "About",
         "url": "/about",
         "rel": "prefetch"
+      },
+      {
+        "name": "Overview",
+        "url": "/overview",
+        "rel": "prefetch"
       }
     ]
   }

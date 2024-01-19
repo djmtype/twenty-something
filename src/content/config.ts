@@ -69,7 +69,7 @@ const authorCollection = defineCollection({
         .refine((img) => img.width >= 100, {
           message: "Thumbnail image must be at least 100 pixels wide!",
         })
-        .optional(),
+.optional(),
 	status: z.string(z.enum(["draft", "publish"]).default("draft"))
   }),
 });
