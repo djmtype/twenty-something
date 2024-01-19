@@ -20,27 +20,3 @@
 
 
 
-:where(*) {
-    --gray-1: oklch(97% var(--gray-chroma, none) var(--gray-hue, none));
-  }
-
-html {
-  --gray-hue-cool: 270;
-  --gray-chroma-cool: 0.02;
-
-  --gray-hue-warm: 50;
-  --gray-chroma-warm: 0.01;
-
-  --gray-hue: var(--gray-hue-cool);
-  --gray-chroma: var(--gray-chroma-cool);
-
-  /* --color-hue: var(--hue-indigo);  */
-}
-
-:where(:root) {
-  /* --palette-hue: 255;   */
-
-  --palette-hue-rotate-by: 4;
-  --palette-chroma: 0.7;
-}
-
