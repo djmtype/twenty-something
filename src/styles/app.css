@@ -1,10 +1,7 @@
 @import "common/fonts.css";
 
 @import "open-props/postcss/style";
-/* @import 'open-props/src/props.colors-oklch-hues.css';
-@import 'open-props/src/props.colors-oklch.css'; */
-@import "open-props/src/props.gray-oklch.css";
-@import "common/palette.css";
+
 @import "common/variables.css";
 @import "common/normalizer.css";
 
@@ -17,6 +14,4 @@
 @import "utilities/flow.css";
 @import "utilities/section.css";
 @import "utilities/container.css";
-
-
 

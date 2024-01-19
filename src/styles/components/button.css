@@ -51,13 +51,13 @@
 
 button:not([class="button"]),
 .button--default {
-  --_surface-light: var(--gray-14);
+  --_surface-light: var(--gray-10);
   --_text-light: var(--gray-1);
-  --_surface-hover-light: var(--gray-10);
+  --_surface-hover-light: var(--gray-7);
 
-  --_surface-dark: var(--gray-2);
+  --_surface-dark: var(--gray-3);
   --_text-dark: var(--gray-12);
-  --_surface-hover-dark: var(--gray-0);
+  --_surface-hover-dark: var(--gray-1);
 }
 
 .button--accent {

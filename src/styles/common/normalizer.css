@@ -122,6 +122,14 @@
 
 
 
+:where(sup a) {
+  display: inline-grid;
+  place-content: center;
+  min-height: var(--size-5);
+  min-width: var(--size-5);
+  background-color: var(--surface-overlay);
+  border-radius: var(--radius-round);
+}
 
 
 /* :where(blockquote) {
