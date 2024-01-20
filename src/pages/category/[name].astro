@@ -3,7 +3,7 @@ import { metafy } from "@/utils/textConverter"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 
 import PostCard from "@/components/PostCard.astro"
-import LayoutGrid from "@/components/LayoutGrid.astro"
+import Grid from "@/components/Grid.astro"
 
 import { getTaxonomy } from "@/utils/taxonomyParser"
 import taxonomyFilter from "@/utils/taxonomyFilter"
@@ -47,9 +47,9 @@ const filterByCategories = taxonomyFilter(posts, "categories", category!)
         Category: <span>{metafyCategory}</span>
       </h1>
 
-      <LayoutGrid auto class="entry__grid">
+      <Grid auto class="entry__grid">
         {filterByCategories.map((post) => <PostCard post={post} />)}
-      </LayoutGrid>
+      </Grid>
     </div>
   </section>
 </BaseLayout>

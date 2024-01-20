@@ -1,0 +1,47 @@
+---
+type Props = {
+  gridLayout?: boolean
+  style?: string
+  className?: string
+}
+const { className, gridLayout = true, ...restProps } = Astro.props
+---
+
+{
+  gridLayout && (
+    <div class={gridLayout ? `container ${className ? className : ''}` : null}>
+      <div class="layout-grid" {...restProps}>
+        <slot />
+      </div>
+    </div>
+  )
+}
+
+{
+  !gridLayout && (
+    <div class={`layout-grid ${className ? className : ''}`} {...restProps}>
+      <slot />
+    </div>
+  )
+}
+
+<style>
+  .contents {
+    display: contents;
+  }
+  .layout-grid {
+    --_column: var(--size-content-2);
+    --_column-gap: var(--gutter);
+    --_row-gap: var(--gutter);
+    --_align-items: initial;
+
+    display: grid;
+    column-gap: var(--_column-gap);
+    row-gap: var(--_row-gap);
+    align-items: var(--_align-items);
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(100%, var(--_column)), 1fr)
+    );
+  }
+</style>

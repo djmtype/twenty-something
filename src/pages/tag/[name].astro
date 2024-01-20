@@ -8,7 +8,7 @@ import { sortByDate, filterByStatus } from "@/utils/postFunctions"
 
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import PostCard from "@/components/PostCard.astro"
-import LayoutGrid from "@/components/LayoutGrid.astro"
+import Grid from "@/components/Grid.astro"
 
 
 import { getCollection } from "astro:content"
@@ -47,9 +47,9 @@ const filterByTags = taxonomyFilter(posts, "tags", tag!)
     Tag: <span>{metafyTag}</span>
   </h1>
 
-  <LayoutGrid auto class="entry__grid">
+  <Grid auto class="entry__grid">
     {filterByTags.map((post) => <PostCard post={post} />)}
-  </LayoutGrid>
+  </Grid>
 
 </div>
 </section>

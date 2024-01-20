@@ -20,7 +20,7 @@ export default defineConfig({
   integrations: [
     AutoImport({
       imports: [
-        {'astro-icon/components': ['Icon']},
+        { "astro-icon/components": ["Icon"] },
         "./src/components/Title.astro",
         "./src/components/ButtonLink.astro",
         "./src/components/Figure.astro",
@@ -29,7 +29,7 @@ export default defineConfig({
         "./src/components/Column.astro",
         "./src/components/Heading.astro",
         "./src/components/Card.astro",
-        "./src/components/LayoutGrid.astro",
+        "./src/components/Grid.astro",
         "./src/components/List.astro",
         "./src/components/Testimonial.astro",
         "./src/components/PostList.astro",
@@ -39,20 +39,19 @@ export default defineConfig({
       ],
     }),
     mdx({
-        syntaxHighlight: "shiki",
-    shikiConfig: {
-      theme: "css-variables",
-      // wrap: true,
-    },
+      syntaxHighlight: "shiki",
+      shikiConfig: {
+        theme: "css-variables",
+        // wrap: true,
+      },
     }),
     sitemap(),
     icon({
       include: {
-        lucide: ['*']
+        lucide: ["*"],
       },
     }),
   ],
-
 
   output: "static",
   vite: {

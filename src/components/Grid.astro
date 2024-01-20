@@ -1,44 +1,48 @@
 ---
+import type { SizeValue } from "@/data/props.types"
+
 type Props = {
-  gridLayout?: boolean
-  style?: string
-  className?: string
+  class?: string
+  columnSize?: SizeValue
+  gapSize?: SizeValue
+  columnGapSize?: SizeValue
+  rowGapSize?: SizeValue,
+  auto?: boolean,
+  style?: any
 }
-const { className, gridLayout = true, ...restProps } = Astro.props
+const { columnSize, gapSize, columnGapSize, rowGapSize, class: className, auto, ...restProps } = Astro.props
+
+
+const styles = {
+  ...(columnSize && { '--_column': `var(--${columnSize})` }),
+  ...(gapSize && { '--_gap': `var(--${gapSize})` }),
+  ...(columnGapSize && { '--_column-gap': `var(--${columnGapSize})` }),
+  ...(rowGapSize && { '--_row-gap': `var(--${rowGapSize})` }),
+}
 ---
 
-{
-  gridLayout && (
-    <div class={gridLayout ? `container ${className ? className : ''}` : null}>
-      <div class="layout-grid" {...restProps}>
-        <slot />
-      </div>
-    </div>
-  )
-}
+<div class:list={[`grid`, auto && `grid--auto`, className]} 
+style={{
+  ...styles, 
+  ...restProps.style
+}} {...restProps}>
+  <slot />
+</div>
 
-{
-  !gridLayout && (
-    <div class={`layout-grid ${className ? className : ''}`} {...restProps}>
-      <slot />
-    </div>
-  )
-}
-
-<style>
-  .contents {
-    display: contents;
-  }
-  .layout-grid {
+<style is:global>
+  .grid {
     --_column: var(--size-content-2);
     --_column-gap: var(--gutter);
     --_row-gap: var(--gutter);
-    --_align-items: initial;
-
+    
+    
     display: grid;
-    column-gap: var(--_column-gap);
-    row-gap: var(--_row-gap);
-    align-items: var(--_align-items);
+    column-gap: var(--_gap, var(--_column-gap));
+    row-gap: var(--_gap, var(--_row-gap));
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
+  .grid--auto {
     grid-template-columns: repeat(
       auto-fit,
       minmax(min(100%, var(--_column)), 1fr)

@@ -120,13 +120,15 @@
 
 }
 
-
+:where(sup) {
+  font-family: var(--font-mono);
+}
 
 :where(sup a) {
   display: inline-grid;
   place-content: center;
-  min-height: var(--size-5);
-  min-width: var(--size-5);
+  min-height: var(--size-6);
+  min-width: var(--size-6);
   background-color: var(--surface-overlay);
   border-radius: var(--radius-round);
 }

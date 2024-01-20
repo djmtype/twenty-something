@@ -1,7 +1,7 @@
 ---
 import config from "@/data/config.json"
 import colophon from "@/data/colophon.json"
-import LayoutGrid from "@/components/LayoutGrid.astro"
+import Grid from "@/components/Grid.astro"
 import { metafy } from "@/utils/textConverter"
 import ThemeSelector from "@/components/ThemeSelector.astro"
 const today = new Date()
@@ -12,7 +12,7 @@ const today = new Date()
     <div class="colophon__details">
 		<p class="colophon__title">{config.site.title}</p>
     </div>
-    <LayoutGrid auto
+    <Grid auto
       class="colophon__links" columnSize="size-11"
     >
       {
@@ -27,7 +27,7 @@ const today = new Date()
           </dl>
         ))
       }
-    </LayoutGrid>
+    </Grid>
   </div>
   <div class="colophon__extra" style="--_container-column: column-breakout;">
     <ThemeSelector />
