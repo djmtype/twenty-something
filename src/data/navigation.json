@@ -14,18 +14,33 @@
     "target": "_blank"
   },
   {
-    "name": "Pages",
+    "name": "Guide",
     "url": "",
     "children": true,
     "childItems": [
       {
-        "name": "About",
-        "url": "/about",
+        "name": "Overview",
+        "url": "/from-wp-to-md/overview",
         "rel": "prefetch"
       },
       {
-        "name": "Overview",
-        "url": "/overview",
+        "name": "Requirements",
+        "url": "/from-wp-to-md/requirements",
+        "rel": "prefetch"
+      },
+      {
+        "name": "Getting Started",
+        "url": "/from-wp-to-md/getting-started",
+        "rel": "prefetch"
+      },
+      {
+        "name": "Content Management",
+        "url": "/from-wp-to-md/content-management",
+        "rel": "prefetch"
+      },
+      {
+        "name": "Deployment",
+        "url": "/from-wp-to-md/deployment",
         "rel": "prefetch"
       }
     ]

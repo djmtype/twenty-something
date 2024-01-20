@@ -4,19 +4,20 @@ import { Icon } from 'astro-icon/components';
 type Props = {
   variant?: "default" | "accent";
   size?: "small" | "medium" | "large";
-  className?: string;
+  class?: string;
   href?: string;
   externalTarget?: boolean;
   id?: string;
   ariaLabel?: boolean;
   iconName?: string
+  style?: any
 }
 
 const {
   id,
   variant,
   size = "medium",
-  className,
+  class: className,
   href,
   externalTarget,
   ariaLabel,
@@ -37,6 +38,9 @@ const {
         size ? "button--" + size : null,
         className,
       ]}
+      style={{
+  ...restProps.style
+}} 
       {...restProps}
     >
     {iconName && 

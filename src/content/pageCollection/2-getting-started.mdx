@@ -6,6 +6,7 @@ status: publish
 slug: from-wp-to-md/getting-started
 dateUpdated: 2024-01-11
 ---
+import TOC from "@/components/TableOfContents.astro";
 
 ## Wordpress Preparation
 
@@ -92,7 +93,7 @@ Be sure to choose the LTS version, or at least Node version 20.x.x.
 5. In the *Repository Name* field, enter *twenty something*. Press the *Create repository* button. Upon success, you'll be redirected to your own *Twenty Something* repo.
 6. Find and press the *Code* button. Under the *Local* tab, select the *Open with Github Desktop* item. You'll be prompt to save *twenty-something* to a location on your device.
 
-<Callout type="info" title="Info">Regardless of the name you give to your repository, `twenty-something` will be used throughout this tutorial.</Callout>
+<Callout variant="info" title="Info">Regardless of the name you give to your repository, `twenty-something` will be used throughout this tutorial.</Callout>
 
 ## Set Up Visual Studio Code
 
@@ -126,3 +127,7 @@ The files you exported earlier from Wordpress can be moved to the corresponding 
 Since the *WP Gatsby Markdown Exporter* doesn't add author information to the export, these files must be added manually. Follow the `john-doe.md` example inside `/src/content/author`. 
 
 Author names defined in any `author` field must be typed as lowercase, kebab format. Use a hyphen in place of a space.
+
+---
+
+<TOC />

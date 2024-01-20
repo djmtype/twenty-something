@@ -133,6 +133,11 @@
   border-radius: var(--radius-round);
 }
 
+:where(hr) {
+  height: var(--border-size-1);
+  background-color: var(--separator);
+}
+
 
 /* :where(blockquote) {
     padding-block: unset;

@@ -27,4 +27,8 @@
 
   --surface-overlay-light: var(--gray-0);
   
+  --caution-light: var(--yellow-6);
+  --danger-light: var(--red-6);
+  --tip-light: var(--violet-6);
+  --info-light: var(--blue-6);
 }

@@ -1,0 +1,53 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+import Heading from "./Heading.astro"
+import Grid from "./Grid.astro"
+import ButtonLink from "./ButtonLink.astro"
+import { Icon } from "astro-icon/components"
+import Contents from "@/data/navigation.json"
+
+type Props = HTMLAttributes<'a'>;
+
+
+function getContents() {
+  const contentItem = Contents.find((item) => item.name === "Guide")
+  return contentItem ? contentItem.childItems : null
+}
+
+const contentItems = getContents()
+
+const itemUrl = contentItems?.map((item) => item.url)
+
+
+// console.log(itemUrl)
+
+// const { href } = Astro.props;
+const currentPage = Astro.url.pathname;
+const { pathname } = Astro.url;
+
+
+// const isActive = currentPage === pathname || currentPage === pathname.replace(/\/$/, '');
+
+// console.log({'page': currentPage, 'path': pathname})
+---
+
+<Heading fontSize="5">
+  <h2>Table of Contents</h2>
+</Heading>
+
+<Grid auto gapSize="size-5">
+  {
+    contentItems.map((item) => (
+      <ButtonLink
+        variant="accent"
+        size="large"
+        href={item.url}
+        class={item.url === pathname ? `active` : ''}
+        style={{ justifyContent: "space-between" }}
+      >
+        {item.name} <Icon name="lucide:arrow-right" />
+      </ButtonLink>
+    ))
+  }
+</Grid>

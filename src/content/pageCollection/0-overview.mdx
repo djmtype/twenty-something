@@ -1,13 +1,14 @@
 ---
-title: 'From WP to MD(X)'
+title: 'From WP to MD(X): Overview'
 date: 2022-07-15
 description: Lorem ipsum dolor sit amet
 thumbnail: ../../assets/uploads/fm-doc-screenshot.png
 thumbnailAlt: A description of this photo
 status: publish
-slug: from-wp-to-md
+slug: from-wp-to-md/overview
 dateUpdated: 2024-01-11
 ---
+import TOC from "@/components/TableOfContents.astro";
 
 In the beginning, Wordpress was the *defacto* content management tool. Now, 20-something years later, you may not need Wordpress. In fact, your site could be less expensive to run, and more secure without it. The purpose of this tutorial is to migrate your current Wordpress content into a markdown CMS (Content Management System). The CMS includes a WYSIWYG (What You See Is What You Get) toolbar, therefore, no knowledge of markdown is required. Although, you'll soon realize markdown is a super simple, flexible language to comprehend.
 
@@ -17,15 +18,5 @@ The setup instructions will cover running the CMS locally, although it's possibl
 
 ---
 
-<Heading fontSize="5">
-## Table of Contents
-</Heading>
-
-<Grid auto gapSize="size-5">
-
-<ButtonLink variant="accent" size="large" href="/from-wp-to-md/requirements" style={{ justifyContent: 'space-between' }}>Requirements <Icon name="lucide:arrow-right" /></ButtonLink>
-
-<ButtonLink variant="accent" size="large" href="/from-wp-to-md/getting-started" style={{ justifyContent: 'space-between' }}>Getting Started <Icon name="lucide:arrow-right" /></ButtonLink>
-
-</Grid>
+<TOC />
 

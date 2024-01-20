@@ -1,103 +1,113 @@
 ---
-import { smartify } from '@/utils/textConverter'
-import { Icon } from 'astro-icon/components'
-import Title from './Title.astro'
+import { smartify } from "@/utils/textConverter"
+import { Icon } from "astro-icon/components"
+import Title from "./Title.astro"
 
 type Props = {
-    title?: string
-    variant: 'tip' | 'info' | 'caution' | 'danger'
-    class?: string
+  title?: string
+  variant: "tip" | "info" | "caution" | "danger"
+  class?: string
+  style?: any
 }
 
-const { title, variant = 'info', class: className } = Astro.props
-
+const { title, variant, class: className, ...restProps } = Astro.props
 
 const getIcon = () => {
-    switch (variant) {
-      case 'tip':
-        return 'pin';
-      case 'info':
-        return 'info';
-      case 'caution':
-        return 'alert-triangle';
-      case 'danger':
-        return 'alert-octagon';
-      default:
-        return '';
-    }
-  };
+  switch (variant) {
+    case "tip":
+      return "pin"
+    case "info":
+      return "info"
+    case "caution":
+      return "alert-triangle"
+    case "danger":
+      return "alert-octagon"
+    default:
+      return ""
+  }
+}
 
-  const iconName = getIcon();
+const iconName = getIcon();
 
+const styles = {
+  ...(variant === 'tip' ? { '--_accent': 'var(--tip)' } : {}),
+  ...(variant === 'caution' ? { '--_accent': 'var(--caution)' } : {}),
+  ...(variant === 'danger' ? { '--_accent': 'var(--danger)' } : {}),
+  ...(variant === 'info' ? { '--_accent': 'var(--info)' } : {}),
+};
 ---
 
-
-<aside class:list={[`callout callout--${variant}`, className]}>
- {title ? (
-<p set:html={smartify(title)} class="callout__title" />
- ) : 
- <Title level="p" class="callout__title"><slot name="title" /></Title>
- }
-  <Icon class="callout__icon" name={`lucide:${iconName}`} aria-hidden="true" />
+<aside class:list={[`callout callout--${variant}`, className]} style={{
+  ...styles, 
+  ...restProps.style
+}} {...restProps}>
   <section class="callout__content flow">
-      <slot />
+  {
+    title && (
+      <p set:html={smartify(title)} class="callout__title" />
+    )}
+
+    {Astro.slots.has('title') && (
+      <Title level="p" class="callout__title">
+        <slot name="title" />
+      </Title>
+    )
+  }
+    <slot />
   </section>
+  <Icon class="callout__icon" name={`lucide:${iconName}`} aria-hidden="true" />
 </aside>
 
 <style is:global>
-    .callout {
-        display: grid;
-        gap: var(--size-3);
-        background: var(--surface-1);
-        color: var(--brand);
-        padding: var(--size-6);
-        position: relative;
-        z-index: 0;
-        border-radius: var(--radius-3);
-        overflow: hidden;
-        grid-template-columns: auto max-content;
-        grid-template-rows: auto auto;
-align-items: start;
-        
-    }
-
+  .callout {
+    --_accent: var(--brand);
+    display: grid;
+    gap: var(--size-3);
    
-
-    .callout::before {
-        content: "";
-        height: 100%;
-        width: 100%;
-        display: block;
-        background: var(--brand);
-        position: absolute;
-        inset: 0;
-        z-index: -1;
-        opacity: .1;
-    }
+    padding: var(--size-6);
+    position: relative;
+    z-index: 0;
+    border-radius: var(--radius-2);
+    overflow: hidden;
+    grid-template-columns: auto max-content;
+    align-items: start;
+    
+    border-inline-start: var(--border-size-3) solid var(--_accent);
+  }
 
 
+  .callout::before {
+    content: "";
+    height: 100%;
+    width: 100%;
+    display: block;
+    background: var(--_accent, var(--surface-overlay));
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.1;
+  }
 
-    .callout__content {
-        color: var(--text-1);
-        grid-row: 2;
-        grid-column: 1;
-    }
+  .callout__content {
+    --_flow: var(--size-3);
 
-    .callout__title {
-        grid-column: 1;
-        font-size: var(--font-size-3);
-        font-weight: var(--font-weight-bold);
-    }
+  }
 
-    .callout__icon {
-        font-size: var(--font-size-fluid-2);
-        grid-column: 2;
-        grid-row: 1 / -1;
-        
-    }
 
-    .callout code {
-      background-color: var(--brand-2);
-      color: var(--text-overlay);
-    }
+
+  .callout__title {
+    /* color: var(--_accent); */
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .callout__icon {
+    color: var(--_accent);
+    font-size: var(--font-size-fluid-2);
+  }
+
+  .callout code {
+    background-color: var(--_accent);
+    color: var(--text-overlay);
+  }
 </style>

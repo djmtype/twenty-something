@@ -1,0 +1,76 @@
+---
+title: 'From WP to MD(X): Content Management'
+date: 2022-07-15
+description: Lorem ipsum dolor sit amet
+status: publish
+slug: from-wp-to-md/content-management
+dateUpdated: 2024-01-11
+---
+import TOC from "@/components/TableOfContents.astro";
+ 
+Don't feel deterred by the number of software packages and accounts required for this tutorial. My goal is to be thorough, therefore, inclusive for almost everyone. 
+
+## Software
+Upon opening VS Code, FrontMatter's Dashboard should be shown. Press the *FM* icon in the left sidebar if it isn't preselected. From the Dashboard, open a page or post by selecting it.
+
+Now find the *Metadata* panel in the sidebar. FrontMatter provides a helpful user interface for the corresponding fields declared within the markdown files. These fields should seem similar to Wordpress such as *title*, *date*, *category*, etc.
+
+There are a number of ways to return to the FrontMatter's Dashboard. 
+
+Press the *FrontMatter Dashboard* tab;  
+or press the smaller *FM* icon located within the sidebar, on top;  
+or use the keyboard shortcut: <kbd>OPTION/ALT</kbd> + <kbd>D</kbd>
+
+## Get Acquainted with the Dashboard
+
+At the top of the Dashboard are several tabs: 
+
+- **Contents** essentially reveals all the markdown files. 
+- **Media** displays all files within the `assets` directory. In order to modify metadata of an image, hover over the vertical ellipsis and press the pencil icon. From there, it is possible to set the alternative text, and add a caption if needed. 
+- **Data** is where all the global site settings can be managed – including the overall configuration and primary navigation.
+- **Snippets** are a pre-defined chunk of code/text that can be used to insert in your content. 
+- **Taxonomies** reveal all the terms for categories and tags found within your markdown files. They can also be managed here. For example, modifying any category or tag term will automatically update across every file. 
+
+## Get Acquainted with the Editor
+
+FrontMatter provides a handy WYSIWYG toolbar displayed on top of each document for styling text, adding links, inserting snippets, etc. Otherwise, learning markdown will really speed up your writing.  [Cheatsheet for Markdown](https://www.markdownguide.org/cheat-sheet/)
+
+For more than text and images, pre-defined components can be added to your page. Components are akin to Wordpress shortcodes. While shortcodes are written inside square brackets, components are written inside angled brackets. 
+
+Example of a Wordpress *ButtonLink* shortcode: 
+
+```html
+[ButtonLink variant="primary" href="https://website.com"]My Button[/ButtonLink]
+```
+
+Example of a *ButtonLink* component: 
+
+```html
+<ButtonLink variant="primary" href="https://website.com">My Button</ButtonLink>
+```
+
+There are a few predefined components provided with this theme. They can be accessed from FrontMatter's toolbar. Pressing on the scissors button will direct you to the *Snippets* area. Adding any of the snippets will place the corresponding component's markup into your file.
+
+<Callout variant="info">
+Components are always written in `PascalCase`; not to be be confused with traditional HTML elements which are written in `lowercase-kebab`.
+</Callout>
+
+## Launch a Preview
+
+In order to see a rendered view of your markdown file, launch the simple browser. 
+
+1. Press the FrontMatter icon in the left sidebar.
+2. Find and expand the *Actions* panel in the sidebar. 
+3. Press the *Start server* button. 
+4. Open a post from FrontMatter's Dashboard. 
+5. Within the *Actions* panel, press the *Open preview* button. 
+
+A live preview of the opened post should display next to the markdown file. Try modifying content inside the markdown file. Saving the file should update the live preview. 
+
+<Callout variant="tip" title="Attention">
+When previewing other markdown files, it is necessary to press the *Open preview* button for each file.
+</Callout>
+
+---
+
+<TOC />
