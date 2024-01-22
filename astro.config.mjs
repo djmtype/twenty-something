@@ -1,5 +1,5 @@
 import { defineConfig } from "astro/config";
-
+import remarkCallout from 'remark-callout';
 import AutoImport from "astro-auto-import";
 import mdx from "@astrojs/mdx";
 import { site } from "./src/data/config.json";
@@ -9,14 +9,17 @@ import icon from "astro-icon";
 // https://astro.build/config
 export default defineConfig({
   site: site.url,
-  // markdown: {
-  //   extendMarkdownConfig: true,
-  //   syntaxHighlight: "shiki",
-  //   shikiConfig: {
-  //     theme: "css-variables",
-  //     // wrap: true,
-  //   },
-  // },
+  markdown: {
+    extendMarkdownConfig: false,
+    syntaxHighlight: "shiki",
+    shikiConfig: {
+      theme: "css-variables",
+      // wrap: true,
+    },
+    remarkPlugins: [
+      remarkCallout
+    ]
+  },
   integrations: [
     AutoImport({
       imports: [

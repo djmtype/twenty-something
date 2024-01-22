@@ -1,0 +1,14 @@
+---
+import { type CollectionEntry } from "astro:content"
+
+type Props = {
+  entry: CollectionEntry<"postCollection">
+}
+
+const { entry } = Astro.props
+const { title } = entry.data
+
+---
+
+<a href={`/${entry.slug}`}
+>{title}</a>

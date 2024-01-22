@@ -1,60 +1,61 @@
 ---
-import type { ChildItem } from "@/data/navigation.types"
-
-import type { HTMLAttributes } from 'astro/types';
+import Guide from "@/data/navigation-guide.json"
 
 import Heading from "./Heading.astro"
-import Grid from "./Grid.astro"
+
 import ButtonLink from "./ButtonLink.astro"
 import { Icon } from "astro-icon/components"
 
-import Contents from "@/data/navigation.json"
+import type { ChildItem } from "@/data/navigation.types.ts"
 
-type Props = HTMLAttributes<'a'>;
+const getItems = (): ChildItem[] => Guide as ChildItem[]
 
+const guideItems = getItems()
 
-
-
-function getContents(): ChildItem[] | null {
-  const contentItem = Contents.find((item) => item.name === "Guide");
-  return contentItem ? contentItem.childItems || [] : null;
-}
-
-
-// const contentItems = getContents()
-
-const contentItems: ChildItem[] | null = getContents();
-
-// const itemUrl = contentItems?.map((item) => item.url)
-
-
-
-// const { href } = Astro.props;
-// const currentPage = Astro.url.pathname;
-const { pathname } = Astro.url;
-
-
-// const isActive = currentPage === pathname || currentPage === pathname.replace(/\/$/, '');
-
-// console.log({'page': currentPage, 'path': pathname})
+const { pathname } = Astro.url
 ---
 
-<Heading fontSize="font-size-5">
-  <h2>Table of Contents</h2>
-</Heading>
+{
+  guideItems ? (
+    <>
+      <Heading fontSize="font-size-5">
+        <h2>Table of Contents</h2>
+      </Heading>
+      <nav class="guide-navigation">
+        <ul role="list" class="guide-navigation__list">
+          {guideItems.map((item) => (
 
-<Grid auto gap="size-5">
-    {contentItems && (
-        contentItems.map((item) => (
-          <ButtonLink
-            variant="accent"
-            size="large"
-            href={item.url}
-            class={item.url === pathname ? `active` : ''}
-            style={{ justifyContent: "space-between" }}
-          >
-            {item.name} <Icon name="lucide:arrow-right" />
-          </ButtonLink>
-        ))
-      )}
-</Grid>
+            
+            <ButtonLink
+              variant="accent"
+              size="large"
+              href={item.url}
+              class={item.url === pathname ? `button--current` : ""}
+              style={{ justifyContent: "space-between" }}
+            >
+              {item.name} 
+              {item.url === pathname ? (
+                <Icon name="lucide:target" />
+                ) : <Icon name="lucide:arrow-right" />
+            }
+            </ButtonLink>
+
+
+          ))}
+        </ul>
+      </nav>
+    </>
+  ) : (
+    <p>Sorry, there are no contents </p>
+  )
+}
+
+<style>
+  .guide-navigation__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-5);
+  }
+
+
+</style>

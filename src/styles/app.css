@@ -8,6 +8,7 @@
 @import "themes/theme.css";
 
 @import "components/button.css";
+@import "components/callout.css";
 @import "utilities/accessibility.css";
 
 @import "utilities/text.css";

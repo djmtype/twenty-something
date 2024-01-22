@@ -136,9 +136,7 @@
   font-size: var(--font-size-1);
 }
 
-.entry__back {
-  margin-block-start: var(--size-fluid-5);
-}
+
 
 .entry__prose img:not([class]) {
   border-radius: var(--radius-3);
@@ -198,6 +196,11 @@ p:has(> img:nth-child(1)) img {
 .entry__prose .footnotes ol {
   color: var(--text-2);
 }
+
+
+
+
+
 
 /* blockquote.callout {
   background: var(--surface-2);

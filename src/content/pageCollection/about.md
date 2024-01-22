@@ -8,6 +8,41 @@ status: publish
 slug: about
 dateUpdated: 2024-01-11
 ---
+> [!example] example
+> Lorem ipsum whatever
+
+> [!question] question
+> Lorem ipsum whatever
+
+> [!todo] todo
+> Lorem ipsum whatever
+
+> [!danger] Danger
+> Lorem ipsum whatever
+
+> [!success] Success
+> blablabla...
+
+> [!info] info
+> blablabla...
+
+> [!bug] bug
+> blablabla...
+
+> [!tip] tip
+> blablabla...
+
+> [!warning] warning
+> blablabla...
+
+> [!note] note
+> blablabla...
+
+> [!quote] quote
+> blablabla...
+
+> [!abstract] abstract
+> blablabla...
 
 ## Overview
 

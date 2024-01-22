@@ -93,6 +93,12 @@ button,
   }
 }
 
+.button--current {
+    background: var(--_surface-hover);
+    border-color: var(--_surface-hover);
+    cursor: default;
+}
+
 [data-theme="light"],
 [data-theme="dark"] {
   button,

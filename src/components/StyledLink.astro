@@ -1,17 +1,28 @@
 ---
 type Props = {
-    className?: string
+    class?: string
 }
-const { className, ...restProps } = Astro.props
+const { class: className, ...restProps } = Astro.props
 ---
 
-<span class={`styled-link ${className}`} {...restProps}>
+<span class:list={[`styled-link`, className]} {...restProps}>
     <slot />
 </span>
 
 <style>
     .styled-link {
+        --_color: var(--brand);
+        --_align-items: initial;
         display: inline-flex;
         gap: var(--size-relative-2);
+        color: var(--_color);
+        align-items: var(--_align-items);
+    }
+</style>
+
+
+<style is:global>
+    .styled-link [data-icon] {
+        flex: 1 0 auto;
     }
 </style>

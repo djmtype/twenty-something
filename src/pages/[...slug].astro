@@ -1,5 +1,11 @@
 ---
 import "@/styles/common/syntax.css"
+import { Icon } from "astro-icon/components"
+import StyledLink from "@/components/StyledLink.astro"
+
+import { sortByDate } from "@/utils/postFunctions"
+
+import PostPreview from "@/components/PostPreview.astro"
 import { getCollection, type CollectionEntry } from "astro:content"
 import Syntax from "@/components/Syntax.astro"
 import Figure from "_backup/Figure.astro"
@@ -7,22 +13,32 @@ import Figure from "_backup/Figure.astro"
 import PostWrapper from "@/layouts/PostWrapper.astro"
 import PageWrapper from "@/layouts/PageWrapper.astro"
 export async function getStaticPaths() {
-  const postEntries = await getCollection("postCollection")
+  const postCollection = await getCollection("postCollection")
+  const postEntries = sortByDate(postCollection)
+
   const pageEntries = await getCollection("pageCollection")
 
   const allEntries = [...postEntries, ...pageEntries]
 
-  return allEntries.map((entry) => ({
+  const entryCount = allEntries.length
+
+  return allEntries.map((entry, index) => ({
     params: { slug: entry.slug },
-    props: { entry },
+    props: {
+      entry,
+      prevEntry: index + 1 !== entryCount ? postEntries[index + 1] : null,
+      nextEntry: index !== 0 ? postEntries[index - 1] : null,
+    },
   }))
 }
 
 type Props = {
   entry: CollectionEntry<"postCollection" | "pageCollection">
+  prevEntry: CollectionEntry<"postCollection">
+  nextEntry: CollectionEntry<"postCollection">
 }
 
-const { entry } = Astro.props
+const { entry, prevEntry, nextEntry } = Astro.props
 const { Content } = await entry.render()
 ---
 
@@ -30,6 +46,42 @@ const { Content } = await entry.render()
   entry.collection === "postCollection" ? (
     <PostWrapper frontmatter={entry}>
       <Content />
+      <div class="pager" slot="pager">
+        {(prevEntry || nextEntry) && (
+          <ul class="pager__list" role="list">
+            <li class="pager__item">
+              {prevEntry ? (
+                <StyledLink>
+                  <Icon aria-hidden="true" name="lucide:move-left" />
+                  <span class="sr-only">Read previous post</span>
+                  <PostPreview entry={prevEntry} />
+                </StyledLink>
+              ) : (
+                " "
+              )}
+            </li>
+
+            <li class="pager__item">
+              <StyledLink>
+                <Icon aria-hidden="true" name="lucide:layout-grid" />
+                <a href="/blog">View all posts</a>
+              </StyledLink>
+            </li>
+
+            <li class="pager__item">
+              {nextEntry ? (
+                <StyledLink>
+                  <span class="sr-only">Read next post</span>
+                  <PostPreview entry={nextEntry} />
+                  <Icon aria-hidden="true" name="lucide:move-right" />
+                </StyledLink>
+              ) : (
+                " "
+              )}
+            </li>
+          </ul>
+        )}
+      </div>
     </PostWrapper>
   ) : entry.collection === "pageCollection" ? (
     <PageWrapper frontmatter={entry}>
@@ -37,3 +89,44 @@ const { Content } = await entry.render()
     </PageWrapper>
   ) : undefined
 }
+
+<style>
+  .pager {
+    margin-block-start: var(--size-fluid-5);
+  }
+  .pager__list {
+    display: flex;
+    column-gap: var(--size-5);
+    row-gap: var(--size-2);
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: var(--font-size-1);
+    align-items: baseline;
+  }
+
+  .pager__item {
+    flex: 1 1 100%;
+    max-inline-size: unset;
+    @media (--sm-n-above) {
+      flex: 1;
+    }
+  }
+
+  .pager__item:nth-child(2) {
+    text-align: center;
+  }
+
+  .pager__item:last-child {
+    text-align: right;
+  }
+</style>
+
+<style is:global>
+  .pager__item .styled-link {
+    --_align-items: start;
+  }
+
+  .pager__item .styled-link [data-icon] {
+    transform: translateY(33%);
+  }
+</style>

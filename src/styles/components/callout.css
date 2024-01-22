@@ -1,0 +1,99 @@
+blockquote.callout {
+    --_background: initial;
+    --_border-color: initial;
+    --_color: initial;
+    position: relative;
+    border-color: var(--_border-color, var(--_color));
+    z-index: 0;
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      height: 100%;
+      width: 100%;
+      display: block;
+      opacity: .1;
+      background: var(--_background, var(--_color));
+      inset: 0;
+    }
+  }
+  .callout-title {
+    display: flex;
+    align-items: center;
+    gap: 1ch;
+  }
+  
+  .callout-title > * {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-bold);
+  }
+  
+  
+  
+  .callout.note {
+    --callout-note: var(--blue-6);
+    --_color: var(--callout-note);
+  }
+  
+  .callout.danger {
+    --callout-danger: var(--red-6);
+    --_color: var(--callout-danger);
+  }
+  
+  .callout.warning {
+    --callout-warning: var(--yellow-6);
+    --_color: var(--callout-warning);
+  }
+  
+  .callout.tip {
+    --callout-tip: var(--teal-6);
+    --_color: var(--callout-tip);
+  }
+  
+  .callout.bug {
+    --callout-bug: var(--pink-6);
+    --_color: var(--callout-bug);
+  }
+  
+  .callout.info {
+    --callout-info: var(--cyan-6);
+    --_color: var(--callout-info);
+  }
+  
+  .callout.success {
+    --callout-success: var(--green-6);
+    --_color: var(--callout-success);
+  }
+  
+  .callout.todo {
+    --callout-todo: var(--blue-6);
+    --_color: var(--callout-todo);
+    --_border-color: var(--callout-todo);
+  }
+  
+  .callout.failure {
+    --callout-failure: var(--pink-6);
+    --_color: var(--callout-failure);
+    --_border-color: var(--callout-failure);
+  }
+  
+  .callout.question {
+    --callout-question: var(--orange-6);
+    --_color: var(--callout-question);
+  }
+  
+  .callout.example {
+    --callout-example: var(--purple-6);
+    --_color: var(--callout-example);
+  }
+  
+  .callout.quote {
+    --callout-quote: var(--stone-6);
+    --_color: var(--callout-quote);
+  }
+  
+  .callout.abstract {
+    --callout-abstract: var(--violet-6);
+    --_color: var(--callout-abstract);
+  }
+  
