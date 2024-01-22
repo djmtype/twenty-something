@@ -59,8 +59,12 @@
   font-size: var(--font-size-3);
 }
 
-.entry__prose :is(h2, h3, h4, h5) {
+.entry__prose :where(*) {
   --_flow: 1.5em;
+}
+
+.entry__prose :where(h2, h3, h4, h5, .text-wrapper) + :where(h2, h3, h4, h5, .text-wrapper) {
+  --_flow: initial;
 }
 
 /* .entry__prose figure,

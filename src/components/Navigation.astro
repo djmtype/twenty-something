@@ -1,24 +1,11 @@
 ---
+import type { ChildItem, NavigationItem} from "@/data/navigation.types"
+
+
 import { Icon } from 'astro-icon/components';
 import navigation from "@/data/navigation.json"
 import { slugify } from "@/utils/textConverter"
 import NavToggle from '@/components/NavToggle.astro'
-
-type ChildItem = {
-  name: string
-  url: string
-  target?: string
-  rel?: string
-}
-
-type NavigationItem = {
-  name: string
-  url: string
-  target?: string
-  rel?: string
-  childItems?: ChildItem[]
-}
-
 
 
 const { pathname } = Astro.url
@@ -41,10 +28,8 @@ const { pathname } = Astro.url
             {nav.childItems ? (
               <a
                 role="button"
-                aria-haspopup="true"
-                @click.prevent="open = !open"
-
-    :aria-expanded="open.toString()"
+                aria-haspopup="true" 
+                @click.prevent="open = !open" :aria-expanded="open.toString()"
                 href="#0"
                 class={`nav-primary__link nav-primary__link--parent ${
                   nav.childItems?.some(

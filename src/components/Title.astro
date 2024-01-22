@@ -1,8 +1,10 @@
 ---
+import type { FontSizeValue } from "@/data/props.types"
 import { slugify } from "@/utils/textConverter"
 
 type Props = {
-  level: "h2" | "h3" | "h4" | "h5" | "p" | "span"
+  as: "h2" | "h3" | "h4" | "h5" | "p" | "span"
+  fontSize?: FontSizeValue
   class?: string
   textAlign?: string
   textColor?: string
@@ -11,60 +13,80 @@ type Props = {
   hasIcon?: boolean
 }
 
-const html = await Astro.slots.render('default');
+const html = await Astro.slots.render("default")
 
 const {
-  level = 'p',
+  as: Component = "p",
   hasId,
   class: className,
   textAlign,
   textColor,
   hasAnchor,
   hasIcon,
+  fontSize
 } = Astro.props as Props
 
-
-
-let HL = `${level}` as any
-
-const hlProps = {
+const textProps = {
   ...(hasId && html ? { id: slugify(html) } : {}),
   class: [
     "text-headline",
     textAlign === "center" ? "text-center" : "",
     textColor ? `text-color-${textColor}` : "",
     hasAnchor ? "text-anchor" : "",
-    hasIcon ? "title--icon" : "",
-    className || ""
-  ].filter(Boolean).join(" "),
+    hasIcon ? "text-icon" : "",
+    className || "",
+  ]
+    .filter(Boolean)
+    .join(" "),
 }
 ---
 
-<HL {...hlProps}>
-  <slot />
-  {
-    hasAnchor ? (
+{
+  hasAnchor && hasId ? (
+    <div tabindex="-1" class={`text-wrapper text-${Component}`}>
       <a class="anchor-link" href={"#" + slugify(html)}>
         <>
-          <span class="anchor-icon" aria-hidden="true">
-            #
-          </span>
-          <span class="sr-only">Anchor for &ldquo;{html}&rdquo;</span>
+          <span class="anchor-icon" aria-hidden="true">#</span>
+          <span class="sr-only">Anchor for {html}</span>
         </>
       </a>
-    ) : null
-  }
-</HL>
+      <Component {...textProps}><slot /></Component>
+    </div>
+  ) : (
+    <Component {...textProps}><slot /></Component>
+  )
+}
 
 <style>
-  .title--icon::before {
-    content: "";
-    width: 1.5rem;
-    height: 3rem;
-    background: var(--_color, currentColor);
-    clip-path: path(
-      "M11.93.684v8.039l5.633-5.633 1.216 1.23-5.66 5.66h8.04v1.737H13.2l5.701 5.701-1.23 1.23-5.742-5.742V21h-1.737v-8.094l-5.77 5.77-1.23-1.217 5.743-5.742H.842V9.98h8.162l-5.701-5.7 1.23-1.231 5.66 5.66V.684h1.737Z"
-    );
-    display: block;
+
+.text-wrapper {
+  display: flex;
+  gap: .25em;
+  
+}
+
+  .text-h2 {
+    font-size: var(--font-size-6);
   }
+  .text-h3 {
+    font-size: var(--font-size-5);
+  }
+  .text-h4 {
+    font-size: var(--font-size-4);
+  }
+
+  .text-h5 {
+    font-size: var(--font-size-3);
+  }
+
+  .text-p {
+    font-size: var(--font-size-2);
+  }
+
+  .anchor-link {
+    align-self: center;
+    font-size: .75em;
+    margin-inline-start: calc(-1 * (.75em + .25em));
+  }
+  
 </style>

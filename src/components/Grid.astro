@@ -4,20 +4,20 @@ import type { SizeValue } from "@/data/props.types"
 type Props = {
   class?: string
   columnSize?: SizeValue
-  gapSize?: SizeValue
-  columnGapSize?: SizeValue
-  rowGapSize?: SizeValue,
+  gap?: SizeValue
+  columnGap?: SizeValue
+  rowGap?: SizeValue,
   auto?: boolean,
   style?: any
 }
-const { columnSize, gapSize, columnGapSize, rowGapSize, class: className, auto, ...restProps } = Astro.props
+const { columnSize, gap, columnGap, rowGap, class: className, auto, ...restProps } = Astro.props
 
 
 const styles = {
   ...(columnSize && { '--_column': `var(--${columnSize})` }),
-  ...(gapSize && { '--_gap': `var(--${gapSize})` }),
-  ...(columnGapSize && { '--_column-gap': `var(--${columnGapSize})` }),
-  ...(rowGapSize && { '--_row-gap': `var(--${rowGapSize})` }),
+  ...(gap && { '--_gap': `var(--${gap})` }),
+  ...(columnGap && { '--_column-gap': `var(--${columnGap})` }),
+  ...(rowGap && { '--_row-gap': `var(--${rowGap})` }),
 }
 ---
 

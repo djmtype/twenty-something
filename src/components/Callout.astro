@@ -48,7 +48,7 @@ const styles = {
     )}
 
     {Astro.slots.has('title') && (
-      <Title level="p" class="callout__title">
+      <Title as="p" class="callout__title">
         <slot name="title" />
       </Title>
     )

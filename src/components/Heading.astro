@@ -1,9 +1,10 @@
 ---
+import type { FontSizeValue } from "@/data/props.types"
 import { Icon } from 'astro-icon/components';
 
 type Props = {
-  fontSize?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
-  fontWeight?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "normal" | "bold"
+  fontSize?: FontSizeValue
+  fontWeight?: "normal" | "bold"
   fontFamily?: "serif" | "sans" | "mono"
   hasIcon?: boolean,
   hasAlignCenter?: boolean,
@@ -24,7 +25,7 @@ const {
 } = Astro.props
 
 const styles = {
-  ...(fontSize && { '--_font-size': `var(--font-size-${fontSize})` }),
+  ...(fontSize && { '--_font-size': `var(--${fontSize})` }),
     ...(fontWeight && { '--_font-weight': `var(--font-weight-${fontWeight})` }),
     ...(fontFamily && { '--_font-family': `var(--font-${fontFamily})` })
 }
