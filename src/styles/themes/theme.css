@@ -28,10 +28,19 @@
   --link-active: var(--link-active-light);
   --text-strong: var(--text-strong-light);
 
-  --caution: var(--caution-light);
+  --note: var(--note-light);
   --danger: var(--danger-light);
+  --warning: var(--warning-light);
   --tip: var(--tip-light);
+  --bug: var(--bug-light);
   --info: var(--info-light);
+  --success: var(--success-light);
+  --todo: var(--todo-light);
+  --failure: var(--failure-light);
+  --question: var(--question-light);
+  --example: var(--example-light);
+  --quote: var(--quote-light);
+  --abstract: var(--abstract-light);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -60,10 +69,19 @@
     
     --text-strong: var(--text-strong-dark);
 
-    --caution: var(--caution-dark);
-  --danger: var(--danger-dark);
-  --tip: var(--tip-dark);
-  --info: var(--info-dark);
+    --note: var(--note-dark);
+    --danger: var(--danger-dark);
+    --warning: var(--warning-dark);
+    --tip: var(--tip-dark);
+    --bug: var(--bug-dark);
+    --info: var(--info-dark);
+    --success: var(--success-dark);
+    --todo: var(--todo-dark);
+    --failure: var(--failure-dark);
+    --question: var(--question-dark);
+    --example: var(--example-dark);
+    --quote: var(--quote-dark);
+    --abstract: var(--abstract-dark);
   }
 }
 
@@ -92,8 +110,17 @@
 
   --text-strong: var(--text-strong-dark);
 
-  --caution: var(--caution-dark);
+  --note: var(--note-dark);
   --danger: var(--danger-dark);
+  --warning: var(--warning-dark);
   --tip: var(--tip-dark);
+  --bug: var(--bug-dark);
   --info: var(--info-dark);
+  --success: var(--success-dark);
+  --todo: var(--todo-dark);
+  --failure: var(--failure-dark);
+  --question: var(--question-dark);
+  --example: var(--example-dark);
+  --quote: var(--quote-dark);
+  --abstract: var(--abstract-dark);
 }

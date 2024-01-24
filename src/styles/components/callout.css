@@ -28,72 +28,61 @@ blockquote.callout {
     font-weight: var(--font-weight-bold);
   }
   
-  
+  .callout-icon {
+    color: var(--_color);
+  }
   
   .callout.note {
-    --callout-note: var(--blue-6);
-    --_color: var(--callout-note);
+    --_color: var(--note);
   }
   
   .callout.danger {
-    --callout-danger: var(--red-6);
-    --_color: var(--callout-danger);
+    --_color: var(--danger);
   }
   
   .callout.warning {
-    --callout-warning: var(--yellow-6);
-    --_color: var(--callout-warning);
+    --_color: var(--warning);
   }
   
   .callout.tip {
-    --callout-tip: var(--teal-6);
-    --_color: var(--callout-tip);
+    --_color: var(--tip);
   }
   
   .callout.bug {
-    --callout-bug: var(--pink-6);
-    --_color: var(--callout-bug);
+    --_color: var(--bug);
   }
   
   .callout.info {
-    --callout-info: var(--cyan-6);
-    --_color: var(--callout-info);
+    --_color: var(--info);
   }
   
   .callout.success {
-    --callout-success: var(--green-6);
-    --_color: var(--callout-success);
+    --_color: var(--success);
   }
   
   .callout.todo {
-    --callout-todo: var(--blue-6);
-    --_color: var(--callout-todo);
-    --_border-color: var(--callout-todo);
+    --_color: var(--todo);
+
   }
   
   .callout.failure {
-    --callout-failure: var(--pink-6);
-    --_color: var(--callout-failure);
-    --_border-color: var(--callout-failure);
+    --_color: var(--failure);
+
   }
   
   .callout.question {
-    --callout-question: var(--orange-6);
-    --_color: var(--callout-question);
+    --_color: var(--question);
   }
   
   .callout.example {
-    --callout-example: var(--purple-6);
-    --_color: var(--callout-example);
+    --_color: var(--example);
   }
   
   .callout.quote {
-    --callout-quote: var(--stone-6);
-    --_color: var(--callout-quote);
+    --_color: var(--quote);
   }
   
   .callout.abstract {
-    --callout-abstract: var(--violet-6);
-    --_color: var(--callout-abstract);
+    --_color: var(--abstract);
   }
   

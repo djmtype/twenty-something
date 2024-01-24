@@ -18,7 +18,10 @@ export default defineConfig({
     },
     remarkPlugins: [
       remarkCallout
-    ]
+    ],
+    rehypePlugins: [
+
+    ],
   },
   integrations: [
     AutoImport({

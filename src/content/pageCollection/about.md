@@ -8,6 +8,11 @@ status: publish
 slug: about
 dateUpdated: 2024-01-11
 ---
+
+
+![Alt text](../../assets/uploads/blog-placeholder-2.jpg "The caption")
+
+
 > [!example] example
 > Lorem ipsum whatever
 
@@ -109,5 +114,6 @@ The `slug` field will also require modification. Essentially, the absolute path 
 Search: `slug: /`  
 Replace: `slug: `
 
-> [!Alert] Alert
+> [!alert] Alert
 > Be sure to include a space after the colon in *slug*.
+
