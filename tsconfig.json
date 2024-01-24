@@ -11,6 +11,7 @@
   },
   "exclude": [
     "_backup",
+    "_docs",
     "dist"
   ]
 }

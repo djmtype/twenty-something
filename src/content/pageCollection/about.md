@@ -9,9 +9,7 @@ slug: about
 dateUpdated: 2024-01-11
 ---
 
-
-![Alt text](../../assets/uploads/blog-placeholder-2.jpg "The caption")
-
+![Alt text](../../assets/uploads/blog-placeholder-2.jpg)
 
 > [!example] example
 > Lorem ipsum whatever

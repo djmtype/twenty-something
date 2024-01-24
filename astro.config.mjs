@@ -17,10 +17,10 @@ export default defineConfig({
       // wrap: true,
     },
     remarkPlugins: [
-      remarkCallout
+      remarkCallout,
     ],
     rehypePlugins: [
-
+        
     ],
   },
   integrations: [
