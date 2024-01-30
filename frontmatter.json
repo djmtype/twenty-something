@@ -318,6 +318,10 @@
               "themeSwitcher": {
                 "type": "boolean",
                 "title": "Theme Switcher"
+              },
+              "homeBlogPageSize": {
+                "type": "number",
+                "title": "Blog Page Size"
               }
             }
           },

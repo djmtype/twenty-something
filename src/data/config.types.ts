@@ -15,6 +15,7 @@ type Site = {
   // Define types for the "settings" object
 type Settings = {
     themeSwitcher: boolean;
+    homeBlogPageSize: number;
   }
   
   // Define types for the "logo" object

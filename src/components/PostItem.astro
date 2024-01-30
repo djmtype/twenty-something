@@ -1,0 +1,145 @@
+---
+import { makeExcerpt, plainify } from "@/utils/textConverter"
+import { Image } from "astro:assets"
+import FormattedDate from "@/components/FormattedDate.astro"
+import { getEntry, type CollectionEntry } from "astro:content"
+
+import Taxonomy from "@/components/Taxonomy.astro"
+
+type PostOptions = {
+  hideImage?: boolean
+  style?: string
+  index?: number
+}
+
+type Props = {
+  post: CollectionEntry<"postCollection">
+} & PostOptions
+
+const { post, index, hideImage, ...restProps } = Astro.props
+
+const {
+  author,
+  description,
+  title,
+  date,
+  thumbnail,
+  thumbnailAlt = "",
+  categories,
+} = post.data
+
+const { data: authorData } = await getEntry("authorCollection", author.slug)
+
+const postBody = post.body
+
+const plainText = await plainify(postBody)
+---
+
+<div class="post-card" {...restProps}>
+  {
+    thumbnail && (
+      <figure class="post-card__figure">
+        <Image
+          class="post-card__image"
+          src={thumbnail}
+          alt={thumbnailAlt}
+          loading={index === 0 ? `eager` : `lazy`}
+          width={thumbnail.width}
+          height={thumbnail.height}
+          densities={[1, 2]}
+          quality={60}
+        />
+      </figure>
+    )
+  }
+  <div class="post-card__content">
+    <h2>
+      <a class="link-block" href={`/${post.slug}`} set:html={title} />
+    </h2>
+
+    <div class="post-card__meta">
+      <FormattedDate date={date} />
+      – by <a href=`/author/${author.slug}`>{authorData.name}</a> in
+      <Taxonomy type="category" name={categories[0]} />
+    </div>
+
+    <p>
+      {makeExcerpt(plainText, 30)}
+    </p>
+  </div>
+</div>
+
+<style>
+  .post-card {
+    container: card / inline-size;
+    display: grid;
+    align-items: start;
+    column-gap: var(--gutter);
+    row-gap: var(--size-fluid-3);
+    position: relative;
+  }
+
+  .link-block::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    display: block;
+  }
+
+  .post-card :is(p, .post-card__meta) {
+    position: relative;
+  }
+
+  .post-card:first-child {
+    @media (--lg-n-above) {
+      grid-column: 1/-1;
+
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: end;
+    }
+  }
+
+  @media (--lg-n-above) {
+    .post-card:first-child > *:first-child {
+      grid-column: span 2;
+    }
+  }
+
+  .post-card__figure {
+    width: 100%;
+    height: auto;
+  }
+
+  .post-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: var(--radius-3);
+  }
+  .post-card__content {
+    display: grid;
+    align-items: baseline;
+    row-gap: var(--size-3);
+  }
+  .post-card__content h2 {
+    font-size: var(--font-size-5);
+    
+  }
+
+  .post-card__content p {
+    color: var(--text-2);
+    font-size: var(--font-size-1);
+  }
+
+  @container card (width >= 600px) {
+    .post-card__image {
+      aspect-ratio: 2/1.25;
+    }
+
+    /* .post-card__content p {
+      font-size: var(--font-size-3);
+    } */
+  }
+</style>

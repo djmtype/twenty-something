@@ -1,6 +1,6 @@
 ---
-import { Icon } from 'astro-icon/components';
-import StyledLink from '@/components/StyledLink.astro';
+import { Icon } from "astro-icon/components"
+import StyledLink from "@/components/StyledLink.astro"
 // Pagination Props type helpers
 export type NumericalString = `${number}`
 export type RouteString = string | null | undefined
@@ -15,100 +15,95 @@ type Props = {
 }
 
 const {
-  firstPage = '#',
-  previousPage = '#',
-  nextPage = '#',
-  lastPage = '#',
-  currentPage = '1',
-  totalPages = '12',
+  firstPage = "#",
+  previousPage = "#",
+  nextPage = "#",
+  lastPage = "#",
+  currentPage = "1",
+  totalPages = "12",
 } = Astro.props
 ---
 
 <nav class="pagination" aria-label="Pagination">
   <ul role="list" class="pagination__list">
-   
-    <li>
-      {
-        previousPage ? (
+    {
+      previousPage ? (
+        <li>
           <StyledLink>
-            <Icon name="lucide:move-left" /> <a href={previousPage} aria-label={`Go back to ${previousPage}`}>Previous Page</a>
+            <Icon aria-hidden="true" name="lucide:move-left" />{" "}
+            <a href={previousPage} aria-label={`Go back to ${previousPage}`}>
+              <span aria-hidden="true">Previous Page</span>
+            </a>
           </StyledLink>
-          
-        ) : (
-        <StyledLink class="disabled">
-            <Icon name="lucide:move-left" /> Previous Page
-        </StyledLink>
-        )
-      }
-    </li>
+        </li>
+      ) : (
+        <li aria-hidden="true">&nbsp;</li>
+      )
+    }
+
     <li>
       <span class="pagination__status">Page {currentPage} of {totalPages}</span>
     </li>
-    <li>
-      {
-        nextPage ? (
-        <StyledLink>
-          <a href={nextPage} aria-label={`Go to ${nextPage}`}>Next Page</a> <Icon name="lucide:move-right" />
+
+    {
+      nextPage ? (
+        <li>
+          <StyledLink>
+            <a href={nextPage} aria-label={`Go to ${nextPage}`}>
+              <span aria-hidden="true">Next Page</span>
+            </a>{" "}
+            <Icon aria-hidden="true" name="lucide:move-right" />
           </StyledLink>
-        ) : (
-        <StyledLink class="disabled">
-          Next Page <Icon name="lucide:move-right" />
-          </StyledLink>
-        )
-      }
-    </li>
-   
+        </li>
+      ) : (
+        <li aria-hidden="true">&nbsp;</li>
+      )
+    }
   </ul>
 </nav>
 
 <style is:global>
-  
   .pagination__list {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--size-3);
     flex-wrap: wrap;
+    @media (--sm-n-above) {
+      flex-wrap: nowrap;
+    }
   }
 
+  .pagination__list > * {
+    flex: 1 1 20ch;
+  }
 
+  .pagination__list > :first-child {
+    justify-content: start;
+  }
 
+  .pagination__list > :nth-child(2) {
+    justify-content: center;
+  }
+
+  .pagination__list > :last-child {
+    justify-content: end;
+  }
 
   .pagination__list > * > * {
-      margin-inline: auto;
-      text-wrap: nowrap;
+    /* margin-inline: auto; */
+    text-wrap: nowrap;
   }
 
+  .pagination__status {
+    color: var(--text-2);
+  }
 
+  .pagination li {
+    display: flex;
+  }
 
-
-
-.pagination .disabled {
-
-  opacity: .7;
-  cursor: not-allowed;
-
-}
-
-.pagination [data-icon] {
-    width: var(--size-relative-7);
-    height: auto;
-    flex: 1 0 auto;
-
-    
-}
-.pagination__status {
-  
-  color: var(--text-2);
-}
-
-.pagination li {
-  display: flex;
-
-}
-
-.pagination li:has(a)  {
-  color: var(--link);
-}
+  .pagination li:has(a) {
+    color: var(--link);
+  }
 </style>
-

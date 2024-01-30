@@ -1,5 +1,6 @@
 ---
 import { Icon } from "astro-icon/components"
+import Grid from "@/components/Grid.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import { Image } from "astro:assets"
 import { slugify } from "@/utils/textConverter"
@@ -62,7 +63,7 @@ const postFilterByAuthor = posts.filter(
 
     <section class="section" style="--_padding-top: var(--size-fluid-4);">
     <div class="container">
-      <div class="grid column-breakout">
+      <Grid auto class="column-breakout">
         <div class="posts">
           {
             postFilterByAuthor.length > 0 ? (
@@ -109,7 +110,7 @@ const postFilterByAuthor = posts.filter(
             <Content />
           </div>
         </div>
-      </div>
+      </Grid>
     </div>
   </section>
 </BaseLayout>

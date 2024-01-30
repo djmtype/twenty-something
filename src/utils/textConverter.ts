@@ -4,6 +4,27 @@ import smartypants from 'smartypants';
 
 
 
+
+// wordsExtractor.ts
+
+export const makeExcerpt = (inputString: string, numberOfWords: number): string => {
+  const wordsArray: string[] = inputString.split(/\s+/);
+
+  // If the string has fewer words than numberOfWords, use the whole string
+  const selectedWords: string[] = wordsArray.slice(0, numberOfWords > wordsArray.length ? wordsArray.length : numberOfWords);
+
+  let resultString: string = selectedWords.join(' ');
+
+  // Add ellipsis if there are more words in the string
+  if (wordsArray.length > numberOfWords) {
+      resultString += '...';
+  }
+
+  return resultString;
+};
+
+
+
 export const setPageTitle = (inputString: string) => {
   const colonIndex: number = inputString.indexOf(':');
   

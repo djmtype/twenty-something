@@ -54,10 +54,12 @@ const authorData =
       >
             <Image
               class="entry__thumbnail"
-              quality={50}
+              quality={60}
               alt=""
               densities={[1, 2]}
               src={thumbnail}
+              width={thumbnail.width}
+              height={thumbnail.height}
               alt={thumbnailAlt ? thumbnailAlt : ""}
             />
       </figure>
