@@ -22,7 +22,7 @@
   "blog": {
     "title": "The Blog",
     "description": "A blog for all occassions",
-    "pageSize": 2
+    "pageSize": 3
   },
   "metadata": {
     "ogTitle": "",

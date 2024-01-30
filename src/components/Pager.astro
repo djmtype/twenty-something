@@ -1,6 +1,8 @@
 ---
+
 import { Icon } from "astro-icon/components"
 import StyledLink from "@/components/StyledLink.astro"
+import "@/styles/components/pagination.css"
 
 import { type CollectionEntry } from "astro:content"
 
@@ -12,12 +14,12 @@ type Props = {
 const { prevEntry, nextEntry } = Astro.props
 ---
 
-  <nav class="pager">
-    <ul class="pager__list" role="list">
+<nav class="pagination" aria-label="Pagination">
+    <ul class="pagination__list" role="list">
       
         {
           prevEntry ? (
-          <li class="pager__item">
+          <li class="pagination__item">
             <StyledLink>
               <Icon aria-hidden="true" name="lucide:move-left" />
               <a href={`/${prevEntry.slug}`}>
@@ -27,12 +29,12 @@ const { prevEntry, nextEntry } = Astro.props
             </StyledLink>
           </li>
           ) : (
-          <li aria-hidden="true" class="pager__item">&nbsp;</li>
+          <li aria-hidden="true" class="pagination__item">&nbsp;</li>
           )
         }
       
   
-      <li class="pager__item">
+      <li class="pagination__item">
         <StyledLink>
           <Icon aria-hidden="true" name="lucide:layout-grid" />
           <a href="/blog">View all posts</a>
@@ -42,7 +44,7 @@ const { prevEntry, nextEntry } = Astro.props
       
         {
           nextEntry ? (
-          <li class="pager__item">
+          <li class="pagination__item">
             <StyledLink>
               <a href={`/${nextEntry.slug}`}>
                 Next:
@@ -52,54 +54,9 @@ const { prevEntry, nextEntry } = Astro.props
             </StyledLink>
           </li>
           ) : (
-          <li aria-hidden="true" class="pager__item">&nbsp;</li>
+          <li aria-hidden="true" class="pagination__item">&nbsp;</li>
           )
         }
       
     </ul>
   </nav>
-
-
-<style is:global>
-  .pager__item .styled-link {
-    --_align-items: baseline;
-  }
-
-  .pager__item .styled-link [data-icon] {
-    transform: translateY(15%);
-  }
-</style>
-
-<style>
-  .pager {
-    margin-block-start: var(--size-fluid-5);
-  }
-  .pager__list {
-    display: flex;
-    column-gap: var(--size-5);
-    row-gap: var(--size-2);
-    justify-content: space-between;
-    flex-wrap: wrap;
-    font-size: var(--font-size-1);
-    align-items: baseline;
-    @media (--sm-n-above) {
-    flex-wrap: nowrap;
-  }
-  }
-
-  .pager__item {
-    flex: 1 1 20ch;
-  }
-
-  .pager__item:first-child {
-  justify-content: start;
-}
-
-  .pager__item:nth-child(2) {
-    text-align: center;
-  }
-
-  .pager__item:last-child {
-    text-align: right;
-  }
-</style>
