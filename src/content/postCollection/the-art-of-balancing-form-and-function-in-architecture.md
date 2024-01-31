@@ -4,14 +4,13 @@ description: Lorem ipsum dolor sit amet
 date: 2023-08-14
 thumbnail: ../../assets/uploads/tt4_post_1.jpg
 thumbnailAlt: For placement only
-author: scott-rod
+author: jon-doe
 slug: the-art-of-balancing-form-and-function-in-architecture
 tags:
-  - architect
-  - form
-  - function
+  - tag one
+  - tag three
 categories:
-  - architecture
+  - category two
 status: publish
 thumbnailSize: passage
 ---
@@ -27,7 +26,7 @@ _Helga Steiner_: Hello, Rhye. It’s a pleasure to be here. The relationship bet
 _HS_: You’re absolutely right; it is delicate, but it’s also one of the most rewarding aspects of architecture. To achieve this balance, I start by thoroughly understanding the project’s functional requirements and its context. Every building has a purpose, whether it’s a home, a museum, or an office. The design must serve that purpose effectively. Once that foundation is laid, I explore the form, drawing inspiration from the site, culture, and the client’s vision. It’s about finding that sweet spot where aesthetics enhance functionality and vice versa.
 
 > Sustainability is non-negotiable in today’s world. It’s not just a trend; it’s a responsibility. I incorporate sustainable features into my designs from the very beginning.
-> <br />
+> 
 > <cite>Helga Steiner</cite>
 
 **_RM_: Can you give us an example of a project where you had to navigate this delicate balance between form and function?**

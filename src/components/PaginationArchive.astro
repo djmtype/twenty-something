@@ -12,20 +12,23 @@ type Props = {
   nextPage?: RouteString
   lastPage?: RouteString
   currentPage?: string | number
-  totalPages?: NumericalString | number
+  totalPages?: NumericalString | number,
+  class?: string
 }
 
 const {
-  firstPage = "#",
+  // firstPage = "#",
   previousPage = "#",
   nextPage = "#",
-  lastPage = "#",
+  // lastPage = "#",
   currentPage = "1",
   totalPages = "12",
+  class: className,
+  ...restProps
 } = Astro.props
 ---
 
-<nav class="pagination" aria-label="Pagination">
+<nav class:list={['pagination', className]}= aria-label="Pagination" {...restProps}>
   <ul role="list" class="pagination__list">
     {
       previousPage ? (

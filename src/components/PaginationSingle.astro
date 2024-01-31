@@ -22,10 +22,9 @@ const { prevEntry, nextEntry } = Astro.props
           <li class="pagination__item">
             <StyledLink>
               <Icon aria-hidden="true" name="lucide:move-left" />
-              <a href={`/${prevEntry.slug}`}>
-                Previous:
-                {prevEntry.data.title}
-              </a>
+                <a href={`/${prevEntry.slug}`}>
+                  <span class="sr-only">Previous Entry: </span>{prevEntry.data.title}
+                </a>
             </StyledLink>
           </li>
           ) : (
@@ -47,8 +46,7 @@ const { prevEntry, nextEntry } = Astro.props
           <li class="pagination__item">
             <StyledLink>
               <a href={`/${nextEntry.slug}`}>
-                Next:
-                {nextEntry.data.title}
+               <span class="sr-only">Next Entry: </span> {nextEntry.data.title}
               </a>
               <Icon aria-hidden="true" name="lucide:move-right" />
             </StyledLink>

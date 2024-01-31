@@ -1,27 +1,31 @@
 ---
-import { site } from "@/data/config.json"
+import type { ConfigObj } from "@/data/config.types"
+import config from "@/data/config.json"
 
 interface Props {
-	date: Date;
-
+  date: Date
 }
 
 function locale(language: string, country?: string): string {
-    // Use a ternary operator to conditionally include the country code with a hyphen
-    return country ? `${language}-${country}` : language;
+  // Use a ternary operator to conditionally include the country code with a hyphen
+  return country ? `${language}-${country}` : language
 }
 
+const { date } = Astro.props
 
-const { date } = Astro.props;
+const { 
+	language: siteLanguage, 
+	country: siteCountry
+	}: ConfigObj["site"] = config.site
 ---
 
 <time datetime={date.toISOString()}>
-	{
-		date.toLocaleDateString(locale(site.language, site.country) || 'en-US', {
-			timeZone: "UTC",
-			year: 'numeric',
-			month: 'long',
-			day: 'numeric',
-		})
-	}
+  {
+    date.toLocaleDateString(locale(siteLanguage, siteCountry) || "en-US", {
+      timeZone: "UTC",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    })
+  }
 </time>

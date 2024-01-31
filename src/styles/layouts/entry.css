@@ -118,6 +118,7 @@
     font-style: normal;
     border: unset;
     padding-inline-start: unset;
+    font-family: var(--font-sans);
   }
 
   

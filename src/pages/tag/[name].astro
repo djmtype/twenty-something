@@ -1,5 +1,5 @@
 ---
-import { metafy } from "@/utils/textConverter";
+import { makeRichTitle } from "@/utils/textConverter";
 
 import { getTaxonomy } from "@/utils/taxonomyParser"
 import taxonomyFilter from "@/utils/taxonomyFilter"
@@ -28,7 +28,7 @@ return tags.map((tag) => {
 }
 
 const { tag } = Astro.props
-const metafyTag = await metafy(tag)
+const tagTitle = await makeRichTitle(tag)
 
 
 const postCollection = await getCollection("postCollection")
@@ -39,12 +39,12 @@ const posts = filterByStatus(allPosts)
 const filterByTags = taxonomyFilter(posts, "tags", tag!)
 ---
 
-<BaseLayout title={`Tag: ${metafyTag}`} description={`A list of entries with tag, ${metafyTag}`}>
+<BaseLayout title={`Tag: ${tagTitle}`} description={`A list of entries with tag, ${tagTitle}`}>
   <section class="entry section container">
     <div class="entry__content column-breakout flow">
 
   <h1 class="entry__title text-serif">
-    Tag: <span>{metafyTag}</span>
+    Tag: <span>{tagTitle}</span>
   </h1>
 
   <Grid auto class="entry__grid">

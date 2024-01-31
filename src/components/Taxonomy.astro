@@ -1,6 +1,6 @@
 ---
-import { slugify } from "@/utils/textConverter"
-import { metafy } from "@/utils/textConverter"
+import { makeSlug } from "@/utils/textConverter"
+import { makeRichTitle } from "@/utils/textConverter"
 
 type Props = {
   name: any
@@ -27,8 +27,8 @@ if (type === "tag") {
 
 {
   modifiedType && (
-    <a class={className} href={modifiedType ? `/${modifiedType}/${slugify(name).toLowerCase()}` : "#"}>
-      <span>{metafy(name)}</span>
+    <a class={className} href={modifiedType ? `/${modifiedType}/${makeSlug(name).toLowerCase()}` : "#"}>
+      <span>{makeRichTitle(name)}</span>
     </a>
   )
 }

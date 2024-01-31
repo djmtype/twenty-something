@@ -1,16 +1,16 @@
 ---
-title: 'Third post'
-description: 'Lorem ipsum dolor sit amet'
-date: '2022-07-03'
-thumbnail: '../../assets/uploads/blog-placeholder-2.jpg'
-thumbnailAlt: 'For placement only'
+title: Third post
+description: Lorem ipsum dolor sit amet
+date: 2022-07-03
+thumbnail: ../../assets/uploads/blog-placeholder-2.jpg
+thumbnailAlt: For placement only
 author: scott-rod
 slug: third-post
 tags:
-  - vue
-  - jamstack
+  - tag four
+  - tag three
 categories:
-  - watchlist
+  - category two
 status: publish
 ---
 

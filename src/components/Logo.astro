@@ -3,12 +3,6 @@ import type { ConfigObj } from '@/data/config.types';
 import config from "@/data/config.json"
 import { Image } from "astro:assets"
 
-// type Props = {
-//   imageSrc?: string
-// }
-
-
-
 
 const {
   image: logo,
@@ -17,16 +11,14 @@ const {
   height: logoHeight,
 }: ConfigObj['logo'] = config.logo;
 
+const {
+  url: siteUrl,
+  title: siteTitle,
+}: ConfigObj['site'] = config.site;
 
-
-// const { 
-//   themeSwitcher 
-// }: ConfigObj['settings'] = config.settings
-
-// const { imageSrc } = Astro.props
 ---
 
-<a class="site-logo" href={config.site.url}>
+<a class="site-logo" href={siteUrl}>
 
 {logo && (
   <template x-if="theme === 'light' || (theme === 'auto' && !window.matchMedia('(prefers-color-scheme: dark)').matches)">
@@ -35,7 +27,7 @@ const {
   class="logo-lightmode"
   width={logoWidth}
   height={logoHeight}
-  alt={config.site.title}
+  alt={siteTitle}
   />
 </template>
 )}
@@ -48,12 +40,12 @@ const {
   class="logo-darkmode"
   width={logoWidth}
   height={logoHeight}
-  alt={config.site.title}
+  alt={siteTitle}
 />
 </template>
 )}
 
-  <span class={logo ? 'sr-only' : null}>{config.site.title}</span>
+  <span class={logo ? 'sr-only' : null}>{siteTitle}</span>
 </a>
 
 <style>

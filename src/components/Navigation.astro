@@ -4,7 +4,7 @@ import type { ChildItem, NavigationItem} from "@/data/navigation.types"
 
 import { Icon } from 'astro-icon/components';
 import navigation from "@/data/navigation.json"
-import { slugify } from "@/utils/textConverter"
+import { makeSlug } from "@/utils/textConverter"
 import NavToggle from '@/components/NavToggle.astro'
 
 
@@ -45,7 +45,7 @@ const { pathname } = Astro.url
             ) : (
               <a
                 href={nav.url}
-                id={`nav-primary__link--${slugify(nav.name).toLowerCase()}`}
+                id={`nav-primary__link--${makeSlug(nav.name).toLowerCase()}`}
                 class={`nav-primary__link ${
                   pathname === `${nav.url}/` || pathname === nav.url
                     ? "active"
@@ -75,7 +75,7 @@ const { pathname } = Astro.url
                 {nav.childItems.map((child: ChildItem) => (
                   <li class="nav-primary__item nav-primary__item--child">
                     <a
-                      id={`nav-primary__link--${slugify(
+                      id={`nav-primary__link--${makeSlug(
                         child.url,
                       ).toLowerCase()}`}
                       href={child.url}

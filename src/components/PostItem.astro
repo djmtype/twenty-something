@@ -1,5 +1,5 @@
 ---
-import { makeExcerpt, plainify } from "@/utils/textConverter"
+import { makeExcerpt, makePlainText } from "@/utils/textConverter"
 import { Image } from "astro:assets"
 import FormattedDate from "@/components/FormattedDate.astro"
 import { getEntry, type CollectionEntry } from "astro:content"
@@ -20,7 +20,6 @@ const { post, index, hideImage, ...restProps } = Astro.props
 
 const {
   author,
-  description,
   title,
   date,
   thumbnail,
@@ -32,7 +31,7 @@ const { data: authorData } = await getEntry("authorCollection", author.slug)
 
 const postBody = post.body
 
-const plainText = await plainify(postBody)
+const plainText = await makePlainText(postBody)
 ---
 
 <div class="post-card" {...restProps}>

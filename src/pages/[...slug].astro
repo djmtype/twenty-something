@@ -1,6 +1,6 @@
 ---
 import "@/styles/common/syntax.css"
-import Pager from "@/components/Pager.astro"
+import PaginationSingle from "@/components/PaginationSingle.astro"
 import { sortByDate } from "@/utils/postFunctions"
 
 import { getCollection, type CollectionEntry } from "astro:content"
@@ -42,9 +42,9 @@ const { Content } = await entry.render()
   entry.collection === "postCollection" ? (
     <PostWrapper frontmatter={entry}>
       <Content />
-      <div class="column-content" slot="pager">
+      <div class="column-content" slot="pagination">
         {(prevEntry || nextEntry) && (
-        <Pager prevEntry={prevEntry} nextEntry={nextEntry} />
+        <PaginationSingle prevEntry={prevEntry} nextEntry={nextEntry} />
         )}
       </div>
     </PostWrapper>

@@ -1,7 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content"
 import FormattedDate from "@/components/FormattedDate.astro"
-import { metafy } from "@/utils/textConverter"
+import { makeRichTitle } from "@/utils/textConverter"
 import { sortByDate, filterByStatus } from "@/utils/postFunctions"
 import Taxonomy from "@/components/Taxonomy.astro"
 
@@ -31,7 +31,7 @@ type Props = {
           <div class="recent-posts__details">
             <FormattedDate date={post.data.date} /> &mdash; by 
             <a href={`/author/${post.data.author.slug}`}>
-              {metafy(post.data.author.slug)}</a> in <Taxonomy type="category" name={post.data.categories[0]} />
+              {makeRichTitle(post.data.author.slug)}</a> in <Taxonomy type="category" name={post.data.categories[0]} />
           </div>
         </li>
       ))

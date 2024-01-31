@@ -14,7 +14,7 @@ export default defineConfig({
     syntaxHighlight: "shiki",
     shikiConfig: {
       theme: "css-variables",
-      // wrap: true,
+      wrap: true,
     },
     remarkPlugins: [
       remarkCallout,

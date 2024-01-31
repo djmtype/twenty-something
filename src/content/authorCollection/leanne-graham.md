@@ -1,7 +1,9 @@
 ---
-name: Scott Rod
-description: I write about finance, management and economy, my book <a href="#0">Money Studies</a> is out now.
-slug: scott-rod
+name: Leanne Graham
+slug: leanne-graham
+description: Multi-layered client-server neural-net
+email: Sincere@april.biz
+website: https://hildegard.org
 type: author
 status: publish
 ---

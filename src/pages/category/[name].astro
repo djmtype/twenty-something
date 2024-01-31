@@ -1,5 +1,5 @@
 ---
-import { metafy } from "@/utils/textConverter"
+import { makeRichTitle } from "@/utils/textConverter"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 
 import PostCard from "@/components/PostCard.astro"
@@ -25,7 +25,7 @@ export async function getStaticPaths() {
 
 const { category } = Astro.props
 
-const metafyCategory = await metafy(category)
+const categoryTitle = await makeRichTitle(category)
 
 
 const postCollection = await getCollection("postCollection")
@@ -38,13 +38,13 @@ const filterByCategories = taxonomyFilter(posts, "categories", category!)
 ---
 
 <BaseLayout
-  title={`Category: ${metafyCategory}`}
-  description={`A list of entries with category, ${metafyCategory}`}
+  title={`Category: ${categoryTitle}`}
+  description={`A list of entries with category, ${categoryTitle}`}
 >
   <section class="entry section container">
     <div class="entry__content column-breakout flow">
       <h1 class="entry__title text-serif">
-        Category: <span>{metafyCategory}</span>
+        Category: <span>{categoryTitle}</span>
       </h1>
 
       <Grid auto class="entry__grid">

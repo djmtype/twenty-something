@@ -1,6 +1,6 @@
 
 import { getCollection } from "astro:content";
-import { slugify } from "@/utils/textConverter";
+import { makeSlug } from "@/utils/textConverter";
 
 // get all pages from collection
 export const getSinglePage = async (collection: any) => {
@@ -18,7 +18,7 @@ export const getTaxonomy = async (collection: string, name: string) => {
   for (let i = 0; i < taxonomyPages.length; i++) {
     const categoryArray = taxonomyPages[i];
     for (let j = 0; j < categoryArray.length; j++) {
-      taxonomies.push(slugify(categoryArray[j]));
+      taxonomies.push(makeSlug(categoryArray[j]));
     }
   }
   const taxonomy = [...new Set(taxonomies)];
@@ -33,7 +33,7 @@ export const getAllTaxonomy = async (collection: string, name: string) => {
   for (let i = 0; i < taxonomyPages.length; i++) {
     const categoryArray = taxonomyPages[i];
     for (let j = 0; j < categoryArray.length; j++) {
-      taxonomies.push(slugify(categoryArray[j]));
+      taxonomies.push(makeSlug(categoryArray[j]));
     }
   }
   return taxonomies;

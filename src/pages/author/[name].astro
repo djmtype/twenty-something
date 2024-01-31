@@ -3,8 +3,7 @@ import { Icon } from "astro-icon/components"
 import Grid from "@/components/Grid.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import { Image } from "astro:assets"
-import { slugify } from "@/utils/textConverter"
-import BlogList from "@/components/BlogList.astro"
+import { makeSlug } from "@/utils/textConverter"
 import PostCard from "@/components/PostCard.astro"
 import Testimonial from "@/components/Testimonial.astro"
 import { type CollectionEntry, getCollection } from "astro:content"
@@ -37,11 +36,11 @@ const posts = await getCollection(
 )
 
 // const postFilterByAuthor = posts.filter(
-//   (post) => slugify(post.data.author) === slugify(name),
+//   (post) => makeSlug(post.data.author) === makeSlug(name),
 // )
 
 const postFilterByAuthor = posts.filter(
-  (post) => post.data.author.slug === slugify(name),
+  (post) => post.data.author.slug === makeSlug(name),
 )
 ---
 

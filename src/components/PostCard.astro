@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets"
+import { makeExcerpt, makePlainText } from "@/utils/textConverter"
 import FormattedDate from "@/components/FormattedDate.astro"
 import { getEntry, type CollectionEntry } from "astro:content"
 
@@ -7,7 +8,8 @@ import Taxonomy from "@/components/Taxonomy.astro"
 
 type PostOptions = {
   hideImage?: boolean
-  style?: string
+  style?: any
+  class?: string
 };
 
 type Props = {
@@ -16,34 +18,36 @@ type Props = {
 
 
 
-const { post, hideImage, style, ...restProps } = Astro.props
+const { post, hideImage, class: className, ...restProps } = Astro.props
 
 
 
 const {
   author,
   description,
+  customExcerpt,
   title,
   date,
   thumbnail,
   thumbnailAlt = "",
-  tags,
   categories,
 } = post.data
 
 const { data: authorData } = await getEntry("authorCollection", author.slug)
 
+const postBody = post.body
 
+const plainText = await makePlainText(postBody)
 
 ---
 
-<article class="entry-card" style={style} {...restProps}>
+<article class:list={['card', className]} style={{ ...restProps.style }} {...restProps}>
   {
     thumbnail && !hideImage && (
-      <figure class="entry-card__figure">
+      <figure class="card__figure">
         <a href={`/${post.slug}`}>
         <Image
-          class="entry-card__image"
+          class="card__image"
           width={400}
           height={400}
           densities={[1, 2]}
@@ -56,22 +60,24 @@ const { data: authorData } = await getEntry("authorCollection", author.slug)
     )
   }
 
-  <div class="entry-card__content">
-    <h2 class="entry-card__title"><a href={`/${post.slug}`}>{title}</a></h2>
-    <div class="entry-card__meta">
+  <div class="card__content">
+    <h2 class="card__title"><a href={`/${post.slug}`}>{title}</a></h2>
+    <div class="card__meta">
       <FormattedDate date={date} />
       – by <a href=`/author/${author.slug}`>{authorData.name}</a> in
       <Taxonomy type="category" name={categories[0]} />
     </div>
 
-    <p class="entry-card__description">{description}</p>
+    <p class="card__description">
+      {customExcerpt ? description : makeExcerpt(plainText, 30)}
+    </p>
 
     
   </div>
 </article>
 
 <style>
-  .entry-card {
+  .card {
     --_thumbnail-size: var(--size-content-1);
     --_summary-size: 60%;
     display: flex;
@@ -81,7 +87,7 @@ const { data: authorData } = await getEntry("authorCollection", author.slug)
     
   }
 
-  .entry-card > *:first-child {
+  .card > *:first-child {
     flex-basis: var(--_thumbnail-size);
     flex-grow: 1;
 
@@ -89,41 +95,41 @@ const { data: authorData } = await getEntry("authorCollection", author.slug)
   }
 
 
-  .entry-card > *:last-child {
+  .card > *:last-child {
     flex-basis: 0;
     flex-grow: 999;
     min-inline-size: var(--_summary-size);
   }
 
-  .entry-card__figure a {
+  .card__figure a {
     width: 100%;
 
   }
-  .entry-card__image {
+  .card__image {
     aspect-ratio: 1/1;
     height: 100%;
     width: 100%;
     object-fit: cover;
     border-radius: var(--radius-3);
   }
-  .entry-card__title {
+  .card__title {
     font-size: var(--font-size-5);
     font-weight: var(--font-weight-4);
     font-family: var(--font-serif);
   }
-  .entry-card__content {
+  .card__content {
     display: flex;
     flex-direction: column;
     gap: var(--size-3);
 
   }
 
-  .entry-card__meta {
+  .card__meta {
     font-size: var(--font-size-1);
     color: var(--text-2);
   }
 
-  .entry-card__description {
+  .card__description {
     font-size: var(--font-size-1);
     color: var(--text-2);
   }

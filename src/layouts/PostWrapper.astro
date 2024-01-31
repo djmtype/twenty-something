@@ -1,8 +1,8 @@
 ---
 import "@/styles/layouts/entry.css"
-import { setPageTitle } from "@/utils/textConverter"
+import { breakLongTitle } from "@/utils/textConverter"
 import { getEntry, type CollectionEntry } from "astro:content"
-import { metafy } from "@/utils/textConverter"
+import { makeRichTitle } from "@/utils/textConverter"
 import Taxonomy from "@/components/Taxonomy.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import FormattedDate from "@/components/FormattedDate.astro"
@@ -66,21 +66,21 @@ const authorData =
     }
 
     <div class="entry__heading column-passage flow">
-      <h1 set:html={setPageTitle(title)} class="entry__title" style={!thumbnail ? 'font-size: var(--font-size-fluid-3)' : ''}></h1>
+      <h1 set:html={breakLongTitle(title)} class="entry__title" style={!thumbnail ? 'font-size: var(--font-size-fluid-3)' : ''}></h1>
       <div class="entry__meta">
         <span class="entry__date">
           <FormattedDate date={date} />
           {
             dateUpdated && (
               <span class="entry__date-updated">
-                (Last updated on <FormattedDate date={dateUpdated} />)
+                (Updated on <FormattedDate date={dateUpdated} />)
               </span>
             )
           } — by {
             authorData && (
               <a href={`/author/${author.slug}`}>{authorData.name}</a>
             )
-          } in <a href=`/category/${categories[0]}`>{metafy(categories[0])}</a>
+          } in <a href=`/category/${categories[0]}`>{makeRichTitle(categories[0])}</a>
         </span>
       </div>
     </div>
@@ -103,7 +103,7 @@ const authorData =
         }
       </ul>
 
-      <slot name="pager" />
+      <slot name="pagination" />
 
       
     </footer>

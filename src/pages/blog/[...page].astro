@@ -1,80 +1,81 @@
 ---
-import type { ConfigObj } from '@/data/config.types';
+import type { ConfigObj } from "@/data/config.types"
 import config from "@/data/config.json"
 
 import type { GetStaticPaths } from "astro"
 import { getCollection } from "astro:content"
-import { site, blog } from "@/data/config.json";
 
 import { sortByDate, filterByStatus } from "@/utils/postFunctions"
 
-import Grid from "@/components/Grid.astro";
+import Group from "@/components/Group.astro"
+import Container from "@/components/Container.astro"
+import Grid from "@/components/Grid.astro"
 import PostCard from "@/components/PostCard.astro"
-import Pagination from "@/components/Pagination.astro"
+import PaginationArchive from "@/components/PaginationArchive.astro"
 
 import BaseLayout from "@/layouts/BaseLayout.astro"
 
+const { title: blogTitle, description: blogDescription }: ConfigObj["blog"] =
+  config.blog
+
+const { description: siteDescription }: ConfigObj["site"] = config.site
+
 export const getStaticPaths = (async ({ paginate }) => {
+  const { pageSize: blogPageSize }: ConfigObj["blog"] = config.blog
+
   const postCollection = await getCollection("postCollection")
-  const allPosts = sortByDate(postCollection);
+  const allPosts = sortByDate(postCollection)
   const posts = filterByStatus(allPosts)
-  return paginate(posts, { pageSize: config.blog.pageSize || 3 })
+  return paginate(posts, { pageSize: blogPageSize || 3 })
 }) satisfies GetStaticPaths
 
-
-const { page } = Astro.props;
-
-// console.dir(page, { depth: null });
+const { page } = Astro.props
 ---
 
-<BaseLayout title={blog.title || 'Blog'} description={blog.description || site.description}>
+<BaseLayout
+  title={blogTitle || "Blog"}
+  description={blogDescription || siteDescription}
+>
+  <Group type="section" class="entry section">
+    <Container class="entry__container">
+      <div class="entry__content column-breakout flow">
+        <h1 class="entry__title text-serif">{blogTitle || "Blog"}</h1>
 
-  <section class="entry section container">
-    <div class="entry__content column-breakout flow">
-
-      <h1 class="entry__title text-serif">
-        Blog
-      </h1>
-
-
-      <Grid auto class="entry__grid" style={{ alignItems: 'start' }}>
-        {
-          page.data.map((post) => <PostCard post={post} />)
-        }
-      </Grid>
-    </div>
-
-    
-  </section>
+        <Grid auto class="entry__grid">
+          {page.data.map((post) => <PostCard class="entry__card" post={post} />)}
+        </Grid>
+      </div>
+    </Container>
+  </Group>
 
   {
     page.lastPage > 1 && (
-  <section class="section" style="--_size-end: var(--size-fluid-7);">
-    <div class="container" style="--_container-column: column-breakout">
-      
-          <Pagination
+      <Group type="section">
+        <Container>
+          <PaginationArchive
+            class="column-breakout"
             firstPage={page.url.prev ? "/blog" : null}
             previousPage={page.url.prev ? page.url.prev : null}
             nextPage={page.url.next ? page.url.next : null}
             lastPage={
-              page.url.next ? `/blog/${Math.round(page.total / page.size)}` : null
+              page.url.next
+                ? `/blog/${Math.round(page.total / page.size)}`
+                : null
             }
             currentPage={page.currentPage}
             totalPages={Math.round(page.total / page.size)}
           />
-       
-    </div>
-  </section>
-  )
-      }
-
+        </Container>
+      </Group>
+    )
+  }
 </BaseLayout>
 
 <style>
   .entry__grid {
-    --_column: 30ch; 
-    --_row-gap: var(--size-fluid-5); 
-    --_align-items: start;
+    --_column: 30ch;
+    --_row-gap: var(--size-fluid-5);
+    align-items: start;
   }
 
   .entry__content {

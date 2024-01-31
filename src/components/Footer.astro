@@ -1,16 +1,19 @@
 ---
+import type { ConfigObj } from "@/data/config.types"
 import config from "@/data/config.json"
 import colophon from "@/data/colophon.json"
 import Grid from "@/components/Grid.astro"
-import { metafy } from "@/utils/textConverter"
+import { makeRichTitle } from "@/utils/textConverter"
 import ThemeSelector from "@/components/ThemeSelector.astro"
-const today = new Date()
+// const today = new Date()
+
+const { title: siteTitle }: ConfigObj['site'] = config.site
 ---
 
 <footer class="colophon section flow container">
   <div class="colophon__wrapper column-breakout">
     <div class="colophon__details">
-		<p class="colophon__title">{config.site.title}</p>
+		<p class="colophon__title">{siteTitle}</p>
     </div>
     <Grid auto
       class="colophon__links" columnSize="size-11"
@@ -18,7 +21,7 @@ const today = new Date()
       {
         Object.entries(colophon).map(([section, items]) => (
           <dl class="colophon__links__list">
-            <dt>{metafy(section)}</dt>
+            <dt>{makeRichTitle(section)}</dt>
             {items.map((item) => (
               <dd>
                 <a href={item.url}>{item.name}</a>

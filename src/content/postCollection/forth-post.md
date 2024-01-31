@@ -1,16 +1,16 @@
 ---
-title: Second post
+title: Forth Post
 description: Lorem ipsum dolor sit amet
-date: 2022-07-02
+date: 2023-09-02
 thumbnail: ../../assets/uploads/blog-placeholder-4.jpg
 thumbnailAlt: For placement only
-author: jimmy-stakes
-slug: second-post
+author: ervin-howell
+slug: forth-post
 tags:
-  - vue
-  - jamstack
+  - tag one
+  - tag two
 categories:
-  - watchlist
+  - category two
 status: publish
 ---
 

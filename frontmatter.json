@@ -28,6 +28,13 @@
           "required": true
         },
         {
+          "title": "Custom Excerpt",
+          "name": "customExcerpt",
+          "type": "boolean",
+          "description": "Use Description as the excerpt"
+        },
+        
+        {
           "title": "Date",
           "name": "date",
           "type": "datetime",
@@ -179,7 +186,8 @@
           "name": "name",
           "type": "string",
           "default": "{{title}}",
-          "required": true
+          "required": true,
+          "single": true
         },
         {
           "title": "Slug",
@@ -188,6 +196,18 @@
           "editable": true,
           "default": "{{slug}}",
           "required": true
+        },
+        {
+          "title": "Website",
+          "name": "website",
+          "type": "string",
+          "single": true
+        },
+        {
+          "title": "Email",
+          "name": "email",
+          "type": "string",
+          "single": true
         },
         {
           "title": "Description",
@@ -294,8 +314,7 @@
               },
               "description": {
                 "type": "string",
-                "title": "Description",
-                "multiline": true
+                "title": "Description"
               },
               "language": {
                 "type": "string",
@@ -339,8 +358,7 @@
               },
               "ogDescription": {
                 "type": "string",
-                "title": "OpenGraph Description",
-                "multiline": true
+                "title": "OpenGraph Description"
               },
               "ogImage": {
                 "type": "string",
@@ -384,8 +402,7 @@
               },
               "description": {
                 "type": "string",
-                "title": "Description",
-                "multiline": true
+                "title": "Description"
               },
               "pageSize": {
                 "type": "number",

@@ -1,6 +1,6 @@
 ---
 import type { FontSizeValue } from "@/data/props.types"
-import { slugify } from "@/utils/textConverter"
+import { makeSlug } from "@/utils/textConverter"
 
 type Props = {
   as: "h2" | "h3" | "h4" | "h5" | "p" | "span"
@@ -23,11 +23,10 @@ const {
   textColor,
   hasAnchor,
   hasIcon,
-  fontSize
 } = Astro.props as Props
 
 const textProps = {
-  ...(hasId && html ? { id: slugify(html) } : {}),
+  ...(hasId && html ? { id: makeSlug(html) } : {}),
   class: [
     "text-headline",
     textAlign === "center" ? "text-center" : "",
@@ -44,7 +43,7 @@ const textProps = {
 {
   hasAnchor && hasId ? (
     <div tabindex="-1" class={`text-wrapper text-${Component}`}>
-      <a class="anchor-link" href={"#" + slugify(html)}>
+      <a class="anchor-link" href={"#" + makeSlug(html)}>
         <>
           <span class="anchor-icon" aria-hidden="true">#</span>
           <span class="sr-only">Anchor for {html}</span>

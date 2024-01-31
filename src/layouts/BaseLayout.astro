@@ -1,6 +1,7 @@
 ---
 import "../styles/app.css"
-import { site } from "@/data/config.json"
+import type { ConfigObj } from "@/data/config.types"
+import config from "@/data/config.json"
 import SkipLink from "@/components/SkipLink.astro"
 import Header from "@/components/Header.astro"
 import Footer from "@/components/Footer.astro"
@@ -11,15 +12,20 @@ type Props = {
   thumbnail?: any
 }
 
+const {
+  ogImage: siteOgImage,
+  language: siteLanguage,
+  favicon: siteFavicon,
+  title: siteTitle,
+}: ConfigObj["site"] = config.site
+
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
-const { title, description, thumbnail = site.ogImage } = Astro.props
-
-
+const { title, description, thumbnail = siteOgImage } = Astro.props
 ---
 
 <html
-  lang={site.language}
+  lang={siteLanguage}
   class="no-js"
   x-data="{ theme: $persist('auto').as('theme') }"
   x-init="() => { document.documentElement.setAttribute('data-theme', theme);}"
@@ -28,10 +34,8 @@ const { title, description, thumbnail = site.ogImage } = Astro.props
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href={site.favicon} />
+    <link rel="icon" type="image/svg+xml" href={siteFavicon} />
     <meta name="generator" content={Astro.generator} />
-
-  
 
     <link rel="canonical" href={canonicalURL} />
 
@@ -46,7 +50,7 @@ const { title, description, thumbnail = site.ogImage } = Astro.props
     <link
       rel="alternate"
       type="application/rss+xml"
-      title={site.title}
+      title={siteTitle}
       href="/rss.xml"
     />
 
@@ -73,38 +77,27 @@ const { title, description, thumbnail = site.ogImage } = Astro.props
     <SkipLink />
     <Header />
     <main>
-      
       <slot />
     </main>
-    
+
     <Footer />
   </body>
 </html>
 
-
-
 <script>
+  import Alpine from "alpinejs"
+  import persist from "@alpinejs/persist"
 
-import Alpine from "alpinejs";
-import persist from "@alpinejs/persist";
+  Alpine.plugin(persist)
 
-Alpine.plugin(persist);
+  // Explicitly declare 'Alpine' on the 'window' object
+  window.Alpine = Alpine
 
-// Explicitly declare 'Alpine' on the 'window' object
-window.Alpine = Alpine;
-
-Alpine.start();
-
-
-
-
+  Alpine.start()
 </script>
 
 <style is:global>
   [x-cloak] {
     display: none !important;
   }
-
-
-  
 </style>

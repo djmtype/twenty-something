@@ -35,6 +35,7 @@ const postCollection = defineCollection({
       title: z.string(),
       author: reference("authorCollection"),
       description: z.string(),
+      customExcerpt: z.boolean().optional(),
       // Transform string to Date object
       date: z
         .string()
@@ -63,6 +64,7 @@ const authorCollection = defineCollection({
   z.object({
     name: z.string(),
     website: z.string().url().optional(),
+    email: z.string().email().optional(),
     description: z.string().optional(),
     type: z.string().default("author"),
     thumbnail: image()
