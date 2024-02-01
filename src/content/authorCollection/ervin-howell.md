@@ -5,7 +5,7 @@ slug: ervin-howell
 email: ehowell@breaker.biz
 website: https://breaker.biz
 type: author
-thumbnail: "../../assets/uploads/avatar.png"
+thumbnail: "../../assets/uploads/pexels-rene-asmussen-25758.jpg"
 status: publish
 ---
 

@@ -1,44 +1,59 @@
-{
-  "about": [
-    {
-      "name": "Team",
-      "url": "#"
-    },
-    {
-      "name": "History",
-      "url": "#"
-    },
-    {
-      "name": "Careers",
-      "url": "#"
-    }
-  ],
-  "privacy": [
-    {
-      "name": "Privacy Policy",
-      "url": "#"
-    },
-    {
-      "name": "Terms & Conditions",
-      "url": "#"
-    },
-    {
-      "name": "Contact Us",
-      "url": "#"
-    }
-  ],
-  "social": [
-    {
-      "name": "Facebook",
-      "url": "#"
-    },
-    {
-      "name": "Instagram",
-      "url": "#"
-    },
-    {
-      "name": "Twitter/X",
-      "url": "#"
-    }
-  ]
-}
+[
+  {
+    "heading": "About",
+    "content": [
+      {
+        "name": "Team",
+        "url": "/about",
+        "rel": "prefetch"
+      },
+      {
+        "name": "History",
+        "url": "#"
+      },
+      {
+        "name": "Careers",
+        "url": "#"
+      }
+    ]
+  },
+  {
+    "heading": "Privacy",
+    "content": [
+      {
+        "name": "Privacy Policy",
+        "url": "/privacy-policy",
+        "rel": "prefetch"
+      },
+      {
+        "name": "Terms & Conditions",
+        "url": "#"
+      },
+      {
+        "name": "Contact Us",
+        "url": "/contact",
+        "rel": "prefetch"
+      }
+    ]
+  },
+  {
+    "heading": "Social",
+    "content": [
+      {
+        "name": "Facebook",
+        "url": "https://facebook.com",
+        "target": "_blank"
+      },
+      {
+        "name": "Instagram",
+        "url": "https://instagram.com",
+        "target": "_blank"
+      },
+      {
+        "name": "Twitter/X",
+        "url": "https://twitter.com",
+        "target": "_blank"
+      }
+    ]
+  }
+]

@@ -1,36 +1,30 @@
 ---
-import type { ColophonData } from "@/data/colophon.types"
-import colophon from "@/data/colophon.json"
 import type { ConfigObj } from "@/data/config.types"
 import config from "@/data/config.json"
+import colophon from "@/data/colophon.json"
 import Grid from "@/components/Grid.astro"
 import { makeRichTitle } from "@/utils/textConverter"
 import ThemeSelector from "@/components/ThemeSelector.astro"
 // const today = new Date()
 
-
-
-
-const { 
-  title: siteTitle 
-  }: ConfigObj["site"] = config.site
-
-  const colophonData: ColophonData[] = colophon
+const { title: siteTitle }: ConfigObj['site'] = config.site
 ---
 
 <footer class="colophon section flow container">
   <div class="colophon__wrapper column-breakout">
     <div class="colophon__details">
-      <p class="colophon__title">{siteTitle}</p>
+		<p class="colophon__title">{siteTitle}</p>
     </div>
-    <Grid auto class="colophon__links">
+    <Grid auto
+      class="colophon__links" columnSize="size-11"
+    >
       {
-        colophonData.map((section) => (
-          <dl class="colophon__list">
-            <dt set:html={section.heading}></dt>
-            {section.content.map((item) => (
+        Object.entries(colophon).map(([section, items]) => (
+          <dl class="colophon__links__list">
+            <dt>{makeRichTitle(section)}</dt>
+            {items.map((item) => (
               <dd>
-                <a href={item.url} target={item.target ? item.target : ''} rel={item.rel ? item.rel : ''}>{item.name}</a>
+                <a href={item.url}>{item.name}</a>
               </dd>
             ))}
           </dl>
@@ -38,29 +32,22 @@ const {
       }
     </Grid>
   </div>
-
-  <div class="colophon__extra">
+  <div class="colophon__extra" style="--_container-column: column-breakout;">
     <ThemeSelector />
-  
-    <div>
-      Managed with <a href="https://frontmatter.codes/">Front Matter</a>. Made
-      with <a href="https://astro.build">Astro</a>.
-    </div>
+
+    <div>Managed with <a href="https://frontmatter.codes/">Front Matter</a>. Made with <a href="https://astro.build">Astro</a>.</div>
   </div>
 </footer>
-
-
 
 <style is:global>
   .colophon {
     --_flow: var(--size-fluid-5);
-    --_padding-bottom: var(--size-fluid-3);
   }
 
   .colophon__wrapper {
     display: flex;
     flex-wrap: wrap;
-    row-gap: var(--gutter);
+	row-gap: var(--gutter);
   }
 
   .colophon__details {
@@ -69,34 +56,30 @@ const {
   }
 
   .colophon__title {
-    font-weight: var(--font-weight-bold);
+	font-weight: var(--font-weight-bold);
+
   }
 
   .colophon__links {
-  --_column: 12ch;
     flex-basis: 0;
     flex-grow: 999;
     min-inline-size: 50%;
-    
-   
-
   }
 
-  .colophon__list :is(dt, dd) {
+  .colophon__links__list :is(dt, dd) {
     max-inline-size: unset;
   }
 
-  .colophon__list dd {
+  .colophon__links__list dd {
     font-size: var(--font-size-1);
   }
 
-  .colophon__list a {
+  .colophon__links__list a {
     padding-block: var(--size-2);
     display: inline-block;
   }
 
   .colophon__extra {
-    --_container-column: column-breakout;
     display: flex;
     flex-wrap: wrap;
     gap: var(--gutter);
