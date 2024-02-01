@@ -1,6 +1,4 @@
-.pagination {
-  margin-block-start: var(--size-fluid-5);
-}
+
 
 .pagination__list {
   display: flex;

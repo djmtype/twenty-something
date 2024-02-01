@@ -28,5 +28,10 @@
     "ogTitle": "",
     "ogImage": "/images/og-image.jpg",
     "ogImageAlt": "logo over ambiguous smokey background"
+  },
+  "footer": {
+    "description": "Managed with ~~Wordpress~~ [Front Matter](https://frontmatter.codes/).  \nMade with [Astro](https://astro.build).",
+    "copyrightMessage": "Twenty Something. MIT License.",
+    "copyrightYear": true
   }
 }

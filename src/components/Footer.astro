@@ -1,4 +1,5 @@
 ---
+import { makeMarkdown } from "@/utils/textConverter" 
 import type { ColophonData } from "@/data/colophon.types"
 import colophon from "@/data/colophon.json"
 import type { ConfigObj } from "@/data/config.types"
@@ -6,22 +7,31 @@ import config from "@/data/config.json"
 import Grid from "@/components/Grid.astro"
 import { makeRichTitle } from "@/utils/textConverter"
 import ThemeSelector from "@/components/ThemeSelector.astro"
-// const today = new Date()
-
-
-
 
 const { 
   title: siteTitle 
   }: ConfigObj["site"] = config.site
 
+const { 
+ description: footerDescription,
+ copyrightMessage: copyrightMessage, 
+ copyrightYear: copyrightYear
+  }: ConfigObj["footer"] = config.footer
+
   const colophonData: ColophonData[] = colophon
+
+  const date = new Date()
+
+  
 ---
 
 <footer class="colophon section flow container">
   <div class="colophon__wrapper column-breakout">
-    <div class="colophon__details">
+    <div class="colophon__details flow">
       <p class="colophon__title">{siteTitle}</p>
+      {footerDescription &&
+        <p class="colophon__description" set:html={makeMarkdown(footerDescription)}></p>
+        }
     </div>
     <Grid auto class="colophon__links">
       {
@@ -41,11 +51,18 @@ const {
 
   <div class="colophon__extra">
     <ThemeSelector />
+
+    {copyrightMessage && 
+      <p class="colophon__copyright">
+        <Fragment set:html={copyrightYear ? `&copy; ${date.getFullYear()}` : null} />
+      <Fragment set:html={copyrightMessage} />
+      </p>
+      }
+
+ 
+
   
-    <div>
-      Managed with <a href="https://frontmatter.codes/">Front Matter</a>. Made
-      with <a href="https://astro.build">Astro</a>.
-    </div>
+    
   </div>
 </footer>
 
@@ -64,6 +81,7 @@ const {
   }
 
   .colophon__details {
+    --_flow: initial;
     flex-basis: max(var(--size-content-2), 50%);
     flex-grow: 1;
   }
@@ -82,6 +100,10 @@ const {
 
   }
 
+
+.colophon__list dt + dd {
+  margin-top: 1em;
+}
   .colophon__list :is(dt, dd) {
     max-inline-size: unset;
   }
@@ -90,9 +112,9 @@ const {
     font-size: var(--font-size-1);
   }
 
-  .colophon__list a {
-    padding-block: var(--size-2);
+  .colophon__list dd a {
     display: inline-block;
+    padding-block: var(--size-2);
   }
 
   .colophon__extra {
@@ -105,5 +127,13 @@ const {
     text-align: center;
     padding-block-start: var(--size-5);
     border-block-start: var(--border-size-1) solid var(--separator);
+  }
+
+  .colophon__copyright {
+    font-size: var(--font-size-1);
+    color: var(--text-muted);
+  }
+  .colophon__description {
+    font-size: var(--font-size-1);
   }
 </style>

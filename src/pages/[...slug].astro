@@ -42,7 +42,7 @@ const { Content } = await entry.render()
   entry.collection === "postCollection" ? (
     <PostWrapper frontmatter={entry}>
       <Content />
-      <div class="column-content" slot="pagination">
+      <div slot="pagination">
         {(prevEntry || nextEntry) && (
         <PaginationSingle prevEntry={prevEntry} nextEntry={nextEntry} />
         )}

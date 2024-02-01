@@ -52,3 +52,4 @@ _HS_: My advice to aspiring architects would be to never stop learning and obser
 **_RM_: Thank you, Helga, for sharing your insights and experiences in the world of architecture. It’s been a pleasure discussing the art of balancing form and function with you today.**
 
 _HS_: Thank you, Rhye, for the opportunity to delve into these crucial aspects of architecture. It’s been a pleasure, and I hope our conversation inspires others to explore the endless possibilities of this beautiful field.
+

@@ -1,4 +1,6 @@
 ---
+import Group from "@/components/Group.astro"
+import Container from "@/components/Container.astro"
 import "@/styles/layouts/entry.css"
 import { breakLongTitle } from "@/utils/textConverter"
 import { getEntry, type CollectionEntry } from "astro:content"
@@ -102,11 +104,14 @@ const authorData =
             ))
         }
       </ul>
-
-      <slot name="pagination" />
-
-      
     </footer>
   </article>
-</BaseLayout>
 
+  <Group type="div">
+    <Container>
+      <div class="column-passage">
+        <slot name="pagination" />
+      </div>
+    </Container>
+  </Group>
+</BaseLayout>
