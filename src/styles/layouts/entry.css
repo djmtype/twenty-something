@@ -51,15 +51,15 @@
   margin-block-start: var(--size-fluid-5);
 }
 
-:where(.entry__prose h2:not([class])) {
+.entry__prose h2:not([class]) {
   font-size: var(--font-size-5);
 }
 
-:where(.entry__prose h3:not([class])) {
+.entry__prose h3:not([class]) {
   font-size: var(--font-size-4);
 }
 
-:where(.entry__prose h4:not([class])) {
+.entry__prose h4:not([class]) {
   font-size: var(--font-size-3);
 }
 

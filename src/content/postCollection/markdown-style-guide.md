@@ -107,7 +107,7 @@ The blockquote element represents content that is quoted from another source, op
 
 #### Syntax
 
-we can use 3 backticks ``` in new line and write snippet and close with 3 backticks on new line and to highlight language specific syntac, write one word of language name after first 3 backticks, for eg. html, javascript, css, markdown, typescript, txt, bash
+We can use 3 backticks ``` in new line and write snippet and close with 3 backticks on new line and to highlight language specific syntac, write one word of language name after first 3 backticks, for eg. html, javascript, css, markdown, typescript, txt, bash
 
 ````markdown
 ```html
@@ -208,7 +208,7 @@ H<sub>2</sub>O
 
 X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
 
-Press <kbd><kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd></kbd> to end the session.
+Press <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd> to end the session.
 
 Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
 ```
@@ -224,4 +224,55 @@ X<sup>n</sup> + Y<sup>n</sup> = Z<sup>n</sup>
 Press <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd> to end the session.
 
 Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
+
+## Alerts
+
+Alerts are described using the markdown blockquote syntax. 
+
+An alert type is defined within square brackets, with its name prefixed by an exclamation mark. 
+
+### Syntax 
+
+```md
+> [!example] Example
+> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+```
+
+### Output
+
+> [!example] Example
+> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+
+> [!question] Question
+> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+
+> [!todo] Todo
+> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+
+> [!danger] Danger
+> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+
+> [!success] Success
+> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+
+> [!info] Info
+> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+
+> [!bug] Bug
+> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+
+> [!tip] Tip
+> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+
+> [!warning] Warning
+> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+
+> [!note] Note
+> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+
+> [!quote] Quote
+> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+
+> [!abstract] Abstract
+> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
 

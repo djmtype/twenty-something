@@ -1,4 +1,5 @@
 ---
+import "@/styles/utilities/link-block.css"
 import { makeExcerpt, makePlainText } from "@/utils/textConverter"
 import { Image } from "astro:assets"
 import FormattedDate from "@/components/FormattedDate.astro"
@@ -56,13 +57,13 @@ const plainText = await makePlainText(postBody)
       <a class="link-block" href={`/${post.slug}`} set:html={title} />
     </h2>
 
-    <div class="post-card__meta">
+    <p class="post-card__meta">
       <FormattedDate date={date} />
       – by <a href=`/author/${author.slug}`>{authorData.name}</a> in
       <Taxonomy type="category" name={categories[0]} />
-    </div>
+    </p>
 
-    <p>
+    <p class="post-card__excerpt">
       {makeExcerpt(plainText, 30)}
     </p>
   </div>
@@ -78,12 +79,7 @@ const plainText = await makePlainText(postBody)
     position: relative;
   }
 
-  .link-block::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    display: block;
-  }
+
 
   .post-card :is(p, .post-card__meta) {
     position: relative;
@@ -137,8 +133,6 @@ const plainText = await makePlainText(postBody)
       aspect-ratio: 2/1.25;
     }
 
-    /* .post-card__content p {
-      font-size: var(--font-size-3);
-    } */
+
   }
 </style>

@@ -1,5 +1,5 @@
 ---
-import { makeMarkdown } from "@/utils/textConverter" 
+import { parseMarkdown } from "@/utils/textConverter" 
 import type { ColophonData } from "@/data/colophon.types"
 import colophon from "@/data/colophon.json"
 import type { ConfigObj } from "@/data/config.types"
@@ -29,7 +29,7 @@ const {
     <div class="colophon__details flow">
       <p class="colophon__title">{siteTitle}</p>
       {footerDescription &&
-        <p class="colophon__description" set:html={makeMarkdown(footerDescription)}></p>
+        <p class="colophon__description" set:html={parseMarkdown(footerDescription)}></p>
         }
     </div>
     <Grid auto class="colophon__links">
@@ -54,7 +54,7 @@ const {
     {copyrightMessage && 
       <p class="colophon__copyright">
         <Fragment set:html={copyrightYear ? `&copy; ${date.getFullYear()}` : null} />
-      <Fragment set:html={copyrightMessage} />
+      <Fragment set:html={parseMarkdown(copyrightMessage)} />
       </p>
       }
 

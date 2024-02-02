@@ -17,20 +17,24 @@ const { prevEntry, nextEntry } = Astro.props
 <nav class="pagination" aria-label="Pagination">
     <ul class="pagination__list" role="list">
       
-        {
-          prevEntry ? (
-          <li class="pagination__item">
-            <StyledLink>
-              <Icon aria-hidden="true" name="lucide:move-left" />
-                <a href={`/${prevEntry.slug}`}>
-                  <span class="sr-only">Previous Entry: </span>{prevEntry.data.title}
-                </a>
-            </StyledLink>
-          </li>
-          ) : (
-          <li aria-hidden="true" class="pagination__item">&nbsp;</li>
-          )
-        }
+      {
+        nextEntry ? (
+        <li class="pagination__item">
+          <StyledLink>
+            <Icon aria-hidden="true" name="lucide:move-left" />
+            <a href={`/${nextEntry.slug}`}>
+            Previous: {nextEntry.data.title}
+            </a>
+            
+          </StyledLink>
+        </li>
+        ) : (
+        <li aria-hidden="true" class="pagination__item">&nbsp;</li>
+        )
+      }
+
+
+       
       
   
       <li class="pagination__item">
@@ -41,20 +45,21 @@ const { prevEntry, nextEntry } = Astro.props
       </li>
   
       
-        {
-          nextEntry ? (
-          <li class="pagination__item">
-            <StyledLink>
-              <a href={`/${nextEntry.slug}`}>
-               <span class="sr-only">Next Entry: </span> {nextEntry.data.title}
+      {
+        prevEntry ? (
+        <li class="pagination__item">
+          <StyledLink>
+           
+              <a href={`/${prevEntry.slug}`}>
+                Next: {prevEntry.data.title}
               </a>
               <Icon aria-hidden="true" name="lucide:move-right" />
-            </StyledLink>
-          </li>
-          ) : (
-          <li aria-hidden="true" class="pagination__item">&nbsp;</li>
-          )
-        }
+          </StyledLink>
+        </li>
+        ) : (
+        <li aria-hidden="true" class="pagination__item">&nbsp;</li>
+        )
+      }
       
     </ul>
   </nav>

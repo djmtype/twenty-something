@@ -46,7 +46,7 @@ export const makeSmartText = (content: string) => {
 };
 
 
-export const makeMarkdown = (content: string, div?: boolean) => {
+export const parseMarkdown = (content: string, div?: boolean) => {
   return div ? marked.parse(content) : marked.parseInline(content);
 };
 
