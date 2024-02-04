@@ -62,7 +62,8 @@ export default defineConfig({
   output: "static",
   vite: {
     server: {},
-    plugins: [],
+    plugins: [
+    ],
     ssr: {},
     css: {
       devSourcemap: true,

@@ -61,7 +61,7 @@ button:not([class="button"]),
 }
 
 .button--accent {
-  --_surface: var(--brand);
+  --_surface: var(--link);
   --_text: var(--surface-1);
   --_surface-hover: var(--link-hover);
 }

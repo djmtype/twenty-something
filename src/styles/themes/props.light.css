@@ -1,32 +1,24 @@
+/* Light Theme */
 
-  html {
+html {
   --brand-light: var(--indigo-9);
   --brand-2-light: var(--blue-9);
   --text-1-light: var(--gray-9);
   --text-2-light: var(--gray-8);
-
-
-
   --surface-0-light: var(--gray-0);
   --surface-1-light: var(--gray-1);
   --surface-2-light: var(--gray-2);
-
   --surface-shadow-light: var(--gray-10);
   --shadow-strength-light: 2%;
-
   --link-light: var(--indigo-9);
   --link-visited-light: var(--indigo-8);
   --link-hover-light: var(--indigo-6);
   --link-active-light: var(--indigo-10);
-
   --text-overlay-light: var(--gray-0);
   --text-muted-light: var(--gray-7);
   --text-strong-light: var(--blue-12);
-
   --separator-light: var(--gray-4);
-
   --surface-overlay-light: var(--gray-0);
-  
   --note-light: var(--blue-6);
   --danger-light: var(--red-6);
   --warning-light: var(--yellow-6);

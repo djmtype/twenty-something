@@ -6,21 +6,21 @@ import { getEntry, type CollectionEntry } from "astro:content"
 
 import Taxonomy from "@/components/Taxonomy.astro"
 
-type PostOptions = {
-  hideImage?: boolean
-  class?: string
-};
+
 
 type Props = {
   post: CollectionEntry<"postCollection">
-} & PostOptions
+  hideImage?: boolean
+  class?: string
+  style?: any
+} 
 
 
 
 const { 
   post, 
   hideImage, 
-  class: className, 
+  class: className,
   ...restProps 
 } = Astro.props
 
@@ -45,7 +45,8 @@ const plainText = await makePlainText(postBody)
 
 ---
 
-<article class:list={['card', className]} {...restProps}>
+<article class:list={['card', className]} style={{...restProps.style
+}} {...restProps}>
   {
     thumbnail && !hideImage && (
       <figure class="card__figure">

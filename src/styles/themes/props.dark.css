@@ -1,40 +1,35 @@
+/* Dark Theme */
 
-  html {
-    --brand-dark: var(--indigo-3);
-    --brand-2-dark: var(--blue-3);
-    --text-1-dark: var(--gray-1);
-    --text-2-dark: var(--gray-3);
-    --surface-0-dark: var(--gray-11);
-    --surface-1-dark: var(--gray-10);
-    --surface-2-dark: var(--gray-9);
-    
-    --surface-shadow-dark: var(--gray-12);
-    --shadow-strength-dark: 80%;
-
-    --link-dark: var(--indigo-3);
-    --link-visited-dark: var(--indigo-3);
-    --link-hover-dark: var(--indigo-2);
-    --link-active-dark: var(--indigo-4);
-
-    --separator-dark: var(--gray-7);
-    --text-overlay-dark: var(--gray-12);
-    --text-muted-dark: var(--gray-5);
-    --surface-overlay-dark: var(--gray-9);
-    --text-strong-dark: var(--blue-1);
-
-    --note-dark: var(--blue-3);
-    --danger-dark: var(--red-3);
-    --warning-dark: var(--yellow-3);
-    --tip-dark: var(--teal-3);
-    --bug-dark: var(--pink-3);
-    --info-dark: var(--cyan-3);
-    --success-dark: var(--green-3);
-    --todo-dark: var(--blue-3);
-    --failure-dark: var(--pink-3);
-    --question-dark: var(--orange-3);
-    --example-dark: var(--purple-3);
-    --quote-dark: var(--stone-3);
---abstract-dark: var(--violet-3);
-
-  }
-
+html {
+  --brand-dark: var(--indigo-3);
+  --brand-2-dark: var(--blue-3);
+  --text-1-dark: var(--gray-1);
+  --text-2-dark: var(--gray-3);
+  --surface-0-dark: var(--gray-11);
+  --surface-1-dark: var(--gray-10);
+  --surface-2-dark: var(--gray-9);
+  --surface-shadow-dark: var(--gray-12);
+  --shadow-strength-dark: 80%;
+  --link-dark: var(--orange-3);
+  --link-visited-dark: var(--orange-3);
+  --link-hover-dark: var(--orange-2);
+  --link-active-dark: var(--orange-4);
+  --separator-dark: var(--gray-7);
+  --text-overlay-dark: var(--gray-12);
+  --text-muted-dark: var(--gray-5);
+  --surface-overlay-dark: var(--gray-9);
+  --text-strong-dark: var(--blue-1);
+  --note-dark: var(--blue-3);
+  --danger-dark: var(--red-3);
+  --warning-dark: var(--yellow-3);
+  --tip-dark: var(--teal-3);
+  --bug-dark: var(--pink-3);
+  --info-dark: var(--cyan-3);
+  --success-dark: var(--green-3);
+  --todo-dark: var(--blue-3);
+  --failure-dark: var(--pink-3);
+  --question-dark: var(--orange-3);
+  --example-dark: var(--purple-3);
+  --quote-dark: var(--stone-3);
+  --abstract-dark: var(--violet-3);
+}
