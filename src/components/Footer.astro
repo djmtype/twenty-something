@@ -32,7 +32,7 @@ const {
         <p class="colophon__description" set:html={parseMarkdown(footerDescription)}></p>
         }
     </div>
-    <Grid auto class="colophon__links">
+    <Grid type="auto" class="colophon__links">
       {
         colophonData.map((section) => (
           <dl class="colophon__list">

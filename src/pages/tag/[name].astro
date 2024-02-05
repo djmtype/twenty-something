@@ -47,7 +47,7 @@ const filterByTags = taxonomyFilter(posts, "tags", tag!)
     Tag: <span>{tagTitle}</span>
   </h1>
 
-  <Grid auto class="entry__grid">
+  <Grid type="auto" class="entry__grid">
     {filterByTags.map((post) => <PostCard post={post} />)}
   </Grid>
 

@@ -7,22 +7,24 @@ import { getEntry, type CollectionEntry } from "astro:content"
 
 import Taxonomy from "@/components/Taxonomy.astro"
 
-type PostOptions = {
-  hideImage?: boolean
-  style?: string
-  index?: number
-}
+
 
 type Props = {
   post: CollectionEntry<"postCollection">
-} & PostOptions
+  hideImage?: boolean
+  class?: string
+  style?: any
+  index?: number
+} 
 
-const { post, index, hideImage, ...restProps } = Astro.props
+const { post, index, hideImage, class: className, ...restProps } = Astro.props
 
 const {
   author,
   title,
   date,
+  description,
+  customExcerpt,
   thumbnail,
   thumbnailAlt = "",
   categories,
@@ -35,9 +37,9 @@ const postBody = post.body
 const plainText = await makePlainText(postBody)
 ---
 
-<div class="post-card" {...restProps}>
+<div class:list={['post-card', className]} style={{ ...restProps.style }} {...restProps}>
   {
-    thumbnail && (
+    thumbnail && !hideImage && (
       <figure class="post-card__figure">
         <Image
           class="post-card__image"
@@ -64,7 +66,7 @@ const plainText = await makePlainText(postBody)
     </p>
 
     <p class="post-card__excerpt">
-      {makeExcerpt(plainText, 30)}
+      {customExcerpt ? description : makeExcerpt(plainText, 30)}
     </p>
   </div>
 </div>

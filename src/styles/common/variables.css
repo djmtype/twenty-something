@@ -1,12 +1,7 @@
 :root {
- 
-  
   --font-sans: system-ui, -apple-system, sans-serif;
-  
   --font-mono: ui-monospace, SF Mono, Menlo, monospace;
-
   --font-serif: "Playfair Display", ui-serif, serif;
-
   --initial: initial;
   --unset: unset;
   --none: none;
@@ -20,12 +15,8 @@
   --size-container-xl: 1280px;
   --size-container-xxl: 1440px;
   --size-container-xxxl: 1600px;
-
   --size-content-4: 72ch;
---font-weight-bold: var(--font-weight-6);
+  --font-weight-bold: var(--font-weight-6);
   --gutter: var(--size-fluid-4);
-  
   --flow-size-0: calc(var(--font-lineheight-0) * 1rem);
---flow-size-3: calc(var(--font-lineheight-3) * 1rem);
- 
 }

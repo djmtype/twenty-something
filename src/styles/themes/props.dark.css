@@ -10,10 +10,10 @@ html {
   --surface-2-dark: var(--gray-9);
   --surface-shadow-dark: var(--gray-12);
   --shadow-strength-dark: 80%;
-  --link-dark: var(--orange-3);
-  --link-visited-dark: var(--orange-3);
-  --link-hover-dark: var(--orange-2);
-  --link-active-dark: var(--orange-4);
+  --link-dark: var(--indigo-3);
+  --link-visited-dark: var(--indigo-3);
+  --link-hover-dark: var(--indigo-2);
+  --link-active-dark: var(--indigo-4);
   --separator-dark: var(--gray-7);
   --text-overlay-dark: var(--gray-12);
   --text-muted-dark: var(--gray-5);

@@ -1,12 +1,14 @@
 ---
 import { Icon } from "astro-icon/components"
+import PostCard from "@/components/PostCard.astro"
+import Group from "@/components/Group.astro"
 import Grid from "@/components/Grid.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import { Image } from "astro:assets"
 import { makeSlug } from "@/utils/textConverter"
-import PostCard from "@/components/PostCard.astro"
 import Testimonial from "@/components/Testimonial.astro"
 import { type CollectionEntry, getCollection } from "astro:content"
+import Container from "@/components/Container.astro"
 
 type Props = {
   data: CollectionEntry<"postCollection" | "authorCollection">["data"]
@@ -27,17 +29,12 @@ export async function getStaticPaths() {
 }
 
 const { author } = Astro.props
-
 const { name, description, thumbnail } = author.data
 const { Content } = await author.render()
 const posts = await getCollection(
   "postCollection",
   ({ data }) => data.status === "publish",
 )
-
-// const postFilterByAuthor = posts.filter(
-//   (post) => makeSlug(post.data.author) === makeSlug(name),
-// )
 
 const postFilterByAuthor = posts.filter(
   (post) => post.data.author.slug === makeSlug(name),
@@ -48,30 +45,28 @@ const postFilterByAuthor = posts.filter(
   title={`Author Profile: ${name}`}
   description={description ?? `A list of posts by ${name}`}
 >
-  
+  {
+    description && (
+      <Testimonial
+        class="testimonial--main"
+        textColor="text-1"
+        authorName={name}
+        hideCite
+      >
+        <p set:html={description} />
+      </Testimonial>
+    )
+  }
 
-      {
-        description && (
-   
-            <Testimonial textColor="text-1" authorName={name} hideCite style={{ '--_items-margin-inline': 'auto' }}>
-              <p set:html={description} />
-            </Testimonial>
-        
-        )
-      }
-
-    <section class="section" style="--_padding-top: var(--size-fluid-4);">
-    <div class="container">
-      <Grid auto class="column-breakout">
+  <Group class="group--main" type="section">
+    <Container>
+      <Grid type={['auto', '3:1']} class="grid--main column-breakout">
         <div class="posts">
           {
             postFilterByAuthor.length > 0 ? (
               <ul role="list" class="posts__list">
                 {postFilterByAuthor.map((post) => (
-                  <PostCard
-                    post={post}
-                    style={{ '--_thumbnail-size': 'min(25%, 10ch)', '--_summary-size': '70%' }}
-                  />
+                  <PostCard post={post} class="posts__card" />
                 ))}
               </ul>
             ) : (
@@ -80,7 +75,7 @@ const postFilterByAuthor = posts.filter(
           }
         </div>
 
-        <div class="author flow" style="--_flow: var(--size-3)">
+        <div class="author flow">
           <div class="author__heading flow">
             {
               thumbnail ? (
@@ -110,40 +105,42 @@ const postFilterByAuthor = posts.filter(
           </div>
         </div>
       </Grid>
-    </div>
-  </section>
+    </Container>
+  </Group>
 </BaseLayout>
 
 <style>
-  /* section > :last-child {
-    margin-block-start: var(--size-fluid-4);
-  } */
+  .testimonial--main {
+    --_items-margin-inline: auto;
+  }
+
+  .group--main {
+    --_padding-top: var(--size-fluid-4);
+  }
+
+  .grid--main {
+    row-gap: var(--size-fluid-5);
+    align-items: start;
+  }
+
   .posts__list {
     display: grid;
     gap: var(--size-fluid-5);
   }
-  .grid {
-    display: grid;
-    column-gap: var(--gutter);
-    row-gap: var(--size-fluid-5);
+
+  .posts__card {
+    --_thumbnail-size: min(25%, 10ch);
+    --_summary-size: 70%;
   }
 
-  .grid {
-    align-items: start;
-  }
-
-  @media (--lg-n-above) {
-    .grid {
-      grid-template-columns: minmax(min(100%, var(--size-content-3)), 2fr) minmax(
-          min(100%, var(--size-content-1)),
-          1fr
-        );
-    }
-  }
   .author {
     display: grid;
     position: sticky;
     top: var(--gutter);
+  }
+
+  .author__heading {
+    --_flow: var(--size-3);
   }
 
   .author__title {
@@ -163,14 +160,11 @@ const postFilterByAuthor = posts.filter(
     overflow: hidden;
   }
 
-
   .author__thumbnail {
     object-fit: cover;
     height: 100%;
     width: 100%;
   }
-
-
 </style>
 
 <style is:global>

@@ -1,4 +1,5 @@
 ---
+import "@/styles/utilities/link-block.css"
 import { Image } from "astro:assets"
 import { makeExcerpt, makePlainText } from "@/utils/textConverter"
 import FormattedDate from "@/components/FormattedDate.astro"
@@ -13,12 +14,14 @@ type Props = {
   hideImage?: boolean
   class?: string
   style?: any
+  index?: number
 } 
 
 
 
 const { 
   post, 
+  index,
   hideImage, 
   class: className,
   ...restProps 
@@ -50,23 +53,24 @@ const plainText = await makePlainText(postBody)
   {
     thumbnail && !hideImage && (
       <figure class="card__figure">
-        <a href={`/${post.slug}`}>
         <Image
           class="card__image"
           width={400}
           height={400}
+          loading={index === 0 ? `eager` : `lazy`}
           densities={[1, 2]}
-          quality={50}
+          quality={60}
           src={thumbnail}
           alt={thumbnailAlt}
         />
-      </a>
       </figure>
     )
   }
 
   <div class="card__content">
-    <h2 class="card__title"><a href={`/${post.slug}`}>{title}</a></h2>
+    <h2 class="card__title">
+      <a class="link-block" href={`/${post.slug}`}>{title}</a>
+    </h2>
     <div class="card__meta">
       <FormattedDate date={date} />
       – by <a href=`/author/${author.slug}`>{authorData.name}</a> in
@@ -89,14 +93,17 @@ const plainText = await makePlainText(postBody)
     flex-wrap: wrap;
     gap: var(--size-fluid-3);
     align-items: start;
+    position: relative;
     
+  }
+
+  .card :is(p, .card__meta) {
+    position: relative;
   }
 
   .card > *:first-child {
     flex-basis: var(--_thumbnail-size);
     flex-grow: 1;
-
-    
   }
 
 
@@ -108,7 +115,6 @@ const plainText = await makePlainText(postBody)
 
   .card__figure a {
     width: 100%;
-
   }
   .card__image {
     aspect-ratio: 1/1;

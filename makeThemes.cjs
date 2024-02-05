@@ -1,10 +1,9 @@
 const fs = require('fs');
-const yaml = require('js-yaml');
 
-const inputFilePath = './src/data/props.yaml';
+const inputFilePath = './src/data/props.config.json';
 const outputDir = './src/styles/themes/';
 
-const data = yaml.load(fs.readFileSync(inputFilePath, 'utf8'));
+const data = JSON.parse(fs.readFileSync(inputFilePath, 'utf8'));
 
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });

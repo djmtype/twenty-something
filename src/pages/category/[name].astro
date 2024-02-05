@@ -47,8 +47,8 @@ const filterByCategories = taxonomyFilter(posts, "categories", category!)
         Category: <span>{categoryTitle}</span>
       </h1>
 
-      <Grid auto class="entry__grid">
-        {filterByCategories.map((post) => <PostCard post={post} />)}
+      <Grid type="auto" class="entry__grid">
+        {filterByCategories.map((post) => <PostCard class="entry__card" post={post} />)}
       </Grid>
     </div>
   </section>
@@ -66,7 +66,7 @@ const filterByCategories = taxonomyFilter(posts, "categories", category!)
   .entry__grid {
     --_column: 30ch;
     --_row-gap: var(--size-fluid-5);
-    --_align-items: start;
+    align-items: start;
   }
 
   .entry__content {

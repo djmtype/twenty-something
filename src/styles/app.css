@@ -1,11 +1,11 @@
 @import "common/fonts.css";
 
 @import "open-props/postcss/style";
-
+@import "themes/theme.css";
 @import "common/variables.css";
 @import "common/normalizer.css";
 
-@import "themes/theme.css";
+
 
 @import "components/button.css";
 @import "components/callout.css";

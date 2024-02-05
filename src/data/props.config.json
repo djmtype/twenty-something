@@ -44,10 +44,10 @@
           "surface-2": "var(--gray-9)",
           "surface-shadow": "var(--gray-12)",
           "shadow-strength": "80%",
-          "link": "var(--orange-3)",
-          "link-visited": "var(--orange-3)",
-          "link-hover": "var(--orange-2)",
-          "link-active": "var(--orange-4)",
+          "link": "var(--indigo-3)",
+          "link-visited": "var(--indigo-3)",
+          "link-hover": "var(--indigo-2)",
+          "link-active": "var(--indigo-4)",
           "separator": "var(--gray-7)",
           "text-overlay": "var(--gray-12)",
           "text-muted": "var(--gray-5)",
@@ -67,6 +67,28 @@
           "quote": "var(--stone-3)",
           "abstract": "var(--violet-3)"
         }
+      },
+      "variables": {
+        "font-sans": "system-ui, -apple-system, sans-serif",
+        "font-mono": "ui-monospace, SF Mono, Menlo, monospace",
+        "font-serif": "Playfair Display, ui-serif, serif",
+        "initial": "initial",
+        "unset": "unset",
+        "none": "none",
+        "auto": "auto",
+        "size-0": 0,
+        "size-container-xxs": "240px",
+        "size-container-xs": "360px",
+        "size-container-sm": "480px",
+        "size-container-md": "768px",
+        "size-container-lg": "1024px",
+        "size-container-xl": "1280px",
+        "size-container-xxl": "1440px",
+        "size-container-xxxl": "1600px",
+        "size-content-4": "72ch",
+        "font-weight-bold": "var(--font-weight-6)",
+        "gutter": "var(--size-fluid-4)",
+        "flow-size-0": "calc(var(--font-lineheight-0) * 1rem)"
       }
     }
   }

@@ -41,7 +41,7 @@ const { page } = Astro.props
       <div class="entry__content column-breakout flow">
         <h1 class="entry__title text-serif">{blogTitle || "Blog"}</h1>
 
-        <Grid auto class="entry__grid">
+        <Grid type="auto" class="entry__grid">
           {page.data.map((post) => <PostCard class="entry__card" post={post} />)}
         </Grid>
       </div>
