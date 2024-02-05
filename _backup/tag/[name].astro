@@ -7,9 +7,10 @@ import taxonomyFilter from "@/utils/taxonomyFilter"
 import { sortByDate, filterByStatus } from "@/utils/postFunctions"
 
 import BaseLayout from "@/layouts/BaseLayout.astro"
-import PostBody from "@/layouts/PostBody.astro"
+import Group from "@/components/Group.astro"
+import Container from "@/components/Container.astro"
 import PostCard from "@/components/PostCard.astro"
-
+import Grid from "@/components/Grid.astro"
 
 import { getCollection } from "astro:content"
 
@@ -39,16 +40,37 @@ const filterByTags = taxonomyFilter(posts, "tags", tag!)
   title={`Tag: ${tagTitle}`}
   description={`A list of entries with tag, ${tagTitle}`}
 >
+  <Group type="section" class="entry">
+    <Container>
+      <div class="entry__content column-breakout flow">
+        <h1 class="entry__title text-serif">
+          Tag: <span>{tagTitle}</span>
+        </h1>
 
-<PostBody>
-  <Fragment slot="entryTitle">
-    Tag: <em>{tagTitle}</em>
-  </Fragment>
-
-  <Fragment slot="entryGrid">
-    {filterByTags.map((post) => <PostCard class="entry__card" post={post} />)}
-  </Fragment>
-
-</PostBody>
+        <Grid type="auto" class="entry__grid">
+          {filterByTags.map((post) => <PostCard post={post} />)}
+        </Grid>
+      </div>
+    </Container>
+  </Group>
 </BaseLayout>
 
+<style>
+  .entry__title {
+    font-size: var(--font-size-fluid-3);
+  }
+
+  .entry__title span {
+    font-style: italic;
+  }
+
+  .entry__grid {
+    --_column: 30ch;
+    --_row-gap: var(--size-fluid-5);
+    align-items: start;
+  }
+
+  .entry__content {
+    --_flow: var(--size-fluid-6);
+  }
+</style>

@@ -1,0 +1,35 @@
+---
+import Group from "@/components/Group.astro"
+import Container from "@/components/Container.astro"
+import Grid from "@/components/Grid.astro"
+---
+
+<Group type="section" class="entry">
+  <Container>
+    <div class="entry__content column-breakout flow">
+      <h1 class="entry__title text-serif">
+        <slot name="entryTitle" />
+      </h1>
+
+      <Grid type="auto" class="entry__grid">
+        <slot name="entryGrid" />
+      </Grid>
+    </div>
+  </Container>
+</Group>
+
+<style>
+  .entry__title {
+    font-size: var(--font-size-fluid-3);
+  }
+
+  .entry__grid {
+    --_column: 30ch;
+    --_row-gap: var(--size-fluid-5);
+    align-items: start;
+  }
+
+  .entry__content {
+    --_flow: var(--size-fluid-6);
+  }
+</style>

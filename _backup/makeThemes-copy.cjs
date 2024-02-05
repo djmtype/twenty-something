@@ -12,19 +12,16 @@ if (!fs.existsSync(outputDir)) {
 const lightCss = generateCss(data.props.theme.light, 'light');
 const darkCss = generateCss(data.props.theme.dark, 'dark');
 const themeCss = generateThemeCss(data.props.theme);
-const variablesCss = generateVariablesCss(data.props.global);
 
 const lightOutputPath = `${outputDir}props.light.css`;
 const darkOutputPath = `${outputDir}props.dark.css`;
 const themeOutputPath = `${outputDir}theme.css`;
-const variablesOutputPath = `${outputDir}global.css`;
 
 fs.writeFileSync(lightOutputPath, lightCss);
 fs.writeFileSync(darkOutputPath, darkCss);
 fs.writeFileSync(themeOutputPath, themeCss);
-fs.writeFileSync(variablesOutputPath, variablesCss);
 
-console.log(`Generated CSS files for light and dark themes, theme.css, and variables.css.`);
+console.log(`Generated CSS files for light and dark themes, and theme.css.`);
 
 function generateCss(themeData, suffix) {
   let css = `/* ${suffix.charAt(0).toUpperCase() + suffix.slice(1)} Theme */\n\n`;
@@ -69,21 +66,6 @@ function generateThemeCss(themeData) {
   Object.keys(themeData.dark).forEach(key => {
     const variableName = `  --${key}`;
     const value = `: var(--${key}-dark);`;
-
-    css += `${variableName}${value}\n`;
-  });
-
-  css += '}\n';
-
-  return css;
-}
-
-function generateVariablesCss(variablesData) {
-  let css = `:root {\n`;
-
-  Object.keys(variablesData).forEach(key => {
-    const variableName = `  --${key}`;
-    const value = `: ${variablesData[key]};`;
 
     css += `${variableName}${value}\n`;
   });

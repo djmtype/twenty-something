@@ -10,7 +10,7 @@ type Props = {
 
 const { hasFrame, caption, className, columnName, hasRadius, style } = Astro.props
 
-const styles = `${columnName ? `--_container-column: column-${columnName};` : ""} ${hasRadius ? `--_radius: var(--radius-3)` : ""} ${style || ""}`
+const styles = `${columnName ? `--_container-column: column-${columnName};` : ""} ${hasRadius ? `--_radius: var(--radius)` : ""} ${style || ""}`
 ---
 
 <figure class:list={[`figure`, className, hasFrame ? `figure--frame` : null]} 

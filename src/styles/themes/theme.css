@@ -35,6 +35,9 @@
   --example: var(--example-light);
   --quote: var(--quote-light);
   --abstract: var(--abstract-light);
+  --astro-code-token-keyword: var(--astro-code-token-keyword-light);
+  --astro-code-token-function: var(--astro-code-token-function-light);
+  --astro-code-token-string-expression: var(--astro-code-token-string-expression-light);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -71,6 +74,9 @@
     --example: var(--example-dark);
     --quote: var(--quote-dark);
     --abstract: var(--abstract-dark);
+    --astro-code-token-keyword: var(--astro-code-token-keyword-dark);
+    --astro-code-token-function: var(--astro-code-token-function-dark);
+    --astro-code-token-string-expression: var(--astro-code-token-string-expression-dark);
 }
 }
 
@@ -107,4 +113,7 @@
   --example: var(--example-dark);
   --quote: var(--quote-dark);
   --abstract: var(--abstract-dark);
+  --astro-code-token-keyword: var(--astro-code-token-keyword-dark);
+  --astro-code-token-function: var(--astro-code-token-function-dark);
+  --astro-code-token-string-expression: var(--astro-code-token-string-expression-dark);
 }

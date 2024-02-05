@@ -26,7 +26,7 @@
   font-weight: var(--font-weight-bold);
   padding: var(--size-2) var(--size-3);
 
-  border-radius: var(--radius-2);
+  border-radius: min(calc(var(--radius) / 2), var(--radius-2));
 
   &:where(:not(:active):hover),
   &:where(:not(:active):focus-visible) {

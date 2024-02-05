@@ -1,6 +1,6 @@
 :root {
   --font-sans: system-ui, -apple-system, sans-serif;
-  --font-mono: ui-monospace, SF Mono, Menlo, monospace;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
   --font-serif: "Playfair Display", ui-serif, serif;
   --initial: initial;
   --unset: unset;
@@ -19,4 +19,13 @@
   --font-weight-bold: var(--font-weight-6);
   --gutter: var(--size-fluid-4);
   --flow-size-0: calc(var(--font-lineheight-0) * 1rem);
+  --radius: var(--radius-3);
+  --astro-code-color-text: var(--text-1);
+  --astro-code-color-background: var(--surface-overlay);
+  --astro-code-token-constant: var(--text-1);
+  --astro-code-token-string: var(--brand);
+  --astro-code-token-parameter: var(--brand);
+  --astro-code-token-punctuation: var(--text-1);
+  --astro-code-token-link: var(--brand);
+  --astro-code-token-comment: var(--text-muted);
 }

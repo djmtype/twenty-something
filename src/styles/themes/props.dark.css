@@ -32,4 +32,7 @@ html {
   --example-dark: var(--purple-3);
   --quote-dark: var(--stone-3);
   --abstract-dark: var(--violet-3);
+  --astro-code-token-keyword-dark: var(--blue-3);
+  --astro-code-token-function-dark: var(--cyan-3);
+  --astro-code-token-string-expression-dark: var(--violet-3);
 }

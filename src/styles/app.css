@@ -2,7 +2,7 @@
 
 @import "open-props/postcss/style";
 @import "themes/theme.css";
-@import "common/variables.css";
+@import "themes/global.css";
 @import "common/normalizer.css";
 
 

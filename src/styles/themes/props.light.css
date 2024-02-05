@@ -32,4 +32,7 @@ html {
   --example-light: var(--purple-6);
   --quote-light: var(--stone-6);
   --abstract-light: var(--violet-6);
+  --astro-code-token-keyword-light: var(--blue-9);
+  --astro-code-token-function-light: var(--cyan-9);
+  --astro-code-token-string-expression-light: var(--violet-9);
 }

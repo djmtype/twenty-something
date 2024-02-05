@@ -89,10 +89,15 @@ const plainText = await makePlainText(postBody)
   .card {
     --_thumbnail-size: var(--size-content-1);
     --_summary-size: 60%;
+    --_image-height: auto;
+    --_image-width: 100%;
+    --_image-ratio: 1/1;
+    --_gap: var(--size-fluid-3);
+    --_align-items: start;
     display: flex;
     flex-wrap: wrap;
-    gap: var(--size-fluid-3);
-    align-items: start;
+    gap: var(--_gap);
+    align-items: var(--_align-items);
     position: relative;
     
   }
@@ -113,15 +118,13 @@ const plainText = await makePlainText(postBody)
     min-inline-size: var(--_summary-size);
   }
 
-  .card__figure a {
-    width: 100%;
-  }
+
   .card__image {
-    aspect-ratio: 1/1;
-    height: 100%;
-    width: 100%;
+    aspect-ratio: var(--_image-ratio);
+    height: var(--_image-height);
+    width: var(--_image-width);
     object-fit: cover;
-    border-radius: var(--radius-3);
+    border-radius: var(--radius);
   }
   .card__title {
     font-size: var(--font-size-5);
@@ -132,7 +135,6 @@ const plainText = await makePlainText(postBody)
     display: flex;
     flex-direction: column;
     gap: var(--size-3);
-
   }
 
   .card__meta {

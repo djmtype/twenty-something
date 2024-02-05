@@ -36,7 +36,7 @@
 }
 
 :where(.entry__thumbnail) {
-  border-radius: var(--radius-3);
+  border-radius: var(--radius);
 }
 
 .entry__meta {
@@ -144,7 +144,7 @@
 
 
 .entry__prose img:not([class]) {
-  border-radius: var(--radius-3);
+  border-radius: var(--radius);
 }
 
 /* p:has(> img:nth-child(1)) {

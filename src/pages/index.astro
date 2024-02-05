@@ -3,7 +3,7 @@ import type { ConfigObj } from "@/data/config.types"
 import ButtonLink from "@/components/ButtonLink.astro"
 import config from "@/data/config.json"
 import Grid from "@/components/Grid.astro"
-import PostItem from "@/components/PostItem.astro"
+import PostCard from "@/components/PostCard.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import { sortByDate, filterByStatus } from "@/utils/postFunctions"
 import { getCollection } from "astro:content"
@@ -27,7 +27,7 @@ const posts = filteredPosts.slice(0, pageSize || 4)
 ---
 
 <BaseLayout title={siteTitle} description={siteDescription}>
-  <Group type="section">
+  <Group type="section" hasFlow flowSize="size-fluid-6">
     <Container>
       <Grid
         type="auto"
@@ -36,23 +36,41 @@ const posts = filteredPosts.slice(0, pageSize || 4)
         class="post-grid column-breakout"
         style={{ alignItems: "start" }}
       >
-        {posts.map((item, index) => <PostItem post={item} index={index} />)}
-
-       
-        
-            <ButtonLink class="button--block" href="/blog" variant="accent"><Icon name="lucide:layout-grid" /> View all posts</ButtonLink>
-         
-        
+        {
+          posts.map((item, index) => (
+            <PostCard
+              post={item}
+              index={index}
+              class={index === 0 ? 'card--hero': ''}
+            />
+          ))
+        }
       </Grid>
-     
+      
+    </Container>
+
+    <Container>
+      <ButtonLink class="button--block" href="/blog" variant="accent"
+        ><Icon name="lucide:layout-grid" /> View all posts</ButtonLink
+      >
     </Container>
   </Group>
 </BaseLayout>
 
 <style>
+  .card--hero {
+    @media (--lg-n-above) {
+    --_image-ratio: 2/1.25; 
+    --_thumbnail-size: 65.5%;
+    --_summary-size: 30%;
+    --_gap: var(--gutter);
+    --_align-items: end;
+    }
+  }
+
   .post-grid {
     @media (--lg-n-above) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      --_grid-columns: repeat(3, minmax(0, 1fr));
     }
   }
   .post-grid > *:first-child {
@@ -61,18 +79,11 @@ const posts = filteredPosts.slice(0, pageSize || 4)
     }
   }
 
-
-  .box {
-    display: grid;
-    place-content: center;
-    aspect-ratio: 1/1;
-    background: var(--surface-overlay);
-    border-radius: var(--radius-3);
-  }
   .button--block {
-grid-column: 1/-1;
-justify-self: center;
-
-
+    justify-self: center;
+    width: 100%;
+    @media (--sm-n-above) {
+      width: auto;
+    }
   }
 </style>
