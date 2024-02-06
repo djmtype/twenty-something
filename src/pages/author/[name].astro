@@ -82,8 +82,8 @@ const postFilterByAuthor = posts.filter(
                 <figure class="author__figure">
                   <Image
                     class="author__thumbnail"
-                    width={80}
-                    height={80}
+                    width={150}
+                    height={150}
                     quality={60}
                     densities={[1, 2]}
                     src={thumbnail}
@@ -130,10 +130,10 @@ const postFilterByAuthor = posts.filter(
     gap: var(--size-fluid-5);
   }
 
-  .posts__card {
+  /* .posts__card {
     --_thumbnail-size: min(25%, 10ch);
     --_summary-size: 70%;
-  }
+  } */
 
   .author {
     display: grid;
@@ -155,8 +155,9 @@ const postFilterByAuthor = posts.filter(
     display: grid;
     place-content: center;
     border-radius: var(--radius);
-    height: var(--size-relative-11);
-    width: var(--size-relative-11);
+    aspect-ratio: 1/1;
+    height: auto;
+    width: var(--size-10);
     background-color: var(--surface-overlay);
     color: var(--text-muted);
     overflow: hidden;

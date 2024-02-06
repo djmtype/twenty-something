@@ -33,8 +33,8 @@
     },
     "theme": {
       "light": {
-        "brand": "var(--indigo-9)",
-        "brand-2": "var(--blue-9)",
+        "brand": "var(--blue-9)",
+        "accent": "var(--indigo-9)",
         "text-1": "var(--gray-9)",
         "text-2": "var(--gray-8)",
         "surface-0": "var(--gray-0)",
@@ -69,8 +69,8 @@
         "astro-code-token-string-expression": "var(--violet-9)"
       },
       "dark": {
-        "brand": "var(--indigo-3)",
-        "brand-2": "var(--blue-3)",
+        "brand": "var(--blue-3)",
+        "accent": "var(--indigo-3)",
         "text-1": "var(--gray-1)",
         "text-2": "var(--gray-3)",
         "surface-0": "var(--gray-11)",
@@ -105,6 +105,5 @@
         "astro-code-token-string-expression": "var(--violet-3)"
       }
     }
-
   }
 }

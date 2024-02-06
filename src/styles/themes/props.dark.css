@@ -1,8 +1,8 @@
 /* Dark Theme */
 
 html {
-  --brand-dark: var(--indigo-3);
-  --brand-2-dark: var(--blue-3);
+  --brand-dark: var(--blue-3);
+  --accent-dark: var(--indigo-3);
   --text-1-dark: var(--gray-1);
   --text-2-dark: var(--gray-3);
   --surface-0-dark: var(--gray-11);

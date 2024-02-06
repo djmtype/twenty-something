@@ -4,7 +4,7 @@
     "content": [
       {
         "name": "Team",
-        "url": "/about",
+        "url": "#",
         "rel": "prefetch"
       },
       {
@@ -22,8 +22,8 @@
     "content": [
       {
         "name": "Privacy Policy",
-        "url": "/privacy-policy",
-        "rel": "prefetch"
+        "url": "#",
+        "rel": ""
       },
       {
         "name": "Terms & Conditions",
@@ -31,8 +31,8 @@
       },
       {
         "name": "Contact Us",
-        "url": "/contact",
-        "rel": "prefetch"
+        "url": "#",
+        "rel": ""
       }
     ]
   },
@@ -42,17 +42,20 @@
       {
         "name": "Facebook",
         "url": "https://facebook.com",
-        "target": "_blank"
+        "target": "_blank",
+        "rel": "noopener"
       },
       {
         "name": "Instagram",
         "url": "https://instagram.com",
-        "target": "_blank"
+        "target": "_blank",
+        "rel": "noopener"
       },
       {
         "name": "Twitter/X",
         "url": "https://twitter.com",
-        "target": "_blank"
+        "target": "_blank",
+        "rel": "noopener"
       }
     ]
   }

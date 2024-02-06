@@ -1,5 +1,4 @@
 ---
-import "@/styles/utilities/link-block.css"
 import { Image } from "astro:assets"
 import { makeExcerpt, makePlainText } from "@/utils/textConverter"
 import FormattedDate from "@/components/FormattedDate.astro"
@@ -87,8 +86,8 @@ const plainText = await makePlainText(postBody)
 
 <style>
   .card {
-    --_thumbnail-size: var(--size-content-1);
-    --_summary-size: 60%;
+    --_thumbnail-size: var(--size-fluid-7);
+    --_summary-size: 70%;
     --_image-height: auto;
     --_image-width: 100%;
     --_image-ratio: 1/1;

@@ -87,7 +87,21 @@
 } */
 
 .entry__thumbnail {
-  width: 100%;
+  --_thumbnail-width: 100%;
+  --_thumbnail-height: auto;
+  --_thumbnail-fit: initial;
+  width: var(--_thumbnail-width);
+  height: var(--_thumbnail-height);
+  object-fit: var(--_thumbnail-fit);
+}
+
+.entry__thumbnail__credit {
+  font-size: var(--font-size-1);
+  color: var(--text-muted);
+  margin-block-start: var(--size-fluid-5);
+  display: inline-flex;
+  gap: .75ch;
+  align-items: center;
 }
 
 .entry__prose blockquote:has(cite) {

@@ -4,3 +4,13 @@ pre {
     border-radius: var(--radius);
   }
 
+  details:has(pre) {
+    background: var(--surface-overlay);
+  }
+
+  details pre {
+    background: unset;
+    border-radius: unset;
+    padding: unset;
+  }
+

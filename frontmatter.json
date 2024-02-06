@@ -69,6 +69,12 @@
           "choices": ["", "passage", "content", "breakout", "full"]
         },
         {
+          "title": "Thumbnail Credit",
+          "name": "thumbnailCredit",
+          "type": "string",
+          "single": false
+        },
+        {
           "name": "author",
           "title": "Author",
           "type": "contentRelationship",

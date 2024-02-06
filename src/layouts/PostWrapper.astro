@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components"
 import Group from "@/components/Group.astro"
 import Container from "@/components/Container.astro"
 import "@/styles/layouts/entry.css"
@@ -29,6 +30,7 @@ const {
   thumbnail,
   thumbnailAlt,
   thumbnailSize,
+  thumbnailCredit,
   author,
   tags,
   categories,
@@ -58,9 +60,10 @@ const authorData =
               alt=""
               densities={[1, 2]}
               src={thumbnail}
-              width={thumbnail.width}
-              height={thumbnail.height}
+              width={thumbnail.width / 2}
+              height={thumbnail.height / 2}
               alt={thumbnailAlt ? thumbnailAlt : ""}
+              loading="eager"
             />
       </figure>
     }
@@ -102,6 +105,12 @@ const authorData =
             ))
         }
       </ul>
+      {thumbnailCredit && (
+        <p class="entry__thumbnail__credit">
+          <Icon name="lucide:copyright" /> <span set:html={thumbnailCredit} />
+          </p>
+      )
+      }
     </footer>
   </article>
 

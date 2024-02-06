@@ -9,39 +9,25 @@
     "rel": "prefetch"
   },
   {
-    "name": "Github Site",
-    "url": "https://github.io",
-    "target": "_blank"
-  },
-  {
-    "name": "Guide",
+    "name": "Theme Info",
     "url": "",
     "children": true,
     "childItems": [
       {
-        "name": "Overview",
-        "url": "/from-wp-to-md/overview",
+        "name": "About",
+        "url": "/about",
         "rel": "prefetch"
       },
       {
-        "name": "Requirements",
-        "url": "/from-wp-to-md/requirements",
+        "name": "Sample",
+        "url": "/sample",
         "rel": "prefetch"
       },
       {
-        "name": "Getting Started",
-        "url": "/from-wp-to-md/getting-started",
-        "rel": "prefetch"
-      },
-      {
-        "name": "Content Management",
-        "url": "/from-wp-to-md/content-management",
-        "rel": "prefetch"
-      },
-      {
-        "name": "Deployment",
-        "url": "/from-wp-to-md/deployment",
-        "rel": "prefetch"
+        "name": "Repository",
+        "url": "https://github.com/djmtype/twenty-something",
+        "rel": "noopener",
+        "target": "_blank"
       }
     ]
   }

@@ -18,6 +18,7 @@ const {
   thumbnail,
   thumbnailAlt,
   thumbnailSize,
+  contentSize,
 } = frontmatter.data
 
 
@@ -27,7 +28,7 @@ const {
   title={frontmatter.data.title}
   description={frontmatter.data.description}
 >
-  <article class="entry section container">
+  <article class:list={["entry section container", contentSize?.includes('content') ? 'column-content': '']}>
    
 {thumbnail && 
     <figure

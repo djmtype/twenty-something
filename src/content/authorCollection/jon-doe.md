@@ -5,7 +5,6 @@ slug: jon-doe
 type: author
 email: jdoe@sprint.biz
 website: https://mindfresh.org
-thumbnail: "../../assets/uploads/avatar.png"
 status: publish
 ---
 

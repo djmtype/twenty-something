@@ -1,8 +1,8 @@
 /* Light Theme */
 
 html {
-  --brand-light: var(--indigo-9);
-  --brand-2-light: var(--blue-9);
+  --brand-light: var(--blue-9);
+  --accent-light: var(--indigo-9);
   --text-1-light: var(--gray-9);
   --text-2-light: var(--gray-8);
   --surface-0-light: var(--gray-0);

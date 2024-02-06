@@ -5,7 +5,7 @@
 :root[data-theme="light"] {
   color-scheme: light;
   --brand: var(--brand-light);
-  --brand-2: var(--brand-2-light);
+  --accent: var(--accent-light);
   --text-1: var(--text-1-light);
   --text-2: var(--text-2-light);
   --surface-0: var(--surface-0-light);
@@ -44,7 +44,7 @@
   :root {
     color-scheme: dark;
     --brand: var(--brand-dark);
-    --brand-2: var(--brand-2-dark);
+    --accent: var(--accent-dark);
     --text-1: var(--text-1-dark);
     --text-2: var(--text-2-dark);
     --surface-0: var(--surface-0-dark);
@@ -83,7 +83,7 @@
 :root[data-theme="dark"] {
   color-scheme: dark;
   --brand: var(--brand-dark);
-  --brand-2: var(--brand-2-dark);
+  --accent: var(--accent-dark);
   --text-1: var(--text-1-dark);
   --text-2: var(--text-2-dark);
   --surface-0: var(--surface-0-dark);

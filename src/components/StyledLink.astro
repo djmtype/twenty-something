@@ -11,12 +11,14 @@ const { class: className, ...restProps } = Astro.props
 
 <style>
     .styled-link {
+        position: relative;
         --_color: var(--link);
         --_align-items: initial;
         display: inline-flex;
         gap: var(--size-relative-2);
         color: var(--_color);
         align-items: var(--_align-items);
+        text-wrap: balance;
     }
 </style>
 
