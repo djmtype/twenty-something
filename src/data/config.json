@@ -9,9 +9,10 @@
     "favicon": "/images/favicon.svg",
     "tagline": "From WP to MD"
   },
-  "settings": {
-    "themeSwitcher": true,
-    "homeBlogPageSize": 4
+  "metadata": {
+    "ogTitle": "",
+    "ogImage": "/images/og-image.jpg",
+    "ogImageAlt": "logo over ambiguous smokey background"
   },
   "logo": {
     "image": "/images/logo-light-theme.svg",
@@ -19,15 +20,13 @@
     "height": 41,
     "width": 170
   },
+  "home": {
+    "blogPageSize": 4
+  },
   "blog": {
     "title": "The Blog",
     "description": "A blog for all occassions",
     "pageSize": 6
-  },
-  "metadata": {
-    "ogTitle": "",
-    "ogImage": "/images/og-image.jpg",
-    "ogImageAlt": "logo over ambiguous smokey background"
   },
   "footer": {
     "description": "Managed with [Front Matter](https://frontmatter.codes/).  \nMade with [Astro](https://astro.build).",

@@ -1,0 +1,28 @@
+---
+import { Code } from 'astro/components';
+
+
+type Props = {
+    file: any
+    lang?: any
+    theme?: any
+    summary?: string
+    openState?: boolean
+    path?: string
+}
+
+const { file, lang = 'json', theme = 'css-variables', summary = 'Summary', openState, path } = Astro.props as Props
+---
+
+<details open={openState ? "" : undefined}>
+<summary>{summary}</summary>
+{path && <code class="path">{path}</code>}
+<Code code={file} lang={lang} theme={theme} />
+</details>
+
+<style>
+.path {
+    color: var(--text-muted);
+    font-style: italic;
+}
+</style>

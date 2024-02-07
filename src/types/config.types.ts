@@ -12,10 +12,9 @@ type Site = {
   tagline: string;
 };
 
-// Define types for the "settings" object
-type Settings = {
-  themeSwitcher: boolean;
-  homeBlogPageSize: number;
+// Define types for the "home" object
+type Home = {
+  blogPageSize: number;
 };
 
 // Define types for the "logo" object
@@ -49,9 +48,10 @@ type Footer = {
 //  Define the overall type for the JSON object
 export type ConfigObj = {
   site: Site;
-  settings: Settings;
+  home: Home;
   logo: Logo;
   blog: Blog;
   metadata: Metadata;
   footer: Footer;
 };
+

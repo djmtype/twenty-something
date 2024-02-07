@@ -89,7 +89,7 @@ export type FontSizeValue =
 
 export type ColorValue =
   | "brand"
-  | "brand-2"
+  | "accent"
   | "text-1"
   | "text-2"
   | "text-muted"

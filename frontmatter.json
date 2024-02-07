@@ -311,20 +311,6 @@
               }
             }
           },
-          "settings": {
-            "type": "object",
-            "title": "Settings",
-            "properties": {
-              "themeSwitcher": {
-                "type": "boolean",
-                "title": "Theme Switcher"
-              },
-              "homeBlogPageSize": {
-                "type": "number",
-                "title": "Blog Page Size"
-              }
-            }
-          },
           "metadata": {
             "type": "object",
             "title": "Metadata",
@@ -336,7 +322,8 @@
               },
               "ogDescription": {
                 "type": "string",
-                "title": "OpenGraph Description"
+                "title": "OpenGraph Description",
+                "multiline": true
               },
               "ogImage": {
                 "type": "string",
@@ -370,6 +357,16 @@
               }
             }
           },
+          "home": {
+            "type": "object",
+            "title": "Home",
+            "properties": {
+              "blogPageSize": {
+                "type": "number",
+                "title": "Blog Page Size"
+              }
+            }
+          },
           "blog": {
             "type": "object",
             "title": "Blog",
@@ -380,7 +377,8 @@
               },
               "description": {
                 "type": "string",
-                "title": "Description"
+                "title": "Description",
+                "multiline": true
               },
               "pageSize": {
                 "type": "number",
