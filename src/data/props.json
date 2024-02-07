@@ -10,7 +10,7 @@
       "auto": "auto",
       "size-content-4": "72ch",
       "size-0": 0,
-      "gutter": "var(--size-fluid-4)",
+      "size-gutter": "var(--size-fluid-4)",
       "size-container-xxs": "240px",
       "size-container-xs": "360px",
       "size-container-sm": "480px",

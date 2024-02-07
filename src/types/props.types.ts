@@ -66,7 +66,7 @@ export type SizeValue =
   | "size-container-xl"
   | "size-container-xxl"
   | "size-container-xxxl"
-  | "gutter"
+  | "size-gutter"
   | "initial"
   | "auto"
   | "unset";

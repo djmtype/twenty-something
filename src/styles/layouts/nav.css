@@ -6,7 +6,7 @@
       display: flex;
       flex: 0 1 auto;
       align-items: center;
-      padding-inline: var(--gutter);
+      padding-inline: var(--size-gutter);
     }
   }
 
@@ -43,7 +43,7 @@
 
   .nav-primary__link {
     text-decoration: none;
-    padding-inline: var(--gutter);
+    padding-inline: var(--size-gutter);
     padding-block: var(--size-1);
     display: flex;
     @media (--lg-n-above) {

@@ -22,7 +22,7 @@ const {
 const styles = {
   ...(flowSize && { '--_flow': `var(--size-${flowSize})` }),
   ...(name === "full" ? { '--_container-column': 'column-full' } : {}),
-  ...(background ? { '--_column-background': `var(--${background})`, '--_padding': 'var(--gutter)' } : {}),
+  ...(background ? { '--_column-background': `var(--${background})`, '--_padding': 'var(--size-gutter)' } : {}),
   ...(hasRadius ? { '--_column-radius': 'var(--radius)' } : {}),
 };
 ---

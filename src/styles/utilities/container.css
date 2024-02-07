@@ -1,5 +1,5 @@
 .container {
-  --padding-inline: var(--gutter, 1rem);
+  --padding-inline: var(--size-gutter, 1rem);
   --passage-max-width: var(--size-content-3);
   --content-max-width: var(--size-container-lg);
   --breakout-max-width: var(--size-container-xl);
