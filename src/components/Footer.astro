@@ -1,45 +1,52 @@
 ---
-import { parseMarkdown } from "@/utils/textConverter" 
+import Grid from "@/components/Grid.astro"
+import { parseMarkdown } from "@/utils/textConverter"
 import type { ColophonData } from "@/data/colophon.types"
 import colophon from "@/data/colophon.json"
 import type { ConfigObj } from "@/data/config.types"
 import config from "@/data/config.json"
-import Grid from "@/components/Grid.astro"
 import ThemeSelector from "@/components/ThemeSelector.astro"
 
-const { 
-  title: siteTitle 
-  }: ConfigObj["site"] = config.site
+const { title: siteTitle }: ConfigObj["site"] = config.site
 
-const { 
- description: footerDescription,
- copyrightMessage: copyrightMessage, 
- copyrightYear: copyrightYear
-  }: ConfigObj["footer"] = config.footer
+const {
+  description: footerDescription,
+  copyrightMessage: copyrightMessage,
+  copyrightYear: copyrightYear,
+}: ConfigObj["footer"] = config.footer
 
-  const colophonData: ColophonData[] = colophon
+const colophonData: ColophonData[] = colophon
 
-  const date = new Date()
-
-  
+const date = new Date()
 ---
 
 <footer class="colophon section flow container">
   <div class="colophon__wrapper column-breakout">
     <div class="colophon__details flow">
       <p class="colophon__title">{siteTitle}</p>
-      {footerDescription &&
-        <p class="colophon__description" set:html={parseMarkdown(footerDescription)}></p>
-        }
+      {
+        footerDescription && (
+          <p
+            class="colophon__description"
+            set:html={parseMarkdown(footerDescription)}
+          />
+        )
+      }
     </div>
     <Grid type="auto" class="colophon__links">
       {
         colophonData.map((section) => (
           <dl class="colophon__list">
-            <dt set:html={section.heading}></dt>
+            <dt set:html={section.heading} />
             {section.content.map((item) => (
               <dd>
-                <a href={item.url} target={item.target ? item.target : ''} rel={item.rel ? item.rel : ''}>{item.name}</a>
+                <a
+                  href={item.url}
+                  target={item.target ? item.target : ""}
+                  rel={item.rel ? item.rel : ""}
+                >
+                  {item.name}
+                </a>
               </dd>
             ))}
           </dl>
@@ -51,23 +58,20 @@ const {
   <div class="colophon__extra">
     <ThemeSelector />
 
-    {copyrightMessage && 
-      <p class="colophon__copyright">
-        <Fragment set:html={copyrightYear ? `&copy; ${date.getFullYear()}` : null} />
-      <Fragment set:html={parseMarkdown(copyrightMessage)} />
-      </p>
-      }
-
- 
-
-  
-    
+    {
+      copyrightMessage && (
+        <p class="colophon__copyright">
+          <Fragment
+            set:html={copyrightYear ? `&copy; ${date.getFullYear()}` : null}
+          />
+          <Fragment set:html={parseMarkdown(copyrightMessage)} />
+        </p>
+      )
+    }
   </div>
 </footer>
 
-
-
-<style is:global>
+<style>
   .colophon {
     --_flow: var(--size-fluid-5);
     --_padding-bottom: var(--size-fluid-3);
@@ -90,19 +94,15 @@ const {
   }
 
   .colophon__links {
-  --_column: 12ch;
+    --_column: 12ch;
     flex-basis: 0;
     flex-grow: 999;
     min-inline-size: 50%;
-    
-   
-
   }
 
-
-.colophon__list dt + dd {
-  margin-top: 1em;
-}
+  .colophon__list dt + dd {
+    margin-top: 1em;
+  }
   .colophon__list :is(dt, dd) {
     max-inline-size: unset;
   }
