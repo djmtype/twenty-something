@@ -22,7 +22,8 @@ const pageCollection = defineCollection({
         })
         .optional(),
       thumbnailAlt: z.string().optional(),
-      thumbnailSize: z.string(z.enum(["passage", "content", "breakout", "full"])).optional(),
+      thumbnailSize: z.string(z.enum(["","passage", "content", "breakout", "full"])).optional(),
+      thumbnailCredit: z.string().optional(),
       contentSize: z.string(z.enum(["passage", "content", "breakout", "full"])).optional(),
       status: z.string(z.enum(["draft", "publish"]).default("draft")),
     }),
@@ -52,7 +53,7 @@ const postCollection = defineCollection({
         })
         .optional(),
       thumbnailAlt: z.string().optional(),
-      thumbnailSize: z.string(z.enum(["passage", "content", "breakout", "full"])).optional(),
+      thumbnailSize: z.string(z.enum(["", "passage", "content", "breakout", "full"])).optional(),
       thumbnailCredit: z.string().optional(),
       categories: z.array(z.string()).default(["uncategorized"]),
       tags: z.array(z.string()).default(["others"]),

@@ -6,13 +6,13 @@
     --_container-column: column-full;
   } */
 
-:where(.entry__prose > *) {
+/* :where(.entry__prose > *) {
   --_container-column: column-passage;
-}
+} */
 
-.entry__heading {
+/* .entry__heading {
   --_container-column: column-passage;
-}
+} */
 
 .entry__footer {
   --_container-column: column-passage;

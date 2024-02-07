@@ -14,13 +14,18 @@
     "children": true,
     "childItems": [
       {
-        "name": "About",
-        "url": "/about",
+        "name": "Guide",
+        "url": "/guide",
         "rel": "prefetch"
       },
       {
-        "name": "Sample",
-        "url": "/sample",
+        "name": "Markdown Sample",
+        "url": "/markdown-sample",
+        "rel": "prefetch"
+      },
+      {
+        "name": "Configuration",
+        "url": "/configuration",
         "rel": "prefetch"
       },
       {

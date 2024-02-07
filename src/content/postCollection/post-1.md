@@ -5,6 +5,7 @@ date: 2023-12-01
 dateUpdated: 2024-02-01
 thumbnail: ../../assets/uploads/pawel-czerwinski-0-IrJlGxbRU-unsplash.jpg
 thumbnailAlt: For placement only
+thumbnailSize: content
 thumbnailCredit: 'Photo by <a href="https://unsplash.com/@pawel_czerwinski?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Pawel Czerwinski</a> on <a href="https://unsplash.com/@pawel_czerwinski?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>'
 author: leanne-graham
 tags:

@@ -1,54 +1,20 @@
 ---
-title: About
+title: Guide
 date: 2022-07-15
-description: Lorem ipsum dolor sit amet
+description: Instructions on how to use the Twenty Something theme
 status: publish
 dateUpdated: 2024-01-11
 ---
-
-![Alt text](../../assets/uploads/blog-placeholder-2.jpg)
-
-> [!example] example
-> Lorem ipsum whatever
-
-> [!question] question
-> Lorem ipsum whatever
-
-> [!todo] todo
-> Lorem ipsum whatever
-
-> [!danger] Danger
-> Lorem ipsum whatever
-
-> [!success] Success
-> blablabla...
-
-> [!info] info
-> blablabla...
-
-> [!bug] bug
-> blablabla...
-
-> [!tip] tip
-> blablabla...
-
-> [!warning] warning
-> blablabla...
-
-> [!note] note
-> blablabla...
-
-> [!quote] quote
-> blablabla...
-
-> [!abstract] abstract
-> blablabla...
 
 ## Overview
 
 For as long as memory serves, Wordpress was the *defacto* content management tool. Now, twenty-something years later, you may not need Wordpress. In fact, your site could be less expensive to run, and more secure without it. The purpose of this tutorial is to migrate your current Wordpress posts into markdown files. 
 
-There are a small number of CLI tools and plugins to export Wordpress to markdown files. However, using **WP Gatsby Markdown Exporter** makes exporting content a breeze.  Disregard the warning for not being compliant with Wordpress 6.4.x. This plugin still works today. It exports pages, posts, or other post types as markdown files.
+Understand, this option isn't intended for everyone. If your current Wordpress site relies heavily on Wordpress' Gutenberg layouts.
+
+## Getting Started
+
+There are a small number of CLI tools and plugins to export Wordpress to markdown files. However, using **WP Gatsby Markdown Exporter** makes exporting content a breeze. Disregard the warning for not being compliant with Wordpress 6.4.x. This plugin still works today. It exports pages, posts, or other post types as markdown files.
 
 Install and activate the [*WP Gatsby Markdown Exporter*]((https://wordpress.org/plugins/wp-gatsby-markdown-exporter/)) plugin in your Wordpress Site.
 
@@ -109,6 +75,5 @@ The `slug` field will also require modification. Essentially, the absolute path 
 Search: `slug: /`  
 Replace: `slug: `
 
-> [!alert] Alert
+> [!note] Note
 > Be sure to include a space after the colon in *slug*.
-

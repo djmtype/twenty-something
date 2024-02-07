@@ -1,30 +1,30 @@
 ---
 title: Configuration
 date: 2022-07-15
-description: Lorem ipsum dolor sit amet
+description: All congfiguration settings for the Twenty Something theme
 status: publish
-contentSize: content
 ---
 import colophonJson from "@/data/colophon.json?raw"
 import configJson from "@/data/config.json?raw"
 import propsJson from "@/data/props.json?raw"
 import navigationJson from "@/data/navigation.json?raw"
-import Pre from "@/components/Pre.astro"
+import PreElement from "@/components/PreElement.astro"
 
+An overview of all the data files found within `./src/data` of this project. These options are meant to be customized to your needs.
 
-## General Config
+## General Settings
 
-<Pre file={configJson} summary="Site and Global Settings" path="src/data/config.json" />
+<PreElement file={configJson} summary="Site and Global Settings" path="src/data/config.json" />
 
 
 ## Style Properties
 
-<Pre file={propsJson} summary="Global and Theme Variables" path="src/data/props.json" />
+<PreElement file={propsJson} summary="Global and Theme Variables" path="src/data/props.json" />
 
 ## Site Navigation
 
-<Pre file={navigationJson} summary="Primary Navigation" path="src/data/navigation.json" />
+<PreElement file={navigationJson} summary="Primary Navigation" path="src/data/navigation.json" />
 
 ## Colophon
 
-<Pre file={colophonJson} summary="Colophon Links" path="src/data/colophon.json" />
+<PreElement file={colophonJson} summary="Colophon Links" path="src/data/colophon.json" />

@@ -4,6 +4,7 @@ description: Morbi tristique senectus et netus. Id semper risus in hendrerit gra
 date: 2024-02-04
 thumbnail: ../../assets/uploads/pawel-czerwinski-cx90ak4WBFQ-unsplash.jpg
 thumbnailAlt: For placement only
+thumbnailSize: content
 thumbnailCredit: 'Photo by <a href="https://unsplash.com/@pawel_czerwinski?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Pawel Czerwinski</a> on <a href="https://unsplash.com/@pawel_czerwinski?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>'
 author: ervin-howell
 slug: forth-post

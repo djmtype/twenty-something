@@ -63,7 +63,6 @@
         },
         {
           "title": "Thumbnail Size",
-          "description": "Default size is programmatically set to content",
           "name": "thumbnailSize",
           "type": "choice",
           "choices": ["", "passage", "content", "breakout", "full"]

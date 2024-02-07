@@ -1,13 +1,14 @@
 ---
-title: Sample
+title: Markdown Sample
 date: 2022-07-15
-description: Lorem ipsum dolor sit amet
-thumbnail: ../../assets/uploads/blog-placeholder-2.jpg
-thumbnailAlt: A description of this photo
+description: A markdown sample page for Twenty Something
+thumbnail: ../../assets/uploads/pawel-czerwinski-ruJm3dBXCqw-unsplash.jpg
+thumbnailAlt: For placement only
+thumbnailCredit: 'Photo by <a href="https://unsplash.com/@pawel_czerwinski?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Pawel Czerwinski</a> on <a href="https://unsplash.com/@pawel_czerwinski?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>'
 status: publish
 ---
 
-Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
+A sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
 
 ## Headings
 
@@ -267,4 +268,3 @@ An alert type is defined within square brackets, with its name prefixed by an ex
 
 > [!abstract] Abstract
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
-

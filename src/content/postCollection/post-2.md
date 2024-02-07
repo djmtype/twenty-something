@@ -4,6 +4,7 @@ description: Morbi tristique senectus et netus. Id semper risus in hendrerit gra
 date: 2024-02-02
 thumbnail: ../../assets/uploads/pawel-czerwinski-2JsSnODck0Y-unsplash.jpg
 thumbnailAlt: For placement only
+thumbnailSize: content
 thumbnailCredit: 'Photo by <a href="https://unsplash.com/@pawel_czerwinski?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Pawel Czerwinski</a> on <a href="https://unsplash.com/@pawel_czerwinski?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>'
 author: leanne-graham
 tags:
