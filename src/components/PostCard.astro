@@ -1,6 +1,8 @@
 ---
+import type { ConfigObj } from "@/types/config.types"
+import config from "@/data/config.json"
 import { Image } from "astro:assets"
-import { makeExcerpt, makePlainText } from "@/utils/textConverter"
+import { makeExcerpt, makePlainText, breakLongTitle, makeSmartText } from "@/utils/textConverter"
 import FormattedDate from "@/components/FormattedDate.astro"
 import { getEntry, type CollectionEntry } from "astro:content"
 
@@ -39,11 +41,16 @@ const {
   categories,
 } = post.data
 
+
 const { data: authorData } = await getEntry("authorCollection", author.slug)
+
+const entryTitle = breakLongTitle(makeSmartText(title))
 
 const postBody = post.body
 
 const plainText = await makePlainText(postBody)
+
+const { favicon }: ConfigObj["site"] = config.site
 
 ---
 
@@ -65,10 +72,15 @@ const plainText = await makePlainText(postBody)
       </figure>
     )
   }
+  {!thumbnail && favicon && (
+  <figure class="card__figure">
+  <Image src={favicon} alt="" width="400" height="400" style={{ opacity: '.1' }} />
+</figure>
+ ) }
 
   <div class="card__content">
     <h2 class="card__title">
-      <a class="link-block" href={`/${post.slug}`}>{title}</a>
+      <a class="link-block" href={`/${post.slug}`} set:html={entryTitle}></a>
     </h2>
     <div class="card__meta">
       <FormattedDate date={date} />
@@ -116,6 +128,7 @@ const plainText = await makePlainText(postBody)
     flex-grow: 999;
     min-inline-size: var(--_summary-size);
   }
+
 
 
   .card__image {

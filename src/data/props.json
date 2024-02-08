@@ -15,7 +15,6 @@
       "astro-code-token-punctuation": "var(--text-1)",
       "astro-code-token-link": "var(--accent)",
       "astro-code-token-comment": "var(--text-muted)"
-
     },
     "theme": {
       "light": {

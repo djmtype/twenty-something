@@ -1,11 +1,7 @@
 ---
-title: Post Three Has a Long Title for Some Odd Reason
+title: Post Three Doesn't Have an Image
 description: Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet.
 date: 2024-02-03
-thumbnail: ../../assets/uploads/pawel-czerwinski-aMPfitH2tT0-unsplash.jpg
-thumbnailAlt: For placement only
-thumbnailSize: content
-thumbnailCredit: 'Photo by <a href="https://unsplash.com/@pawel_czerwinski?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Pawel Czerwinski</a> on <a href="https://unsplash.com/@pawel_czerwinski?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>'
 author: scott-rod
 tags:
   - tag four
