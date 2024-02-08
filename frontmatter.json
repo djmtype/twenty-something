@@ -294,7 +294,8 @@
               },
               "description": {
                 "type": "string",
-                "title": "Description"
+                "title": "Description",
+                "multiline": true
               },
               "language": {
                 "type": "string",
@@ -313,7 +314,6 @@
           "metadata": {
             "type": "object",
             "title": "Metadata",
-            "required": ["ogImage", "ogImageAlt"],
             "properties": {
               "ogTitle": {
                 "type": "string",
@@ -325,12 +325,54 @@
                 "multiline": true
               },
               "ogImage": {
-                "type": "string",
-                "title": "OpenGraph Image"
+                "type": "object",
+                "title": "OpenGraph Image",
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "title": "URL"
+                  },
+                  "alt": {
+                    "type": "string",
+                    "title": "Alt Text"
+                  },
+                  "width": {
+                    "type": "number"
+                  },
+                  "height": {
+                    "type": "number"
+                  }
+                }
               },
-              "ogImageAlt": {
-                "type": "string",
-                "title": "OpenGraph Image Alt Text"
+              "twitter": {
+                "type": "object",
+                "title": "Twitter",
+                "properties": {
+                  "handle": {
+                    "type": "string"
+                  },
+                  "site": {
+                    "type": "string"
+                  },
+                  "cardType": {
+                    "type": "string",
+                    "title": "Card Type"
+                  }
+                }
+              },
+              "ogType": {
+                "type": "string"
+              },
+              "robots": {
+                "type": "object",
+                "properties": {
+                  "index": {
+                    "type": "boolean"
+                  },
+                  "follow": {
+                    "type": "boolean"
+                  }
+                }
               }
             }
           },
@@ -401,50 +443,6 @@
               "copyrightMessage": {
                 "type": "string",
                 "title": "Copyright Message"
-            
-              }
-              
-            }
-          }
-        }
-      }
-    },
-    {
-      "id": "colophon",
-      "title": "Colophon",
-      "file": "[[workspace]]/src/data/colophon.json",
-      "fileType": "json",
-      "labelField": "heading",
-      "singleEntry": false,
-      "schema": {
-        "title": "Colophon",
-        "type": "object",
-        "properties": {
-          "heading": {
-            "type": "string",
-            "title": "Heading"
-          },
-          "content": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string",
-                  "title": "Name"
-                },
-                "url": {
-                  "type": "string",
-                  "title": "URL"
-                },
-                "rel": {
-                  "type": "string",
-                  "title": "Relationship"
-                },
-                "target": {
-                  "type": "string",
-                  "title": "Target"
-                }
               }
             }
           }
@@ -501,6 +499,337 @@
                 "rel": {
                   "type": "string",
                   "title": "Relationship"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "props",
+      "title": "Style Props",
+      "file": "[[workspace]]/src/data/props.json",
+      "fileType": "json",
+      "singleEntry": true,
+      "schema": {
+        "title": "Props",
+        "type": "object",
+        "properties": {
+          "props": {
+            "type": "object",
+            "title": "Props",
+            "properties": {
+              "global": {
+                "type": "object",
+                "title": "Global",
+                "properties": {
+                  "font-sans": {
+                    "type": "string"
+                  },
+                  "font-mono": {
+                    "type": "string"
+                  },
+                  "font-serif": {
+                    "type": "string"
+                  },
+                  "font-weight-bold": {
+                    "type": "string"
+                  },
+                  "radius": {
+                    "type": "string"
+                  },
+                  "size-gutter": {
+                    "type": "string"
+                  },
+                  "astro-code-color-text": {
+                    "type": "string"
+                  },
+                  "astro-code-color-background": {
+                    "type": "string"
+                  },
+                  "astro-code-token-constant": {
+                    "type": "string"
+                  },
+                  "astro-code-token-string": {
+                    "type": "string"
+                  },
+                  "astro-code-token-parameter": {
+                    "type": "string"
+                  },
+                  "astro-code-token-punctuation": {
+                    "type": "string"
+                  },
+                  "astro-code-token-link": {
+                    "type": "string"
+                  },
+                  "astro-code-token-comment": {
+                    "type": "string"
+                  }
+                }
+              },
+              "theme": {
+                "type": "object",
+                "title": "Theme",
+                "properties": {
+                  "light": {
+                    "type": "object",
+                    "title": "Light",
+                    "properties": {
+                      "brand": {
+                        "type": "string"
+                      },
+                      "accent": {
+                        "type": "string"
+                      },
+                      "text-1": {
+                        "type": "string"
+                      },
+                      "text-2": {
+                        "type": "string"
+                      },
+                      "surface-0": {
+                        "type": "string"
+                      },
+                      "surface-1": {
+                        "type": "string"
+                      },
+                      "surface-2": {
+                        "type": "string"
+                      },
+                      "surface-shadow": {
+                        "type": "string"
+                      },
+                      "shadow-strength": {
+                        "type": "string"
+                      },
+                      "link": {
+                        "type": "string"
+                      },
+                      "link-visited": {
+                        "type": "string"
+                      },
+                      "link-hover": {
+                        "type": "string"
+                      },
+                      "link-active": {
+                        "type": "string"
+                      },
+                      "text-overlay": {
+                        "type": "string"
+                      },
+                      "text-muted": {
+                        "type": "string"
+                      },
+                      "text-strong": {
+                        "type": "string"
+                      },
+                      "separator": {
+                        "type": "string"
+                      },
+                      "surface-overlay": {
+                        "type": "string"
+                      },
+                      "note": {
+                        "type": "string"
+                      },
+                      "danger": {
+                        "type": "string"
+                      },
+                      "warning": {
+                        "type": "string"
+                      },
+                      "tip": {
+                        "type": "string"
+                      },
+                      "bug": {
+                        "type": "string"
+                      },
+                      "info": {
+                        "type": "string"
+                      },
+                      "success": {
+                        "type": "string"
+                      },
+                      "todo": {
+                        "type": "string"
+                      },
+                      "failure": {
+                        "type": "string"
+                      },
+                      "question": {
+                        "type": "string"
+                      },
+                      "example": {
+                        "type": "string"
+                      },
+                      "quote": {
+                        "type": "string"
+                      },
+                      "abstract": {
+                        "type": "string"
+                      },
+                      "astro-code-token-keyword": {
+                        "type": "string"
+                      },
+                      "astro-code-token-function": {
+                        "type": "string"
+                      },
+                      "astro-code-token-string-expression": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "dark": {
+                    "type": "object",
+                    "title": "Dark",
+                    "properties": {
+                      "brand": {
+                        "type": "string"
+                      },
+                      "accent": {
+                        "type": "string"
+                      },
+                      "text-1": {
+                        "type": "string"
+                      },
+                      "text-2": {
+                        "type": "string"
+                      },
+                      "surface-0": {
+                        "type": "string"
+                      },
+                      "surface-1": {
+                        "type": "string"
+                      },
+                      "surface-2": {
+                        "type": "string"
+                      },
+                      "surface-shadow": {
+                        "type": "string"
+                      },
+                      "shadow-strength": {
+                        "type": "string"
+                      },
+                      "link": {
+                        "type": "string"
+                      },
+                      "link-visited": {
+                        "type": "string"
+                      },
+                      "link-hover": {
+                        "type": "string"
+                      },
+                      "link-active": {
+                        "type": "string"
+                      },
+                      "text-overlay": {
+                        "type": "string"
+                      },
+                      "text-muted": {
+                        "type": "string"
+                      },
+                      "text-strong": {
+                        "type": "string"
+                      },
+                      "separator": {
+                        "type": "string"
+                      },
+                      "surface-overlay": {
+                        "type": "string"
+                      },
+                      "note": {
+                        "type": "string"
+                      },
+                      "danger": {
+                        "type": "string"
+                      },
+                      "warning": {
+                        "type": "string"
+                      },
+                      "tip": {
+                        "type": "string"
+                      },
+                      "bug": {
+                        "type": "string"
+                      },
+                      "info": {
+                        "type": "string"
+                      },
+                      "success": {
+                        "type": "string"
+                      },
+                      "todo": {
+                        "type": "string"
+                      },
+                      "failure": {
+                        "type": "string"
+                      },
+                      "question": {
+                        "type": "string"
+                      },
+                      "example": {
+                        "type": "string"
+                      },
+                      "quote": {
+                        "type": "string"
+                      },
+                      "abstract": {
+                        "type": "string"
+                      },
+                      "astro-code-token-keyword": {
+                        "type": "string"
+                      },
+                      "astro-code-token-function": {
+                        "type": "string"
+                      },
+                      "astro-code-token-string-expression": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "colophon",
+      "title": "Colophon",
+      "file": "[[workspace]]/src/data/colophon.json",
+      "fileType": "json",
+      "labelField": "heading",
+      "singleEntry": false,
+      "schema": {
+        "title": "Colophon",
+        "type": "object",
+        "properties": {
+          "heading": {
+            "type": "string",
+            "title": "Heading"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "title": "Name"
+                },
+                "url": {
+                  "type": "string",
+                  "title": "URL"
+                },
+                "rel": {
+                  "type": "string",
+                  "title": "Relationship"
+                },
+                "target": {
+                  "type": "string",
+                  "title": "Target"
                 }
               }
             }

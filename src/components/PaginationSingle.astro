@@ -17,22 +17,21 @@ const { prevEntry, nextEntry } = Astro.props
 <nav class="pagination" aria-label="Pagination">
     <ul class="pagination__list" role="list">
       
+      
       {
-        nextEntry ? (
+        prevEntry ? (
         <li class="pagination__item">
           <StyledLink>
             <Icon aria-hidden="true" name="lucide:move-left" />
-            <a href={`/${nextEntry.slug}`}>
-            Previous: {nextEntry.data.title}
-            </a>
-            
+              <a href={`/${prevEntry.slug}`}>
+                Previous: {prevEntry.data.title}
+              </a>
           </StyledLink>
         </li>
         ) : (
         <li aria-hidden="true" class="pagination__item">&nbsp;</li>
         )
       }
-
 
        
       
@@ -43,23 +42,23 @@ const { prevEntry, nextEntry } = Astro.props
           <a href="/blog">View all posts</a>
         </StyledLink>
       </li>
-  
-      
+
       {
-        prevEntry ? (
+        nextEntry ? (
         <li class="pagination__item">
           <StyledLink>
-           
-              <a href={`/${prevEntry.slug}`}>
-                Next: {prevEntry.data.title}
-              </a>
-              <Icon aria-hidden="true" name="lucide:move-right" />
+            <a href={`/${nextEntry.slug}`}>
+              Next: {nextEntry.data.title}
+            </a> <Icon aria-hidden="true" name="lucide:move-right" />
           </StyledLink>
         </li>
         ) : (
         <li aria-hidden="true" class="pagination__item">&nbsp;</li>
         )
       }
+  
+      
+      
       
     </ul>
   </nav>

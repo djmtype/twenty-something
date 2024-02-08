@@ -5,11 +5,33 @@ type Site = {
   title: string;
   description: string;
   url: string;
-  ogImage: string;
   language: string;
   country: string;
   favicon: string;
   tagline: string;
+};
+
+
+// Define types for the "metadata" object
+type Metadata = {
+  ogTitle: string;
+  ogDescription: string;
+  ogImage: {
+    url: string;
+    alt: string;
+    width: number;
+    height: number;
+  }
+  ogType: string;
+  twitter: {
+    handle: string;
+    site: string;
+    cardType: string;
+  }
+  robots: {
+    index: boolean;
+    follow: boolean;
+  }
 };
 
 // Define types for the "home" object
@@ -32,12 +54,7 @@ type Blog = {
   pageSize: number;
 };
 
-// Define types for the "metadata" object
-type Metadata = {
-  ogTitle: string;
-  ogImage: string;
-  ogImageAlt: string;
-};
+
 
 type Footer = {
   description: string;

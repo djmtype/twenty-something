@@ -13,15 +13,16 @@ type Props = {
 }
 
 const {
-  ogImage: siteOgImage,
   language: siteLanguage,
   favicon: siteFavicon,
   title: siteTitle,
 }: ConfigObj["site"] = config.site
 
+const { ogImage, ogType, twitter }: ConfigObj["metadata"] = config.metadata
+
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
-const { title, description, thumbnail = siteOgImage } = Astro.props
+const { title, description, thumbnail = ogImage.url } = Astro.props
 ---
 
 <html
@@ -55,18 +56,34 @@ const { title, description, thumbnail = siteOgImage } = Astro.props
     />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType || "website"} />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(thumbnail, Astro.url)} />
+    {ogImage.alt && <meta property="og:image:alt" content={ogImage.alt} />}
+    {
+      ogImage.width && (
+        <meta property="og:image:width" content={ogImage.width.toString()} />
+      )
+    }
+    {
+      ogImage.height && (
+        <meta property="og:image:height" content={ogImage.height.toString()} />
+      )
+    }
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:card"
+      content={twitter.cardType || "summary_large_image"}
+    />
+    {twitter.site && <meta name="twitter:site" content={twitter.site} />}
+    {twitter.handle && <meta name="twitter:creator" content={twitter.handle} />}
     <meta property="twitter:url" content={Astro.url} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(thumbnail, Astro.url)} />
+    {ogImage.alt && <meta property="twitter:image:alt" content={ogImage.alt} />}
 
     <script is:inline>
       document.documentElement.classList.remove("no-js")
@@ -90,7 +107,6 @@ const { title, description, thumbnail = siteOgImage } = Astro.props
 
   Alpine.plugin(persist)
 
-  // Explicitly declare 'Alpine' on the 'window' object
   window.Alpine = Alpine
 
   Alpine.start()
