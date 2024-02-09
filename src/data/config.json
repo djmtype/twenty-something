@@ -31,8 +31,8 @@
   "logo": {
     "image": "/images/logo-light-theme.svg",
     "imageDarkMode": "/images/logo-dark-theme.svg",
-    "height": 41,
-    "width": 170
+    "height": 75,
+    "width": 96
   },
   "home": {
     "blogPageSize": 4
