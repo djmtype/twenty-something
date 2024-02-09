@@ -1,9 +1,10 @@
 ---
+import PostCard from "@/components/PostCard.astro"
 import type { ConfigObj } from "@/types/config.types"
 import ButtonLink from "@/components/ButtonLink.astro"
 import config from "@/data/config.json"
 import Grid from "@/components/Grid.astro"
-import PostCard from "@/components/PostCard.astro"
+
 import BaseLayout from "@/layouts/BaseLayout.astro"
 import { sortByDate, filterByStatus } from "@/utils/postFunctions"
 import { getCollection } from "astro:content"
