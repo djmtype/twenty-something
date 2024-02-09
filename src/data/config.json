@@ -2,7 +2,7 @@
   "site": {
     "title": "Twenty Something",
     "description": "An Astro theme to help transition from Wordpress to Markdown",
-    "url": "https://twentysomething.netlify.app",
+    "url": "https://twenty-something.netlify.app",
     "language": "en",
     "country": "US",
     "favicon": "/images/favicon.svg",
