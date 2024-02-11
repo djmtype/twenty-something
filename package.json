@@ -21,6 +21,7 @@
     "@astrojs/rss": "^4.0.4",
     "@astrojs/sitemap": "^3.0.5",
     "@csstools/postcss-global-data": "^2.1.1",
+    "@fontsource/cardo": "^5.0.8",
     "@iconify-json/lucide": "^1.1.160",
     "alpinejs": "^3.13.5",
     "astro": "^4.2.6",

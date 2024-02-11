@@ -74,11 +74,7 @@ const { favicon }: ConfigObj["site"] = config.site
       </figure>
     )
   }
-  {!thumbnail && (
-  <figure class="card__figure card__figure--placeholder">
- <Fragment set:html={thumbnailPlaceholder}  />
-</figure>
- ) }
+
 
   <div class="card__content">
     <h2 class="card__title">

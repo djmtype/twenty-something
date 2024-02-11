@@ -17,6 +17,11 @@ blockquote.callout {
       inset: 0;
     }
   }
+
+  .callout-content > * + * {
+    --_flow: 1em;
+    margin-block-start: var(--_flow, calc(var(--font-lineheight-3) * 1rem));
+  }
   .callout-title {
     display: flex;
     align-items: center;
@@ -27,6 +32,18 @@ blockquote.callout {
     font-size: var(--font-size-3);
     font-weight: var(--font-weight-bold);
   }
+
+  .callout-content li::marker {
+    color: var(--_color);
+}
+
+.callout-content a {
+  color: var(--_color);
+
+  &:hover, &:focus-visible {
+    --_color: var(--text-1);
+  }
+}
   
   .callout-icon {
     color: var(--_color);

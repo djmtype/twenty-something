@@ -31,7 +31,7 @@
 .entry__title {
   font-weight: var(--font-weight-4);
   font-family: var(--font-serif);
-  font-size: var(--font-size-fluid-2);
+  font-size: var(--font-size-6);
   max-inline-size: initial;
 }
 
@@ -48,7 +48,7 @@
 }
 
 .entry__heading + .entry__prose {
-  margin-block-start: var(--size-fluid-5);
+  margin-block-start: var(--size-fluid-4);
 }
 
 .entry__prose h2:not([class]) {
@@ -67,7 +67,7 @@
   --_flow: 1.5em;
 }
 
-.entry__prose :where(h2, h3, h4, h5, .text-wrapper) + :where(h2, h3, h4, h5, .text-wrapper) {
+.entry__prose :where(h1, h2, h3, h4, h5, .text-wrapper) + :where(h1, h2, h3, h4, h5, .text-wrapper) {
   --_flow: initial;
 }
 

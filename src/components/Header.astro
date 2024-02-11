@@ -1,46 +1,19 @@
 ---
 import Navigation from "@/components/Navigation.astro"
 import Logo from "@/components/Logo.astro"
-
-
 ---
 
-<header
-  id="main-header"
-  class="container banner"
->
+<header id="main-header" class="container banner">
   <div class="column-breakout">
-
-   
-
-<Logo />
+    <Logo />
 
     <Navigation />
-    
   </div>
 </header>
 
-<style is:global lang="postcss">
-
-  /* .logo {
-    display: block;
-  }
-
-  .logo-darkmode {
-    display: none;
-  }
-
-  @media (--OSdark) {
-    .logo {
-      display: none;
-    }
-    .logo-darkmode {
-      display: block;
-    }
-  } */
-
+<style is:global>
   .banner {
-    padding-block: var(--size-4); 
+    padding-block: var(--size-4);
   }
 
   .banner > * {
