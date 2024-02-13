@@ -19,7 +19,7 @@
 }
 
 .entry__heading {
-  --_flow: var(--size-4);
+  --_flow: var(--size-3);
 
   display: grid;
 }
