@@ -1,63 +1,52 @@
-@import 'open-props/postcss/normalize';
+@import "open-props/postcss/normalize";
 
-
-
-
-
-:where(ul[role='list'], ol[role='list']) {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  :where(a) {
-      padding-inline: 0;
-      margin-inline: 0;
-  }
-
-  :where(li) {
-    padding: 0;
-  }
-
-  :where(a) {
-    text-underline-offset: .25ex;
-  
-  }
-
-  :where(a[href]) {
-    color: var(--link, var(--brand));
-  }
-
-  :where(a):where([href]) {
-    text-decoration-color: inherit;
-  }
-
-
-
-  :where(a):where([href]):where(:visited) {
-    text-decoration-color: inherit;
-  }
-
-  :where(a):where([href]):where(:hover) {
-    color: var(--link-hover);
-  }
-
-  :where(a):where([href]):where(:active) {
-    color: var(--link-active);
-    text-decoration: none;
-
-  }
-
-  :where(:not(pre) > code) {
-    background: var(--surface-overlay);
-  }
-  
-
-
+:where(ul[role="list"], ol[role="list"]) {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
 :where(a) {
-    padding-inline: 0;
-    margin-inline: 0;
+  padding-inline: 0;
+  margin-inline: 0;
+}
+
+:where(li) {
+  padding: 0;
+}
+
+:where(a) {
+  text-underline-offset: 0.25ex;
+}
+
+:where(a[href]) {
+  color: var(--link, var(--brand));
+}
+
+:where(a):where([href]) {
+  text-decoration-color: inherit;
+}
+
+:where(a):where([href]):where(:visited) {
+  text-decoration-color: inherit;
+}
+
+:where(a):where([href]):where(:hover) {
+  color: var(--link-hover);
+}
+
+:where(a):where([href]):where(:active) {
+  color: var(--link-active);
+  text-decoration: none;
+}
+
+:where(:not(pre) > code) {
+  background: var(--surface-overlay);
+}
+
+:where(a) {
+  padding-inline: 0;
+  margin-inline: 0;
 }
 
 :where(li) {
@@ -66,7 +55,6 @@
 
 :where(h1, h2, h3, h4, h5, h6, dt) {
   font-weight: var(--font-weight-bold);
-
 }
 
 :where(h1, h2, h3, h4, h5, h6):not([class]) {
@@ -87,7 +75,8 @@
   cursor: not-allowed;
 }
 
-:where(table tr:hover td), :where(tbody tr:nth-child(even):hover td) {
+:where(table tr:hover td),
+:where(tbody tr:nth-child(even):hover td) {
   background-color: var(--surface-overlay);
 }
 
@@ -119,8 +108,6 @@
 
 :where(summary) {
   background: var(--surface-overlay);
- 
-
 }
 
 :where(sup) {
@@ -140,20 +127,3 @@
   height: var(--border-size-1);
   background-color: var(--separator);
 }
-
-
-/* :where(blockquote) {
-    padding-block: unset;
-    padding-inline: unset;
-    max-inline-size: unset;
-}
-
-:where(:not(blockquote) > cite) {
-  padding-inline-start: unset;
-}
-
-:where(blockquote, :not(blockquote) > cite) {
-  border: unset;
-} */
-
-  

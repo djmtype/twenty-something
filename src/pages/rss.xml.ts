@@ -1,20 +1,23 @@
 import rss from '@astrojs/rss';
+import type { ConfigObj } from "@/types/config.types"
 import config from "@/data/config.json"
 import { getCollection } from 'astro:content';
 
 const {
 	title: siteTitle,
+	url: siteUrl,
 	description: siteDescription,
 	language: siteLanguage,
 	country: siteCountry
-  } = config.site
+  }: ConfigObj["site"] = config.site
 
-export async function GET(context) {
+
+
+export async function GET() {
 	const posts = await getCollection("postCollection", ({ data }) => {
 		return data.status === "publish";
 	  });
 
-	// const posts = await getCollection("postCollection");
 	const customData = siteLanguage && siteCountry
         ? `<language>${siteLanguage}-${siteCountry}</language>`
         : `<language>en-us</language>`;
@@ -23,7 +26,7 @@ export async function GET(context) {
 		stylesheet: "/rss/styles.xsl",
 		title: `Blog | ${siteTitle}`,
 		description: siteDescription,
-		site: context.site,
+		site: siteUrl,
 		items: posts.map((post) => ({
 			// ...post.data,
 			title: post.data.title,

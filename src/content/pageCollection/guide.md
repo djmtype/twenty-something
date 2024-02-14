@@ -208,6 +208,6 @@ Purposely, the design is _not_ one-to-one for many reasons. Naming a couple… A
 
 [Front Matter CMS](https://frontmatter.codes) can be added for managing content within VS Code. Configuration has been set up to incorporate pages and posts collections, along with site settings.
 
-### Street Cred
+### Acknowledgements
 
 Many community-driven themes made this theme possible. To name a few: [Astros](https://astro.build/themes/details/astros/), [Astroplate](https://astro.build/themes/details/astroplate/), [Astroship](https://astro.build/themes/details/astroship/), [Astrowind](https://astro.build/themes/details/astrowind/), [Dante](https://astro.build/themes/details/dante/)

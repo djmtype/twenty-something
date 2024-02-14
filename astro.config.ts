@@ -1,16 +1,19 @@
 import { defineConfig } from "astro/config";
+import type { ConfigObj } from "./src/types/config.types"
 import remarkCallout from 'remark-callout';
 import AutoImport from "astro-auto-import";
 import mdx from "@astrojs/mdx";
-import { site } from "./src/data/config.json";
+import config from "./src/data/config.json"
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 
+const { url: siteUrl }: ConfigObj["site"] = config.site;
+
+
 // https://astro.build/config
 export default defineConfig({
-  site: site.url,
+  site: siteUrl,
   markdown: {
-    extendMarkdownConfig: false,
     syntaxHighlight: "shiki",
     shikiConfig: {
       theme: "css-variables",
@@ -18,9 +21,6 @@ export default defineConfig({
     },
     remarkPlugins: [
       remarkCallout,
-    ],
-    rehypePlugins: [
-        
     ],
   },
   integrations: [
@@ -70,3 +70,5 @@ export default defineConfig({
     },
   },
 });
+
+

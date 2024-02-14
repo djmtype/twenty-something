@@ -194,7 +194,7 @@ p:has(> img:nth-child(1)) img {
 .entry__prose .footnotes {
   margin-block-start: var(--size-fluid-4);
   border-block-start: var(--border-size-1) solid var(--separator);
-  padding-block-start: var(--size-fluid-2);
+  padding-block-start: var(--size-fluid-3);
 }
 
 .entry__prose .footnotes ol * {

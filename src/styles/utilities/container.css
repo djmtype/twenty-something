@@ -1,8 +1,8 @@
 .container {
   --padding-inline: var(--size-gutter, 1rem);
   --passage-max-width: var(--size-content-3);
-  --content-max-width: var(--size-container-lg);
-  --breakout-max-width: var(--size-container-xl);
+  --content-max-width: var(--size-lg);
+  --breakout-max-width: var(--size-xl);
   --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
 
   display: grid;

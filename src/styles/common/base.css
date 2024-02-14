@@ -1,14 +1,14 @@
 :root {
   --size-content-4: 72ch;
   --size-0: 0;
-  --size-container-xxs: 240px;
-  --size-container-xs: 360px;
-  --size-container-sm: 480px;
-  --size-container-md: 768px;
-  --size-container-lg: 1024px;
-  --size-container-xl: 1280px;
-  --size-container-xxl: 1440px;
-  --size-container-xxxl: 1600px;
+  --size-xxs: 240px;
+	--size-xs: 360px;
+	--size-sm: 480px;
+	--size-md: 768px;
+	--size-lg: 1024px;
+	--size-xl: 1280px;
+	--size-xxl: 1440px;
+  --size-xxxl: 1600px;
   --flow-size-0: calc(var(--font-lineheight-0) * 1rem);
   --initial: initial;
   --unset: unset;

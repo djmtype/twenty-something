@@ -4,7 +4,7 @@
 type Site = {
   title: string;
   description: string;
-  url: string;
+  url: string | URL;
   language: string;
   country: string;
   favicon: string;
@@ -17,7 +17,7 @@ type Metadata = {
   ogTitle: string;
   ogDescription: string;
   ogImage: {
-    url: string;
+    url: string | URL;
     alt: string;
     width: number;
     height: number;
