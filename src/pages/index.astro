@@ -13,7 +13,7 @@ import Container from "@/components/Container.astro"
 import Group from "@/components/Group.astro"
 import { Icon } from "astro-icon/components"
 
-const postCollection = await getCollection("postCollection")
+const postCollection = await getCollection("post")
 
 const sortedPosts = sortByDate(postCollection)
 

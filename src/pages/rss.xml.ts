@@ -14,7 +14,7 @@ const {
 
 
 export async function GET() {
-	const posts = await getCollection("postCollection", ({ data }) => {
+	const posts = await getCollection("post", ({ data }) => {
 		return data.status === "publish";
 	  });
 

@@ -1,6 +1,6 @@
 import { defineCollection, reference, z } from "astro:content";
 
-const pageCollection = defineCollection({
+const page = defineCollection({
   type: "content",
   // Type-check frontmatter using a schema
   schema: ({ image }) =>
@@ -29,13 +29,13 @@ const pageCollection = defineCollection({
     }),
 });
 
-const postCollection = defineCollection({
+const post = defineCollection({
   type: "content",
   // Type-check frontmatter using a schema
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      author: reference("authorCollection"),
+      author: reference("author"),
       description: z.string(),
       customExcerpt: z.boolean().optional(),
       // Transform string to Date object
@@ -61,7 +61,7 @@ const postCollection = defineCollection({
     }),
 });
 
-const authorCollection = defineCollection({
+const author = defineCollection({
   type: "content",
   schema: ({ image }) =>
   z.object({
@@ -79,4 +79,4 @@ const authorCollection = defineCollection({
   }),
 });
 
-export const collections = { pageCollection, postCollection, authorCollection };
+export const collections = { page, post, author };

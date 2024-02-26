@@ -243,21 +243,21 @@
   "frontMatter.content.pageFolders": [
     {
       "title": "blog",
-      "path": "[[workspace]]/src/content/postCollection",
+      "path": "[[workspace]]/src/content/post",
       "previewPath": "'/'",
       "contentTypes": ["blog"],
       "filePrefix": null
     },
     {
       "title": "page",
-      "path": "[[workspace]]/src/content/pageCollection",
+      "path": "[[workspace]]/src/content/page",
       "previewPath": "'/'",
       "contentTypes": ["page"],
       "filePrefix": null
     },
     {
       "title": "author",
-      "path": "[[workspace]]/src/content/authorCollection",
+      "path": "[[workspace]]/src/content/author",
       "previewPath": "'author'",
       "contentTypes": ["author"],
       "filePrefix": null

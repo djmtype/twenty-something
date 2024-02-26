@@ -14,7 +14,7 @@ import PostCard from "@/components/PostCard.astro"
 import { getCollection } from "astro:content"
 
 export async function getStaticPaths() {
-  const tags = await getTaxonomy("postCollection", "tags")
+  const tags = await getTaxonomy("post", "tags")
 
   return tags.map((tag) => {
     return {
@@ -27,7 +27,7 @@ export async function getStaticPaths() {
 const { tag } = Astro.props
 const tagTitle = await makeRichTitle(tag)
 
-const postCollection = await getCollection("postCollection")
+const postCollection = await getCollection("post")
 
 const allPosts = sortByDate(postCollection)
 const posts = filterByStatus(allPosts)

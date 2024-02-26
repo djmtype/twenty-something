@@ -9,10 +9,10 @@ import { getCollection, type CollectionEntry } from "astro:content"
 import PostWrapper from "@/layouts/PostWrapper.astro"
 import PageWrapper from "@/layouts/PageWrapper.astro"
 export async function getStaticPaths() {
-  const postCollection = await getCollection("postCollection")
+  const postCollection = await getCollection("post")
   const postEntries = sortByDate(postCollection)
 
-  const pageEntries = await getCollection("pageCollection")
+  const pageEntries = await getCollection("page")
 
   const allEntries = [...postEntries, ...pageEntries]
 
@@ -29,9 +29,9 @@ export async function getStaticPaths() {
 }
 
 type Props = {
-  entry: CollectionEntry<"postCollection" | "pageCollection">
-  prevEntry: CollectionEntry<"postCollection">
-  nextEntry: CollectionEntry<"postCollection">
+  entry: CollectionEntry<"post" | "page">
+  prevEntry: CollectionEntry<"post">
+  nextEntry: CollectionEntry<"post">
 }
 
 const { entry, prevEntry, nextEntry } = Astro.props
@@ -39,7 +39,7 @@ const { Content } = await entry.render()
 ---
 
 {
-  entry.collection === "postCollection" ? (
+  entry.collection === "post" ? (
     <PostWrapper frontmatter={entry}>
       <Content />
       <div slot="pagination">
@@ -48,7 +48,7 @@ const { Content } = await entry.render()
         )}
       </div>
     </PostWrapper>
-  ) : entry.collection === "pageCollection" ? (
+  ) : entry.collection === "page" ? (
     <PageWrapper frontmatter={entry}>
       <Content />
     </PageWrapper>

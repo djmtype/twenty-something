@@ -7,8 +7,8 @@ import "@/styles/components/pagination.css"
 import { type CollectionEntry } from "astro:content"
 
 type Props = {
-  prevEntry: CollectionEntry<"postCollection">
-  nextEntry: CollectionEntry<"postCollection">
+  prevEntry: CollectionEntry<"post">
+  nextEntry: CollectionEntry<"post">
 }
 
 const { prevEntry, nextEntry } = Astro.props

@@ -5,7 +5,7 @@ import { makeRichTitle } from "@/utils/textConverter"
 import { sortByDate, filterByStatus } from "@/utils/postFunctions"
 import Taxonomy from "@/components/Taxonomy.astro"
 
-const postCollection = await getCollection("postCollection")
+const postCollection = await getCollection("post")
 
 const allPosts = sortByDate(postCollection);
 
@@ -14,7 +14,7 @@ const publishedPosts = filterByStatus(allPosts)
 const posts = publishedPosts.slice(0, 5)
 
 type Props = {
-  post: CollectionEntry<"postCollection">
+  post: CollectionEntry<"post">
 };
 ---
 

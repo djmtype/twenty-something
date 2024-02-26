@@ -11,13 +11,13 @@ import { type CollectionEntry, getCollection } from "astro:content"
 import Container from "@/components/Container.astro"
 
 type Props = {
-  data: CollectionEntry<"postCollection" | "authorCollection">["data"]
-  author: CollectionEntry<"authorCollection">
+  data: CollectionEntry<"post" | "author">["data"]
+  author: CollectionEntry<"author">
 }
 
 export async function getStaticPaths() {
   const authors = await getCollection(
-    "authorCollection",
+    "author",
     ({ data }) => data.status === "publish",
   )
 
@@ -32,7 +32,7 @@ const { author } = Astro.props
 const { name, description, thumbnail } = author.data
 const { Content } = await author.render()
 const posts = await getCollection(
-  "postCollection",
+  "post",
   ({ data }) => data.status === "publish",
 )
 

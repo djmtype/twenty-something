@@ -5,7 +5,7 @@ import FormattedDate from "@/components/FormattedDate.astro"
 import { getEntry, type CollectionEntry } from "astro:content"
 
 type Props = {
-  post: CollectionEntry<"postCollection">
+  post: CollectionEntry<"post">
 }
 
 const { post } = Astro.props
@@ -17,7 +17,7 @@ const {
   categories,
 } = post.data
 
-const { data: authorData } = await getEntry("authorCollection", author.slug)
+const { data: authorData } = await getEntry("author", author.slug)
 ---
 
 <li>

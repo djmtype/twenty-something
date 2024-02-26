@@ -21,7 +21,7 @@ const { description: siteDescription }: ConfigObj["site"] = config.site
 export const getStaticPaths = (async ({ paginate }) => {
   const { pageSize: blogPageSize }: ConfigObj["blog"] = config.blog
 
-  const postCollection = await getCollection("postCollection")
+  const postCollection = await getCollection("post")
   const allPosts = sortByDate(postCollection)
   const posts = filterByStatus(allPosts)
   return paginate(posts, { pageSize: blogPageSize || 3 })

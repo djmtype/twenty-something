@@ -12,7 +12,7 @@ import { sortByDate, filterByStatus } from "@/utils/postFunctions"
 import { getCollection } from "astro:content"
 
 export async function getStaticPaths() {
-  const categories = await getTaxonomy("postCollection", "categories")
+  const categories = await getTaxonomy("post", "categories")
 
   return categories.map((category) => {
     return {
@@ -26,7 +26,7 @@ const { category } = Astro.props
 
 const categoryTitle = await makeRichTitle(category)
 
-const postCollection = await getCollection("postCollection")
+const postCollection = await getCollection("post")
 
 const allPosts = sortByDate(postCollection)
 const posts = filterByStatus(allPosts)

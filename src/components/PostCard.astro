@@ -9,7 +9,7 @@ import Taxonomy from "@/components/Taxonomy.astro"
 
 
 type Props = {
-  post: CollectionEntry<"postCollection">
+  post: CollectionEntry<"post">
   hideImage?: boolean
   class?: string
   style?: any
@@ -40,7 +40,7 @@ const {
 } = post.data
 
 
-const { data: authorData } = await getEntry("authorCollection", author.slug)
+const { data: authorData } = await getEntry("author", author.slug)
 
 const entryTitle = breakLongTitle(makeSmartText(title))
 

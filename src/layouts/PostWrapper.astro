@@ -17,7 +17,7 @@ type AuthorData = {
 }
 
 type Props = {
-  frontmatter: CollectionEntry<"postCollection"> & { data: AuthorData }
+  frontmatter: CollectionEntry<"post"> & { data: AuthorData }
 }
 
 const { frontmatter } = Astro.props
@@ -39,8 +39,8 @@ const entryTitle = breakLongTitle(makeSmartText(title))
 
 
 const authorData =
-  frontmatter.collection === "postCollection" && author?.slug
-    ? (await getEntry("authorCollection", author.slug)).data
+  frontmatter.collection === "post" && author?.slug
+    ? (await getEntry("author", author.slug)).data
     : undefined
 
     function getColumnOption(size: string | undefined) {
