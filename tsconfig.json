@@ -1,7 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "types": ["alpinejs", "@types/mdx", "./global"],
+    "types": ["alpinejs", "@types/mdx", "./global", "remark-callout"],
     "strictNullChecks": true,
     "allowJs": true,
     "baseUrl": ".",
@@ -13,6 +13,7 @@
   "exclude": [
     "_backup",
     "_docs",
-    "dist"
+    "dist",
+    "remark-callout"
   ]
 }

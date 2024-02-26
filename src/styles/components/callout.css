@@ -1,105 +1,109 @@
 blockquote.callout {
-    --_background: initial;
-    --_border-color: initial;
-    --_color: initial;
-    position: relative;
-    border-color: var(--_border-color, var(--_color));
-    z-index: 0;
-    &::after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      height: 100%;
-      width: 100%;
-      display: block;
-      opacity: .1;
-      background: var(--_background, var(--_color));
-      inset: 0;
-    }
-  }
+  --_background: initial;
+  --_border-color: initial;
+  --_color: initial;
+  --_icon-size: 1em;
+  --_title-size: var(--font-size-3);
+  --_title-weight: var(--font-weight-bold);
+  position: relative;
+  border-color: var(--_border-color, var(--_color));
 
-  .callout-content > * + * {
-    --_flow: 1em;
-    margin-block-start: var(--_flow, calc(var(--font-lineheight-3) * 1rem));
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    display: block;
+    opacity: 0.1;
+    background: var(--_background, var(--_color));
+    inset: 0;
   }
-  .callout-title {
-    display: flex;
-    align-items: center;
-    gap: 1ch;
-  }
-  
-  .callout-title > * {
-    font-size: var(--font-size-3);
-    font-weight: var(--font-weight-bold);
-  }
+}
 
-  .callout-content li::marker {
-    color: var(--_color);
+.callout-content > * + * {
+  --_flow: 1em;
+  margin-block-start: var(--_flow, calc(var(--font-lineheight-3) * 1rem));
+}
+.callout-title {
+  display: flex;
+  align-items: center;
+  gap: 1ch;
+}
+
+.callout-title > * {
+  font-size: var(--_title-size);
+  font-weight: var(--_title-weight);
+}
+
+.callout-content li::marker {
+  color: var(--_color);
 }
 
 .callout-content a {
   color: var(--_color);
 
-  &:hover, &:focus-visible {
+  &:hover,
+  &:focus-visible {
     --_color: var(--text-1);
   }
 }
-  
-  .callout-icon {
-    color: var(--_color);
-  }
-  
-  .callout.note {
-    --_color: var(--note);
-  }
-  
-  .callout.danger {
-    --_color: var(--danger);
-  }
-  
-  .callout.warning {
-    --_color: var(--warning);
-  }
-  
-  .callout.tip {
-    --_color: var(--tip);
-  }
-  
-  .callout.bug {
-    --_color: var(--bug);
-  }
-  
-  .callout.info {
-    --_color: var(--info);
-  }
-  
-  .callout.success {
-    --_color: var(--success);
-  }
-  
-  .callout.todo {
-    --_color: var(--todo);
 
-  }
-  
-  .callout.failure {
-    --_color: var(--failure);
+.callout-icon {
+  color: var(--_color);
+}
 
-  }
-  
-  .callout.question {
-    --_color: var(--question);
-  }
-  
-  .callout.example {
-    --_color: var(--example);
-  }
-  
-  .callout.quote {
-    --_color: var(--quote);
-  }
-  
-  .callout.abstract {
-    --_color: var(--abstract);
-  }
-  
+.callout-icon svg {
+  width: var(--_icon-size);
+  height: auto;
+}
+
+.callout.note {
+  --_color: var(--note);
+}
+
+.callout.danger {
+  --_color: var(--danger);
+}
+
+.callout.warning {
+  --_color: var(--warning);
+}
+
+.callout.tip {
+  --_color: var(--tip);
+}
+
+.callout.bug {
+  --_color: var(--bug);
+}
+
+.callout.info {
+  --_color: var(--info);
+}
+
+.callout.success {
+  --_color: var(--success);
+}
+
+.callout.todo {
+  --_color: var(--todo);
+}
+
+.callout.failure {
+  --_color: var(--failure);
+}
+
+.callout.question {
+  --_color: var(--question);
+}
+
+.callout.example {
+  --_color: var(--example);
+}
+
+.callout.quote {
+  --_color: var(--quote);
+}
+
+.callout.abstract {
+  --_color: var(--abstract);
+}

@@ -1,6 +1,6 @@
 ---
-import '@fontsource/cardo';
-import '@fontsource/cardo/400-italic.css';
+import '@fontsource/playfair-display';
+import '@fontsource/playfair-display/400-italic.css';
 import "../styles/app.css"
 import type { ConfigObj } from "@/types/config.types"
 import config from "@/data/config.json"
@@ -112,6 +112,7 @@ const { title, description, thumbnail = ogImage.url } = Astro.props
   window.Alpine = Alpine
 
   Alpine.start()
+  
 </script>
 
 <style is:global>

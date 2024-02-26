@@ -47,6 +47,7 @@
 :where(a) {
   padding-inline: 0;
   margin-inline: 0;
+  text-decoration-thickness: var(--border-size-2);
 }
 
 :where(li) {

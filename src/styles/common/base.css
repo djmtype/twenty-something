@@ -14,4 +14,5 @@
   --unset: unset;
   --none: none;
   --auto: auto;
+  --text-decoration-thickness: .125ex;
 }
