@@ -165,10 +165,19 @@
   border-radius: var(--radius);
 }
 
-/* p:has(> img:nth-child(1)) {
+p:has(> img:nth-child(1)) {
   --_container-column: column-content;
+  --_flow: var(--size-fluid-4);
   max-inline-size: none;
-} */
+  + * {
+    --_flow: var(--size-fluid-4);
+  }
+
+}
+
+p:has(> img:nth-child(1)) img {
+ border: var(--border-size-1) solid var(--separator);
+}
 
 p:has(> img:nth-child(1)) img {
   margin-inline: auto;

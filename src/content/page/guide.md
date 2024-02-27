@@ -127,7 +127,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, velit beata
 
 ## Add *Twenty-Something* to Your Life
 
-[Screenshot of theme]
+![Screenshot of Twenty-Something](../../assets/uploads/screenshot-twenty-something.jpg)
 
 While using the *Twenty-Something* theme is entirely optional, it provides a good jumping-off point. 
 
@@ -197,7 +197,7 @@ Next, turn your attention to the files stored inside the `data` directory. Modif
 
 Allergic to JSON? Since the *Twenty-Something* theme includes support for the _Front Matter CMS_, each of these files can be edited within *Front Matter* under its **data** tab. 
 
-[Screenshot of Front Matter]
+![Screenshot of Front Matter CMS](../../assets/uploads/screenshot-frontmatter.jpg)
 
 ---
 
