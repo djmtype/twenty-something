@@ -236,35 +236,41 @@ An alert type is defined within square brackets, with its name prefixed by an ex
 > [!example] Example
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
 
-> [!question] Question
-> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
 
-> [!todo] Todo
-> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+### Supported Alerts
 
-> [!danger] Danger
-> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
-
-> [!success] Success
-> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
-
-> [!info] Info
+> [!abstract] Abstract
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
 
 > [!bug] Bug
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
 
-> [!tip] Tip
+> [!danger] Danger
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
 
-> [!warning] Warning
+> [!example] Example
+> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+
+> [!info] Info
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
 
 > [!note] Note
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
 
+> [!question] Question
+> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+
 > [!quote] Quote
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
 
-> [!abstract] Abstract
+> [!success] Success
+> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+
+> [!tip] Tip
+> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+
+> [!todo] Todo
+> I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+
+> [!warning] Warning
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.

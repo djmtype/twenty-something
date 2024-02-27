@@ -26,6 +26,11 @@ const page = defineCollection({
       thumbnailCredit: z.string().optional(),
       contentSize: z.string(z.enum(["passage", "content", "breakout", "full"])).optional(),
       status: z.string(z.enum(["draft", "publish"]).default("draft")),
+      headings: z.array(z.object({
+        depth: z.number(),
+        text: z.string(),
+        slug: z.string(),
+      })).optional()
     }),
 });
 

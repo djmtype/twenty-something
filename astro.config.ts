@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import type { ConfigObj } from "./src/types/config.types"
 import remarkCallout from 'remark-callout';
+import remarkToc from 'remark-toc';
 import AutoImport from "astro-auto-import";
 import mdx from "@astrojs/mdx";
 import config from "./src/data/config.json"
@@ -21,6 +22,7 @@ export default defineConfig({
     },
     remarkPlugins: [
       remarkCallout,
+      [remarkToc, { heading: "Table of Contents", maxDepth: 2} ]
     ],
   },
   integrations: [

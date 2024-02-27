@@ -4,6 +4,7 @@ import "@/styles/layouts/entry.css"
 import { breakLongTitle } from "@/utils/textConverter"
 import { type CollectionEntry } from "astro:content"
 
+
 import BaseLayout from "@/layouts/BaseLayout.astro"
 
 import { Image } from "astro:assets"
@@ -68,6 +69,7 @@ const thumbnailSizeOption = getColumnOption(thumbnailSize)
         contentSize ? `entry__prose--${contentSize}` : ``,
       ]}
     >
+
       <slot />
     </div>
 

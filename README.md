@@ -16,15 +16,21 @@ Inside of your Astro project, you'll see the following folders and files:
 ```text
 ├── public/
 ├── src/
+│   ├── assets/
 │   ├── components/
 │   ├── content/
 │   ├── data/
 │   ├── layouts/
-│   └── pages/
+│   ├── pages/
+│   ├── styles/
+│   ├── types/
+│   └── utils/
 ├── astro.config.mjs
-├── README.md
 ├── frontmatter.json
+├── makeThemes.cjs
 ├── package.json
+├── postcss.config.cjs
+├── README.md
 └── tsconfig.json
 ```
 

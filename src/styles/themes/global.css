@@ -1,7 +1,7 @@
 :root {
   --font-sans: Inter, system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
-  --font-serif: Playfair Display, ui-serif, serif;
+  --font-serif: Cardo, ui-serif, serif;
   --font-weight-bold: var(--font-weight-6);
   --radius: var(--radius-3);
   --size-gutter: var(--size-fluid-4);

@@ -5,11 +5,12 @@ description: Instructions on how to export Wordpress documents to Markdown files
 status: publish
 dateUpdated: 2024-01-11
 ---
+## Table of Contents
 
 ## TL;TR
 
 - Export your Wordpress content as markdown files using a plugin, [**WP Gatsby Markdown Exporter**](https://wordpress.org/plugins/wp-gatsby-markdown-exporter/). 
-- Use [Astro](https://astro.build) with [*Twenty-Something*](https://github.com/djmtype/twenty-something), a pre-configured theme, to build your site.
+- Use [*Twenty-Something*](https://github.com/djmtype/twenty-something), a pre-configured [Astro](https://astro.build) theme, to build your site.
 - Optionally, add [*Front Matter CMS*](https://frontmatter.codes) to VS Code to manage your site's content.
 
 ## Overview
@@ -47,9 +48,13 @@ excerpt,description
 ```
 5.  Tick the box next to _Create post type directories_.
 6.  Change any other options that might be specific to your site.
-7.  Press the button, _Download zip file_, and save to your device.
+7.  Press the button, **Download Zip File**, and save to your device.
 
-After unzipping the file, the following directories should be present: `post`, `page`, and `uploads`. 
+After unzipping the file, the following directories should be present: 
+
+- `post` 
+- `page` 
+- `uploads`
 
 Opening one of the `post` markdown files in your code editor should appear similar to the following:
 
@@ -81,7 +86,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 ```
 
-## Not Handled by the Plugin
+## Limits and Considerations
+
+Some things are not supported by the plugin.
 
 ### Image Tags
 
@@ -93,7 +100,7 @@ Although, basic fields are exported, I haven't done enough testing when it comes
 
 ### Authors 
 
-Although, an `author` field was clearly added to the each post, an`author` directory isn't generated. Therefore, each author's profile will need to be manually created within an `author` directory.  
+Although, an `author` field seems to be added to the each post, an`author` directory isn't generated. Therefore, each author's profile will need to be manually created within an `author` directory.  
 
 How each author will be referenced to a post will depend on your library/framework of choice. Astro is my preference as it provides [a simple way to add references](https://docs.astro.build/en/guides/content-collections/#defining-collection-references). 
 
@@ -180,10 +187,10 @@ Replace: `slug: `
 
 Next, turn your attention to the files stored inside the `data` directory. Modify them to your liking: 
 
-- colophon.json
-- config.json
-- navigation.json
-- tokens.json
+- `colophon.json`
+- `config.json`
+- `navigation.json`
+- `tokens.json`
 
 > [!note] Quick Glance at Configuration
 > [View the default configuration for all data files](https://twenty-something.netlify.app/configuration)
@@ -198,6 +205,8 @@ Allergic to JSON? Since the *Twenty-Something* theme includes support for the _F
 
 "Build, deploy, enjoy!" 
 
+Honestly, there could be plenty more of everything. 
+
 I dared to write a more elaborate guide from start to finish, but wasn't certain on the audience. If I was targeting casual Wordpress users, the setup would be more than Wordpress' infamous *5-minute install*. Therefore, I have no arguments against Wordpress other than my own bias and personal 20+ years experience with it. Based on your project's requirements; use the right tool for the job. In any case, I've given pause on writing an explicit guide because the process would take much longer compared to *that*. 
 
 In addition, I had started writing Astro components for *Twenty-Something* with the intent of using them for `mdx` files because `md` is a bit limited beyond long-form content. Wordpress "shortcodes" are essentially components with different braces, right? Therefore, the concept wouldn't seem too far-fetched for Wordpress authors to grasp, especially when assigning them to *Front Matter* snippets. In conjunction with live preview, the author would also receive instant visual feedback. For now, that idea sits on the simmer. 
@@ -208,9 +217,9 @@ In addition, I had started writing Astro components for *Twenty-Something* with 
 
 ### Design
 
-Not much original thought went into the visual design itself as it was heavily based on some variation of Wordpress' 2024 theme. Per visual example: [the original archive page](https://2024.wordpress.net/index.php/category/architecture/) versus [*Twenty-Something's* archive page](https://twenty-something.netlify.app/category/category-two/). 
+Not much original thought went into the visual design itself as it was heavily based on some variation of Wordpress' 2024 theme. Per visual comparison: [the original archive page](https://2024.wordpress.net/index.php/category/architecture/) versus [*Twenty-Something's* archive page](https://twenty-something.netlify.app/category/category-two/). 
 
-Purposely, the design is _not_ one-to-one for many reasons. Naming a couple… Adopting the Cardo typeface, selected by the Wordpress team, was too painful to stomach. (No offense, Mr. Cardo.) Nor could I see what benefit Inter offered over the system's san-serif font when considering a loading time trade-off. Inter is still listed in front of the stack for diehard Inter'ers; just not included. 
+Purposely, the design is _not_ one-to-one for many reasons. For example, I could not see what benefit Inter offered over the system's san-serif font when considering a loading time trade-off. Inter is still listed in front of the stack for diehard Inter'ers; just not included. Now, if Inter was used for headings – that would be a different story. 
 
 ### Style Tokens
 
