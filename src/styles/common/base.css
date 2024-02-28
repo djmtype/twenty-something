@@ -16,3 +16,7 @@
   --auto: auto;
   --text-decoration-thickness: .125ex;
 }
+
+:target {
+  scroll-margin-block-start: var(--scroll-margin-size, 1ex);
+}

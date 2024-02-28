@@ -1,2 +1,19 @@
-<a href="#main" class="sr-only focus:not-sr-only"> Skip to content</a>
+---
+import ButtonLink from "@/components/ButtonLink.astro"
+---
 
+<ButtonLink href="#main" variant="accent" class="skip-link sr-only focus:not-sr-only">Skip to content</ButtonLink>
+
+<style is:global>
+    .skip-link {
+        top: 0;
+    }
+    .skip-link:focus-visible {
+        padding: var(--size-2) var(--size-3);
+        top: 1em;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: top 250ms; 
+        
+    }
+</style>
