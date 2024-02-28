@@ -1,15 +1,14 @@
 import { defineConfig } from "astro/config";
-import type { ConfigObj } from "./src/types/config.types"
-import remarkCallout from 'remark-callout';
-import remarkToc from 'remark-toc';
-import AutoImport from "astro-auto-import";
+import type { ConfigObj } from "./src/types/config.types";
+import remarkCallout from "remark-callout";
+import remarkToc from "remark-toc";
+// import AutoImport from "astro-auto-import";
 import mdx from "@astrojs/mdx";
-import config from "./src/data/config.json"
+import config from "./src/data/config.json";
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 
 const { url: siteUrl }: ConfigObj["site"] = config.site;
-
 
 // https://astro.build/config
 export default defineConfig({
@@ -20,32 +19,33 @@ export default defineConfig({
       theme: "css-variables",
       wrap: true,
     },
-    remarkPlugins: [
-      remarkCallout,
-      [remarkToc, { maxDepth: 2} ]
-    ],
+    remarkPlugins: [remarkCallout, [remarkToc, { maxDepth: 2 }]],
   },
   integrations: [
-    AutoImport({
-      imports: [
-        { "astro-icon/components": ["Icon"] },
-        "./src/components/Title.astro",
-        "./src/components/ButtonLink.astro",
-        "./src/components/Figure.astro",
-        "./src/components/Group.astro",
-        "./src/components/Container.astro",
-        "./src/components/Column.astro",
-        "./src/components/Heading.astro",
-        "./src/components/Card.astro",
-        "./src/components/Grid.astro",
-        "./src/components/List.astro",
-        "./src/components/Testimonial.astro",
-        "./src/components/PostList.astro",
-        "./src/components/NewsletterSignup.astro",
-        "./src/components/Hero.astro",
-        "./src/components/Callout.astro",
-      ],
-    }),
+    // AutoImport({
+    //   imports: [
+    //     { "astro-icon/components": ["Icon"] },
+    //     "./src/components/ButtonLink.astro",
+    //     "./src/components/Card.astro",
+    //     "./src/components/Grid.astro",
+    //     "./src/components/Group.astro",
+    //     "./src/components/Container.astro",
+
+    //     // "./src/components/Title.astro",
+
+    //     // "./src/components/Figure.astro",
+
+    //     // "./src/components/Column.astro",
+    //     // "./src/components/Heading.astro",
+
+    //     // "./src/components/List.astro",
+    //     // "./src/components/Testimonial.astro",
+    //     // "./src/components/PostList.astro",
+    //     // "./src/components/NewsletterSignup.astro",
+    //     // "./src/components/Hero.astro",
+    //     // "./src/components/Callout.astro",
+    //   ],
+    // }),
     mdx({
       syntaxHighlight: "shiki",
       shikiConfig: {
@@ -64,12 +64,10 @@ export default defineConfig({
   output: "static",
   vite: {
     server: {},
-    plugins: [
-    ],
+    plugins: [],
     ssr: {},
     css: {
       devSourcemap: true,
     },
   },
 });
-

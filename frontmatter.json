@@ -424,6 +424,10 @@
               "pageSize": {
                 "type": "number",
                 "title": "Page Size"
+              },
+              "excerptWordLength": {
+                "type": "number",
+                "title": "Excerpt Word Length"
               }
             }
           },

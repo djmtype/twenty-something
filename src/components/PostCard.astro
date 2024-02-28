@@ -1,4 +1,6 @@
 ---
+import type { ConfigObj } from "@/types/config.types";
+import config from "@/data/config.json";
 import { Image } from "astro:assets"
 import { makeExcerpt, makePlainText, breakLongTitle, makeSmartText } from "@/utils/textConverter"
 import FormattedDate from "@/components/FormattedDate.astro"
@@ -39,6 +41,7 @@ const {
   categories,
 } = post.data
 
+const { excerptWordLength }: ConfigObj["blog"] = config.blog;
 
 const { data: authorData } = await getEntry("author", author.slug)
 
@@ -81,7 +84,7 @@ const plainText = await makePlainText(postBody)
     </div>
 
     <p class="card__description">
-      {customExcerpt ? description : makeExcerpt(plainText, 30)}
+      {customExcerpt ? description : makeExcerpt(plainText, excerptWordLength || 30)}
     </p>
 
     

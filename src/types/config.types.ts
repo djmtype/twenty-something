@@ -52,6 +52,7 @@ type Blog = {
   title: string;
   description: string;
   pageSize: number;
+  excerptWordLength: number;
 };
 
 

@@ -12,6 +12,7 @@
   },
   "exclude": [
     "_backup",
+    "_components",
     "_docs",
     "dist",
     "remark-callout"
