@@ -507,13 +507,13 @@
       }
     },
     {
-      "id": "props",
-      "title": "Style Props",
-      "file": "[[workspace]]/src/data/props.json",
+      "id": "tokens",
+      "title": "Style Tokens",
+      "file": "[[workspace]]/src/data/tokens.json",
       "fileType": "json",
       "singleEntry": true,
       "schema": {
-        "title": "Props",
+        "title": "Tokens",
         "type": "object",
         "properties": {
           "props": {

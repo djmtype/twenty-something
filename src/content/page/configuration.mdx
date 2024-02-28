@@ -6,7 +6,7 @@ status: publish
 ---
 import colophonJson from "@/data/colophon.json?raw"
 import configJson from "@/data/config.json?raw"
-import propsJson from "@/data/props.json?raw"
+import tokensJson from "@/data/tokens.json?raw"
 import navigationJson from "@/data/navigation.json?raw"
 import PreElement from "@/components/PreElement.astro"
 
@@ -19,7 +19,7 @@ An overview of all the data files found within `./src/data` of this project. The
 
 ## Style Properties
 
-<PreElement file={propsJson} summary="Global and Theme Variables" path="src/data/props.json" />
+<PreElement file={tokensJson} summary="Global and Theme Variables" path="src/data/props.json" />
 
 ## Site Navigation
 

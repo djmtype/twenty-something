@@ -1,5 +1,5 @@
 ---
-title: From WP to MD
+title: "A Guide: From WP to MD"
 date: 2022-07-15
 description: Instructions on how to export Wordpress documents to Markdown files
 status: publish

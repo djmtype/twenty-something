@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const inputFilePath = './src/data/props.json';
+const inputFilePath = './src/data/tokens.json';
 const outputDir = './src/styles/themes/';
 
 const data = JSON.parse(fs.readFileSync(inputFilePath, 'utf8'));

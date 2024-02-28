@@ -22,7 +22,7 @@ export default defineConfig({
     },
     remarkPlugins: [
       remarkCallout,
-      [remarkToc, { heading: "Table of Contents", maxDepth: 2} ]
+      [remarkToc, { maxDepth: 2} ]
     ],
   },
   integrations: [
