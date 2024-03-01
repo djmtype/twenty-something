@@ -71,6 +71,17 @@ const date = new Date()
   </div>
 </footer>
 
+<style is:global>
+  .colophon__description a {
+    text-decoration: underline;
+  &:hover, &:focus-visible {
+    text-decoration: none;
+  }
+  }
+</style>
+
+
+
 <style>
   .colophon {
     --_flow: var(--size-fluid-5);

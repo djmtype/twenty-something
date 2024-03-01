@@ -91,6 +91,15 @@ const plainText = await makePlainText(postBody)
   </div>
 </article>
 
+<style is:global>
+    .card__meta a {
+    text-decoration: underline;
+    &:hover, &:focus-visible {
+      text-decoration: none;
+    }
+  }
+</style>
+
 <style>
   .card {
     --_thumbnail-size: var(--size-fluid-7);

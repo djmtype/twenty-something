@@ -134,8 +134,17 @@ const thumbnailSizeOption = getColumnOption(thumbnailSize)
   </Group>
 </BaseLayout>
 
+
 <style is:global>
   :where(.entry__prose > *) {
     --_container-column: column-passage;
   }
+
+  .entry__meta a {
+  text-decoration: underline;
+  &:hover, &:focus-visible {
+    text-decoration: none;
+  }
+}
+  
 </style>
