@@ -20,3 +20,9 @@
 :target {
   scroll-margin-block-start: calc(1ex + 1svh);
 }
+
+del {
+  color: var(--text-muted);
+  text-decoration-color: var(--danger);
+  background: initial;
+}

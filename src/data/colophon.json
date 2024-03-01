@@ -4,16 +4,16 @@
     "content": [
       {
         "name": "Team",
-        "url": "#",
+        "url": "#main",
         "rel": "prefetch"
       },
       {
         "name": "History",
-        "url": "#"
+        "url": "#main"
       },
       {
         "name": "Careers",
-        "url": "#"
+        "url": "#main"
       }
     ]
   },
@@ -22,16 +22,16 @@
     "content": [
       {
         "name": "Privacy Policy",
-        "url": "#",
+        "url": "#main",
         "rel": ""
       },
       {
         "name": "Terms & Conditions",
-        "url": "#"
+        "url": "#main"
       },
       {
         "name": "Contact Us",
-        "url": "#",
+        "url": "#main",
         "rel": ""
       }
     ]

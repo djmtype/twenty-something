@@ -19,8 +19,8 @@ html {
   --text-strong-light: var(--blue-12);
   --separator-light: var(--gray-4);
   --surface-overlay-light: var(--gray-0);
-  --note-light: var(--blue-6);
-  --danger-light: var(--red-6);
+  --note-light: var(--blue-8);
+  --danger-light: var(--red-8);
   --warning-light: var(--yellow-6);
   --tip-light: var(--teal-6);
   --bug-light: var(--pink-6);

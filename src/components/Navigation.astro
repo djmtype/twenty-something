@@ -26,11 +26,10 @@ const { pathname } = Astro.url
             }`}
           >
             {nav.childItems ? (
-              <a
-                role="button"
+              <button
                 aria-haspopup="true" 
                 @click.prevent="open = !open" :aria-expanded="open.toString()"
-                href="#0"
+                id="parentLink"
                 class={`nav-primary__link nav-primary__link--parent ${
                   nav.childItems?.some(
                     (child: ChildItem) =>
@@ -41,7 +40,7 @@ const { pathname } = Astro.url
                 }`}
               >
                 {nav.name} <Icon name="lucide:chevron-down" />
-              </a>
+              </button>
             ) : (
               <a
                 href={nav.url}
@@ -65,6 +64,7 @@ const { pathname } = Astro.url
   
             {nav.childItems && (
               <ul
+              aria-labelledby="parentLink"
                 role="list"
                 id="subnav"
                 class="nav-sub__list"
@@ -173,6 +173,8 @@ const { pathname } = Astro.url
   .nav-primary__item {
     /* unset open props */
     max-inline-size: unset;
+    display: flex;
+    align-items: center;
   }
 
   .nav-primary__link {
@@ -217,6 +219,15 @@ const { pathname } = Astro.url
     opacity: 1;
     max-height: 100svh;
     overflow: visible;
+  }
+
+  button.nav-primary__link--parent {
+    --_text: var(--link);
+    --_surface: transparent;
+    --_surface-hover: transparent;
+    border: 0;
+    border-radius: 0;
+    
   }
 
   .nav-primary__link--parent [data-icon] {

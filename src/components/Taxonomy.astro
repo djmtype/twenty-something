@@ -28,7 +28,9 @@ if (type === "tag") {
 {
   modifiedType && (
     <a class={className} href={modifiedType ? `/${modifiedType}/${makeSlug(name).toLowerCase()}` : "#"}>
-      <span>{makeRichTitle(name)}</span>
+      {makeRichTitle(name)}
     </a>
   )
 }
+
+
