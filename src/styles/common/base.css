@@ -18,5 +18,5 @@
 }
 
 :target {
-  scroll-margin-block-start: var(--scroll-margin-size, 1ex);
+  scroll-margin-block-start: calc(1ex + 1svh);
 }

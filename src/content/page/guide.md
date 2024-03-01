@@ -13,7 +13,7 @@ dateUpdated: 2024-01-11
 - Use [*Twenty-Something*](https://github.com/djmtype/twenty-something), a pre-configured [Astro](https://astro.build) theme, to build your site.
 - Optionally, add [*Front Matter CMS*](https://frontmatter.codes) to VS Code to manage your site's content.
 
-## Overview
+## Preface
 
 For as long as memory serves, Wordpress has been the _defacto_ content management tool. Now, twenty-something years later, you may not need Wordpress. In fact, your site could be less expensive to run, and more secure without it. The purpose of this tutorial is to migrate your current Wordpress content into markdown files.
 
@@ -21,9 +21,9 @@ Understand, this option isn't intended for everyone. Should your current Wordpre
 
 ## Getting Started
 
-A small number of CLI tools and plugins exist to transform Wordpress content to markdown files. However, using [**WP Gatsby Markdown Exporter**](https://wordpress.org/plugins/wp-gatsby-markdown-exporter/) makes exporting content a breeze. First and foremost, gloss over the plugin's name, especially, that _Gatsby_ part. Also, ignore the warning for not being compliant with Wordpress 6.4.x. This plugin still works today. 
+A small number of CLI tools and plugins exist to transform Wordpress content to markdown files. However, using [**WP Gatsby Markdown Exporter**](https://wordpress.org/plugins/wp-gatsby-markdown-exporter/) by the folks at [Tina](https://tina.io/) makes exporting content a breeze. First and foremost, gloss over the plugin's name, especially, that _Gatsby_ part. Also, ignore the warning for not being compliant with Wordpress 6.4.x. This plugin still works today. 
 
-Install and activate the **WP Gatsby Markdown Exporter** plugin in your Wordpress site like any other.
+Install and activate the [**WP Gatsby Markdown Exporter**](https://wordpress.org/plugins/wp-gatsby-markdown-exporter/) plugin in your Wordpress site like any other.
 
 Find and press the _Export to Gatsby_ link in the sidebar.
 
@@ -219,7 +219,7 @@ In addition, I had started writing Astro components for *Twenty-Something* with 
 
 Not much original thought went into the visual design itself as it was heavily based on some variation of Wordpress' 2024 theme. Per visual comparison: [the original archive page](https://2024.wordpress.net/index.php/category/architecture/) versus [*Twenty-Something's* archive page](https://twenty-something.netlify.app/category/category-two/). 
 
-Purposely, the design is _not_ one-to-one for many reasons. For example, I could not see what benefit Inter offered over the system's san-serif font when considering a loading time trade-off. Inter is still listed in front of the stack for diehard Inter'ers; just not included. Now, if Inter was used for headings – that would be a different story. 
+Purposely, the design is _not_ one-to-one for many reasons. For example, I could not see what benefit Inter offered over the system's san-serif font when considering a loading time trade-off. Inter is still listed in front of the stack for diehard Inter'ers; just not included.
 
 ### Style Tokens
 
