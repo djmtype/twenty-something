@@ -1,5 +1,7 @@
 ---
+// import "@/styles/components/button.css";
 import { Icon } from 'astro-icon/components';
+
 
 type Props = {
   variant?: "default" | "accent" | "brand";
@@ -26,6 +28,7 @@ const {
 } = Astro.props as Props;
 ---
 
+<!-- Link -->
 {
   href && (
     <a
@@ -51,5 +54,28 @@ const {
   )
 }
 
+
+<!-- Button -->
+{
+  !href && (
+    <button
+      id={id}
+      class:list={[
+        variant ? "button button--" + variant : null,
+        size ? "button--" + size : null,
+        className,
+      ]}
+      style={{
+  ...restProps.style
+}} 
+      {...restProps}
+    >
+    {iconName && 
+      <Icon name={iconName} />
+    }
+      <slot />
+    </button>
+  )
+}
 
 

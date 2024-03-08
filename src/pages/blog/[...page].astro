@@ -24,10 +24,14 @@ export const getStaticPaths = (async ({ paginate }) => {
   const postCollection = await getCollection("post")
   const allPosts = sortByDate(postCollection)
   const posts = filterByStatus(allPosts)
+
   return paginate(posts, { pageSize: blogPageSize || 3 })
+  
 }) satisfies GetStaticPaths
 
+
 const { page } = Astro.props
+
 
 ---
 
@@ -56,11 +60,11 @@ const { page } = Astro.props
             nextPage={page.url.next ? page.url.next : null}
             lastPage={
               page.url.next
-                ? `/blog/${Math.round(page.total / page.size)}`
+                ? `/blog/${Math.ceil(page.total / page.size)}`
                 : null
             }
             currentPage={page.currentPage}
-            totalPages={Math.round(page.total / page.size)}
+            totalPages={Math.ceil(page.total / page.size)}
           />
         </Container>
       </Group>

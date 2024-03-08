@@ -1,23 +1,25 @@
 ---
+import ButtonLink from '@/components/ButtonLink.astro';
 import { Icon } from 'astro-icon/components';
+
 ---
 
 
 <div class="theme-switcher" x-cloak x-data="{ setTheme: (newTheme) => { theme = newTheme; document.documentElement.setAttribute('data-theme', newTheme); } }">
-  <button x-on:click="setTheme('light')" :class="{'active': theme === 'light'}">
+  <ButtonLink class="button--theme" x-on:click="setTheme('light')" :class="{'active': theme === 'light'}">
     <Icon name="lucide:sun" />
     <span class="sr-only">Light</span>
-  </button>
+  </ButtonLink>
 
-  <button x-on:click="setTheme('dark')" :class="{'active': theme === 'dark'}">
+  <ButtonLink class="button--theme" x-on:click="setTheme('dark')" :class="{'active': theme === 'dark'}">
     <Icon name="lucide:moon" />
     <span class="sr-only">Dark</span>
-  </button>
+  </ButtonLink>
 
-  <button x-on:click="setTheme('auto')" :class="{'active': theme === 'auto'}">
+  <ButtonLink class="button--theme" x-on:click="setTheme('auto')" :class="{'active': theme === 'auto'}">
     <Icon name="lucide:cog" />
     <span class="sr-only">Auto</span>
-  </button>
+  </ButtonLink>
 
   <span class="sr-only" x-show="theme !== 'auto'" x-text="'Theme is now in ' + theme + ' mode'"></span>
   <span class="sr-only" x-show="theme === 'auto'">Theme is now in system mode</span>

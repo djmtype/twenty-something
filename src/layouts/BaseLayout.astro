@@ -37,7 +37,11 @@ const { title, description, thumbnail = ogImage.url } = Astro.props
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="/images/favicon.ico" sizes="32x32">
     <link rel="icon" type="image/svg+xml" href={siteFavicon} />
+
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+
     <meta name="generator" content={Astro.generator} />
 
     <link rel="canonical" href={canonicalURL} />

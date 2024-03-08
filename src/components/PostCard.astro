@@ -1,7 +1,7 @@
 ---
 import type { ConfigObj } from "@/types/config.types";
 import config from "@/data/config.json";
-import { Image } from "astro:assets"
+import { Image, Picture } from "astro:assets"
 import { makeExcerpt, makePlainText, breakLongTitle, makeSmartText } from "@/utils/textConverter"
 import FormattedDate from "@/components/FormattedDate.astro"
 import { getEntry, type CollectionEntry } from "astro:content"
@@ -64,7 +64,7 @@ const plainText = await makePlainText(postBody)
           height={400}
           loading={index === 0 ? `eager` : `lazy`}
           densities={[1, 2]}
-          quality={60}
+          quality={50}
           src={thumbnail}
           alt={thumbnailAlt}
         />

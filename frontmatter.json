@@ -33,7 +33,6 @@
           "type": "boolean",
           "description": "Use Description as the excerpt"
         },
-
         {
           "title": "Date",
           "name": "date",
@@ -65,7 +64,13 @@
           "title": "Thumbnail Size",
           "name": "thumbnailSize",
           "type": "choice",
-          "choices": ["", "passage", "content", "breakout", "full"]
+          "choices": [
+            "",
+            "passage",
+            "content",
+            "breakout",
+            "full"
+          ]
         },
         {
           "title": "Thumbnail Credit",
@@ -159,7 +164,13 @@
           "description": "Default size is programmatically set to content",
           "name": "thumbnailSize",
           "type": "choice",
-          "choices": ["", "passage", "content", "breakout", "full"]
+          "choices": [
+            "",
+            "passage",
+            "content",
+            "breakout",
+            "full"
+          ]
         },
         {
           "title": "Status",
@@ -233,7 +244,10 @@
   "frontMatter.content.draftField": {
     "name": "status",
     "type": "choice",
-    "choices": ["draft", "publish"]
+    "choices": [
+      "draft",
+      "publish"
+    ]
   },
   "frontMatter.content.publicFolder": {
     "path": "src/assets/uploads",
@@ -245,21 +259,27 @@
       "title": "blog",
       "path": "[[workspace]]/src/content/post",
       "previewPath": "'/'",
-      "contentTypes": ["blog"],
+      "contentTypes": [
+        "blog"
+      ],
       "filePrefix": null
     },
     {
       "title": "page",
       "path": "[[workspace]]/src/content/page",
       "previewPath": "'/'",
-      "contentTypes": ["page"],
+      "contentTypes": [
+        "page"
+      ],
       "filePrefix": null
     },
     {
       "title": "author",
       "path": "[[workspace]]/src/content/author",
       "previewPath": "'author'",
-      "contentTypes": ["author"],
+      "contentTypes": [
+        "author"
+      ],
       "filePrefix": null
     }
   ],
@@ -278,7 +298,11 @@
           "site": {
             "type": "object",
             "title": "Site",
-            "required": ["title", "url", "language"],
+            "required": [
+              "title",
+              "url",
+              "language"
+            ],
             "properties": {
               "title": {
                 "type": "string",
