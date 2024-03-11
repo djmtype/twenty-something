@@ -44,13 +44,14 @@ const thumbnailSizeOption = getColumnOption(thumbnailSize)
         <figure class={`entry__figure ${thumbnailSizeOption}`}>
           <Image
             class="entry__thumbnail"
-            quality={60}
-            densities={[1, 2]}
+            quality="medium"
             src={thumbnail}
+            widths={[600, 768, 992]}
+  sizes={`(max-width: 480px) 600px, (max-width: 600px) 768px`}
             alt={thumbnailAlt ? thumbnailAlt : ""}
-            width={thumbnail.width / 2}
-            height={thumbnail.height / 2}
             loading="eager"
+            format="webp"
+            fetchpriority="high"
           />
         </figure>
       )

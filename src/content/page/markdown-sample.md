@@ -14,6 +14,9 @@ A sample of some basic Markdown syntax that can be used when writing Markdown co
 
 The following HTML `<h1>`—`<h6>` elements represent six levels of section headings. `<h1>` is the highest section level while `<h6>` is the lowest.
 
+### Syntax
+
+```markdown
 # H1
 
 ## H2
@@ -25,6 +28,22 @@ The following HTML `<h1>`—`<h6>` elements represent six levels of section head
 ##### H5
 
 ###### H6
+```
+
+### Output
+
+# H1
+
+## H2
+
+### H3
+
+#### H4
+
+##### H5
+
+###### H6
+
 
 ## Paragraph
 
@@ -218,6 +237,71 @@ Press <kbd>CTRL</kbd>+<kbd>ALT</kbd>+<kbd>Delete</kbd> to end the session.
 
 Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
 
+## Collapsible
+
+A `<details>` element has no markdown equivalent, therefore, it requires some HTML. 
+
+### Default Behavior
+#### Syntax
+
+```html
+<details>
+<summary>Toggle me!</summary>
+Peek a boo!
+</details>
+```
+
+#### Output
+
+<details>
+<summary>Toggle me!</summary>
+Peek a boo!
+</details>
+
+### Open Behavior
+#### Syntax
+
+```html
+<details open>
+<summary>Toggle me!</summary>
+Peek a boo!
+</details>
+```
+
+#### Output
+
+<details open>
+<summary>Toggle me!</summary>
+Peek a boo!
+</details>
+
+### With Markdown Contents
+#### Syntax
+
+```html
+<details>
+<summary>Shopping List</summary>
+
+## Fruit
+- Apples
+- Oranges
+- Pears
+
+</details>
+```
+
+#### Output
+
+<details>
+<summary>Shopping List</summary>
+
+## Fruit
+- Apples
+- Oranges
+- Pears
+
+</details>
+
 ## Alerts
 
 Alerts are described using the markdown blockquote syntax. 
@@ -229,48 +313,76 @@ An alert type is defined within square brackets, with its name prefixed by an ex
 ```md
 > [!example] Example
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+>
+> [Wikipedia Reference](https://en.wikipedia.org/wiki/Sunglasses_at_Night)
 ```
 
 ### Output
 
 > [!example] Example
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
-
+>
+> [Wikipedia Reference](https://en.wikipedia.org/wiki/Sunglasses_at_Night)
 
 ### Supported Alerts
 
 > [!abstract] Abstract
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+>
+> [Wikipedia Reference](https://en.wikipedia.org/wiki/Sunglasses_at_Night)
+
 
 > [!bug] Bug
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+>
+> [Wikipedia Reference](https://en.wikipedia.org/wiki/Sunglasses_at_Night)
 
 > [!danger] Danger
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+>
+> [Wikipedia Reference](https://en.wikipedia.org/wiki/Sunglasses_at_Night)
 
 > [!example] Example
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+>
+> [Wikipedia Reference](https://en.wikipedia.org/wiki/Sunglasses_at_Night)
 
 > [!info] Info
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+>
+> [Wikipedia Reference](https://en.wikipedia.org/wiki/Sunglasses_at_Night)
 
 > [!note] Note
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+>
+> [Wikipedia Reference](https://en.wikipedia.org/wiki/Sunglasses_at_Night)
 
 > [!question] Question
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+>
+> [Wikipedia Reference](https://en.wikipedia.org/wiki/Sunglasses_at_Night)
 
 > [!quote] Quote
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+>
+> [Wikipedia Reference](https://en.wikipedia.org/wiki/Sunglasses_at_Night)
 
 > [!success] Success
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+>
+> [Wikipedia Reference](https://en.wikipedia.org/wiki/Sunglasses_at_Night)
 
 > [!tip] Tip
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+>
+> [Wikipedia Reference](https://en.wikipedia.org/wiki/Sunglasses_at_Night)
 
 > [!todo] Todo
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+>
+> [Wikipedia Reference](https://en.wikipedia.org/wiki/Sunglasses_at_Night)
 
 > [!warning] Warning
 > I wear my sunglasses at night. So I can, so I can. Watch you weave, then breathe your story lines.
+>
+> [Wikipedia Reference](https://en.wikipedia.org/wiki/Sunglasses_at_Night)

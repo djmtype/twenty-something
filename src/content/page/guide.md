@@ -51,6 +51,8 @@ excerpt,description
 6.  Change any other options that might be specific to your site.
 7.  Press the button, **Download Zip File**, and save to your device.
 
+![Screenshot of export settings](../../assets/uploads/screenshot-md-export.png)
+
 After unzipping the file, the following directories should be present: 
 
 - `post` 
