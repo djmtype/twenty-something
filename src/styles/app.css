@@ -1,10 +1,16 @@
 @import "open-props/postcss/style";
+/* @import "tailwindcss"; */
+/* @import "tailwindcss/theme" layer(theme); */
+/* @import "tailwindcss/preflight" layer(base); */
+/* @import "tailwindcss/utilities" layer(utilities); */
+
+
 
 @import "common/base.css";
 @import "themes/theme.css";
 @import "themes/global.css";
 @import "common/normalizer.css";
-
+@import "common/syntax.css";
 @import "components/button.css";
 @import "components/callout.css";
 @import "utilities/accessibility.css";
@@ -14,3 +20,9 @@
 @import "utilities/section.css";
 @import "utilities/container.css";
 @import "utilities/link-block.css";
+
+
+  
+
+
+

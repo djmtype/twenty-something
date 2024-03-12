@@ -1,10 +1,8 @@
 ---
-import "@/styles/common/syntax.css"
 import PaginationSingle from "@/components/PaginationSingle.astro"
 import { sortByDate } from "@/utils/postFunctions"
 
 import { getCollection, type CollectionEntry } from "astro:content"
-
 
 import PostWrapper from "@/layouts/PostWrapper.astro"
 import PageWrapper from "@/layouts/PageWrapper.astro"
@@ -44,7 +42,7 @@ const { Content } = await entry.render()
       <Content />
       <div slot="pagination">
         {(prevEntry || nextEntry) && (
-        <PaginationSingle prevEntry={prevEntry} nextEntry={nextEntry} />
+          <PaginationSingle prevEntry={prevEntry} nextEntry={nextEntry} />
         )}
       </div>
     </PostWrapper>
@@ -54,4 +52,3 @@ const { Content } = await entry.render()
     </PageWrapper>
   ) : undefined
 }
-

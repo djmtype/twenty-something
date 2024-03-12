@@ -1,4 +1,5 @@
 ---
+
 import type { ConfigObj } from "@/types/config.types";
 import config from "@/data/config.json";
 import { Image } from "astro:assets"
@@ -7,8 +8,6 @@ import FormattedDate from "@/components/FormattedDate.astro"
 import { getEntry, type CollectionEntry } from "astro:content"
 
 import Taxonomy from "@/components/Taxonomy.astro"
-
-
 
 type Props = {
   post: CollectionEntry<"post">
@@ -93,15 +92,18 @@ const plainText = await makePlainText(postBody)
 </article>
 
 <style is:global>
+  
     .card__meta a {
     text-decoration: underline;
     &:hover, &:focus-visible {
       text-decoration: none;
     }
   }
+
 </style>
 
 <style>
+  
   .card {
     --_thumbnail-size: var(--size-fluid-7);
     --_summary-size: 70%;

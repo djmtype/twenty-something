@@ -60,8 +60,7 @@ const thumbnailSizeOption = getColumnOption(thumbnailSize)
     <div class={`entry__heading flow ${contentSizeOption}`}>
       <h1
         set:html={breakLongTitle(title)}
-        class="entry__title"
-        style={!thumbnail ? "font-size: var(--font-size-fluid-3)" : ""}
+        class={`entry__title ${!thumbnail ? 'entry__title--lg' : ''}`}
       />
     </div>
 
@@ -87,7 +86,13 @@ const thumbnailSizeOption = getColumnOption(thumbnailSize)
   </article>
 </BaseLayout>
 
+<style>
+  .entry__title--lg {
+    font-size: var(--font-size-fluid-3);
+  }
+</style>
 <style is:global>
+
   :where(.entry__prose > *) {
     --_container-column: column-passage;
   }

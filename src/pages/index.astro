@@ -70,7 +70,7 @@ const posts = filteredPosts.slice(0, pageSize || 4)
         --_thumbnail-size: 100%;
         grid-column: 1/-1;
       }
-     }
+    }
   }
 
   @media (--md-n-above) {
@@ -78,10 +78,8 @@ const posts = filteredPosts.slice(0, pageSize || 4)
       & > .card:first-child {
         --_image-ratio: 2/1.25;
       }
-     }
+    }
   }
-
-  
 
   @media (--lg-n-above) {
     .post-grid:has(> :nth-child(4)) {
@@ -93,19 +91,15 @@ const posts = filteredPosts.slice(0, pageSize || 4)
         --_gap: var(--size-gutter);
         --_align-items: end;
       }
-
     }
 
-
-
-     .post-grid:has(> :nth-child(5)) {
+    .post-grid:has(> :nth-child(5)) {
       & > .card:first-child {
         --_image-ratio: 1/1;
         row-gap: var(--size-fluid-3);
         grid-column: 1;
       }
-
-     }
+    }
   }
 
   .button--block {

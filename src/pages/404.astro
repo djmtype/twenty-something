@@ -1,14 +1,11 @@
 ---
-import type { ConfigObj } from "@/types/config.types";
-import config from "@/data/config.json";
+import type { ConfigObj } from "@/types/config.types"
+import config from "@/data/config.json"
 import BackLink from "@/components/BackLink.astro"
 
 import BaseLayout from "@/layouts/BaseLayout.astro"
 
-
-
-const { title, description }: ConfigObj["site"] = config.site;
-
+const { title, description }: ConfigObj["site"] = config.site
 ---
 
 <BaseLayout title={`404 ${title}`} description={description}>

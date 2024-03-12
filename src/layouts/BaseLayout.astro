@@ -8,6 +8,7 @@ import SkipLink from "@/components/SkipLink.astro"
 import Header from "@/components/Header.astro"
 import Footer from "@/components/Footer.astro"
 
+
 type Props = {
   title: any
   description: any
@@ -120,7 +121,11 @@ const { title, description, thumbnail = ogImage.url } = Astro.props
 </script>
 
 <style is:global>
+  @import "@/styles/themes/global.css";
+  
   [x-cloak] {
     display: none !important;
   }
+
+  
 </style>

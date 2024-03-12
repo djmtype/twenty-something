@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 const inputFilePath = './src/data/tokens.json';
 const outputDir = './src/styles/themes/';
