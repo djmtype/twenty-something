@@ -37,20 +37,17 @@ const { page } = Astro.props
 
 <BaseLayout
   title={blogTitle || "Blog"}
-  description={blogDescription || siteDescription}
->
-<PostBody>
-  <Fragment slot="entryTitle">
-    {blogTitle || "Blog"}</h1>
-  </Fragment>
+  description={blogDescription || siteDescription}>
+    <PostBody>
+      <Fragment slot="entryTitle">
+        {blogTitle || "Blog"}</h1>
+      </Fragment>
+      <Fragment slot="entryGrid">
+        {page.data.map((post) => <PostCard class="entry__card" post={post} />)}
+      </Fragment>
+    </PostBody>
 
-  <Fragment slot="entryGrid">
-    {page.data.map((post) => <PostCard class="entry__card" post={post} />)}
-  </Fragment>
-</PostBody>
-
-  {
-    page.lastPage > 1 && (
+  {page.lastPage > 1 && (
       <Group type="section">
         <Container>
           <PaginationArchive
@@ -68,10 +65,5 @@ const { page } = Astro.props
           />
         </Container>
       </Group>
-    )
-  }
+    )}
 </BaseLayout>
-
-<style>
-  @import "@/styles/themes/global.css";
-</style>

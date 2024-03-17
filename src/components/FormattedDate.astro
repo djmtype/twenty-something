@@ -7,16 +7,13 @@ interface Props {
 }
 
 function locale(language: string, country?: string): string {
-  // Use a ternary operator to conditionally include the country code with a hyphen
   return country ? `${language}-${country}` : language
 }
 
 const { date } = Astro.props
 
-const { 
-	language: siteLanguage, 
-	country: siteCountry
-	}: ConfigObj["site"] = config.site
+const { language: siteLanguage, country: siteCountry }: ConfigObj["site"] =
+  config.site
 ---
 
 <time datetime={date.toISOString()}>

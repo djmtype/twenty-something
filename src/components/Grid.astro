@@ -8,7 +8,6 @@ type Props = {
   columnGap?: SizeValue
   rowGap?: SizeValue
   type?: ("auto-fit" | "auto-fill" | "3:1")[] | string
-  // repeatType?: "auto-fill" | "auto-fit"
   style?: any
 }
 const {
@@ -17,7 +16,6 @@ const {
   columnGap,
   rowGap,
   type,
-  // repeatType = "auto-fit",
   class: className,
   ...restProps
 } = Astro.props
@@ -33,12 +31,14 @@ const styles = {
 ---
 
 <div
-class:list={[
-  'grid',
-  type?.includes("auto-fit") || type?.includes("auto-fill") ? 'grid--auto' : '',
-  type?.includes("3:1") ? 'grid--3-1' : '',
-  className,
-]}
+  class:list={[
+    "grid",
+    type?.includes("auto-fit") || type?.includes("auto-fill")
+      ? "grid--auto"
+      : "",
+    type?.includes("3:1") ? "grid--3-1" : "",
+    className,
+  ]}
   style={{
     ...styles,
     ...restProps.style,
@@ -54,7 +54,7 @@ class:list={[
     --_column: var(--size-content-2);
     --_column-gap: var(--size-gutter);
     --_row-gap: var(--size-gutter);
-    --_repeat-type: auto-fit; 
+    --_repeat-type: auto-fit;
     display: grid;
     column-gap: var(--_gap, var(--_column-gap));
     row-gap: var(--_gap, var(--_row-gap));
@@ -62,7 +62,10 @@ class:list={[
   }
 
   .grid--auto {
-    --_grid-columns: repeat(var(--_repeat-type), minmax(min(100%, var(--_column)), 1fr));
+    --_grid-columns: repeat(
+      var(--_repeat-type),
+      minmax(min(100%, var(--_column)), 1fr)
+    );
   }
 
   .grid--3-1 {

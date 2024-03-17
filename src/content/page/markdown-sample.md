@@ -2,9 +2,6 @@
 title: Markdown Sample
 date: 2022-07-15
 description: A markdown sample page for Twenty Something
-thumbnail: ../../assets/uploads/pawel-czerwinski-ruJm3dBXCqw-unsplash.jpg
-thumbnailAlt: For placement only
-thumbnailCredit: 'Photo by <a href="https://unsplash.com/@pawel_czerwinski?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Pawel Czerwinski</a> on <a href="https://unsplash.com/@pawel_czerwinski?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>'
 status: publish
 ---
 

@@ -1,268 +1,247 @@
 ---
-import type { ChildItem, NavigationItem} from "@/types/navigation.types"
-import ButtonLink from "@/components/ButtonLink.astro";
+import type { ChildItem, NavigationItem } from "@/types/navigation.types"
+import ButtonLink from "@/components/ButtonLink.astro"
 
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components"
 import navigation from "@/data/navigation.json"
 import { makeSlug } from "@/utils/textConverter"
-import NavToggle from '@/components/NavToggle.astro'
-
+import NavToggle from "@/components/NavToggle.astro"
 
 const { pathname } = Astro.url
 // const currentPage = Astro.url.pathname
-
 ---
 
 <div class="nav-wrapper" x-data=`{ isOpen: false}`>
-<NavToggle />
-  <nav id="primary-navigation" class="nav-primary" :class="{ 'hidden': !isOpen, 'show': isOpen }" aria-label="Primary Navigation" x-cloak>
-    <ul role="list" class="nav-primary__list">
-      {
-        navigation.map((nav: NavigationItem) => (
-          <li
-          x-data="{ open: false }" @keydown.escape="open = false"
-            class={`nav-primary__item ${
-              nav.childItems ? "nav-primary__item--parent" : ""
-            }`}
-          >
-            {nav.childItems ? (
-              <ButtonLink
-                aria-haspopup="true" 
-                @click.prevent="open = !open" :aria-expanded="open.toString()"
-                id={makeSlug(`parentlink-${nav.name}`)}
-                class={`nav-primary__link nav-primary__link--parent ${
-                  nav.childItems?.some(
-                    (child: ChildItem) =>
-                      child.url === pathname || `${child.url}/` === pathname,
-                  )
-                    ? "active"
-                    : ""
-                }`}
-              >
-                {nav.name} <Icon name="lucide:chevron-down" />
-              </ButtonLink>
-            ) : (
-              <a
-                href={nav.url}
-                id={`nav-primary__link--${makeSlug(nav.name).toLowerCase()}`}
-                class={`nav-primary__link ${
-                  pathname === `${nav.url}/` || pathname === nav.url
-                    ? "active"
-                    : ""
-                }`}
-                aria-current={
-                  pathname === `${nav.url}/` || pathname === nav.url
-                    ? "page"
-                    : undefined
-                }
-                aria-label={`Visit the ${nav.name} page`}
-                target={nav.target}
-                rel={nav.rel || (nav.target ? "noopener noreferrer" : undefined)}
-              >
-                {nav.name}
-              </a>
-            )}
-  
-            {nav.childItems && (
-              <ul
-              aria-labelledby={makeSlug(`parentlink-${nav.name}`)}
-                role="list"
-                id="subnav"
-                class="nav-sub__list"
-                x-show="open"
-                @click.away="open = false"
-                :aria-hidden="(!open).toString()"
-              >
-                {nav.childItems.map((child: ChildItem) => (
-                  <li class="nav-primary__item nav-primary__item--child">
-                    <a
-                      id={`nav-primary__link--${makeSlug(
-                        child.url,
-                      ).toLowerCase()}`}
-                      href={child.url}
-                      class={`nav-primary__link nav-primary__link--child ${
-                        pathname === `${child.url}/` || pathname === child.url
-                          ? "active"
-                          : ""
-                      }`}
-                      aria-current={
-                        pathname === `${child.url}/` || pathname === child.url
-                          ? "page"
-                          : undefined
-                      }
-                      target={child.target}
-                      rel={
-                        child.rel ||
-                        (child.target ? "noopener noreferrer" : undefined)
-                      }
-                    >
-                      {child.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))
-      }
-    </ul>
-  </nav>
-</div>
+  <NavToggle />
+    <nav id="primary-navigation" class="nav-primary" :class="{ 'hidden': !isOpen, 'show': isOpen }" aria-label="Primary Navigation" x-cloak>
+      <ul role="list" class="nav-primary__list">
+        {
+          navigation.map((nav: NavigationItem) => (
+            <li
+            x-data="{ open: false }" @keydown.escape="open = false"
+              class={`nav-primary__item ${
+                nav.childItems ? "nav-primary__item--parent" : ""
+              }`}
+            >
+              {nav.childItems ? ( 
+                <ButtonLink aria-haspopup="true"  @click.prevent="open = !open" :aria-expanded="open.toString()" id={makeSlug(`parentlink-${nav.name}`)}
+                  class={`nav-primary__link nav-primary__link--parent ${nav.childItems?.some((child: ChildItem) => child.url === pathname || `${child.url}/` === pathname) ? "active" : "" }`}>{nav.name} <Icon name="lucide:chevron-down" /></ButtonLink>
+              ) : (
+                <a
+                  href={nav.url}
+                  id={`nav-primary__link--${makeSlug(nav.name).toLowerCase()}`}
+                  class={`nav-primary__link ${
+                    pathname === `${nav.url}/` || pathname === nav.url
+                      ? "active"
+                      : ""
+                  }`}
+                  aria-current={
+                    pathname === `${nav.url}/` || pathname === nav.url
+                      ? "page"
+                      : undefined
+                  }
+                  aria-label={`Visit the ${nav.name} page`}
+                  target={nav.target}
+                  rel={nav.rel || (nav.target ? "noopener noreferrer" : undefined)}
+                >
+                  {nav.name}
+                </a>
+              )}
+    
+              {nav.childItems && (
+                <ul
+                aria-labelledby={makeSlug(`parentlink-${nav.name}`)}
+                  role="list"
+                  id="subnav"
+                  class="nav-sub__list"
+                  x-show="open"
+                  @click.away="open = false"
+                  :aria-hidden="(!open).toString()"
+                >
+                  {nav.childItems.map((child: ChildItem) => (
+                    <li class="nav-primary__item nav-primary__item--child">
+                      <a
+                        id={`nav-primary__link--${makeSlug(
+                          child.url,
+                        ).toLowerCase()}`}
+                        href={child.url}
+                        class={`nav-primary__link nav-primary__link--child ${
+                          pathname === `${child.url}/` || pathname === child.url
+                            ? "active"
+                            : ""
+                        }`}
+                        aria-current={
+                          pathname === `${child.url}/` || pathname === child.url
+                            ? "page"
+                            : undefined
+                        }
+                        target={child.target}
+                        rel={
+                          child.rel ||
+                          (child.target ? "noopener noreferrer" : undefined)
+                        }
+                      >
+                        {child.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
 
 <style is:global>
-
   .nav-sub__list {
     display: none;
   }
-  
+
   .nav-sub__list[aria-hidden="false"] {
     display: block;
   }
-  
-  [x-cloak] {
-      display: none;
-    }
-    .nav-wrapper {
-      display: contents;
-    }
-  
-    .nav-primary {
+
+  /* [x-cloak] {
+    display: none;
+  } */
+  .nav-wrapper {
+    display: contents;
+  }
+
+  .nav-primary {
+    display: flex;
+    max-height: 0;
+    overflow: hidden;
+
+    flex: 1 1 100%;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: all ease-in 300ms;
+
+    @media (--lg-n-above) {
+      opacity: unset;
+      max-height: unset;
+      visibility: unset;
+      overflow: unset;
       display: flex;
-      max-height: 0;
-      overflow: hidden;
-  
-      flex: 1 1 100%;
-  
-      visibility: hidden;
-      opacity: 0;
-      transition: all ease-in 300ms;
-  
-      @media (--lg-n-above) {
-        opacity: unset;
-        max-height: unset;
-        visibility: unset;
-        overflow: unset;
-        display: flex;
-        flex: 0 1 auto;
-        align-items: center;
-        padding-inline: var(--size-gutter);
-      }
-    }
-  
-    .nav-primary.show {
-      opacity: 1;
-      visibility: visible;
-  
-      max-height: 100svh;
-      overflow-y: auto;
-    }
-  
-    .nav-primary__list {
-      flex: 1 1 100%;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      padding-block: var(--size-gutter);
-      @media (--lg-n-above) {
-        padding: unset;
-        overflow: initial;
-        flex-direction: initial;
-      }
-    }
-  
-    .nav-primary__item {
-      /* unset open props */
-      max-inline-size: unset;
-      display: flex;
+      flex: 0 1 auto;
       align-items: center;
+      padding-inline: var(--size-gutter);
     }
-  
-    .nav-primary__link {
-      display: flex;
+  }
+
+  .nav-primary.show {
+    opacity: 1;
+    visibility: visible;
+
+    max-height: 100svh;
+    overflow-y: auto;
+  }
+
+  .nav-primary__list {
+    flex: 1 1 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-block: var(--size-gutter);
+    @media (--lg-n-above) {
+      padding: unset;
+      overflow: initial;
+      flex-direction: initial;
+    }
+  }
+
+  .nav-primary__item {
+    /* unset open props */
+    max-inline-size: unset;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-primary__link {
+    display: flex;
+    padding-block: var(--size-2);
+    width: 100%;
+    font-weight: var(--font-weight-bold);
+    @media (--lg-n-above) {
+      padding: var(--size-2) var(--size-3);
+    }
+  }
+
+  .nav-primary__item--parent {
+    position: relative;
+  }
+
+  .nav-sub__list {
+    transition: all linear 300ms;
+
+    @media (--lg-n-above) {
+      transition: all ease 250ms;
+      z-index: 4;
+      position: absolute;
+      top: calc(100% + var(--size-1));
+      background: var(--surface-overlay);
+      border: var(--border-size-1) solid var(--separator);
+      right: var(--size-3);
+      min-width: var(--size-content-1);
+      overflow: hidden;
       padding-block: var(--size-2);
-      width: 100%;
-      font-weight: var(--font-weight-bold);
-      @media (--lg-n-above) {
-        padding: var(--size-2) var(--size-3);
-      }
     }
-  
-  
-    .nav-primary__item--parent {
-      position: relative;
-  
-      
+  }
+
+  .nav-sub__list[aria-hidden="true"] {
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+  }
+
+  .nav-sub__list[aria-hidden="false"] {
+    visibility: visible;
+    opacity: 1;
+    max-height: 100svh;
+    overflow: visible;
+  }
+
+  button.nav-primary__link--parent {
+    --_text: var(--link);
+    --_surface: transparent;
+    --_surface-hover: transparent;
+    border: 0;
+    border-radius: 0;
+    padding: var(--size-2) 0;
+    justify-content: start;
+    align-items: center;
+    transition: unset;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--link-hover);
+      text-underline-offset: 0.25ex;
+      text-decoration: underline;
+      text-decoration-thickness: var(--border-size-2);
     }
-  
-    .nav-sub__list {
-      transition: all linear 300ms;
-  
-      @media (--lg-n-above) {
-        transition: all ease 250ms;
-        z-index: 4;
-        position: absolute;
-        top: calc(100% + var(--size-1));
-        background: var(--surface-overlay);
-       border: var(--border-size-1) solid var(--separator);
-        right: var(--size-3);
-        min-width: var(--size-content-1);
-        overflow: hidden;
-        padding-block: var(--size-2);
-      }
+    &:active {
+      transform: initial;
     }
-  
-    .nav-sub__list[aria-hidden="true"] {
-      visibility: hidden;
-      opacity: 0;
-      max-height: 0;
+    @media (--lg-n-above) {
+      padding: var(--size-2) var(--size-3);
     }
-  
-    .nav-sub__list[aria-hidden="false"] {
-      visibility: visible;
-      opacity: 1;
-      max-height: 100svh;
-      overflow: visible;
+  }
+
+  .nav-primary__item--parent {
+    flex-wrap: wrap;
+    > * {
+      flex: 1 1 100%;
     }
-  
-    button.nav-primary__link--parent {
-      --_text: var(--link);
-      --_surface: transparent;
-      --_surface-hover: transparent;
-      border: 0;
-      border-radius: 0;
-      padding: var(--size-2) 0;
-      justify-content: start;
-      align-items: center;
-      transition: unset;
-      
-      
-      &:hover, &:focus-visible {
-        color: var(--link-hover);
-        text-underline-offset: .25ex;
-        text-decoration: underline;
-        text-decoration-thickness: var(--border-size-2);
-      }
-      &:active {
-        transform: initial;
-      }
-      @media (--lg-n-above) {
-        padding: var(--size-2) var(--size-3);
-      }
-      
-    }
-  
-    .nav-primary__item--parent {
-      flex-wrap: wrap;
-      > * {
-        flex: 1 1 100%;
-      }
-    }
-  
-    .nav-primary__link--parent [data-icon] {
-      color: currentColor;
-      width: var(--size-relative-6);
-      height: auto;
-    }
-  
-  </style>
+  }
+
+  .nav-primary__link--parent [data-icon] {
+    color: currentColor;
+    width: var(--size-relative-6);
+    height: auto;
+  }
+</style>

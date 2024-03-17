@@ -4,7 +4,6 @@ import "@/styles/layouts/entry.css"
 import { breakLongTitle } from "@/utils/textConverter"
 import { type CollectionEntry } from "astro:content"
 
-
 import BaseLayout from "@/layouts/BaseLayout.astro"
 
 import { Image } from "astro:assets"
@@ -17,10 +16,16 @@ type Props = {
 
 const { frontmatter, class: className, ...restProps } = Astro.props
 
-const { title, thumbnail, thumbnailAlt, thumbnailSize, thumbnailCredit, contentSize } =
-  frontmatter.data
+const {
+  title,
+  thumbnail,
+  thumbnailAlt,
+  thumbnailSize,
+  thumbnailCredit,
+  contentSize,
+} = frontmatter.data
 
-  function getColumnOption(size: string | undefined) {
+function getColumnOption(size: string | undefined) {
   return size === "full"
     ? "column-full"
     : size === "breakout"
@@ -47,7 +52,7 @@ const thumbnailSizeOption = getColumnOption(thumbnailSize)
             quality="medium"
             src={thumbnail}
             widths={[600, 768, 992]}
-  sizes={`(max-width: 480px) 600px, (max-width: 600px) 768px`}
+            sizes={`(max-width: 480px) 600px, (max-width: 600px) 768px`}
             alt={thumbnailAlt ? thumbnailAlt : ""}
             loading="eager"
             format="webp"
@@ -60,7 +65,8 @@ const thumbnailSizeOption = getColumnOption(thumbnailSize)
     <div class={`entry__heading flow ${contentSizeOption}`}>
       <h1
         set:html={breakLongTitle(title)}
-        class={`entry__title ${!thumbnail ? 'entry__title--lg' : ''}`}
+        class="entry__title"
+        style={!thumbnail ? {'--_font-size': 'var(--font-size-fluid-3)'} : {}}
       />
     </div>
 
@@ -70,7 +76,6 @@ const thumbnailSizeOption = getColumnOption(thumbnailSize)
         contentSize ? `entry__prose--${contentSize}` : ``,
       ]}
     >
-
       <slot />
     </div>
 
@@ -86,13 +91,8 @@ const thumbnailSizeOption = getColumnOption(thumbnailSize)
   </article>
 </BaseLayout>
 
-<style>
-  .entry__title--lg {
-    font-size: var(--font-size-fluid-3);
-  }
-</style>
-<style is:global>
 
+<style is:global>
   :where(.entry__prose > *) {
     --_container-column: column-passage;
   }

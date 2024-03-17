@@ -1,53 +1,50 @@
 ---
-import type { ConfigObj } from '@/types/config.types';
+import type { ConfigObj } from "@/types/config.types"
 import config from "@/data/config.json"
 import { Image } from "astro:assets"
-
 
 const {
   image: logo,
   imageDarkMode: logoDarkMode,
   width: logoWidth,
   height: logoHeight,
-}: ConfigObj['logo'] = config.logo;
+}: ConfigObj["logo"] = config.logo
 
-const {
-  url: siteUrl,
-  title: siteTitle,
-}: ConfigObj['site'] = config.site;
-
+const { url: siteUrl, title: siteTitle }: ConfigObj["site"] = config.site
 ---
 
 <a class="site-logo" href={siteUrl}>
+  {
+    logo && (
+      <template x-if="theme === 'light' || (theme === 'auto' && !window.matchMedia('(prefers-color-scheme: dark)').matches)">
+        <Image
+          src={logo}
+          class="logo-lightmode"
+          width={logoWidth}
+          height={logoHeight}
+          alt={`Logo for ${siteTitle}`}
+          loading="eager"
+        />
+      </template>
+    )
+  }
 
-{logo && (
-  <template x-if="theme === 'light' || (theme === 'auto' && !window.matchMedia('(prefers-color-scheme: dark)').matches)">
-  <Image 
-  src={logo}
-  class="logo-lightmode"
-  width={logoWidth}
-  height={logoHeight}
-  alt={`Logo for ${siteTitle}`}
-  loading="eager"
-  />
-</template>
-)}
+  {
+    logo && logoDarkMode && (
+      <template x-if="theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches)">
+        <Image
+          src={logoDarkMode}
+          class="logo-darkmode"
+          width={logoWidth}
+          height={logoHeight}
+          alt={`Logo for ${siteTitle}`}
+          loading="eager"
+        />
+      </template>
+    )
+  }
 
-
-{logo && logoDarkMode && (
-<template x-if="theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches)">
-  <Image
-  src={logoDarkMode}
-  class="logo-darkmode"
-  width={logoWidth}
-  height={logoHeight}
-  alt={`Logo for ${siteTitle}`}
-  loading="eager"
-/>
-</template>
-)}
-
-  <span class={logo ? 'sr-only' : null}>{siteTitle}</span>
+  <span class={logo ? "sr-only" : null}>{siteTitle}</span>
 </a>
 
 <style>
@@ -56,4 +53,3 @@ const {
     font-size: var(--font-size-4);
   }
 </style>
-

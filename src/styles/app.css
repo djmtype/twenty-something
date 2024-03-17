@@ -1,9 +1,4 @@
 @import "open-props/postcss/style";
-/* @import "tailwindcss"; */
-/* @import "tailwindcss/theme" layer(theme); */
-/* @import "tailwindcss/preflight" layer(base); */
-/* @import "tailwindcss/utilities" layer(utilities); */
-
 
 
 @import "common/base.css";
@@ -22,7 +17,6 @@
 @import "utilities/link-block.css";
 
 
-  
 
 
 

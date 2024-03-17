@@ -4,15 +4,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro"
 import PostBody from "@/layouts/PostBody.astro"
 import PostCard from "@/components/PostCard.astro"
 
-
 import { getTaxonomy } from "@/utils/taxonomyParser"
 import taxonomyFilter from "@/utils/taxonomyFilter"
 
 import { sortByDate, filterByStatus } from "@/utils/postFunctions"
 
 import { getCollection } from "astro:content"
-
-
 
 export async function getStaticPaths() {
   const categories = await getTaxonomy("post", "categories")
@@ -35,7 +32,6 @@ const allPosts = sortByDate(postCollection)
 const posts = filterByStatus(allPosts)
 
 const filterByCategories = taxonomyFilter(posts, "categories", category!)
-
 ---
 
 <BaseLayout
@@ -56,5 +52,3 @@ const filterByCategories = taxonomyFilter(posts, "categories", category!)
     </Fragment>
   </PostBody>
 </BaseLayout>
-
-

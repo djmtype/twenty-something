@@ -10,7 +10,6 @@ import BaseLayout from "@/layouts/BaseLayout.astro"
 import PostBody from "@/layouts/PostBody.astro"
 import PostCard from "@/components/PostCard.astro"
 
-
 import { getCollection } from "astro:content"
 
 export async function getStaticPaths() {
@@ -39,17 +38,13 @@ const filterByTags = taxonomyFilter(posts, "tags", tag!)
   title={`Tag: ${tagTitle}`}
   description={`A list of entries with tag, ${tagTitle}`}
 >
+  <PostBody>
+    <Fragment slot="entryTitle">
+      Tag: <em>{tagTitle}</em>
+    </Fragment>
 
-<PostBody>
-  <Fragment slot="entryTitle">
-    Tag: <em>{tagTitle}</em>
-  </Fragment>
-
-  <Fragment slot="entryGrid">
-    {filterByTags.map((post) => <PostCard class="entry__card" post={post} />)}
-  </Fragment>
-
-</PostBody>
+    <Fragment slot="entryGrid">
+      {filterByTags.map((post) => <PostCard class="entry__card" post={post} />)}
+    </Fragment>
+  </PostBody>
 </BaseLayout>
-
-

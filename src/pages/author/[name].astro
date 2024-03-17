@@ -18,7 +18,7 @@ type Props = {
 export async function getStaticPaths() {
   const authors = await getCollection(
     "author",
-    ({ data }) => data.status === "publish",
+    ({ data }) => data.status === "publish"
   )
 
   const paths = authors.map((author) => ({
@@ -33,11 +33,11 @@ const { name, description, thumbnail } = author.data
 const { Content } = await author.render()
 const posts = await getCollection(
   "post",
-  ({ data }) => data.status === "publish",
+  ({ data }) => data.status === "publish"
 )
 
 const postFilterByAuthor = posts.filter(
-  (post) => post.data.author.slug === makeSlug(name),
+  (post) => post.data.author.slug === makeSlug(name)
 )
 ---
 
@@ -60,7 +60,7 @@ const postFilterByAuthor = posts.filter(
 
   <Group type="section" class="group--main">
     <Container>
-      <Grid type={['auto-fit', '3:1']} class="grid--main column-breakout">
+      <Grid type={["auto-fit", "3:1"]} class="grid--main column-breakout">
         <div class="posts">
           {
             postFilterByAuthor.length > 0 ? (
@@ -112,7 +112,6 @@ const postFilterByAuthor = posts.filter(
 </BaseLayout>
 
 <style>
-
   .testimonial--main {
     --_items-margin-inline: auto;
   }

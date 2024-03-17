@@ -31,9 +31,10 @@
 }
 
 .entry__title {
+  --_font-size: var(--font-size-6);
   font-weight: var(--font-weight-4);
   font-family: var(--font-serif);
-  font-size: var(--font-size-6);
+  font-size: var(--_font-size);
   max-inline-size: initial;
 }
 
@@ -205,8 +206,6 @@ p:has(> img:nth-child(1)) img {
 }
 
 .entry__title small {
-  font-family: var(--font-sans);
-  font-size: 40%;
   display: block;
   color: var(--text-2);
 }

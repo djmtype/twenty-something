@@ -6,12 +6,7 @@ type Props = {
   style?: any
 }
 
-const {
-  class: className,
-  hasFlow,
-  flowSize,
-  ...restProps
-} = Astro.props
+const { class: className, hasFlow, flowSize, ...restProps } = Astro.props
 
 const styles = {
   ...(flowSize ? { "--_flow": `var(--${flowSize})` } : {}),

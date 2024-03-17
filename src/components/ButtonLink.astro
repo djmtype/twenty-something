@@ -1,16 +1,14 @@
 ---
-// import "@/styles/components/button.css";
-import { Icon } from 'astro-icon/components';
-
+import { Icon } from "astro-icon/components"
 
 type Props = {
-  variant?: "default" | "accent" | "brand";
-  size?: "small" | "medium" | "large";
-  class?: string;
-  href?: string;
-  externalTarget?: boolean;
-  id?: string;
-  ariaLabel?: boolean;
+  variant?: "default" | "accent" | "brand"
+  size?: "small" | "medium" | "large"
+  class?: string
+  href?: string
+  externalTarget?: boolean
+  id?: string
+  ariaLabel?: boolean
   iconName?: string
   style?: any
 }
@@ -25,11 +23,10 @@ const {
   ariaLabel,
   iconName,
   ...restProps
-} = Astro.props as Props;
+} = Astro.props as Props
 ---
 
-<!-- Link -->
-{
+<!-- Link -->{
   href && (
     <a
       id={id}
@@ -42,18 +39,15 @@ const {
         className,
       ]}
       style={{
-  ...restProps.style
-}} 
+        ...restProps.style,
+      }}
       {...restProps}
     >
-    {iconName && 
-      <Icon name={iconName} />
-    }
+      {iconName && <Icon name={iconName} />}
       <slot />
     </a>
   )
 }
-
 
 <!-- Button -->
 {
@@ -66,16 +60,12 @@ const {
         className,
       ]}
       style={{
-  ...restProps.style
-}} 
+        ...restProps.style,
+      }}
       {...restProps}
     >
-    {iconName && 
-      <Icon name={iconName} />
-    }
+      {iconName && <Icon name={iconName} />}
       <slot />
     </button>
   )
 }
-
-

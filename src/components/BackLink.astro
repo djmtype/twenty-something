@@ -1,19 +1,17 @@
 ---
 import StyledLink from "@/components/StyledLink.astro"
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components"
 ---
 
 <div x-data="{ hasHistory: window.history.length > 1 }">
-
-    <StyledLink x-show="hasHistory">
-      <Icon name="lucide:move-left" style="color: var(--link)" /> <a role="button" href="#0" @click.prevent="window.history.back()">Go Back</a>
-    </StyledLink>
-  
- 
-  <StyledLink x-show="!hasHistory">
-    <Icon name="lucide:move-left" style="color: var(--link)" /> <a href="/blog"> Go Back</a>
+  <StyledLink x-show="hasHistory">
+    <Icon name="lucide:move-left" style="color: var(--link)" />
+    <a role="button" href="#0" @click.prevent="window.history.back()">Go Back</a
+    >
   </StyledLink>
-     
-  
 
+  <StyledLink x-show="!hasHistory">
+    <Icon name="lucide:move-left" style="color: var(--link)" />
+    <a href="/blog"> Go Back</a>
+  </StyledLink>
 </div>

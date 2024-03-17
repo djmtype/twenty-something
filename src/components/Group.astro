@@ -25,8 +25,8 @@ const {
 let GROUP = `${type}` as any
 
 const styles = {
-  ...(flowSize ? { '--_flow': `var(--${flowSize})` } : {}),
-  ...(surface ? { '--_surface': `var(--${surface})` } : {}),
+  ...(flowSize ? { "--_flow": `var(--${flowSize})` } : {}),
+  ...(surface ? { "--_surface": `var(--${surface})` } : {}),
 }
 ---
 
@@ -34,7 +34,8 @@ const styles = {
   class:list={[
     `group`,
     hasContainer ? "container" : "",
-    hasFlow ? "flow" : "", className
+    hasFlow ? "flow" : "",
+    className,
   ]}
   style={{ ...styles, ...restStyles }}
   {...restProps}

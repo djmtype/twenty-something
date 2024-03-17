@@ -1,13 +1,12 @@
 ---
-import '@fontsource/cardo';
-import '@fontsource/cardo/400-italic.css';
+import "@fontsource/cardo"
+import "@fontsource/cardo/400-italic.css"
 import "../styles/app.css"
 import type { ConfigObj } from "@/types/config.types"
 import config from "@/data/config.json"
 import SkipLink from "@/components/SkipLink.astro"
 import Header from "@/components/Header.astro"
 import Footer from "@/components/Footer.astro"
-
 
 type Props = {
   title: any
@@ -38,10 +37,10 @@ const { title, description, thumbnail = ogImage.url } = Astro.props
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link rel="icon" href="/images/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/images/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href={siteFavicon} />
 
-    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
 
     <meta name="generator" content={Astro.generator} />
 
@@ -97,7 +96,7 @@ const { title, description, thumbnail = ogImage.url } = Astro.props
     </script>
   </head>
 
-  <body>
+  <body class="text-purple">
     <SkipLink />
     <Header />
     <main id="main">
@@ -117,15 +116,10 @@ const { title, description, thumbnail = ogImage.url } = Astro.props
   window.Alpine = Alpine
 
   Alpine.start()
-  
 </script>
 
 <style is:global>
-  @import "@/styles/themes/global.css";
-  
   [x-cloak] {
     display: none !important;
   }
-
-  
 </style>

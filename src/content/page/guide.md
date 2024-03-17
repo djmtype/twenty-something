@@ -4,6 +4,9 @@ date: 2022-07-15
 description: Instructions on how to export Wordpress documents to Markdown files
 status: publish
 dateUpdated: 2024-01-11
+thumbnail: ../../assets/uploads/wp-md.jpg
+thumbnailAlt: Markdown logo in front of a blurry Wordpress logo over a smokey background
+thumbnailSize: content
 ---
 
 ## Table of Contents
