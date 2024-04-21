@@ -50,11 +50,11 @@ const styles = {
 
 <style is:global>
   .grid {
-    --_grid-columns: repeat(12, minmax(0, 1fr));
     --_column: var(--size-content-2);
     --_column-gap: var(--size-gutter);
     --_row-gap: var(--size-gutter);
-    --_repeat-type: auto-fit;
+    --_repeat-type: initial;
+    --_grid-columns: initial;
     display: grid;
     column-gap: var(--_gap, var(--_column-gap));
     row-gap: var(--_gap, var(--_row-gap));
@@ -67,6 +67,10 @@ const styles = {
       minmax(min(100%, var(--_column)), 1fr)
     );
   }
+
+  /* .grid--12 {
+    --_grid-columns: repeat(12, minmax(0, 1fr));
+  } */
 
   .grid--3-1 {
     @media (--lg-n-above) {

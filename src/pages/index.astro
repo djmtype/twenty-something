@@ -35,7 +35,6 @@ const posts = filteredPosts.slice(0, pageSize || 4)
         columnSize="size-fluid-9"
         rowGap="size-fluid-5"
         class="post-grid column-breakout"
-        style={{ alignItems: "start" }}
       >
         {
           posts.map((item, index) => (
@@ -59,6 +58,8 @@ const posts = filteredPosts.slice(0, pageSize || 4)
 
 <style>
   .post-grid {
+    align-items: start;
+    
     @media (--lg-n-above) {
       --_grid-columns: repeat(3, minmax(0, 1fr));
     }
@@ -106,7 +107,7 @@ const posts = filteredPosts.slice(0, pageSize || 4)
     justify-self: center;
     width: 100%;
     @media (--sm-n-above) {
-      width: auto;
+      width: initial;
     }
   }
 </style>
