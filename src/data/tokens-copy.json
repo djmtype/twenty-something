@@ -18,9 +18,6 @@
     },
     "theme": {
       "light": {
-        "palette-hue": "320",
-        "palette-hue-rotate-by": "-7",
-        "palette-chroma": "1",
         "brand": "var(--blue-9)",
         "accent": "var(--indigo-10)",
         "text-1": "var(--gray-9)",
@@ -57,9 +54,6 @@
         "astro-code-token-string-expression": "var(--violet-9)"
       },
       "dark": {
-        "palette-hue": "320",
-        "palette-hue-rotate-by": "-7",
-        "palette-chroma": "1",
         "brand": "var(--blue-3)",
         "accent": "var(--indigo-3)",
         "text-1": "var(--gray-1)",

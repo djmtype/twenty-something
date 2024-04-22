@@ -38,6 +38,10 @@
   max-inline-size: initial;
 }
 
+.entry__title--lg {
+  --_font-size: var(--font-size-fluid-3);
+}
+
 :where(.entry__thumbnail) {
   border-radius: var(--radius);
 }

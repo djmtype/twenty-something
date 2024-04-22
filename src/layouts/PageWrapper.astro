@@ -65,8 +65,7 @@ const thumbnailSizeOption = getColumnOption(thumbnailSize)
     <div class={`entry__heading flow ${contentSizeOption}`}>
       <h1
         set:html={breakLongTitle(title)}
-        class="entry__title"
-        style={!thumbnail ? {'--_font-size': 'var(--font-size-fluid-3)'} : {}}
+        class={thumbnail ? 'entry__title' : 'entry__title entry__title--lg'}
       />
     </div>
 
@@ -90,6 +89,7 @@ const thumbnailSizeOption = getColumnOption(thumbnailSize)
     </footer>
   </article>
 </BaseLayout>
+
 
 
 <style is:global>

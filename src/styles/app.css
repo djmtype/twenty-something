@@ -1,5 +1,8 @@
-@import "open-props/postcss/style";
-
+/* @import "open-props/postcss/style"; */
+/* @import "/node_modules/open-props/src/index.css"; */
+/* @import "/node_modules/open-props/css/index.css";
+@import "/node_modules/open-props/css/sizes/relative.css";
+@import "/node_modules/open-props/css/font/lineheight.css"; */
 
 @import "common/base.css";
 @import "themes/theme.css";
@@ -15,6 +18,8 @@
 @import "utilities/section.css";
 @import "utilities/container.css";
 @import "utilities/link-block.css";
+
+
 
 
 

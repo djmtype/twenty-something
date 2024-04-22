@@ -1,4 +1,5 @@
 @import "open-props/postcss/normalize";
+/* @import "/node_modules/open-props/normalize.min.css"; */
 
 :where(ul[role="list"], ol[role="list"]) {
   list-style: none;

@@ -1,6 +1,9 @@
 /* Light Theme */
 
 html {
+  --palette-hue-light: 320;
+  --palette-hue-rotate-by-light: -7;
+  --palette-chroma-light: 1;
   --brand-light: var(--blue-9);
   --accent-light: var(--indigo-10);
   --text-1-light: var(--gray-9);

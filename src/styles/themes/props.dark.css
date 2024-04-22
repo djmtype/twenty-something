@@ -1,6 +1,9 @@
 /* Dark Theme */
 
 html {
+  --palette-hue-dark: 320;
+  --palette-hue-rotate-by-dark: -7;
+  --palette-chroma-dark: 1;
   --brand-dark: var(--blue-3);
   --accent-dark: var(--indigo-3);
   --text-1-dark: var(--gray-1);

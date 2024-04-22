@@ -3,7 +3,7 @@ title: "A Guide: From WP to MD"
 date: 2022-07-15
 description: Instructions on how to export Wordpress documents to Markdown files
 status: publish
-dateUpdated: 2024-01-11
+dateUpdated: 2024-04-21
 thumbnail: ../../assets/uploads/wp-md.jpg
 thumbnailAlt: Markdown logo in front of a blurry Wordpress logo over a smokey background
 thumbnailSize: content
@@ -215,7 +215,9 @@ Honestly, there could be plenty more of everything.
 
 I dared to write a more elaborate guide from start to finish, but wasn't certain on the audience. If I was targeting casual Wordpress users, the setup would be more than Wordpress' infamous *5-minute install*. Therefore, I have no arguments against Wordpress other than my own bias and personal 20+ years experience with it. Based on your project's requirements; use the right tool for the job. In any case, I've given pause on writing an explicit guide because the process would take much longer compared to *that*. 
 
-In addition, I had started writing Astro components for *Twenty-Something* with the intent of using them for `mdx` files because `md` is a bit limited beyond long-form content. Wordpress "shortcodes" are essentially components with different braces, right? Therefore, the concept wouldn't seem too far-fetched for Wordpress authors to grasp, especially when assigning them to *Front Matter* snippets. In conjunction with live preview, the author would also receive instant visual feedback. For now, that idea sits on the simmer. 
+In addition, I had started writing Astro components for *Twenty-Something* with the intent of using them for `mdx` files because `md` is a bit limited beyond long-form written content. Wordpress "shortcodes" are essentially components with different braces, right? Therefore, the concept wouldn't seem too far-fetched for Wordpress authors to grasp, especially when assigning them to *Front Matter* snippets. In conjunction with live preview, the author would also receive instant visual feedback. For now, that idea sits on the simmer. 
+
+For developer tooling, I plan on adding Open Props v2 which brings its [concept of color palettes](https://opv2-beta.netlify.app/color/) and [simple utility classes](https://unpkg.com/browse/open-props@2.0.0-beta.5/css/packs/utilities/). Plus, somehow incorporating Tailwind CSS v4 would be a must-have for peeps who prefer it. However, both of these intances are still in their respected early stages, so let's not get ahead of ourselves, right?
 
 ---
 
@@ -245,4 +247,4 @@ Purposely, the design is _not_ one-to-one for many reasons. For example, I could
 
 ### Acknowledgements
 
-Many community-driven themes made this theme possible. To name a few: [Astros](https://astro.build/themes/details/astros/), [Astroplate](https://astro.build/themes/details/astroplate/), [Astroship](https://astro.build/themes/details/astroship/), [Astrowind](https://astro.build/themes/details/astrowind/), [Dante](https://astro.build/themes/details/dante/)
+Many community-driven themes made this theme possible. Naming a few: [Astros](https://astro.build/themes/details/astros/), [Astroplate](https://astro.build/themes/details/astroplate/), [Astroship](https://astro.build/themes/details/astroship/), [Astrowind](https://astro.build/themes/details/astrowind/), [Dante](https://astro.build/themes/details/dante/)
