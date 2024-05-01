@@ -1,5 +1,5 @@
-@import "open-props/postcss/normalize";
-/* @import "/node_modules/open-props/normalize.min.css"; */
+/* @import "open-props/postcss/normalize"; */
+@import "/node_modules/open-props/normalize.min.css";
 
 :where(ul[role="list"], ol[role="list"]) {
   list-style: none;
@@ -7,17 +7,17 @@
   padding: 0;
 }
 
-:where(a) {
-  padding-inline: 0;
-  margin-inline: 0;
-}
 
 :where(li) {
   padding: 0;
 }
 
+
 :where(a) {
+  padding-inline: 0;
+  margin-inline: 0;
   text-underline-offset: 0.25ex;
+  text-decoration-thickness: var(--text-decoration-thickness);
 }
 
 :where(a[href]) {
@@ -45,11 +45,6 @@
   background: var(--surface-overlay);
 }
 
-:where(a) {
-  padding-inline: 0;
-  margin-inline: 0;
-  text-decoration-thickness: var(--border-size-2);
-}
 
 :where(li) {
   padding: 0;

@@ -13,4 +13,8 @@
   --astro-code-token-punctuation: var(--text-1);
   --astro-code-token-link: var(--accent);
   --astro-code-token-comment: var(--text-muted);
+  --palette-hue: var(--oklch-indigo);
+  --palette-hue-rotate-by: 0;
+  --palette-chroma: 1;
+  --gray-chroma: .1;
 }

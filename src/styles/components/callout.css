@@ -40,12 +40,20 @@ blockquote.callout {
 
 .callout-content a {
   color: var(--_color);
-
   &:hover,
   &:focus-visible {
     --_color: var(--text-1);
   }
 }
+
+@supports(color: color-mix(in srgb, black, white 50%)) {
+  .callout-content a {
+    color: color-mix(in srgb, var(--_color), var(--text-2) 50%);
+  }
+}
+
+
+
 
 .callout-icon {
   color: var(--_color);

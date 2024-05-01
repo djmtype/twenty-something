@@ -593,6 +593,18 @@
                   },
                   "astro-code-token-comment": {
                     "type": "string"
+                  },
+                  "palette-hue": {
+                    "type": "string"
+                  },
+                  "palette-hue-rotate-by": {
+                    "type": "string"
+                  },
+                  "palette-chroma": {
+                    "type": "string"
+                  },
+                  "gray-chroma": {
+                    "type": "string"
                   }
                 }
               },

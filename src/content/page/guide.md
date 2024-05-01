@@ -7,6 +7,7 @@ dateUpdated: 2024-04-21
 thumbnail: ../../assets/uploads/wp-md.jpg
 thumbnailAlt: Markdown logo in front of a blurry Wordpress logo over a smokey background
 thumbnailSize: content
+slug: guide
 ---
 
 ## Table of Contents
@@ -169,7 +170,7 @@ Place any media files inside `src/assets/uploads`.
 
 From your code editor, open the *Twenty-Something* project. If using VS Code, optionally install the [*Front Matter*](https://frontmatter.codes) extension. 
 
-Install the theme's Node dependencies using `npm i` (or favorite compiler).
+Install the theme's Node dependencies using `npm i` (or favorite runtime).
 
 Use your editor's global find/replace feature.
 
@@ -243,7 +244,7 @@ Purposely, the design is _not_ one-to-one for many reasons. For example, I could
 
 ### Content Management
 
-[Front Matter CMS](https://frontmatter.codes) can be added for managing content within VS Code. Configuration has been set up to incorporate pages and posts collections, along with site settings.
+[Front Matter CMS](https://frontmatter.codes) can be added for managing content within VS Code. Configuration has been set up to incorporate pages and posts collections, along with various site settings.
 
 ### Acknowledgements
 

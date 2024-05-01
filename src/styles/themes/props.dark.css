@@ -1,26 +1,23 @@
 /* Dark Theme */
 
 html {
-  --palette-hue-dark: 320;
-  --palette-hue-rotate-by-dark: -7;
-  --palette-chroma-dark: 1;
   --brand-dark: var(--blue-3);
-  --accent-dark: var(--indigo-3);
+  --accent-dark: var(--color-5);
   --text-1-dark: var(--gray-1);
   --text-2-dark: var(--gray-3);
-  --surface-0-dark: var(--gray-11);
-  --surface-1-dark: var(--gray-10);
-  --surface-2-dark: var(--gray-9);
-  --surface-shadow-dark: var(--gray-12);
+  --surface-0-dark: var(--gray-15);
+  --surface-1-dark: var(--gray-14);
+  --surface-2-dark: var(--gray-12);
+  --surface-shadow-dark: var(--gray-16);
   --shadow-strength-dark: 80%;
-  --link-dark: var(--indigo-3);
-  --link-visited-dark: var(--indigo-3);
-  --link-hover-dark: var(--indigo-2);
-  --link-active-dark: var(--indigo-4);
-  --separator-dark: var(--gray-7);
-  --text-overlay-dark: var(--gray-12);
-  --text-muted-dark: var(--gray-5);
-  --surface-overlay-dark: var(--gray-9);
+  --link-dark: var(--color-5);
+  --link-visited-dark: var(--color-6);
+  --link-hover-dark: var(--color-4);
+  --link-active-dark: var(--color-6);
+  --separator-dark: var(--gray-10);
+  --text-overlay-dark: var(--gray-14);
+  --text-muted-dark: var(--gray-4);
+  --surface-overlay-dark: var(--gray-13);
   --text-strong-dark: var(--blue-1);
   --note-dark: var(--blue-3);
   --danger-dark: var(--red-3);
@@ -35,7 +32,7 @@ html {
   --example-dark: var(--purple-3);
   --quote-dark: var(--stone-3);
   --abstract-dark: var(--violet-3);
-  --astro-code-token-keyword-dark: var(--blue-3);
-  --astro-code-token-function-dark: var(--cyan-3);
-  --astro-code-token-string-expression-dark: var(--violet-3);
+  --astro-code-token-keyword-dark: var(--color-1);
+  --astro-code-token-function-dark: var(--color-3);
+  --astro-code-token-string-expression-dark: var(--color-5);
 }

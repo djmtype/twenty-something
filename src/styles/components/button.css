@@ -51,12 +51,12 @@
 
 button:not([class="button"]),
 .button--default {
-  --_surface-light: var(--gray-10);
+  --_surface-light: var(--gray-14);
   --_text-light: var(--gray-1);
-  --_surface-hover-light: var(--gray-7);
+  --_surface-hover-light: var(--gray-12);
 
   --_surface-dark: var(--gray-3);
-  --_text-dark: var(--gray-12);
+  --_text-dark: var(--gray-14);
   --_surface-hover-dark: var(--gray-1);
 }
 

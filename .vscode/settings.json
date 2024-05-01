@@ -107,7 +107,7 @@
     },
   
     "files.associations": {
-      "*.css": "postcss"
+      "*.css": "css"
     },
     "prettier.documentSelectors": ["**/*.astro"],
     "search.exclude": {

@@ -212,6 +212,8 @@ p:has(> img:nth-child(1)) img {
 .entry__title small {
   display: block;
   color: var(--text-2);
+  font-family: var(--font-sans);
+
 }
 
 

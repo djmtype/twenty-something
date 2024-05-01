@@ -4,6 +4,9 @@
 @import "/node_modules/open-props/css/sizes/relative.css";
 @import "/node_modules/open-props/css/font/lineheight.css"; */
 
+@import "/node_modules/open-props/css/color/hues.oklch.css";
+/* @import "common/gray.oklch.css";
+@import "/node_modules/open-props/css/color/palette.oklch.css"; */
 @import "common/base.css";
 @import "themes/theme.css";
 @import "themes/global.css";
