@@ -616,16 +616,16 @@
                     "type": "object",
                     "title": "Light",
                     "properties": {
-                      "brand": {
-                        "type": "string"
-                      },
                       "accent": {
                         "type": "string"
                       },
-                      "text-1": {
+                      "brand": {
                         "type": "string"
                       },
-                      "text-2": {
+                      "ink-1": {
+                        "type": "string"
+                      },
+                      "ink-2": {
                         "type": "string"
                       },
                       "surface-0": {
@@ -655,10 +655,10 @@
                       "link-active": {
                         "type": "string"
                       },
-                      "text-overlay": {
+                      "ink-overlay": {
                         "type": "string"
                       },
-                      "text-muted": {
+                      "ink-muted": {
                         "type": "string"
                       },
                       "text-strong": {
@@ -724,16 +724,16 @@
                     "type": "object",
                     "title": "Dark",
                     "properties": {
-                      "brand": {
-                        "type": "string"
-                      },
                       "accent": {
                         "type": "string"
                       },
-                      "text-1": {
+                      "brand": {
                         "type": "string"
                       },
-                      "text-2": {
+                      "ink-1": {
+                        "type": "string"
+                      },
+                      "ink-2": {
                         "type": "string"
                       },
                       "surface-0": {
@@ -763,10 +763,10 @@
                       "link-active": {
                         "type": "string"
                       },
-                      "text-overlay": {
+                      "ink-overlay": {
                         "type": "string"
                       },
-                      "text-muted": {
+                      "ink-muted": {
                         "type": "string"
                       },
                       "text-strong": {

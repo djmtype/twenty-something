@@ -47,7 +47,7 @@
 }
 
 .entry__meta {
-  color: var(--text-2);
+  color: var(--ink-2);
 }
 
 .entry__date-updated {
@@ -115,7 +115,7 @@
 
 .entry__thumbnail__credit {
   font-size: var(--font-size-1);
-  color: var(--text-muted);
+  color: var(--ink-muted);
   margin-block-start: var(--size-fluid-5);
   display: inline-flex;
   gap: .75ch;
@@ -211,7 +211,7 @@ p:has(> img:nth-child(1)) img {
 
 .entry__title small {
   display: block;
-  color: var(--text-2);
+  color: var(--ink-2);
   font-family: var(--font-sans);
 
 }
@@ -230,7 +230,7 @@ p:has(> img:nth-child(1)) img {
 }
 
 .entry__prose .footnotes ol {
-  color: var(--text-2);
+  color: var(--ink-2);
 }
 
 
@@ -267,7 +267,7 @@ font-size: 1em;
 }
 
 .callout-content {
-  color: var(--text-1);
+  color: var(--ink-1);
 }
 
 .callout-title {

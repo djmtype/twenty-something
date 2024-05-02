@@ -65,7 +65,7 @@
 
 :where(figcaption) {
   font-style: italic;
-  color: var(--text-muted);
+  color: var(--ink-muted);
 }
 
 [disabled] {
@@ -130,7 +130,7 @@
 }
 
 del {
-  color: var(--text-muted);
+  color: var(--ink-muted);
   text-decoration-color: var(--danger);
   background: initial;
 }

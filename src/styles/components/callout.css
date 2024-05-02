@@ -42,13 +42,13 @@ blockquote.callout {
   color: var(--_color);
   &:hover,
   &:focus-visible {
-    --_color: var(--text-1);
+    --_color: var(--ink-1);
   }
 }
 
 @supports(color: color-mix(in srgb, black, white 50%)) {
   .callout-content a {
-    color: color-mix(in srgb, var(--_color), var(--text-2) 50%);
+    color: color-mix(in srgb, var(--_color), var(--ink-2) 50%);
   }
 }
 

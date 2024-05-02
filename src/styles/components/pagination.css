@@ -30,7 +30,7 @@
 }
 
 .pagination__status {
-  color: var(--text-2);
+  color: var(--ink-2);
 }
 
 .pagination__item:has(a) {

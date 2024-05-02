@@ -218,8 +218,6 @@ I dared to write a more elaborate guide from start to finish, but wasn't certain
 
 In addition, I had started writing Astro components for *Twenty-Something* with the intent of using them for `mdx` files because `md` is a bit limited beyond long-form written content. Wordpress "shortcodes" are essentially components with different braces, right? Therefore, the concept wouldn't seem too far-fetched for Wordpress authors to grasp, especially when assigning them to *Front Matter* snippets. In conjunction with live preview, the author would also receive instant visual feedback. For now, that idea sits on the simmer. 
 
-For developer tooling, I plan on adding Open Props v2 which brings its [concept of color palettes](https://opv2-beta.netlify.app/color/) and [simple utility classes](https://unpkg.com/browse/open-props@2.0.0-beta.5/css/packs/utilities/). Plus, somehow incorporating Tailwind CSS v4 would be a must-have for peeps who prefer it. However, both of these intances are still in their respected early stages, so let's not get ahead of ourselves, right?
-
 ---
 
 ## More About the Theme
@@ -232,7 +230,13 @@ Purposely, the design is _not_ one-to-one for many reasons. For example, I could
 
 ### Style Tokens
 
-[Open Props](https://open-props.style/) has been utilized for its thoughtful design tokens. Meanwhile, a few alias tokens were "invented" for consistency.
+[Open Props](https://open-props.style/) has been utilized for its thoughtful design tokens. 
+
+The lastest 1.7.x version introduces in its [concept of color palettes](https://opv2-beta.netlify.app/color/). To use a palette, set the `palette-hue` token to one of [Open Props' hue options](https://github.com/argyleink/open-props/blob/main/src/props.colors-oklch-hues.css). Then set any color token value using the `--color-{0-15 / bright}` notation. 
+
+Otherwise, the older HEX color values are also available using the `--{hueName}-{0-12}` notation.  
+
+Meanwhile, a few alias tokens were "invented" to help with consistency.
 
 ### Web Framework
 

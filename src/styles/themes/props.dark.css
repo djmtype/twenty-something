@@ -1,10 +1,10 @@
 /* Dark Theme */
 
 html {
-  --brand-dark: var(--blue-3);
   --accent-dark: var(--color-5);
-  --text-1-dark: var(--gray-1);
-  --text-2-dark: var(--gray-3);
+  --brand-dark: var(--accent);
+  --ink-1-dark: var(--gray-1);
+  --ink-2-dark: var(--gray-3);
   --surface-0-dark: var(--gray-15);
   --surface-1-dark: var(--gray-14);
   --surface-2-dark: var(--gray-12);
@@ -15,10 +15,10 @@ html {
   --link-hover-dark: var(--color-4);
   --link-active-dark: var(--color-6);
   --separator-dark: var(--gray-10);
-  --text-overlay-dark: var(--gray-14);
-  --text-muted-dark: var(--gray-4);
+  --ink-overlay-dark: var(--gray-14);
+  --ink-muted-dark: var(--gray-4);
   --surface-overlay-dark: var(--gray-13);
-  --text-strong-dark: var(--blue-1);
+  --text-strong-dark: var(--color-1);
   --note-dark: var(--blue-3);
   --danger-dark: var(--red-3);
   --warning-dark: var(--yellow-3);
