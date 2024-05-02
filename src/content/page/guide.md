@@ -232,9 +232,9 @@ Purposely, the design is _not_ one-to-one for many reasons. For example, I could
 
 [Open Props](https://open-props.style/) has been utilized for its thoughtful design tokens. 
 
-The lastest 1.7.x version introduces in its [concept of color palettes](https://opv2-beta.netlify.app/color/). To use a palette, set the `palette-hue` token to one of [Open Props' hue options](https://github.com/argyleink/open-props/blob/main/src/props.colors-oklch-hues.css). Then set any color token value using the `--color-{0-15 / bright}` notation. 
+The beta 2 version introduces its [concept of color palettes](https://opv2-beta.netlify.app/color/). To use a palette, set the `palette-hue` token to one of [Open Props' hue props](https://github.com/argyleink/open-props/blob/2.0.0beta/css/color/hues.oklch.css), or any string value. Then set any color token value using the `--color-{1-16}` notation. 
 
-Otherwise, the older HEX color values are also available using the `--{hueName}-{0-12}` notation.  
+Otherwise, the older HEX color values are also supported using the `--{hueName}-{0-12}` notation.  
 
 Meanwhile, a few alias tokens were "invented" to help with consistency.
 

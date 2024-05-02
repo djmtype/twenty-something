@@ -1,5 +1,7 @@
 :root {
-  --size-content-4: 72ch;
+  --text-1: var(--ink-1);
+  --text-2: var(--ink-2);
+    --size-content-4: 72ch;
   --size-0: 0;
   --size-xxs: 240px;
 	--size-xs: 360px;
