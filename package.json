@@ -23,6 +23,7 @@
     "@csstools/postcss-global-data": "^2.1.1",
     "@fontsource/cardo": "^5.0.13",
     "@iconify-json/lucide": "^1.1.186",
+    "@tailwindcss/postcss": "^4.0.0-alpha.14",
     "alpinejs": "^3.13.10",
     "astro": "^4.7.0",
     "astro-auto-import": "^0.4.2",
@@ -53,7 +54,8 @@
     "onchange": "^7.1.0",
     "postcss-jit-props": "^1.0.14",
     "prettier": "^3.2.5",
-    "prettier-plugin-astro": "^0.13.0"
+    "prettier-plugin-astro": "^0.13.0",
+    "tailwindcss": "^4.0.0-alpha.14"
   },
   "browserslist": [
     "last 1 safari version",

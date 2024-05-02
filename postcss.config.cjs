@@ -1,12 +1,12 @@
-import postcssGlobalData from "@csstools/postcss-global-data";
-import postcssPresetEnv from "postcss-preset-env";
-// import OpenProps from "open-props";
-import postcssJitProps from "postcss-jit-props";
+const postcssGlobalData = require("@csstools/postcss-global-data");
+const postcssPresetEnv = require("postcss-preset-env");
+// const OpenProps = require("open-props");
+const postcssJitProps = require("postcss-jit-props");
+const tailwindCss = require("@tailwindcss/postcss");
 
-
-
-export default {
+module.exports = {
   plugins: [
+    tailwindCss(),
     postcssGlobalData({
       // files: [
       //   "./node_modules/open-props/src/props.media.css",
@@ -25,7 +25,7 @@ export default {
         "focus-within-pseudo-class": false,
         "focus-visible-pseudo-class": false,
         "color-functional-notation": false,
-        "oklab-function": false
+        "oklab-function": false,
       },
       autoprefixer: false,
     }),

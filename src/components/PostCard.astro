@@ -75,7 +75,7 @@ const plainText = await makePlainText(postBody)
 
   <div class="card__content">
     <h2 class="card__title">
-      <a class="link-block" href={`/${post.slug}`} set:html={entryTitle}></a>
+      <a class="link-block text-green-6" href={`/${post.slug}`} set:html={entryTitle}></a>
     </h2>
     <div class="card__meta">
       <FormattedDate date={date} />
@@ -163,7 +163,7 @@ const plainText = await makePlainText(postBody)
 
 
   .card__title {
-    font-size: var(--font-size-5);
+    /* font-size: var(--font-size-5); */
     font-weight: var(--font-weight-4);
     font-family: var(--font-serif);
   }

@@ -3,14 +3,23 @@
 /* @import "/node_modules/open-props/css/index.css";
 @import "/node_modules/open-props/css/sizes/relative.css";
 @import "/node_modules/open-props/css/font/lineheight.css"; */
+/* @import "tailwindcss"; */
+/* @import "tailwindcss/preflight" layer(base);
+@import "tailwindcss/utilities" layer(utilities); */
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities); 
 
-@import "/node_modules/open-props/css/color/hues.oklch.css";
+
+
+
+  @import "/node_modules/open-props/css/color/hues.oklch.css";
 /* @import "common/gray.oklch.css";
 @import "/node_modules/open-props/css/color/palette.oklch.css"; */
 @import "common/base.css";
 @import "themes/theme.css";
 @import "themes/global.css";
-@import "common/normalizer.css";
+  @import "common/normalizer.css";
+
 @import "common/syntax.css";
 @import "components/button.css";
 @import "components/callout.css";
@@ -21,6 +30,8 @@
 @import "utilities/section.css";
 @import "utilities/container.css";
 @import "utilities/link-block.css";
+
+@import "common/tw.css";
 
 
 

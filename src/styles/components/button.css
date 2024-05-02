@@ -42,7 +42,7 @@
 
   --_surface-hover: var(--_surface-hover-light);
 
-  @media (--OSdark) {
+  @media (prefers-color-scheme: dark) {
     --_text: var(--_text-dark);
     --_surface: var(--_surface-dark);
     --_surface-hover: var(--_surface-hover-dark);

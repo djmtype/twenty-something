@@ -1,0 +1,76 @@
+@theme {
+
+  --color-*: initial;
+  --default-*: initial;
+  --breakpoint-*: initial;
+  --animate-*: initial;
+  --blur-*: initial;
+  --radius-*: initial;
+  --shadow-*: initial;
+  --inset-shadow-*: initial;
+  --drop-shadow-*: initial;
+  --spacing-*: initial;
+  --width-*: initial;
+  --font-family-*: initial;
+  --letter-spacing-*: initial;
+  --line-height-*: initial;
+  --perspective-*: initial;
+  --transition-*: initial;
+  --font-size-*: initial;
+
+  
+  --font-size-00: var(--font-size-00);
+  --font-size-0: var(--font-size-0);
+  --font-size-1: var(--font-size-1);
+  --font-size-2: var(--font-size-2);
+  --font-size-3: var(--font-size-3);
+  --font-size-4: var(--font-size-4);
+  --font-size-5: var(--font-size-5);
+  --font-size-6: var(--font-size-6);
+  --font-size-7: var(--font-size-7);
+  --font-size-8: var(--font-size-8);
+
+  --color-red-1: var(--red-1);
+  --color-red-2: var(--red-2);
+  --color-red-3: var(--red-3);
+  --color-red-4: var(--red-4);
+  --color-red-5: var(--red-5);
+  --color-red-6: var(--red-6);
+  --color-red-7: var(--red-7);
+  --color-red-8: var(--red-8);
+  --color-red-9: var(--red-9);
+  --color-red-10: var(--red-10);
+  --color-red-11: var(--red-11);
+  --color-red-12: var(--red-12);
+  --color-red-13: var(--red-13);
+  --color-red-14: var(--red-14);
+  --color-red-15: var(--red-15);
+  --color-red-16: var(--red-16);
+
+  --color-green-1: var(--green-1);
+  --color-green-2: var(--green-2);
+  --color-green-3: var(--green-3);
+  --color-green-4: var(--green-4);
+  --color-green-5: var(--green-5);
+  --color-green-6: var(--green-6);
+  --color-green-7: var(--green-7);
+  --color-green-8: var(--green-8);
+  --color-green-9: var(--green-9);
+  --color-green-10: var(--green-10);
+  --color-green-11: var(--green-11);
+  --color-green-12: var(--green-12);
+  --color-green-13: var(--green-13);
+  --color-green-14: var(--green-14);
+  --color-green-15: var(--green-15);
+  --color-green-16: var(--green-16);
+
+
+  --breakpoint-xxs: 240px;
+	--breakpoint-xs: 360px;
+	--breakpoint-sm: 480px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 1024px;
+	--breakpoint-xl: 1280px;
+	--breakpoint-xxl: 1440px;
+  --breakpoint-xxxl: 1600px;
+}
