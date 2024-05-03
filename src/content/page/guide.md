@@ -65,7 +65,7 @@ After unzipping the file, the following directories should be present:
 
 Opening one of the `post` markdown files in your code editor should appear similar to the following:
 
-```markdown
+```md
 ---
 title: "Hello world!"
 date: 2024-01-23
@@ -115,7 +115,7 @@ The `slug` of an author file should match the `author` field found inside any `p
 
 Here is an example of an `author` markdown file:  
 
-```markdown
+```md
 ---
 name: Ervin Howell
 description: Lorem ipsum dolor sit amet consectetur adipisicing elit
@@ -216,7 +216,9 @@ Honestly, there could be plenty more of everything.
 
 I dared to write a more elaborate guide from start to finish, but wasn't certain on the audience. If I was targeting casual Wordpress users, the setup would be more than Wordpress' infamous *5-minute install*. Therefore, I have no arguments against Wordpress other than my own bias and personal 20+ years experience with it. Based on your project's requirements; use the right tool for the job. In any case, I've given pause on writing an explicit guide because the process would take much longer compared to *that*. 
 
-In addition, I had started writing Astro components for *Twenty-Something* with the intent of using them for `mdx` files because `md` is a bit limited beyond long-form written content. Wordpress "shortcodes" are essentially components with different braces, right? Therefore, the concept wouldn't seem too far-fetched for Wordpress authors to grasp, especially when assigning them to *Front Matter* snippets. In conjunction with live preview, the author would also receive instant visual feedback. For now, that idea sits on the simmer. 
+In addition, I had started writing Astro components for *Twenty-Something* with the intent of using them for `mdx` files because `md` is a bit limited beyond long-form written content. Wordpress shortcodes are essentially components with different braces, right? Therefore, the concept wouldn't seem too far-fetched for Wordpress authors to grasp. Assigning these "shortcodes" as *Front Matter* snippets while adding in VS Code's live preview would provide the author with instant visual feedback. 
+
+For now though, that idea sits on the simmer. 
 
 ---
 
@@ -224,15 +226,15 @@ In addition, I had started writing Astro components for *Twenty-Something* with 
 
 ### Design
 
-Not much original thought went into the visual design itself as it was heavily based on some variation of Wordpress' 2024 theme. Per visual comparison: [the original archive page](https://2024.wordpress.net/index.php/category/architecture/) versus [*Twenty-Something's* archive page](https://twenty-something.netlify.app/category/category-two/). 
+Not much original thought went into the visual design itself as it was heavily based on some variation of Wordpress' Twenty Twenty-Four theme. Per visual comparison: [the original archive page](https://2024.wordpress.net/index.php/category/architecture/) versus [*Twenty-Something's* archive page](https://twenty-something.netlify.app/category/category-two/). 
 
-Purposely, the design is _not_ one-to-one for many reasons. For example, I could not see what benefit Inter offered over the system's san-serif font when considering a loading time trade-off. Inter is still listed in front of the stack for diehard Inter'ers; just not included.
+Purposely, the design is _not_ one-to-one for many reasons. 
 
 ### Style Tokens
 
 [Open Props](https://open-props.style/) has been utilized for its thoughtful design tokens. 
 
-The beta 2 version introduces its [concept of color palettes](https://opv2-beta.netlify.app/color/). To use a palette, set the `palette-hue` token to one of [Open Props' hue props](https://github.com/argyleink/open-props/blob/2.0.0beta/css/color/hues.oklch.css), or any string value. Then set any color token value using the `--color-{1-16}` notation. 
+Its beta 2 version introduces [a concept of color palettes](https://opv2-beta.netlify.app/color/). To use a palette, set the `palette-hue` token to one of [Open Props' hue props](https://github.com/argyleink/open-props/blob/2.0.0beta/css/color/hues.oklch.css), or any string value. Then set any color token value using the `--color-{1-16}` notation. 
 
 Otherwise, the older HEX color values are also supported using the `--{hueName}-{0-12}` notation.  
 

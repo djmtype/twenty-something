@@ -1,10 +1,10 @@
 * {
 	--gray-1: oklch(
-		98% calc(0.03 * var(--gray-chroma, 0))
+		99% calc(0.03 * var(--gray-chroma, 0))
 			calc(var(--palette-hue) + (0 * var(--palette-hue-rotate-by)))
 	);
 	--gray-2: oklch(
-		96% calc(0.06 * var(--gray-chroma, 0))
+		95% calc(0.06 * var(--gray-chroma, 0))
 			calc(var(--palette-hue) + (1 * var(--palette-hue-rotate-by)))
 	);
 	--gray-3: oklch(
