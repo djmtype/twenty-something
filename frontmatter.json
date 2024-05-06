@@ -628,16 +628,13 @@
                       "ink-2": {
                         "type": "string"
                       },
-                      "surface-0": {
-                        "type": "string"
-                      },
                       "surface-1": {
                         "type": "string"
                       },
                       "surface-2": {
                         "type": "string"
                       },
-                      "surface-shadow": {
+                      "surface-3": {
                         "type": "string"
                       },
                       "shadow-strength": {
@@ -736,16 +733,13 @@
                       "ink-2": {
                         "type": "string"
                       },
-                      "surface-0": {
-                        "type": "string"
-                      },
                       "surface-1": {
                         "type": "string"
                       },
                       "surface-2": {
                         "type": "string"
                       },
-                      "surface-shadow": {
+                      "surface-3": {
                         "type": "string"
                       },
                       "shadow-strength": {

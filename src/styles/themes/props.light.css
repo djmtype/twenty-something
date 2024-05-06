@@ -6,10 +6,9 @@ html {
   --brand-light: var(--accent);
   --ink-1-light: var(--gray-15);
   --ink-2-light: var(--gray-13);
-  --surface-0-light: var(--gray-1);
-  --surface-1-light: var(--gray-2);
-  --surface-2-light: var(--gray-3);
-  --surface-shadow-light: var(--gray-10);
+  --surface-1-light: var(--gray-0);
+  --surface-2-light: var(--gray-2);
+  --surface-3-light: var(--gray-3);
   --shadow-strength-light: 2%;
   --link-light: var(--color-10);
   --link-visited-light: var(--color-12);
@@ -19,7 +18,7 @@ html {
   --ink-muted-light: var(--gray-10);
   --text-strong-light: var(--color-12);
   --separator-light: var(--gray-4);
-  --surface-overlay-light: var(--gray-1);
+  --surface-overlay-light: var(--surface-1);
   --note-light: var(--blue-8);
   --danger-light: var(--red-8);
   --warning-light: var(--yellow-6);

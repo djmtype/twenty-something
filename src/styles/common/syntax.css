@@ -2,6 +2,7 @@ pre {
     max-inline-size: unset;
     padding: var(--size-fluid-2);
     border-radius: var(--radius);
+    box-shadow: var(--shadow-1);
   }
 
   details:has(pre) {

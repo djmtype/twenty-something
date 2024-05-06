@@ -11,7 +11,7 @@
   --astro-code-token-constant: var(--ink-1);
   --astro-code-token-string: var(--accent);
   --astro-code-token-parameter: var(--accent);
-  --astro-code-token-punctuation: var(--ink-2);
+  --astro-code-token-punctuation: var(--ink-1);
   --astro-code-token-link: var(--accent);
   --astro-code-token-comment: var(--ink-muted);
   --palette-hue: var(--oklch-indigo);

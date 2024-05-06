@@ -6,10 +6,9 @@ html {
   --brand-dark: var(--accent);
   --ink-1-dark: var(--gray-1);
   --ink-2-dark: var(--gray-3);
-  --surface-0-dark: var(--gray-15);
-  --surface-1-dark: var(--gray-14);
-  --surface-2-dark: var(--gray-12);
-  --surface-shadow-dark: var(--gray-16);
+  --surface-1-dark: var(--gray-15);
+  --surface-2-dark: var(--gray-14);
+  --surface-3-dark: var(--gray-12);
   --shadow-strength-dark: 80%;
   --link-dark: var(--color-5);
   --link-visited-dark: var(--color-6);
@@ -18,7 +17,7 @@ html {
   --separator-dark: var(--gray-10);
   --ink-overlay-dark: var(--gray-14);
   --ink-muted-dark: var(--gray-4);
-  --surface-overlay-dark: var(--gray-13);
+  --surface-overlay-dark: var(--surface-3);
   --text-strong-dark: var(--color-1);
   --note-dark: var(--blue-3);
   --danger-dark: var(--red-3);

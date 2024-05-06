@@ -1,6 +1,10 @@
 /* @import "open-props/postcss/normalize"; */
 @import "/node_modules/open-props/normalize.min.css";
 
+:where(html) {
+  background-color: var(--surface-2);
+}
+
 :where(ul[role="list"], ol[role="list"]) {
   list-style: none;
   margin: 0;
@@ -72,9 +76,14 @@
   cursor: not-allowed;
 }
 
+:where(table) {
+  border-color: var(--surface-overlay);
+}
+
+
 :where(table tr:hover td),
 :where(tbody tr:nth-child(even):hover td) {
-  background-color: var(--surface-overlay);
+  background-color: color-mix(in oklch, var(--accent) 15%, var(--surface-overlay));
 }
 
 :where(blockquote:not([class]) br) {
@@ -86,7 +95,7 @@
 }
 
 :where(details) {
-  background: var(--surface-1);
+  background: var(--surface-2);
   box-shadow: var(--shadow-1);
   border: var(--border-size-2) solid var(--surface-overlay);
 }

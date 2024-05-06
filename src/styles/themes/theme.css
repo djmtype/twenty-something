@@ -9,10 +9,9 @@
   --brand: var(--brand-light);
   --ink-1: var(--ink-1-light);
   --ink-2: var(--ink-2-light);
-  --surface-0: var(--surface-0-light);
   --surface-1: var(--surface-1-light);
   --surface-2: var(--surface-2-light);
-  --surface-shadow: var(--surface-shadow-light);
+  --surface-3: var(--surface-3-light);
   --shadow-strength: var(--shadow-strength-light);
   --link: var(--link-light);
   --link-visited: var(--link-visited-light);
@@ -48,10 +47,9 @@
     --brand: var(--brand-dark);
     --ink-1: var(--ink-1-dark);
     --ink-2: var(--ink-2-dark);
-    --surface-0: var(--surface-0-dark);
     --surface-1: var(--surface-1-dark);
     --surface-2: var(--surface-2-dark);
-    --surface-shadow: var(--surface-shadow-dark);
+    --surface-3: var(--surface-3-dark);
     --shadow-strength: var(--shadow-strength-dark);
     --link: var(--link-dark);
     --link-visited: var(--link-visited-dark);
@@ -87,10 +85,9 @@
   --brand: var(--brand-dark);
   --ink-1: var(--ink-1-dark);
   --ink-2: var(--ink-2-dark);
-  --surface-0: var(--surface-0-dark);
   --surface-1: var(--surface-1-dark);
   --surface-2: var(--surface-2-dark);
-  --surface-shadow: var(--surface-shadow-dark);
+  --surface-3: var(--surface-3-dark);
   --shadow-strength: var(--shadow-strength-dark);
   --link: var(--link-dark);
   --link-visited: var(--link-visited-dark);
