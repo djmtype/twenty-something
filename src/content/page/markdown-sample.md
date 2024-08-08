@@ -3,6 +3,7 @@ title: Markdown Sample
 date: 2022-07-15
 description: A markdown sample page for Twenty Something
 status: publish
+slug: markdown-sample
 ---
 
 A sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.

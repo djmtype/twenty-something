@@ -6,6 +6,8 @@
     "workbench.editor.tabSizing": "shrink",
     "workbench.tree.renderIndentGuides": "none",
     "workbench.editor.highlightModifiedTabs": true,
+    "workbench.statusBar.visible": false,
+    
   
     // =editor
     "editor.glyphMargin": false,
@@ -39,31 +41,26 @@
   
     "files.exclude": {
       "**/.git": true,
-      "**/.DS_Store": true
-      // ".astro": true,
-      // ".frontmatter": true,
+      "**/.DS_Store": true,
+      // "_*": true,
+      // ".*": true,
+      // "**/*.d.ts": true,
+      // "**/*.config.*": true,
       // "node_modules": true,
       // "dist": true,
-      // ".gitignore": true,
-      // ".prettierrc.cjs": true,
-      // "package-lock.json": true,
-      // "package.json": true,
-      // "README.md": true,
-      // "tsconfig.json": true,
-      // "frontmatter.json": true,
-      // "src/env.d.ts": true,
+      // "makeThemes.mjs": true,
+      // "*.json": true,
+      // "**/rss": true,
+      // ".vscode": false,
       // "src/components": true,
       // "src/data": true,
       // "src/layouts": true,
-      // "src/pages": true,
-      // "src/scripts": true,
       // "src/styles": true,
-      // "src/consts.ts": true,
-      // "src/content/config.ts": true,
-      // "astro.config.mjs": true,
-      // ".vscode": true
-    },
-  
+      // "src/types": true,
+      // "src/utils": true,
+      // "src/content/config.*": true,
+      // "src/pages": true,
+
     // "files.readonlyInclude": {
     //   ".gitignore": true
     // },
@@ -109,12 +106,13 @@
     "files.associations": {
       "*.css": "css"
     },
-    "prettier.documentSelectors": ["**/*.astro"],
+    "prettier.documentSelectors": true,
     "search.exclude": {
       "_backup/": true,
       "dist/": true,
       ".output/": true,
-      "node_modules/": true,
-    },
+      "node_modules/": true
+    }
   }
+}
   
