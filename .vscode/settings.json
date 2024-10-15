@@ -6,7 +6,7 @@
     "workbench.editor.tabSizing": "shrink",
     "workbench.tree.renderIndentGuides": "none",
     "workbench.editor.highlightModifiedTabs": true,
-    "workbench.statusBar.visible": false,
+    "workbench.statusBar.visible": true,
     
   
     // =editor
@@ -25,6 +25,7 @@
     "editor.foldingHighlight": false,
     "editor.renderLineHighlight": "none",
     "editor.occurrencesHighlight": "off",
+    // "editor.fontSize": 16,
   
     // =misc
   
@@ -42,6 +43,9 @@
     "files.exclude": {
       "**/.git": true,
       "**/.DS_Store": true,
+      // "_docs": true,
+      // "_backup": true,
+      // "_components": true,
       // "_*": true,
       // ".*": true,
       // "**/*.d.ts": true,

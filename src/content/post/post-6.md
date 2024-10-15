@@ -4,7 +4,7 @@ description: Morbi tristique senectus et netus. Id semper risus in hendrerit gra
 date: 2024-02-06
 thumbnail: ../../assets/uploads/pawel-czerwinski-6uY0KZo2zOE-unsplash.jpg
 thumbnailAlt: For placement only
-thumbnailCredit: 'Photo by <a href="https://unsplash.com/@pawel_czerwinski?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Pawel Czerwinski</a> on <a href="https://unsplash.com/@pawel_czerwinski?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>'
+thumbnailCredit: Photo by <a href="https://unsplash.com/@pawel_czerwinski?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Pawel Czerwinski</a> on <a href="https://unsplash.com/@pawel_czerwinski?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
 author: jon-doe
 tags:
   - tag one
@@ -12,6 +12,7 @@ tags:
 categories:
   - category two
 status: publish
+slug: post-vertical-thumbnail
 ---
 
 Ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.

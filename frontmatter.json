@@ -2,7 +2,7 @@
   "$schema": "https://frontmatter.codes/frontmatter.schema.json",
   "frontMatter.taxonomy.contentTypes": [
     {
-      "name": "blog",
+      "name": "post",
       "pageBundle": false,
       "previewPath": null,
       "fields": [
@@ -258,16 +258,16 @@
     {
       "title": "blog",
       "path": "[[workspace]]/src/content/post",
-      "previewPath": "'/'",
+      "previewPath": "/",
       "contentTypes": [
-        "blog"
+        "post"
       ],
       "filePrefix": null
     },
     {
       "title": "page",
       "path": "[[workspace]]/src/content/page",
-      "previewPath": "'/'",
+      "previewPath": "/",
       "contentTypes": [
         "page"
       ],
@@ -276,7 +276,7 @@
     {
       "title": "author",
       "path": "[[workspace]]/src/content/author",
-      "previewPath": "'author'",
+      "previewPath": "author",
       "contentTypes": [
         "author"
       ],
