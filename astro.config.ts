@@ -1,5 +1,5 @@
 import { defineConfig } from "astro/config";
-import type { ConfigObj } from "./src/types/config.types";
+import type { ConfigObj } from "./src/types/config";
 import remarkCallout from "remark-callout";
 import remarkToc from "remark-toc";
 // import AutoImport from "astro-auto-import";

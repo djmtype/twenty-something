@@ -8,14 +8,10 @@ import postcssJitProps from "postcss-jit-props";
 export default {
   plugins: [
     postcssGlobalData({
-      // files: [
-      //   "./node_modules/open-props/src/props.media.css",
-
-      // ],
       files: ["./node_modules/open-props/css/media-queries.css"],
     }),
     postcssPresetEnv({
-      stage: 0,
+      stage: 2,
       features: {
         "logical-properties-and-values": false,
         "prefers-color-scheme-query": false,
@@ -35,7 +31,6 @@ export default {
         files: [
           "./node_modules/open-props/open-props.min.css",
           "./node_modules/open-props/css/shadows.css",
-          // "./node_modules/open-props/src/props.colors-oklch.css",
           "./node_modules/open-props/css/color/hues.oklch.css",
           "./node_modules/open-props/css/color/palette.oklch.css",
           "./src/styles/common/gray.oklch.css",

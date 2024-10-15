@@ -1,7 +1,7 @@
 {
   "name": "twenty-something",
   "type": "module",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "scripts": {
     "add": "npm install",
     "themes": "node makeThemes.mjs",
@@ -55,11 +55,9 @@
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1"
   },
+
   "browserslist": [
-    "last 1 safari version",
-    "last 2 chrome versions",
-    "last 2 firefox versions",
-    "> 1% in US"
+    "defaults, not Firefox ESR, not IE > 0, not KaiOS > 0, not QQAndroid > 0, not op_mini all, not iOS < 16.0"
   ],
   "engines": {
     "node": ">= 20.1.0",
