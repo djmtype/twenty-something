@@ -31,30 +31,30 @@ export default defineConfig({
     ],
   },
   integrations: [
-    AutoImport({
-      imports: [
-        // { "astro-icon/components": ["Icon"] },
-        "./src/components/ButtonLink.astro",
-        // "./src/components/Card.astro",
-        // "./src/components/Grid.astro",
-        // "./src/components/Group.astro",
-        // "./src/components/Container.astro",
+    // AutoImport({
+    //   imports: [
+    //     // { "astro-icon/components": ["Icon"] },
+    //     // "./src/components/ButtonLink.astro",
+    //     // "./src/components/Card.astro",
+    //     // "./src/components/Grid.astro",
+    //     // "./src/components/Group.astro",
+    //     // "./src/components/Container.astro",
 
-        // "./src/components/Title.astro",
+    //     // "./src/components/Title.astro",
 
-        // "./src/components/Figure.astro",
+    //     // "./src/components/Figure.astro",
 
-        // "./src/components/Column.astro",
-        // "./src/components/Heading.astro",
+    //     // "./src/components/Column.astro",
+    //     // "./src/components/Heading.astro",
 
-        // "./src/components/List.astro",
-        // "./src/components/Testimonial.astro",
-        // "./src/components/PostList.astro",
-        // "./src/components/NewsletterSignup.astro",
-        // "./src/components/Hero.astro",
-        // "./src/components/Callout.astro",
-      ],
-    }),
+    //     // "./src/components/List.astro",
+    //     // "./src/components/Testimonial.astro",
+    //     // "./src/components/PostList.astro",
+    //     // "./src/components/NewsletterSignup.astro",
+    //     // "./src/components/Hero.astro",
+    //     // "./src/components/Callout.astro",
+    //   ],
+    // }),
     mdx({
       syntaxHighlight: "shiki",
       shikiConfig: {
