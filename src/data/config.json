@@ -45,7 +45,7 @@
   },
   "footer": {
     "description": "Managed with [Front Matter](https://frontmatter.codes/).  \nMade with [Astro](https://astro.build).",
-    "copyrightMessage": "**Twenty Something**. MIT License.",
+    "copyrightMessage": "**Twenty Something**. [MIT License](https://opensource.org/license/mit).",
     "copyrightYear": true
   }
 }
