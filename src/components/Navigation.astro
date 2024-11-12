@@ -43,6 +43,7 @@ const { pathname } = Astro.url
                   aria-label={`Visit the ${nav.name} page`}
                   target={nav.target}
                   rel={nav.rel || (nav.target ? "noopener noreferrer" : undefined)}
+                  {...(nav.rel === "prefetch" ? { 'data-astro-prefetch': true } : {})}
                 >
                   {nav.name}
                 </a>
@@ -80,6 +81,7 @@ const { pathname } = Astro.url
                           child.rel ||
                           (child.target ? "noopener noreferrer" : undefined)
                         }
+                        {...(child.rel === "prefetch" ? { 'data-astro-prefetch': true } : {})}
                       >
                         {child.name}
                       </a>

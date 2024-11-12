@@ -2,7 +2,7 @@ import { defineConfig } from "astro/config";
 import type { ConfigObj } from "./src/types/config";
 import remarkCallout from "remark-callout";
 import remarkToc from "remark-toc";
-import AutoImport from "astro-auto-import";
+// import AutoImport from "astro-auto-import";
 import mdx from "@astrojs/mdx";
 import config from "./src/data/config.json";
 import sitemap from "@astrojs/sitemap";
@@ -13,6 +13,7 @@ const { url: siteUrl }: ConfigObj["site"] = config.site;
 // https://astro.build/config
 export default defineConfig({
   site: siteUrl,
+  prefetch: true,
   markdown: {
     syntaxHighlight: "shiki",
     shikiConfig: {

@@ -45,8 +45,6 @@
   "devDependencies": {
     "@types/alpinejs": "3.13.10",
     "@types/alpinejs__persist": "^3.13.4",
-    "@types/github-slugger": "^2.0.0",
-    "@types/marked": "^6.0.0",
     "@types/mdx": "^2.0.13",
     "concurrently": "^9.1.0",
     "lightningcss": "^1.28.1",
@@ -55,7 +53,6 @@
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1"
   },
-
   "browserslist": [
     "defaults, not Firefox ESR, not IE > 0, not KaiOS > 0, not QQAndroid > 0, not op_mini all, not iOS < 16.0"
   ],
