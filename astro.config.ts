@@ -1,19 +1,29 @@
 import { defineConfig } from "astro/config";
-import type { ConfigObj } from "./src/types/config";
+import type { Site } from "./src/types/configuration";
+import config from "./src/data/config.json";
 import remarkCallout from "remark-callout";
 import remarkToc from "remark-toc";
 // import AutoImport from "astro-auto-import";
 import mdx from "@astrojs/mdx";
-import config from "./src/data/config.json";
+
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 import pageInsight from "astro-page-insight";
-const { url: siteUrl }: ConfigObj["site"] = config.site;
+// const { url: siteUrl }: Site = config.site;
+
+
+const siteConfig: Site = config.site;
+// const { url: siteUrl } = siteConfig;
+const siteUrl = typeof siteConfig.url === 'string' ? siteConfig.url : siteConfig.url.toString();
+
 
 // https://astro.build/config
 export default defineConfig({
   site: siteUrl,
-  prefetch: true,
+  prefetch: false,
+  experimental: {
+    contentLayer: true,
+  },
   markdown: {
     syntaxHighlight: "shiki",
     shikiConfig: {

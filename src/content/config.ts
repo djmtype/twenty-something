@@ -1,3 +1,4 @@
+import { file } from "astro/loaders";
 import { defineCollection, reference, z } from "astro:content";
 
 const page = defineCollection({
@@ -96,4 +97,61 @@ const author = defineCollection({
     }),
 });
 
-export const collections = { page, post, author };
+const configuration = defineCollection({
+  loader: file("./src/data/configuration.json"),
+  schema: () =>
+    z.object({
+      id: z.string(),
+      site: z.object({
+        title: z.string(),
+        description: z.string(),
+        url: z.string().url(),
+        language: z.string(),
+        country: z.string().length(2),
+        favicon: z.string(),
+        tagline: z.string(),
+      }),
+      metadata: z.object({
+        ogTitle: z.string(),
+        ogImage: z.object({
+          url: z.string(),
+          alt: z.string(),
+          width: z.number(),
+          height: z.number(),
+        }),
+        ogDescription: z.string(),
+        ogType: z.string(),
+        twitter: z.object({
+          handle: z.string().optional(),
+          site: z.string().optional(),
+          cardType: z.string(),
+        }),
+        robots: z.object({
+          index: z.boolean(),
+          follow: z.boolean(),
+        }),
+      }),
+      logo: z.object({
+        image: z.string(),
+        imageDarkMode: z.string(),
+        height: z.number(),
+        width: z.number(),
+      }),
+      home: z.object({
+        blogPageSize: z.number(),
+      }),
+      blog: z.object({
+        title: z.string(),
+        description: z.string(),
+        pageSize: z.number(),
+        excerptWordLength: z.number(),
+      }),
+      footer: z.object({
+        description: z.string(),
+        copyrightMessage: z.string(),
+        copyrightYear: z.union([z.boolean(), z.number()]),
+      }),
+    }),
+})
+
+export const collections = { page, post, author, configuration };

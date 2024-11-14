@@ -1,6 +1,6 @@
 ---
 
-import type { ConfigObj } from "@/types/config";
+import type { Blog } from "@/types/configuration";
 import config from "@/data/config.json";
 import ThumbnailPlaceholder from "@/components/ThumbnailPlaceholder.astro"
 import { Image } from "astro:assets"
@@ -41,7 +41,9 @@ const {
   categories,
 } = post.data
 
-const { excerptWordLength }: ConfigObj["blog"] = config.blog;
+const blogConfig: Blog = config.blog;
+
+const { excerptWordLength } = blogConfig;
 
 const { data: authorData } = await getEntry("author", author.slug)
 

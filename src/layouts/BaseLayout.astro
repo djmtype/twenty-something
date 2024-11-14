@@ -2,7 +2,7 @@
 import "@fontsource/cardo"
 import "@fontsource/cardo/400-italic.css"
 import "../styles/app.css"
-import type { ConfigObj } from "@/types/config"
+import type { Site, Metadata } from "@/types/configuration"
 import config from "@/data/config.json"
 import SkipLink from "@/components/SkipLink.astro"
 import Header from "@/components/Header.astro"
@@ -14,13 +14,15 @@ type Props = {
   thumbnail?: any
 }
 
+const siteConfig: Site = config.site;
 const {
   language: siteLanguage,
   favicon: siteFavicon,
   title: siteTitle,
-}: ConfigObj["site"] = config.site
+} = siteConfig
 
-const { ogImage, ogType, twitter }: ConfigObj["metadata"] = config.metadata
+const metadataConfig: Metadata = config.metadata;
+const { ogImage, ogType, twitter } = metadataConfig
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 

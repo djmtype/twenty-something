@@ -3,17 +3,19 @@ import Grid from "@/components/Grid.astro"
 import { parseMarkdown } from "@/utils/textConverter"
 import type { ColophonData } from "@/types/colophon"
 import colophon from "@/data/colophon.json"
-import type { ConfigObj } from "@/types/config"
+import type { Site, Footer } from "@/types/configuration"
 import config from "@/data/config.json"
 import ThemeSelector from "@/components/ThemeSelector.astro"
 
-const { title: siteTitle }: ConfigObj["site"] = config.site
+const siteConfig: Site = config.site;
+const { title: siteTitle } = siteConfig;
 
+const footerConfig: Footer = config.footer;
 const {
   description: footerDescription,
   copyrightMessage: copyrightMessage,
   copyrightYear: copyrightYear,
-}: ConfigObj["footer"] = config.footer
+} = footerConfig
 
 const colophonData: ColophonData[] = colophon
 

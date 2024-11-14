@@ -25,7 +25,7 @@ const { pathname } = Astro.url
             >
               {nav.childItems ? ( 
                 <ButtonLink aria-haspopup="true"  @click.prevent="open = !open" :aria-expanded="open.toString()" id={makeSlug(`parentlink-${nav.name}`)}
-                  class={`nav-primary__link nav-primary__link--parent ${nav.childItems?.some((child: ChildItem) => child.url === pathname || `${child.url}/` === pathname) ? "active" : "" }`}>{nav.name} <Icon name="lucide:chevron-down" /></ButtonLink>
+                  class={`button--link nav-primary__link nav-primary__link--parent ${nav.childItems?.some((child: ChildItem) => child.url === pathname || `${child.url}/` === pathname) ? "active" : "" }`}>{nav.name} <Icon name="lucide:chevron-down" /></ButtonLink>
               ) : (
                 <a
                   href={nav.url}
@@ -55,9 +55,7 @@ const { pathname } = Astro.url
                   role="list"
                   id="subnav"
                   class="nav-sub__list"
-                  x-show="open"
-                  @click.away="open = false"
-                  :aria-hidden="(!open).toString()"
+                  x-show="open" @click.away="open = false" :aria-hidden="(!open).toString()"
                 >
                   {nav.childItems.map((child: ChildItem) => (
                     <li class="nav-primary__item nav-primary__item--child">
@@ -105,9 +103,6 @@ const { pathname } = Astro.url
     display: block;
   }
 
-  /* [x-cloak] {
-    display: none;
-  } */
   .nav-wrapper {
     display: contents;
   }
@@ -116,9 +111,7 @@ const { pathname } = Astro.url
     display: flex;
     max-height: 0;
     overflow: hidden;
-
     flex: 1 1 100%;
-
     visibility: hidden;
     opacity: 0;
     transition: all ease-in 300ms;
@@ -131,14 +124,12 @@ const { pathname } = Astro.url
       display: flex;
       flex: 0 1 auto;
       align-items: center;
-      /* padding-inline: var(--size-gutter); */
     }
   }
 
   .nav-primary.show {
     opacity: 1;
     visibility: visible;
-
     max-height: 100svh;
     overflow-y: auto;
   }
@@ -158,7 +149,6 @@ const { pathname } = Astro.url
   }
 
   .nav-primary__item {
-    /* unset open props */
     max-inline-size: unset;
     display: flex;
     align-items: center;
@@ -173,6 +163,8 @@ const { pathname } = Astro.url
       padding: var(--size-2) var(--size-3);
     }
   }
+
+
 
   .nav-primary__item--parent {
     position: relative;
@@ -209,26 +201,7 @@ const { pathname } = Astro.url
   }
 
   button.nav-primary__link--parent {
-    --_text: var(--link);
-    --_surface: transparent;
-    --_surface-hover: transparent;
-    border: 0;
-    border-radius: 0;
     padding: var(--size-2) 0;
-    justify-content: start;
-    align-items: center;
-    transition: unset;
-
-    &:hover,
-    &:focus-visible {
-      color: var(--link-hover);
-      text-underline-offset: 0.25ex;
-      text-decoration: underline;
-      text-decoration-thickness: var(--border-size-2);
-    }
-    &:active {
-      transform: initial;
-    }
     @media (--lg-n-above) {
       padding: var(--size-2) var(--size-3);
     }

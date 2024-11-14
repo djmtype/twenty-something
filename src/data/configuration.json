@@ -1,0 +1,53 @@
+[{
+  "id": "siteCongfiguration",
+  "site": {
+    "title": "Twenty Something",
+    "description": "An Astro theme to help transition from Wordpress to Markdown",
+    "url": "https://twenty-something.netlify.app",
+    "language": "en",
+    "country": "US",
+    "favicon": "/images/favicon.svg",
+    "tagline": "From WP to MD"
+  },
+  "metadata": {
+    "ogTitle": "Twenty Something",
+    "ogImage": {
+      "url": "/images/og-image.jpg",
+      "alt": "logo over ambiguous smokey background",
+      "width": 1200,
+      "height": 630
+    },
+    "ogDescription": "An Astro theme to help transition from Wordpress to Markdown",
+    "ogType": "website",
+    "twitter": {
+      "handle": "",
+      "site": "",
+      "cardType": "summary_large_image"
+    },
+    "robots": {
+      "index": true,
+      "follow": true
+    }
+  },
+  "logo": {
+    "image": "/images/logo-light-theme.svg",
+    "imageDarkMode": "/images/logo-dark-theme.svg",
+    "height": 75,
+    "width": 96
+  },
+  "home": {
+    "blogPageSize": 4
+  },
+  "blog": {
+    "title": "The Blog",
+    "description": "A blog for all occassions",
+    "pageSize": 6,
+    "excerptWordLength": 30
+  },
+  "footer": {
+    "description": "Managed with [Front Matter](https://frontmatter.codes/).  \nMade with [Astro](https://astro.build).",
+    "copyrightMessage": "**Twenty Something**. [MIT License](https://opensource.org/license/mit).",
+    "copyrightYear": true
+  }
+}
+]

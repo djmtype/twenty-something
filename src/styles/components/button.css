@@ -1,10 +1,7 @@
-:where(
-    .button,
-    button,
-    input:is([type="button"], [type="submit"], [type="reset"])
-  ),
+:where(.button, button, input:is([type="button"], [type="submit"], [type="reset"])),
 :where(input[type="file"])::-webkit-file-upload-button,
 :where(input[type="file"])::file-selector-button {
+  --_padding: var(--size-2) var(--size-3);
   --_accent: initial;
   --_text: initial;
   --_size: initial;
@@ -22,11 +19,10 @@
   background: var(--_surface);
   color: var(--_text);
   border: var(--border-size-2) solid var(--_border);
-
   font-weight: var(--font-weight-bold);
-  padding: var(--size-2) var(--size-3);
-
+  padding: var(--_padding);
   border-radius: min(calc(var(--radius) / 2), var(--radius-2));
+
 
   &:where(:not(:active):hover),
   &:where(:not(:active):focus-visible) {
@@ -36,10 +32,14 @@
   &:where(:active) {
     transform: scale(0.98);
   }
-  transition: 250ms all;
+}
+
+:where(.button, button, input:is([type="button"], [type="submit"], [type="reset"])),
+:where(input[type="file"])::-webkit-file-upload-button,
+:where(input[type="file"])::file-selector-button {
+  
   --_text: var(--_text-light);
   --_surface: var(--_surface-light);
-
   --_surface-hover: var(--_surface-hover-light);
 
   @media (--OSdark) {
@@ -66,8 +66,6 @@ button:not([class="button"]),
   --_surface-hover: var(--link-hover);
 }
 
-
-
 [data-theme="light"] {
   & .button--default,
   & button {
@@ -86,6 +84,37 @@ button:not([class="button"]),
   }
 }
 
+.button--link {
+  --_text: var(--link);
+  --_surface: transparent;
+  --_surface-hover: transparent;
+  border: 0;
+  border-radius: 0;
+  justify-content: start;
+  align-items: center;
+  text-underline-offset: .25ex;
+  &:hover,
+  &:focus-visible {
+    color: var(--link-hover);
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+  &:focus-visible {
+    text-decoration: none;
+  }
+  &:active {
+    transform: initial;
+  }
+}
+
+
+[data-theme="light"] .button--link, [data-theme="dark"] .button--link {
+  --_text: var(--link);
+  --_surface: transparent;
+  --_surface-hover: transparent;
+}
+
 button,
 .button {
   &[disabled],
@@ -93,12 +122,6 @@ button,
     opacity: 0.7;
     --_surface-hover: var(--_surface);
   }
-}
-
-.button--current {
-    background: var(--_surface-hover);
-    border-color: var(--_surface-hover);
-    cursor: default;
 }
 
 [data-theme="light"],
@@ -113,6 +136,17 @@ button,
   }
 }
 
+.button--current {
+  background: var(--_surface-hover);
+  border-color: var(--_surface-hover);
+  cursor: default;
+}
+
+
+
 .button--large {
   --_size: var(--font-size-2);
 }
+
+
+
