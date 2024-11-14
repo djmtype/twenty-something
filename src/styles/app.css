@@ -10,8 +10,8 @@
 
 
 @import "common/base.css";
-@import "themes/theme.css";
-@import "themes/global.css";
+@import "theme/theme.css";
+/* @import "themes/global.css"; */
 @import "common/normalizer.css";
 @import "common/syntax.css";
 @import "components/button.css";

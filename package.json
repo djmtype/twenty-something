@@ -1,13 +1,13 @@
 {
   "name": "twenty-something",
   "type": "module",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "scripts": {
     "add": "npm install",
-    "themes": "node makeThemes.mjs",
-    "dev": "concurrently \"onchange './src/data/tokens.json' -- npm run themes\" \"npm run themes\" \"astro dev\"",
+    "theme": "node generateCss.mjs",
+    "dev": "concurrently \"onchange './src/data/tokens.json' -- npm run theme\" \"npm run theme\" \"astro dev\"",
     "start": "astro dev",
-    "build": "npm run themes && astro check && astro build",
+    "build": "npm run theme && astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "test": "node -v",
