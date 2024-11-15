@@ -189,8 +189,10 @@ p:has(> img:nth-child(1)) {
 
 }
 
+
 p:has(> img:nth-child(1)) img {
- border: var(--border-size-1) solid var(--separator);
+ /* border: var(--border-size-1) solid var(--separator); */
+ box-shadow: var(--shadow-3);
 }
 
 p:has(> img:nth-child(1)) img {

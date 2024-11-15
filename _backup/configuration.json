@@ -41,7 +41,7 @@
   "blog": {
     "title": "The Blog",
     "description": "A blog for all occassions",
-    "pageSize": 6,
+    "pageSize": 3,
     "excerptWordLength": 30
   },
   "footer": {

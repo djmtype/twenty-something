@@ -1,4 +1,5 @@
 * {
+
 	--gray-0: oklch(
 		100% calc(0.01 * var(--gray-chroma, 0))
 			calc(var(--palette-hue) + (0 * var(--palette-hue-rotate-by)))

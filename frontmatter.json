@@ -546,7 +546,7 @@
         "properties": {
           "props": {
             "type": "object",
-            "title": "Props",
+            "title": "Props",   
             "properties": {
               "global": {
                 "type": "object",

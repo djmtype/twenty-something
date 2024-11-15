@@ -30,10 +30,10 @@ export default {
       {
         files: [
           "./node_modules/open-props/open-props.min.css",
-          "./node_modules/open-props/css/shadows.css",
+          // "./node_modules/open-props/css/shadows.css",
           "./node_modules/open-props/css/color/hues.oklch.css",
           "./node_modules/open-props/css/color/palette.oklch.css",
-          "./src/styles/common/gray.oklch.css",
+          "./src/styles/theme/gray.oklch.css",
           "./src/styles/theme/global.css",
         ],
       },

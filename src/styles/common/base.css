@@ -22,3 +22,12 @@
   --auto: auto;
   --text-decoration-thickness: .15ex;
 }
+
+/* Mimic Open Props shadow strength with theme switcher */
+[data-theme="light"] * {
+  --shadow-strength: 1%;
+}
+
+[data-theme="dark"] * {
+  --shadow-strength: 25%;
+}

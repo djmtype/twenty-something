@@ -8,9 +8,11 @@
 
 /* @import "/node_modules/open-props/src/props.colors-oklch-hues.css"; */
 
+@import "/node_modules/open-props/css/shadows.css";
 
 @import "common/base.css";
-@import "theme/theme.css";
+@import "theme/settings.css";
+
 /* @import "themes/global.css"; */
 @import "common/normalizer.css";
 @import "common/syntax.css";
@@ -23,9 +25,6 @@
 @import "utilities/section.css";
 @import "utilities/container.css";
 @import "utilities/link-block.css";
-
-
-
 
 
 
