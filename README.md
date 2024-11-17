@@ -2,8 +2,7 @@
 
 ### From Wordpress to Astro 
 
-An Astro template loosely based on Wordpress' Twenty Twenty-Four theme. Uses [Open Props](https://open-props.style/) for styling. Includes optional [FrontMatter CMS](https://frontmatter.codes/) integration. 
-
+An Astro template loosely based on Wordpress' Twenty Twenty-Four theme.  
 [Read the Guide](https://twenty-something.netlify.app/guide)
 
 Features:
@@ -12,6 +11,8 @@ Features:
 - [x] Sitemap support
 - [x] RSS Feed support
 - [x] Markdown & MDX support
+- [x] [Open Props](https://open-props.style/) for styling
+- [x] [FrontMatter CMS](https://frontmatter.codes/) integration
 
 ## 🚀 Project Structure
 
@@ -71,3 +72,4 @@ Check out [our documentation](https://docs.astro.build) or jump into our [Discor
 - [ ] Add OpenGraph image based on featured image
 - [ ] Add basic search
 - [ ] Add [Web3 form](https://web3forms.com/)
+- [ ] Create a Netlify template
