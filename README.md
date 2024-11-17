@@ -25,9 +25,9 @@ Inside of your Astro project, you'll see the following folders and files:
 │   ├── styles/
 │   ├── types/
 │   └── utils/
-├── astro.config.mjs
+├── astro.config.ts
 ├── frontmatter.json
-├── makeThemes.mjs
+├── generateStyle.mjs
 ├── package.json
 ├── postcss.config.mjs
 ├── README.md
@@ -58,3 +58,9 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Learn more about Astro
 
 Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## Todo 
+
+- [ ] Add page transitions
+- [ ] Add Open Graph image based on featured image
+- [ ] Add basic search

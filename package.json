@@ -1,10 +1,10 @@
 {
   "name": "twenty-something",
   "type": "module",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "scripts": {
     "add": "npm install",
-    "theme": "node generateCss.mjs",
+    "theme": "node generateStyle.mjs",
     "dev": "concurrently \"onchange './src/data/tokens.json' -- npm run theme\" \"npm run theme\" \"astro dev\"",
     "start": "astro dev",
     "build": "npm run theme && astro check && astro build",

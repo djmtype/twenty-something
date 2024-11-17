@@ -1,14 +1,15 @@
 ---
-import type { ConfigObj } from "@/types/config"
+import type { Site } from "@/types/configuration"
 import config from "@/data/config.json"
 import BackLink from "@/components/BackLink.astro"
 
 import BaseLayout from "@/layouts/BaseLayout.astro"
 
-const { title, description }: ConfigObj["site"] = config.site
+const siteConfig: Site = config.site;
+const { title, description } = siteConfig
 ---
 
-<BaseLayout title={`404 ${title}`} description={description}>
+<BaseLayout title={`Error 404 | ${title}`} description={description}>
   <section class="section">
     <div class="container flow">
       <h1>Error 404</h1>

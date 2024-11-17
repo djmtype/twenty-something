@@ -1,5 +1,5 @@
 ---
-import type { ConfigObj } from "@/types/config"
+import type { Blog, Site } from "@/types/configuration"
 import config from "@/data/config.json"
 
 import type { GetStaticPaths } from "astro"
@@ -14,12 +14,15 @@ import PaginationArchive from "@/components/PaginationArchive.astro"
 
 import BaseLayout from "@/layouts/BaseLayout.astro"
 
-const { title: blogTitle, description: blogDescription }: ConfigObj["blog"] = config.blog
+const blogConfig: Blog = config.blog;
+const { title: blogTitle, description: blogDescription } = blogConfig
 
-const { description: siteDescription }: ConfigObj["site"] = config.site
+const siteConfig: Site = config.site;
+const { description: siteDescription } = siteConfig
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const { pageSize: blogPageSize }: ConfigObj["blog"] = config.blog
+  const blogConfig: Blog = config.blog
+  const { pageSize: blogPageSize } = blogConfig
 
   const postCollection = await getCollection("post")
   const allPosts = sortByDate(postCollection)
