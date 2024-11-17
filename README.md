@@ -4,10 +4,10 @@ From Wordpress to Astro
 
 Features:
 
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+- [x] SEO-friendly with canonical URLs and OpenGraph data
+- [x] Sitemap support
+- [x] RSS Feed support
+- [x] Markdown & MDX support
 
 ## 🚀 Project Structure
 
@@ -59,8 +59,11 @@ All commands are run from the root of the project, from a terminal:
 
 Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
 
-## Todo 
+---
+
+## ✅ Todo 
 
 - [ ] Add page transitions
-- [ ] Add Open Graph image based on featured image
+- [ ] Add OpenGraph image based on featured image
 - [ ] Add basic search
+- [ ] Add [Web3 form](https://web3forms.com/)
