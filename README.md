@@ -1,6 +1,10 @@
 # Twenty Something Theme
 
-From Wordpress to Astro
+### From Wordpress to Astro 
+
+An Astro template loosely based on Wordpress' Twenty Twenty-Four theme. Uses [Open Props](https://open-props.style/) for styling. Includes optional [FrontMatter CMS](https://frontmatter.codes/) integration. 
+
+[Read the Guide](https://twenty-something.netlify.app/guide)
 
 Features:
 
