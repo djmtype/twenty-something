@@ -22,14 +22,16 @@ export async function getStaticPaths() {
   )
 
   const paths = authors.map((author) => ({
-    params: { name: author.slug },
+    params: {
+      name: author.slug,
+    },
     props: { author },
   }))
   return paths
 }
 
 const { author } = Astro.props
-const { name, description, thumbnail } = author.data
+const { name, description, thumbnail, socialLinks } = author.data
 const { Content } = await author.render()
 const posts = await getCollection(
   "post",
@@ -104,6 +106,69 @@ const postFilterByAuthor = posts.filter(
 
           <div class="author__summary flow">
             <Content />
+            {
+              socialLinks && (
+                <ul role="list" class="author__social-links">
+                  {socialLinks
+                    .map((link) => {
+                      let label = ""
+                      let icon = null
+
+                      if (link?.includes("facebook")) {
+                        label = "Facebook"
+                        icon = <Icon name="ri:facebook-fill" />
+                      } else if (
+                        link?.includes("twitter") ||
+                        link?.includes("/x")
+                      ) {
+                        label = "X"
+                        icon = <Icon name="ri:twitter-x-fill" />
+                      } else if (link?.includes("instagram")) {
+                        label = "Instagram"
+                        icon = <Icon name="ri:instagram-fill" />
+                      } else if (link?.includes("linkedin")) {
+                        label = "LinkedIn"
+                        icon = <Icon name="ri:linkedin-fill" />
+                      } else if (link?.includes("youtube")) {
+                        label = "YouTube"
+                        icon = <Icon name="ri:youtube-fill" />
+                      } else {
+                        label = "Link" // Default label
+                        icon = <Icon name="ri:link" />
+                      }
+
+                      return { link, label, icon }
+                    })
+                    .sort((a, b) => {
+                      // Sort by label, but push "Link" to the end
+                      if (a.label === "Link" && b.label !== "Link") return 1
+                      if (b.label === "Link" && a.label !== "Link") return -1
+                      return a.label.localeCompare(b.label)
+                    })
+                    .map(({ link, label, icon }) => (
+                      <li class="social-links__item">
+                        <a
+                          class="social-links__link"
+                          href={link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {icon} <span aria-hidden="true">{link}</span>{" "}
+                          {label !== "Link" ? (
+                            <span class="sr-only">
+                              Visit {name} on {label}
+                            </span>
+                          ) : (
+                            <span class="sr-only">
+                              Visit {name} on {link}
+                            </span>
+                          )}
+                        </a>
+                      </li>
+                    ))}
+                </ul>
+              )
+            }
           </div>
         </div>
       </Grid>
@@ -112,6 +177,19 @@ const postFilterByAuthor = posts.filter(
 </BaseLayout>
 
 <style>
+  .social-links__item {
+    font-size: var(--font-size-1);
+  }
+  .social-links__link {
+    display: inline-flex;
+    gap: 1ch;
+    align-items: center;
+  }
+
+  .social-links svg {
+    height: 1.25em;
+    width: 1.25em;
+  }
   .testimonial--main {
     --_items-margin-inline: auto;
   }

@@ -1,28 +1,41 @@
 ---
-import { Code } from 'astro/components';
-
+import type {
+  BuiltinLanguage,
+  LanguageRegistration,
+  SpecialLanguage,
+  ThemeRegistration,
+  ThemeRegistrationRaw,
+} from "shiki";
+import { Code } from "astro/components";
 
 type Props = {
-    file: any
-    lang?: any
-    theme?: any
-    summary?: string
-    openState?: boolean
-    path?: string
+  file: any
+  lang?: BuiltinLanguage | SpecialLanguage | LanguageRegistration
+  theme: ThemeRegistration | ThemeRegistrationRaw
+  summary?: string
+  openState?: boolean
+  path: string
 }
 
-const { file, lang = 'json', theme = 'css-variables', summary = 'Summary', openState, path } = Astro.props as Props
+const {
+  file,
+  lang = "json",
+  theme = "css-variables",
+  summary = "Summary",
+  openState,
+  path,
+} = Astro.props as Props
 ---
 
-<details open={openState ? "" : undefined}>
-<summary>{summary}</summary>
-{path && <code class="path">{path}</code>}
-<Code code={file} lang={lang} theme={theme} />
+<details open={openState ? true : undefined}>
+  <summary>{summary}</summary>
+  {path && <code class="path">{path}</code>}
+  <Code code={file} lang={lang} theme={theme} />
 </details>
 
 <style>
-.path {
+  .path {
     color: var(--ink-muted);
     font-style: italic;
-}
+  }
 </style>

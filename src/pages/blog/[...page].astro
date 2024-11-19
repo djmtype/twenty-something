@@ -15,7 +15,7 @@ import PaginationArchive from "@/components/PaginationArchive.astro"
 import BaseLayout from "@/layouts/BaseLayout.astro"
 
 const blogConfig: Blog = config.blog;
-const { title: blogTitle, description: blogDescription } = blogConfig
+const { title: blogTitle, description: blogDescription, endpoint: blogEndpoint } = blogConfig
 
 const siteConfig: Site = config.site;
 const { description: siteDescription } = siteConfig
@@ -55,12 +55,12 @@ const { page } = Astro.props
         <Container>
           <PaginationArchive
             class="column-breakout"
-            firstPage={page.url.prev ? "/blog" : null}
+            firstPage={page.url.prev ? `${blogEndpoint ? blogEndpoint : "/blog"}` : null}
             previousPage={page.url.prev ? page.url.prev : null}
             nextPage={page.url.next ? page.url.next : null}
             lastPage={
               page.url.next
-                ? `/blog/${Math.ceil(page.total / page.size)}`
+                ? `${blogEndpoint ? blogEndpoint : "/blog"}/${Math.ceil(page.total / page.size)}`
                 : null
             }
             currentPage={page.currentPage}

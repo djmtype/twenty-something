@@ -21,7 +21,8 @@ export default {
         "focus-within-pseudo-class": false,
         "focus-visible-pseudo-class": false,
         "color-functional-notation": false,
-        "oklab-function": false
+        "oklab-function": false,
+        "light-dark-function": false
       },
       autoprefixer: false,
     }),

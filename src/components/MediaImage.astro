@@ -1,0 +1,13 @@
+---
+type Props = {
+  size?: "default" | "large"
+  caption?: string
+}
+
+const { size = 'default', caption } = Astro.props
+---
+
+<figure class={size === `large` ? `column-breakout` : null}>
+  <slot />
+  {caption && (<figcaption set:html={caption}></figcaption>)}
+</figure>

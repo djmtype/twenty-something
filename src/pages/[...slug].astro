@@ -10,7 +10,9 @@ export async function getStaticPaths() {
   const postCollection = await getCollection("post")
   const postEntries = sortByDate(postCollection)
 
-  const pageEntries = await getCollection("page")
+  const pageEntries = await getCollection("page", ({data}) => {
+    return data.status === 'publish';
+  })
 
   const allEntries = [...postEntries, ...pageEntries]
 
@@ -34,6 +36,8 @@ type Props = {
 
 const { entry, prevEntry, nextEntry } = Astro.props
 const { Content } = await entry.render()
+import { Tweet, Vimeo, YouTube, BaselineStatus, BlueskyPost, LinkPreview } from 'astro-embed';
+import MediaImage from "@/components/MediaImage.astro"
 ---
 
 {
@@ -48,7 +52,7 @@ const { Content } = await entry.render()
     </PostWrapper>
   ) : entry.collection === "page" ? (
     <PageWrapper frontmatter={entry}>
-      <Content />
+      <Content components={{ YouTube, Tweet, Vimeo, BaselineStatus, BlueskyPost, LinkPreview, MediaImage }} />
     </PageWrapper>
   ) : undefined
 }

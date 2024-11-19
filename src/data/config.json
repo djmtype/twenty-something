@@ -41,7 +41,8 @@
     "title": "The Blog",
     "description": "A blog for all occassions",
     "pageSize": 3,
-    "excerptWordLength": 30
+    "excerptWordLength": 30,
+    "endpoint": "/blog"
   },
   "footer": {
     "description": "Managed with [Front Matter](https://frontmatter.codes/).  \nMade with [Astro](https://astro.build).",

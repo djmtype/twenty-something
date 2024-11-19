@@ -3,6 +3,7 @@ import type { Site } from "./src/types/configuration";
 import config from "./src/data/config.json";
 import remarkCallout from "remark-callout";
 import remarkToc from "remark-toc";
+import rehypeUnwrapImages from 'rehype-unwrap-images';
 // import AutoImport from "astro-auto-import";
 import mdx from "@astrojs/mdx";
 
@@ -72,6 +73,9 @@ export default defineConfig({
         theme: "css-variables",
         // wrap: true,
       },
+      rehypePlugins: [
+        rehypeUnwrapImages
+      ]
     }),
     sitemap(),
     icon({

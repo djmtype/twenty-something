@@ -51,6 +51,7 @@ export type Blog = {
   description: string;
   pageSize: number;
   excerptWordLength: number;
+  endpoint: string;
 };
 
 

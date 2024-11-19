@@ -85,6 +85,7 @@ const author = defineCollection({
       name: z.string(),
       website: z.string().url().optional(),
       email: z.string().email().optional(),
+      socialLinks: z.array(z.string().optional()).optional(),
       description: z.string().optional(),
       type: z.string().default("author"),
       thumbnail: image()

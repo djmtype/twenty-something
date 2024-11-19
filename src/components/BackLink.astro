@@ -1,9 +1,16 @@
 ---
 import StyledLink from "@/components/StyledLink.astro"
 import { Icon } from "astro-icon/components"
+import config from "@/data/config.json"
+import type { Blog } from "@/types/configuration"
+
+const blogConfig: Blog = config.blog;
+const { endpoint: blogEndpoint } = blogConfig
+
+const { class: className, ...restProps } = Astro.props
 ---
 
-<div x-data="{ hasHistory: window.history.length > 1 }">
+<div x-data="{ hasHistory: window.history.length > 1 }" {...restProps}>
   <StyledLink x-show="hasHistory">
     <Icon name="lucide:move-left" style="color: var(--link)" />
     <a role="button" href="#0" @click.prevent="window.history.back()">Go Back</a
@@ -12,6 +19,6 @@ import { Icon } from "astro-icon/components"
 
   <StyledLink x-show="!hasHistory">
     <Icon name="lucide:move-left" style="color: var(--link)" />
-    <a href="/blog"> Go Back</a>
+    <a href={blogEndpoint ? blogEndpoint : `/blog`}> Go Back</a>
   </StyledLink>
 </div>

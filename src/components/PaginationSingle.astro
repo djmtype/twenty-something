@@ -4,12 +4,21 @@ import { Icon } from "astro-icon/components"
 import StyledLink from "@/components/StyledLink.astro"
 import "@/styles/components/pagination.css"
 
+import config from "@/data/config.json"
+
 import { type CollectionEntry } from "astro:content"
+import type { Blog } from "@/types/configuration"
 
 type Props = {
   prevEntry: CollectionEntry<"post">
   nextEntry: CollectionEntry<"post">
 }
+
+
+const blogConfig: Blog = config.blog;
+const { endpoint: blogEndpoint } = blogConfig
+
+
 
 const { prevEntry, nextEntry } = Astro.props
 ---
@@ -39,7 +48,7 @@ const { prevEntry, nextEntry } = Astro.props
       <li class="pagination__item">
         <StyledLink>
           <Icon aria-hidden="true" name="lucide:layout-grid" />
-          <a href="/blog">View all posts</a>
+          <a href={blogEndpoint ? blogEndpoint : `/blog`}>View all posts</a>
         </StyledLink>
       </li>
 

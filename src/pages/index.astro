@@ -1,8 +1,6 @@
 ---
-// import { getEntry } from "astro:content";
-
 import PostCard from "@/components/PostCard.astro"
-import type { Home, Site } from "@/types/configuration"
+import type { Home, Site, Blog } from "@/types/configuration"
 import ButtonLink from "@/components/ButtonLink.astro"
 import config from "@/data/config.json"
 import Grid from "@/components/Grid.astro"
@@ -14,6 +12,7 @@ import { getCollection } from "astro:content"
 import Container from "@/components/Container.astro"
 import Group from "@/components/Group.astro"
 import { Icon } from "astro-icon/components"
+
 
 const postCollection = await getCollection("post")
 
@@ -27,13 +26,10 @@ const { blogPageSize: pageSize } = homeConfig
 const siteConfig: Site = config.site;
 const { title: siteTitle, description: siteDescription } = siteConfig
 
+const blogConfig: Blog = config.blog;
+const { endpoint: blogEndpoint } = blogConfig
+
 const posts = filteredPosts.slice(0, pageSize || 4)
-
-// const theConfigData = await getEntry("configuration", "siteCongfiguration");
-
-// const { data } = theConfigData;
-// console.log(data.site.title)
-
 
 ---
 
@@ -59,7 +55,7 @@ const posts = filteredPosts.slice(0, pageSize || 4)
     </Container>
 
     <Container>
-      <ButtonLink class="button--block" href="/blog" variant="accent"
+      <ButtonLink class="button--block" href={blogEndpoint ? blogEndpoint : `/blog`} variant="accent"
         ><Icon name="lucide:layout-grid" /> View all posts</ButtonLink
       >
     </Container>

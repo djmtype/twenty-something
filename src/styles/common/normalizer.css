@@ -8,11 +8,6 @@
   background-color: var(--surface-2);
 }
 
-:where(body) {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 
 :where(ul[role="list"], ol[role="list"]) {
   list-style: none;
@@ -86,7 +81,7 @@
   color: var(--ink-muted);
 }
 
-[disabled] {
+:where([disabled]) {
   cursor: not-allowed;
 }
 
@@ -148,11 +143,11 @@
   background-color: var(--separator);
 }
 
-:target {
-  scroll-margin-block-start: calc(1ex + 1svh);
+:where(:target) {
+  scroll-margin-block-start: 2ex;
 }
 
-del {
+:where(del) {
   color: var(--ink-muted);
   text-decoration-color: var(--danger);
   background: initial;

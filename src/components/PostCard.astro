@@ -1,8 +1,7 @@
 ---
-
+import { Icon } from "astro-icon/components"
 import type { Blog } from "@/types/configuration";
 import config from "@/data/config.json";
-import ThumbnailPlaceholder from "@/components/ThumbnailPlaceholder.astro"
 import { Image } from "astro:assets"
 import { makeExcerpt, makePlainText, breakLongTitle, makeSmartText } from "@/utils/textConverter"
 import FormattedDate from "@/components/FormattedDate.astro"
@@ -75,9 +74,9 @@ const plainText = await makePlainText(postBody)
     ) :
     (
       
-    <figure class="card__figure--placeholder">
-  <ThumbnailPlaceholder />
-  </figure>
+    <div class="card__figure--placeholder">
+  <Icon name="lucide:image" />
+  </div>
     )
   }
 
@@ -108,6 +107,17 @@ const plainText = await makePlainText(postBody)
       text-decoration: none;
     }
   }
+
+  .card__figure--placeholder svg {
+  width: 100%;
+  height: auto;
+  
+}
+
+
+  .card__figure--placeholder svg :is(rect, circle, path) {
+  stroke-width: .05em;
+}
 
 </style>
 
@@ -160,15 +170,17 @@ const plainText = await makePlainText(postBody)
   
 
   .card__figure--placeholder {
+    display: grid;
+    gap: var(--size-2);
+    place-items: center;
     position: relative;
-    color: var(--accent);
+    color: var(--surface-2);
     aspect-ratio: 1/1;
     padding: clamp(var(--size-3), 3vw, var(--size-gutter));
     grid-template-areas: "stack";
-    overflow: hidden;
+    overflow: clip;
     border-radius: var(--radius);
     background: var(--surface-overlay);
-
   }
 
 

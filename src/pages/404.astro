@@ -1,21 +1,26 @@
 ---
-import type { Site } from "@/types/configuration"
+import { getEntry } from "astro:content";
 import config from "@/data/config.json"
-import BackLink from "@/components/BackLink.astro"
+import type { Site } from "@/types/configuration"
+
 
 import BaseLayout from "@/layouts/BaseLayout.astro"
 
 const siteConfig: Site = config.site;
 const { title, description } = siteConfig
+
+const error404 = await getEntry('page', '404');
+
+const { Content } = await error404.render()
 ---
 
-<BaseLayout title={`Error 404 | ${title}`} description={description}>
+<BaseLayout title={`${error404?.data.title} | ${title}`} description={description}>
   <section class="section">
     <div class="container flow">
-      <h1>Error 404</h1>
-      <p>I don't know how you got here, but go back from whence you came.</p>
+      <h1>{error404?.data.title}</h1>
+      <Content />
 
-      <BackLink />
+      
     </div>
   </section>
 </BaseLayout>

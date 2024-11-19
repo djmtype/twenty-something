@@ -1,0 +1,16 @@
+---
+title: "404 Error"
+date: 2022-07-15
+description: 'This page does not exist.' 
+status: draft
+---
+import BackLink from "@/components/BackLink.astro";
+
+<p><span style={{ fontSize: 'var(--font-size-6)' }}>🚨</span> 
+<span style={{ fontSize: 'var(--font-size-3)' }}>I don't know how you got here, but go back from whence you came.</span></p>
+
+<BackLink class="flow" style={{ '--_flow': 'var(--size-fluid-5)' }} />
+
+{import.meta.env.DEV ?
+<p style={{ color: 'var(--ink-muted)' }}><em>This content can be modified in the <code>./src/content/page/404.mdx</code> file.</em></p>
+ : undefined}
