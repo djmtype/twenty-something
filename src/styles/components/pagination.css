@@ -38,9 +38,9 @@
 }
 
 .pagination__item .styled-link {
-  --_align-items: baseline;
+  --_align-items: center;
 }
 
-.pagination__item .styled-link [data-icon] {
+/* .pagination__item .styled-link [data-icon] {
   transform: translateY(15%);
-}
+} */

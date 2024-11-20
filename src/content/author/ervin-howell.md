@@ -6,12 +6,17 @@ email: ehowell@breaker.biz
 website: https://breaker.biz
 type: author
 thumbnail: "../../assets/uploads/pexels-rene-asmussen-25758.jpg"
-socialLinks: 
-  - https://facebook.com
-  - https://twitter.com
-  - https://mtype.com
-  - https://www.youtube.com
-  - https://linkedin.com
+links: 
+  - name: Facebook
+    url: https://facebook.com
+  - name: X
+    url: https://twitter.com
+  - name: YouTube
+    url: https://youtube.com
+  - name: Mastodon
+    url: https://mastodon.social
+  - name: LinkedIn
+    url: https://linkedin.com
 status: publish
 ---
 

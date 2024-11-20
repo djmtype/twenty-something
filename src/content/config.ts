@@ -78,6 +78,8 @@ const post = defineCollection({
     }),
 });
 
+
+
 const author = defineCollection({
   type: "content",
   schema: ({ image }) =>
@@ -85,7 +87,15 @@ const author = defineCollection({
       name: z.string(),
       website: z.string().url().optional(),
       email: z.string().email().optional(),
-      socialLinks: z.array(z.string().optional()).optional(),
+      links: z.array(
+        z.object({
+          name: z.string(),
+          url: z.string().url(),
+        }).refine((data) => data.name && data.url, {
+          message: "Each link must have a valid name and url",
+        })
+      ).optional(),
+      
       description: z.string().optional(),
       type: z.string().default("author"),
       thumbnail: image()

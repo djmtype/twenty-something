@@ -31,7 +31,7 @@ export async function getStaticPaths() {
 }
 
 const { author } = Astro.props
-const { name, description, thumbnail, socialLinks } = author.data
+const { name, description, thumbnail, links } = author.data
 const { Content } = await author.render()
 const posts = await getCollection(
   "post",
@@ -107,65 +107,74 @@ const postFilterByAuthor = posts.filter(
           <div class="author__summary flow">
             <Content />
             {
-              socialLinks && (
-                <ul role="list" class="author__social-links">
-                  {socialLinks
-                    .map((link) => {
-                      let label = ""
-                      let icon = null
+              links && (
+                <ul role="list" class="social-links">
+                  {links.map(({ name, url }) => {
+                    if (!name || !url) return null
+                    const lowerCaseName = name.toLowerCase()
+                    let iconName = ""
+                    switch (lowerCaseName) {
+                      case "facebook":
+                        iconName = "ri:facebook-fill"
+                        break
+                      case "twitter":
+                        iconName = "ri:twitter-x-fill"
+                        break
+                      case "x":
+                        iconName = "ri:twitter-x-fill"
+                        break
+                      case "instagram":
+                        iconName = "ri:instagram-fill"
+                        break
+                      case "youtube":
+                        iconName = "ri:youtube-fill"
+                        break
+                      case "linkedin":
+                        iconName = "ri:linkedin-fill"
+                        break
+                      case "mastodon":
+                        iconName = "ri:mastodon-fill"
+                        break
+                      case "bluesky":
+                        iconName = "ri:bluesky-fill"
+                        break
+                        case "github":
+                        iconName = "ri:github-fill"
+                        break
+                        case "pinterest":
+                        iconName = "ri:pinterest-fill"
+                        break
+                        case "raindrop":
+                        iconName = "ri:cloudy-2-fill"
+                        break
+                        case "tiktok":
+                        iconName = "ri:tiktok-fill"
+                        break
+                        case "snapchat":
+                        iconName = "ri:snapchat-fill"
+                        break
+                        case "reddit":
+                        iconName = "ri:reddit-fill"
+                        break
+                        case "threads":
+                        iconName = "ri:threads-fill"
+                        break
+                      // Add more cases as needed for other icons
+                      default:
+                        iconName = "ri:link"
+                        break
+                    }
 
-                      if (link?.includes("facebook")) {
-                        label = "Facebook"
-                        icon = <Icon name="ri:facebook-fill" />
-                      } else if (
-                        link?.includes("twitter") ||
-                        link?.includes("/x")
-                      ) {
-                        label = "X"
-                        icon = <Icon name="ri:twitter-x-fill" />
-                      } else if (link?.includes("instagram")) {
-                        label = "Instagram"
-                        icon = <Icon name="ri:instagram-fill" />
-                      } else if (link?.includes("linkedin")) {
-                        label = "LinkedIn"
-                        icon = <Icon name="ri:linkedin-fill" />
-                      } else if (link?.includes("youtube")) {
-                        label = "YouTube"
-                        icon = <Icon name="ri:youtube-fill" />
-                      } else {
-                        label = "Link" // Default label
-                        icon = <Icon name="ri:link" />
-                      }
-
-                      return { link, label, icon }
-                    })
-                    .sort((a, b) => {
-                      // Sort by label, but push "Link" to the end
-                      if (a.label === "Link" && b.label !== "Link") return 1
-                      if (b.label === "Link" && a.label !== "Link") return -1
-                      return a.label.localeCompare(b.label)
-                    })
-                    .map(({ link, label, icon }) => (
+                    return (
                       <li class="social-links__item">
-                        <a
-                          class="social-links__link"
-                          href={link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          {icon} <span aria-hidden="true">{link}</span>{" "}
-                          {label !== "Link" ? (
-                            <span class="sr-only">
-                              Visit {name} on {label}
-                            </span>
-                          ) : (
-                            <span class="sr-only">
-                              Visit {name} on {link}
-                            </span>
-                          )}
+                        <a class="social-links__link" href={url} target="_blank" rel="noopener noreferrer">
+                          {iconName && <Icon name={iconName} />}{" "}
+                          {/* Render the icon if there's a match */}
+                          {name}
                         </a>
                       </li>
-                    ))}
+                    )
+                  })}
                 </ul>
               )
             }

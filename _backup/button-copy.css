@@ -1,25 +1,15 @@
-[data-theme="light"] &,
-[data-theme="dark"] &,
-:where(
-    .button,
-    button,
-    input:is([type="button"], [type="submit"], [type="reset"])
-  ),
+:where(.button, button, input:is([type="button"], [type="submit"], [type="reset"])),
 :where(input[type="file"])::-webkit-file-upload-button,
 :where(input[type="file"])::file-selector-button {
-  --_ink: light-dark(var(--_ink-light), var(--_ink-dark));
-  --_accent: light-dark(var(--_accent-light), var(--_accent-dark));
-  --_surface: light-dark(var(--_surface-light), var(--_surface-dark));
-  --_surface-hover: light-dark(
-    var(--_surface-hover-light),
-    var(--_surface-hover-dark)
-  );
-  --_border-color: light-dark(var(--_surface-light), var(--_surface-dark));
   --_padding: var(--size-2) var(--size-3);
+  --_accent: initial;
+  --_text: initial;
   --_size: initial;
   --_display: inline-flex;
   --_gap: var(--size-relative-2);
+  --_border: var(--_surface);
   --_justify-content: center;
+
   gap: var(--_gap);
   display: var(--_display);
   text-align: center;
@@ -27,11 +17,12 @@
   text-decoration: none;
   font-size: var(--_size);
   background: var(--_surface);
-  color: var(--_ink);
-  border: var(--border-size-2) solid var(--_border-color);
+  color: var(--_text);
+  border: var(--border-size-2) solid var(--_border);
   font-weight: var(--font-weight-bold);
   padding: var(--_padding);
   border-radius: min(calc(var(--radius) / 2), var(--radius-2));
+
 
   &:where(:not(:active):hover),
   &:where(:not(:active):focus-visible) {
@@ -40,32 +31,59 @@
   }
 }
 
+:where(.button, button, input:is([type="button"], [type="submit"], [type="reset"])),
+:where(input[type="file"])::-webkit-file-upload-button,
+:where(input[type="file"])::file-selector-button {
+  
+  --_text: light-dark(var(--_text-light), var(--_text-dark));
+  --_surface: light-dark(var(--_surface-light), var(--_surface-dark));
+  --_surface-hover: light-dark(var(--_surface-hover-light), var(--_surface-hover-light));
+}
+
 button:not([class="button"]),
 .button--default {
   --_surface-light: var(--gray-14);
-  --_ink-light: var(--gray-1);
+  --_text-light: var(--gray-1);
   --_surface-hover-light: var(--gray-12);
 
   --_surface-dark: var(--gray-3);
-  --_ink-dark: var(--gray-14);
+  --_text-dark: var(--gray-14);
   --_surface-hover-dark: var(--gray-1);
 }
 
 .button--accent {
   --_surface: var(--link);
-  --_ink: var(--surface-2);
+  --_text: var(--surface-2);
   --_surface-hover: var(--link-hover);
 }
 
+[data-theme="light"] {
+  & .button--default,
+  & button {
+    --_text: var(--_text-light);
+    --_surface: var(--_surface-light);
+    --_surface-hover: var(--_surface-hover-light);
+  }
+}
+
+[data-theme="dark"] {
+  & .button--default,
+  & button {
+    --_text: var(--_text-dark);
+    --_surface: var(--_surface-dark);
+    --_surface-hover: var(--_surface-hover-dark);
+  }
+}
+
 .button--link {
-  --_ink: var(--link);
+  --_text: var(--link);
   --_surface: transparent;
   --_surface-hover: transparent;
   border: 0;
   border-radius: 0;
   justify-content: start;
   align-items: center;
-  text-underline-offset: 0.25ex;
+  text-underline-offset: .25ex;
   &:hover,
   &:focus-visible {
     color: var(--link-hover);
@@ -76,6 +94,16 @@ button:not([class="button"]),
   &:focus-visible {
     text-decoration: none;
   }
+  &:active {
+    transform: initial;
+  }
+}
+
+
+[data-theme="light"] .button--link, [data-theme="dark"] .button--link {
+  --_text: var(--link);
+  --_surface: transparent;
+  --_surface-hover: transparent;
 }
 
 button,
@@ -87,12 +115,29 @@ button,
   }
 }
 
+[data-theme="light"],
+[data-theme="dark"] {
+  button,
+  .button {
+    &[disabled],
+    &.disabled {
+      opacity: 0.7;
+      --_surface-hover: var(--_surface);
+    }
+  }
+}
+
 .button--current {
   background: var(--_surface-hover);
   border-color: var(--_surface-hover);
   cursor: default;
 }
 
+
+
 .button--large {
   --_size: var(--font-size-2);
 }
+
+
+
