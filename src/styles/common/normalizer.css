@@ -1,5 +1,7 @@
 /* @import "open-props/postcss/normalize"; */
-@import "/node_modules/open-props/normalize.min.css";
+/* @import "/node_modules/open-props/normalize.min.css"; */
+
+@import "/node_modules/open-props/css/packs/normalize/normalize.src.css";
 
 :where(html) {
   -moz-text-size-adjust: none;

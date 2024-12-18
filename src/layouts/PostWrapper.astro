@@ -10,14 +10,9 @@ import BaseLayout from "@/layouts/BaseLayout.astro"
 import FormattedDate from "@/components/FormattedDate.astro"
 import { Image } from "astro:assets"
 
-type AuthorData = {
-  author: {
-    slug: string
-  }
-}
 
 type Props = {
-  frontmatter: CollectionEntry<"post"> & { data: AuthorData }
+  frontmatter: CollectionEntry<"post">
 }
 
 const { frontmatter } = Astro.props
@@ -39,8 +34,8 @@ const entryTitle = breakLongTitle(makeSmartText(title))
 
 
 const authorData =
-  frontmatter.collection === "post" && author?.slug
-    ? (await getEntry("author", author.slug)).data
+  frontmatter.collection === "post" && author.id
+    ? (await getEntry("author", author.id))
     : undefined
 
     function getColumnOption(size: string | undefined) {
@@ -53,7 +48,6 @@ const authorData =
         : "column-passage"
 }
 
-// const contentSizeOption = getColumnOption(contentSize)
 const thumbnailSizeOption = getColumnOption(thumbnailSize)
 ---
 
@@ -94,7 +88,7 @@ const thumbnailSizeOption = getColumnOption(thumbnailSize)
             )
           } &mdash; by {
             authorData && (
-              <a href={`/author/${author.slug}`}>{authorData.name}</a>
+              <a href={`/author/${author.id}`}>{authorData.data.name}</a>
             )
           } in <Taxonomy type="category" name={categories[0]} />
         </span>

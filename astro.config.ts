@@ -22,9 +22,9 @@ const siteUrl = typeof siteConfig.url === 'string' ? siteConfig.url : siteConfig
 export default defineConfig({
   site: siteUrl,
   prefetch: false,
-  experimental: {
-    contentLayer: true,
-  },
+  // experimental: {
+  //   contentLayer: true,
+  // },
   markdown: {
     syntaxHighlight: "shiki",
     shikiConfig: {

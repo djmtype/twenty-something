@@ -17,11 +17,7 @@ const page = defineCollection({
         .or(z.date())
         .transform((str) => (str ? new Date(str) : undefined))
         .optional(),
-      thumbnail: image()
-        .refine((img) => img.width >= 630, {
-          message: "Cover image must be at least 630 pixels wide!",
-        })
-        .optional(),
+      thumbnail: image().optional(),
       thumbnailAlt: z.string().optional(),
       thumbnailSize: z
         .string(z.enum(["", "passage", "content", "breakout", "full"]))
@@ -62,11 +58,7 @@ const post = defineCollection({
         .or(z.date())
         .transform((str) => (str ? new Date(str) : undefined))
         .optional(),
-      thumbnail: image()
-        .refine((img) => img.width >= 630, {
-          message: "Thumbnail image must be at least 630 pixels wide!",
-        })
-        .optional(),
+      thumbnail: image().optional(),
       thumbnailAlt: z.string().optional(),
       thumbnailSize: z
         .string(z.enum(["", "passage", "content", "breakout", "full"]))
@@ -98,11 +90,7 @@ const author = defineCollection({
       
       description: z.string().optional(),
       type: z.string().default("author"),
-      thumbnail: image()
-        .refine((img) => img.width >= 100, {
-          message: "Thumbnail image must be at least 100 pixels wide!",
-        })
-        .optional(),
+      thumbnail: image().optional(),
       status: z.string(z.enum(["draft", "publish"]).default("draft")),
     }),
 });

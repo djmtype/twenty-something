@@ -39,7 +39,7 @@ const posts = await getCollection(
 )
 
 const postFilterByAuthor = posts.filter(
-  (post) => post.data.author.slug === makeSlug(name)
+  (post) => post.data.author.id === makeSlug(name)
 )
 ---
 
