@@ -64,13 +64,7 @@
           "title": "Thumbnail Size",
           "name": "thumbnailSize",
           "type": "choice",
-          "choices": [
-            "",
-            "passage",
-            "content",
-            "breakout",
-            "full"
-          ]
+          "choices": ["", "passage", "content", "breakout", "full"]
         },
         {
           "title": "Thumbnail Credit",
@@ -164,13 +158,7 @@
           "description": "Default size is programmatically set to content",
           "name": "thumbnailSize",
           "type": "choice",
-          "choices": [
-            "",
-            "passage",
-            "content",
-            "breakout",
-            "full"
-          ]
+          "choices": ["", "passage", "content", "breakout", "full"]
         },
         {
           "title": "Status",
@@ -244,10 +232,7 @@
   "frontMatter.content.draftField": {
     "name": "status",
     "type": "choice",
-    "choices": [
-      "draft",
-      "publish"
-    ]
+    "choices": ["draft", "publish"]
   },
   "frontMatter.content.publicFolder": {
     "path": "src/assets/uploads",
@@ -259,27 +244,21 @@
       "title": "blog",
       "path": "[[workspace]]/src/content/post",
       "previewPath": "/",
-      "contentTypes": [
-        "post"
-      ],
+      "contentTypes": ["post"],
       "filePrefix": null
     },
     {
       "title": "page",
       "path": "[[workspace]]/src/content/page",
       "previewPath": "/",
-      "contentTypes": [
-        "page"
-      ],
+      "contentTypes": ["page"],
       "filePrefix": null
     },
     {
       "title": "author",
       "path": "[[workspace]]/src/content/author",
       "previewPath": "author",
-      "contentTypes": [
-        "author"
-      ],
+      "contentTypes": ["author"],
       "filePrefix": null
     }
   ],
@@ -298,11 +277,7 @@
           "site": {
             "type": "object",
             "title": "Site",
-            "required": [
-              "title",
-              "url",
-              "language"
-            ],
+            "required": ["title", "url", "language"],
             "properties": {
               "title": {
                 "type": "string",
@@ -550,7 +525,7 @@
         "properties": {
           "props": {
             "type": "object",
-            "title": "Props",   
+            "title": "Props",
             "properties": {
               "global": {
                 "type": "object",
@@ -608,6 +583,45 @@
                     "type": "string"
                   },
                   "gray-chroma": {
+                    "type": "string"
+                  },
+                  "hue-note": {
+                    "type": "string"
+                  },
+                  "hue-danger": {
+                    "type": "string"
+                  },
+                  "hue-warning": {
+                    "type": "string"
+                  },
+                  "hue-tip": {
+                    "type": "string"
+                  },
+                  "hue-bug": {
+                    "type": "string"
+                  },
+                  "hue-info": {
+                    "type": "string"
+                  },
+                  "hue-success": {
+                    "type": "string"
+                  },
+                  "hue-todo": {
+                    "type": "string"
+                  },
+                  "hue-failure": {
+                    "type": "string"
+                  },
+                  "hue-question": {
+                    "type": "string"
+                  },
+                  "hue-example": {
+                    "type": "string"
+                  },
+                  "hue-quote": {
+                    "type": "string"
+                  },
+                  "hue-abstract": {
                     "type": "string"
                   }
                 }
@@ -671,45 +685,7 @@
                       "surface-overlay": {
                         "type": "string"
                       },
-                      "note": {
-                        "type": "string"
-                      },
-                      "danger": {
-                        "type": "string"
-                      },
-                      "warning": {
-                        "type": "string"
-                      },
-                      "tip": {
-                        "type": "string"
-                      },
-                      "bug": {
-                        "type": "string"
-                      },
-                      "info": {
-                        "type": "string"
-                      },
-                      "success": {
-                        "type": "string"
-                      },
-                      "todo": {
-                        "type": "string"
-                      },
-                      "failure": {
-                        "type": "string"
-                      },
-                      "question": {
-                        "type": "string"
-                      },
-                      "example": {
-                        "type": "string"
-                      },
-                      "quote": {
-                        "type": "string"
-                      },
-                      "abstract": {
-                        "type": "string"
-                      },
+
                       "astro-code-token-keyword": {
                         "type": "string"
                       },
@@ -776,45 +752,7 @@
                       "surface-overlay": {
                         "type": "string"
                       },
-                      "note": {
-                        "type": "string"
-                      },
-                      "danger": {
-                        "type": "string"
-                      },
-                      "warning": {
-                        "type": "string"
-                      },
-                      "tip": {
-                        "type": "string"
-                      },
-                      "bug": {
-                        "type": "string"
-                      },
-                      "info": {
-                        "type": "string"
-                      },
-                      "success": {
-                        "type": "string"
-                      },
-                      "todo": {
-                        "type": "string"
-                      },
-                      "failure": {
-                        "type": "string"
-                      },
-                      "question": {
-                        "type": "string"
-                      },
-                      "example": {
-                        "type": "string"
-                      },
-                      "quote": {
-                        "type": "string"
-                      },
-                      "abstract": {
-                        "type": "string"
-                      },
+
                       "astro-code-token-keyword": {
                         "type": "string"
                       },

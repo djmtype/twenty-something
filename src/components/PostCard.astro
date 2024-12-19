@@ -47,8 +47,7 @@ const { excerptWordLength } = blogConfig;
 const authorEntry = await getEntry("author", author.id);
 
 const authorData = authorEntry?.data || {
-  name: "Unknown Author",
-  description: "No description available.",
+  name: "Unknown Author"
 };
 
 
@@ -67,8 +66,8 @@ const plainText = await makePlainText(postBody)
       <figure class="card__figure">
         <Image
           class="card__image"
-          width={400}
-          height={400}
+          width={index === 0 ? 800 : 400}
+          height={index === 0 ? 600 : 400}
           loading={index === 0 ? `eager` : `lazy`}
           fetchpriority={index === 0 ? "high" : "auto"}
           densities={[1, 1.5]}

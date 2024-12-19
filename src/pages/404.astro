@@ -6,19 +6,20 @@ import type { Site } from "@/types/configuration"
 
 import BaseLayout from "@/layouts/BaseLayout.astro"
 
+
 const siteConfig: Site = config.site;
 const { title, description } = siteConfig
 
-const error404 = await getEntry('page', '404');
+const error404 = await getEntry('page', 'error-404');
 
-const { Content } = await error404.render()
+const { Content } = error404 ? await error404.render() : { Content: null };
 ---
 
 <BaseLayout title={`${error404?.data.title} | ${title}`} description={description}>
   <section class="section">
     <div class="container flow">
       <h1>{error404?.data.title}</h1>
-      <Content />
+      {Content ? <Content /> : <p>Page does not exist.</p>}
 
       
     </div>
