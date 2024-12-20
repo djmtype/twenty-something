@@ -5,7 +5,7 @@ pre {
   }
 
   details:has(pre) {
-    background: var(--surface-overlay);
+    background: var(--surface-well);
   }
 
   details pre {
@@ -15,10 +15,8 @@ pre {
   }
 
   code, kbd {
-    font-size: 95%;
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-1);
   }
 
-  pre code {
-    font-size: initial;
-  }
 

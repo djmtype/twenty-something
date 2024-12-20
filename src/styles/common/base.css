@@ -1,10 +1,4 @@
 :root {
-  --color-0: oklch(
-		100% calc(0.01 * var(--palette-chroma, 1))
-			calc(var(--palette-hue) + (0 * var(--palette-hue-rotate-by)))
-	);
-  /* --text-1: var(--ink-1);
-  --text-2: var(--ink-2); */
   --size-content-4: 72ch;
   --size-0: 0;
   --size-xxs: 240px;

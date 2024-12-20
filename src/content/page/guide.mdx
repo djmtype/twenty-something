@@ -3,7 +3,7 @@ title: "A Guide: From WP to MD"
 date: 2022-07-15
 description: Instructions on how to export Wordpress documents to Markdown files
 status: publish
-dateUpdated: 2024-04-21
+dateUpdated: 2024-12-19
 thumbnail: ../../assets/uploads/wp-md.jpg
 thumbnailAlt: Markdown logo in front of a blurry Wordpress logo over a smokey background
 thumbnailSize: content
@@ -24,10 +24,6 @@ import { BaselineStatus } from 'astro-embed';
 For as long as memory serves, Wordpress has been the _defacto_ content management tool. Now, twenty-something years later, you may not need Wordpress. In fact, your site could be less expensive to run, and more secure without it. The purpose of this tutorial is to migrate your current Wordpress content into markdown files.
 
 Understand, this option isn't intended for everyone. Should your current Wordpress site rely heavily on Gutenberg's layouts or some other page builder, it may be best to move on. However, if your site is mainly text-oriented, this approach might be worthy of consideration. 
-
-This theme currently uses the newer CSS `light-dark()` notation.
-
-<BaselineStatus id="light-dark" /> 
 
 ## Getting Started
 
@@ -104,15 +100,15 @@ Some things are not supported by the plugin.
 
 ### Image Tags
 
-Any image metadata such `alt`, `title`, and `caption` are not generated along side the `thumbnail` field. 
+Image metadata such `alt`, `title`, and `caption` is not generated along side the `thumbnail` field. 
 
 ### Advanced Custom Fields
 
-Although, basic fields are exported, I haven't done enough testing when it comes to more complex fields like nested fields, or any field type integrations ACF released which post-date **WP Gatsby Markdown Exporter**.
+Although, basic fields are exported, enough testing hasn't been done when it comes to more complex fields like nested fields, or any field type integrations ACF released which post-date **WP Gatsby Markdown Exporter**.
 
 ### Authors 
 
-Although, an `author` field seems to be added to the each post, an`author` directory isn't generated. Therefore, each author's profile will need to be manually created within an `author` directory.  
+Although, an `author` field seems to be added to the each post, an `author` directory isn't generated. Therefore, each author's profile will need to be manually created within an `author` directory.  
 
 How each author will be referenced to a post will depend on your library/framework of choice. Astro is my preference as it provides [a simple way to add references](https://docs.astro.build/en/guides/content-collections/#defining-collection-references). 
 

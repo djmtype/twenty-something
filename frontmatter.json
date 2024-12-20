@@ -540,6 +540,18 @@
                   "font-serif": {
                     "type": "string"
                   },
+                  "font-family-heading": {
+                    "type": "string"
+                  },
+                  "font-weight-heading": {
+                    "type": "string"
+                  },
+                  "font-family-body": {
+                    "type": "string"
+                  },
+                  "font-family-mono": {
+                    "type": "string"
+                  },
                   "font-weight-bold": {
                     "type": "string"
                   },
@@ -640,24 +652,28 @@
                       "brand": {
                         "type": "string"
                       },
-                      "ink-1": {
+                      "ink-contrast": {
                         "type": "string"
                       },
-                      "ink-2": {
+                      "ink-document": {
                         "type": "string"
                       },
-                      "surface-1": {
+                      "ink-document-invert": {
                         "type": "string"
                       },
-                      "surface-2": {
+                      "ink-mute": {
                         "type": "string"
                       },
-                      "surface-3": {
+                      "surface-card": {
                         "type": "string"
                       },
-                      "shadow-strength": {
+                      "surface-document": {
                         "type": "string"
                       },
+                      "surface-well": {
+                        "type": "string"
+                      },
+
                       "link": {
                         "type": "string"
                       },
@@ -670,19 +686,20 @@
                       "link-active": {
                         "type": "string"
                       },
-                      "ink-overlay": {
+                      "button-default-surface": {
                         "type": "string"
                       },
-                      "ink-muted": {
+                      "button-default-surface-hover": {
                         "type": "string"
                       },
-                      "text-strong": {
+                      "button-accent-surface": {
                         "type": "string"
                       },
+                      "button-accent-surface-hover": {
+                        "type": "string"
+                      },
+
                       "separator": {
-                        "type": "string"
-                      },
-                      "surface-overlay": {
                         "type": "string"
                       },
 
@@ -707,24 +724,28 @@
                       "brand": {
                         "type": "string"
                       },
-                      "ink-1": {
+                      "ink-contrast": {
                         "type": "string"
                       },
-                      "ink-2": {
+                      "ink-document": {
                         "type": "string"
                       },
-                      "surface-1": {
+                      "ink-document-invert": {
                         "type": "string"
                       },
-                      "surface-2": {
+                      "ink-mute": {
                         "type": "string"
                       },
-                      "surface-3": {
+                      "surface-card": {
                         "type": "string"
                       },
-                      "shadow-strength": {
+                      "surface-document": {
                         "type": "string"
                       },
+                      "surface-well": {
+                        "type": "string"
+                      },
+
                       "link": {
                         "type": "string"
                       },
@@ -737,19 +758,20 @@
                       "link-active": {
                         "type": "string"
                       },
-                      "ink-overlay": {
+                      "button-default-surface": {
                         "type": "string"
                       },
-                      "ink-muted": {
+                      "button-default-surface-hover": {
                         "type": "string"
                       },
-                      "text-strong": {
+                      "button-accent-surface": {
                         "type": "string"
                       },
+                      "button-accent-surface-hover": {
+                        "type": "string"
+                      },
+
                       "separator": {
-                        "type": "string"
-                      },
-                      "surface-overlay": {
                         "type": "string"
                       },
 

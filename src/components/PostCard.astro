@@ -46,11 +46,6 @@ const { excerptWordLength } = blogConfig;
 
 const authorEntry = await getEntry("author", author.id);
 
-const authorData = authorEntry?.data || {
-  name: "Unknown Author"
-};
-
-
 const entryTitle = breakLongTitle(makeSmartText(title))
 
 const postBody = post.body
@@ -92,7 +87,7 @@ const plainText = await makePlainText(postBody)
     </h2>
     <div class="card__meta">
       <FormattedDate date={date} />
-      &mdash; by <a href=`/author/${author.id}`>{authorData.name}</a> in
+      &mdash; by <a href=`/author/${author.id}`>{authorEntry?.data.name}</a> in
       <Taxonomy type="category" name={categories[0]} />
     </div>
 
@@ -179,13 +174,13 @@ const plainText = await makePlainText(postBody)
     gap: var(--size-2);
     place-items: center;
     position: relative;
-    color: var(--surface-2);
+    color: var(--surface-document);
     aspect-ratio: 1/1;
     padding: clamp(var(--size-3), 3vw, var(--size-gutter));
     grid-template-areas: "stack";
     overflow: clip;
     border-radius: var(--radius);
-    background: var(--surface-overlay);
+    background: var(--surface-well);
   }
 
 
@@ -194,8 +189,8 @@ const plainText = await makePlainText(postBody)
 
   .card__title {
     font-size: var(--font-size-5);
-    font-weight: var(--font-weight-4);
-    font-family: var(--font-serif);
+    font-weight: var(--font-weight-bold);
+    font-family: var(--font-family-heading);
   }
   .card__content {
     display: flex;
@@ -205,11 +200,11 @@ const plainText = await makePlainText(postBody)
 
   .card__meta {
     font-size: var(--font-size-1);
-    color: var(--ink-2);
+    color: var(--ink-document);
   }
 
   .card__description {
     font-size: var(--font-size-1);
-    color: var(--ink-2);
+    color: var(--ink-document);
   }
 </style>

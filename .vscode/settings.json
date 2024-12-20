@@ -1,80 +1,95 @@
 {
-    "workbench.editor.showIcons": false,
-    // "workbench.editor.showTabs": "single",
-    "workbench.layoutControl.type": "menu",
-    "workbench.layoutControl.enabled": false,
-    "workbench.editor.tabSizing": "shrink",
-    "workbench.tree.renderIndentGuides": "none",
-    "workbench.editor.highlightModifiedTabs": true,
-    "workbench.statusBar.visible": true,
-    
-  
-    // =editor
-    "editor.glyphMargin": false,
-    "editor.folding": true,
-    "editor.bracketPairColorization.enabled": false,
-    "editor.guides.highlightActiveBracketPair": false,
-    "editor.guides.bracketPairsHorizontal": false,
-    "editor.guides.indentation": false,
-    "editor.minimap.enabled": false,
-    "editor.scrollbar.vertical": "auto",
-    "editor.scrollBeyondLastLine": false,
-    "editor.hideCursorInOverviewRuler": true,
-    "editor.matchBrackets": "near",
-    "editor.overviewRulerBorder": false,
-    "editor.foldingHighlight": false,
-    "editor.renderLineHighlight": "none",
-    "editor.occurrencesHighlight": "off",
-    // "editor.fontSize": 16,
-  
-    // =misc
-  
-    "explorer.decorations.colors": false,
-    "scm.diffDecorations": "none",
-    "scm.diffDecorationsGutterAction": "none",
-    // "git.untrackedChanges": "hidden",
-    "git.decorations.enabled": false,
-    "breadcrumbs.enabled": false,
-    "terminal.integrated.shellIntegration.decorationsEnabled": "never",
-    "window.commandCenter": false,
-  
-    // =files
-  
-    "files.exclude": {
-      "**/.git": true,
-      "**/.DS_Store": true,
-      // "_docs": true,
-      // "_backup": true,
-      // "_components": true,
-      // "_*": true,
-      // ".*": true,
-      // "**/*.d.ts": true,
-      // "**/*.config.*": true,
-      // "node_modules": true,
-      // "dist": true,
-      // "makeThemes.mjs": true,
-      // "*.json": true,
-      // "**/rss": true,
-      // ".vscode": false,
-      // "src/components": true,
-      // "src/data": true,
-      // "src/layouts": true,
-      // "src/styles": true,
-      // "src/types": true,
-      // "src/utils": true,
-      // "src/content/config.*": true,
-      // "src/pages": true,
+
+
+  "workbench.editor.showIcons": false,
+  // "workbench.editor.showTabs": "single",
+  "workbench.layoutControl.type": "menu",
+  "workbench.layoutControl.enabled": false,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.tree.renderIndentGuides": "none",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.statusBar.visible": true,
+
+  // =editor
+  "editor.glyphMargin": false,
+  "editor.folding": true,
+  "editor.bracketPairColorization.enabled": false,
+  "editor.guides.highlightActiveBracketPair": false,
+  "editor.guides.bracketPairsHorizontal": false,
+  "editor.guides.indentation": false,
+  "editor.minimap.enabled": false,
+  "editor.scrollbar.vertical": "auto",
+  "editor.scrollBeyondLastLine": false,
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.matchBrackets": "near",
+  "editor.overviewRulerBorder": false,
+  "editor.foldingHighlight": false,
+  "editor.renderLineHighlight": "none",
+  "editor.occurrencesHighlight": "off",
+  // "editor.fontSize": 16,
+
+  // =misc
+
+  "explorer.decorations.colors": false,
+  "scm.diffDecorations": "none",
+  "scm.diffDecorationsGutterAction": "none",
+  // "git.untrackedChanges": "hidden",
+  "git.decorations.enabled": false,
+  "breadcrumbs.enabled": false,
+  "terminal.integrated.shellIntegration.decorationsEnabled": "never",
+  "window.commandCenter": false,
+
+  // =files
+  "search.exclude": {
+    "_backup/": true,
+    "_docs/": true,
+    "_components/": true,
+    "dist/": true,
+    ".output/": true,
+    "node_modules/": true
+  },
+
+  "files.exclude": {
+    "_backup/": true,
+    "_docs/": true,
+    "_components/": true,
+    "dist/": true,
+    ".output/": true,
+    "node_modules/": true,
+    "**/.git": true,
+    "**/.DS_Store": true,
+    // "_docs": true,
+    // "_backup": true,
+    // "_components": true,
+    // "_*": true,
+    // ".*": true,
+    // "**/*.d.ts": true,
+    // "**/*.config.*": true,
+    // "node_modules": true,
+    // "dist": true,
+    // "makeThemes.mjs": true,
+    // "*.json": true,
+    // "**/rss": true,
+    // ".vscode": false,
+    // "src/components": true,
+    // "src/data": true,
+    // "src/layouts": true,
+    // "src/styles": true,
+    // "src/types": true,
+    // "src/utils": true,
+    // "src/content/config.*": true,
+    // "src/pages": true,
 
     // "files.readonlyInclude": {
     //   ".gitignore": true
     // },
-  
+
     // =languages
-  
+
     "[astro]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-  
+
     "[markdown]": {
       "editor.wrappingIndent": "same",
       "editor.fontLigatures": true,
@@ -90,7 +105,7 @@
       }
       //  "editor.fontFamily": "\"IA Writer Duo S\", monospace",
     },
-  
+
     "[mdx]": {
       "editor.wrappingIndent": "same",
       "editor.fontLigatures": true,
@@ -106,17 +121,10 @@
       }
       //  "editor.fontFamily": "\"IA Writer Duo S\", monospace",
     },
-  
+
     "files.associations": {
       "*.css": "css"
     },
-    "prettier.documentSelectors": true,
-    "search.exclude": {
-      "_backup/": true,
-      "dist/": true,
-      ".output/": true,
-      "node_modules/": true
-    }
+    "prettier.documentSelectors": true
   }
 }
-  

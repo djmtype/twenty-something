@@ -1,15 +1,22 @@
 /* @import "open-props/postcss/normalize"; */
 /* @import "/node_modules/open-props/normalize.min.css"; */
 
+@import "./brand.css";
+
+
 @import "/node_modules/open-props/css/packs/normalize/normalize.src.css";
+
 
 :where(html) {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
-  background-color: var(--surface-2);
+  /* background-color: var(--surface-document); */
 }
 
+:where(body) {
+  font-family: var(--font-family-body);
+}
 
 :where(ul[role="list"], ol[role="list"]) {
   list-style: none;
@@ -57,7 +64,7 @@
 }
 
 :where(:not(pre) > code) {
-  background: var(--surface-overlay);
+  background: var(--surface-well);
 }
 
 
@@ -65,36 +72,34 @@
   padding: 0;
 }
 
+:where(h1, h2, h3) {
+  line-height: calc(1em + .5rem);
+}
+
 :where(h1, h2, h3, h4, h5, h6, dt) {
-  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-heading);
 }
 
-:where(h1, h2, h3, h4, h5, h6):not([class]) {
-  font-weight: var(--font-weight-4);
-  font-family: var(--font-serif);
-}
 
-:where(strong, b) {
+:where(strong, b, dt, summary) {
   font-weight: var(--font-weight-bold);
 }
 
 :where(figcaption) {
   font-style: italic;
-  color: var(--ink-muted);
+  color: var(--ink-mute);
 }
 
 :where([disabled]) {
   cursor: not-allowed;
 }
 
-:where(table) {
-  border-color: var(--surface-overlay);
-}
 
 
 :where(table tr:hover td),
 :where(tbody tr:nth-child(even):hover td) {
-  background-color: color-mix(in oklch, var(--accent) 15%, var(--surface-overlay));
+  background-color: color-mix(in oklch, var(--accent) 15%, var(--surface-well));
 }
 
 :where(blockquote:not([class]) br) {
@@ -106,9 +111,9 @@
 }
 
 :where(details) {
-  background: var(--surface-2);
+  background: var(--surface-document);
   box-shadow: var(--shadow-1);
-  border: var(--border-size-2) solid var(--surface-overlay);
+  border: var(--border-size-2) solid var(--surface-well);
 }
 
 :where(summary > *) {
@@ -124,11 +129,11 @@
 }
 
 :where(summary) {
-  background: var(--surface-overlay);
+  background: var(--surface-well);
 }
 
 :where(sup) {
-  font-family: var(--font-mono);
+  font-family: var(--font-family-mono);
 }
 
 :where(sup a) {
@@ -136,7 +141,7 @@
   place-content: center;
   min-height: var(--size-6);
   min-width: var(--size-6);
-  background-color: var(--surface-overlay);
+  background-color: var(--surface-well);
   border-radius: var(--radius-round);
 }
 
@@ -150,7 +155,7 @@
 }
 
 :where(del) {
-  color: var(--ink-muted);
+  color: var(--ink-mute);
   text-decoration-color: var(--danger);
   background: initial;
 }

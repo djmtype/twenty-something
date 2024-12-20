@@ -131,7 +131,8 @@ const { pathname } = Astro.url
     opacity: 1;
     visibility: visible;
     max-height: 100svh;
-    overflow-y: auto;
+    overflow: visible;
+
   }
 
   .nav-primary__list {
@@ -147,7 +148,9 @@ const { pathname } = Astro.url
       flex-direction: initial;
     }
   }
-
+  .nav-primary.show .nav-primary__list {
+    overflow: visible;
+  }
   .nav-primary__item {
     max-inline-size: unset;
     display: flex;
@@ -178,7 +181,7 @@ const { pathname } = Astro.url
       z-index: 4;
       position: absolute;
       top: calc(100% + var(--size-1));
-      background: var(--surface-overlay);
+      background: var(--surface-well);
       border: var(--border-size-1) solid var(--separator);
       right: var(--size-3);
       min-width: var(--size-content-1);

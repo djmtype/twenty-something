@@ -1,33 +1,16 @@
-/* @import "open-props/postcss/style"; */
-/* @import "/node_modules/open-props/src/index.css"; */
-/* @import "/node_modules/open-props/css/index.css";
-@import "/node_modules/open-props/css/sizes/relative.css";
-@import "/node_modules/open-props/css/font/lineheight.css"; */
-
-/* @import "/node_modules/open-props/css/color/hues.oklch.css"; */
-
-/* @import "/node_modules/open-props/src/props.colors-oklch-hues.css"; */
-/* @import "/node_modules/open-props/open-props.min.css"; */
-/* @import "common/color.hex.css"; */
 @import "theme/utility.oklch.css";
 @import "theme/gray.oklch.css";
 @import "/node_modules/open-props/css/color/hues.oklch.css";
-/* @import "/node_modules/open-props/open-props.min.css"; */
+
 @import "/node_modules/open-props/css/index.css";
 @import "/node_modules/open-props/css/sizes/relative.css";
 @import "/node_modules/open-props/css/index.css";
-/* @import "/node_modules/open-props/css/packs/normalize/index.css"; */
+@import "/node_modules/open-props/css/font/lineheight.css";
 
-/* @import "/node_modules/open-props/normalize.min.css"; */
-
-/* @import "/node_modules/open-props/css/shadows.css"; */
 
 @import "common/base.css";
-/* @import "theme/settings.css"; */
 @import "theme/global.css";
 @import "theme/theme.css";
-
-
 
 
 @import "common/normalizer.css";
@@ -41,6 +24,7 @@
 @import "utilities/section.css";
 @import "utilities/container.css";
 @import "utilities/link-block.css";
+
 
 
 

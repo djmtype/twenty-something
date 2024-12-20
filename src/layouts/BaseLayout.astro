@@ -1,6 +1,9 @@
 ---
-import "@fontsource/cardo"
-import "@fontsource/cardo/400-italic.css"
+// Supports weights 100-900
+import '@fontsource-variable/work-sans'
+// Supports weights 100-900
+import '@fontsource-variable/work-sans/wght-italic.css'
+
 import "../styles/app.css"
 import type { Site, Metadata } from "@/types/configuration"
 import config from "@/data/config.json"
@@ -124,4 +127,7 @@ const { title, description, thumbnail = ogImage.url } = Astro.props
   [x-cloak] {
     display: none !important;
   }
+  
 </style>
+
+

@@ -1,6 +1,6 @@
 /* Space between text blocks */
 
 .flow > * + * {
-    margin-block-start: var(--_flow, calc(var(--font-lineheight-3) * 1rem));
+    margin-block-start: var(--_flow, calc(.5em + 1rem));
   }
   

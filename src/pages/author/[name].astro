@@ -51,7 +51,7 @@ const postFilterByAuthor = posts.filter(
     description && (
       <Testimonial
         class="testimonial--main"
-        textColor="ink-1"
+        textColor="ink-contrast"
         authorName={name}
         hideCite
       >
@@ -245,8 +245,8 @@ const postFilterByAuthor = posts.filter(
     aspect-ratio: 1/1;
     height: auto;
     width: var(--size-10);
-    background-color: var(--surface-overlay);
-    color: var(--ink-muted);
+    background-color: var(--surface-well);
+    color: var(--ink-mute);
     overflow: hidden;
   }
 
@@ -259,7 +259,7 @@ const postFilterByAuthor = posts.filter(
 
 <style is:global>
   .author__summary p {
-    color: var(--ink-2);
+    color: var(--ink-document);
     font-size: var(--font-size-1);
   }
 </style>
