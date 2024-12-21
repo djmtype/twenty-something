@@ -1,11 +1,11 @@
 pre {
     max-inline-size: unset;
     padding: var(--size-fluid-2);
-    border-radius: var(--radius);
+    border-radius: var(--radius-2);
   }
 
   details:has(pre) {
-    background: var(--surface-well);
+    background: var(--well-1);
   }
 
   details pre {

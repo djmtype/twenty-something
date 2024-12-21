@@ -1,9 +1,7 @@
-* {
 
+blockquote.callout {
   --callout-light: var(--utility-6);
   --callout-dark: var(--utility-4);
-}
-blockquote.callout {
   --callout: var(--callout-light);
   [data-theme="light"] & {
     --callout: var(--callout-light);
@@ -37,7 +35,7 @@ blockquote.callout {
     position: absolute;
     z-index: -1;
     display: block;
-    opacity: 0.1;
+    opacity: 0.15;
     background: var(--_background, var(--_color));
     inset: 0;
   }
@@ -66,13 +64,13 @@ blockquote.callout {
   color: var(--_color);
   &:hover,
   &:focus-visible {
-    --_color: var(--ink-contrast);
+    --_color: var(--text-1);
   }
 }
 
 @supports(color: color-mix(in srgb, black, white 50%)) {
   .callout-content a {
-    color: color-mix(in srgb, var(--_color), var(--ink-document) 50%);
+    color: color-mix(in srgb, var(--_color), var(--text-1) 50%);
   }
 }
 

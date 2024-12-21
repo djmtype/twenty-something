@@ -1,7 +1,7 @@
 {
   "name": "twenty-something",
   "type": "module",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "scripts": {
     "add": "npm install",
     "theme": "node makeThemes.mjs",

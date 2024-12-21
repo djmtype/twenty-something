@@ -652,25 +652,25 @@
                       "brand": {
                         "type": "string"
                       },
-                      "ink-contrast": {
+                      "text-1": {
                         "type": "string"
                       },
-                      "ink-document": {
+                      "text-1": {
                         "type": "string"
                       },
-                      "ink-document-invert": {
+                      "text-invert-1": {
                         "type": "string"
                       },
-                      "ink-mute": {
+                      "text-2": {
                         "type": "string"
                       },
-                      "surface-card": {
+                      "surface-1": {
                         "type": "string"
                       },
                       "surface-document": {
                         "type": "string"
                       },
-                      "surface-well": {
+                      "well-1": {
                         "type": "string"
                       },
 
@@ -724,25 +724,25 @@
                       "brand": {
                         "type": "string"
                       },
-                      "ink-contrast": {
+                      "text-1": {
                         "type": "string"
                       },
-                      "ink-document": {
+                      "text-1": {
                         "type": "string"
                       },
-                      "ink-document-invert": {
+                      "text-invert-1": {
                         "type": "string"
                       },
-                      "ink-mute": {
+                      "text-2": {
                         "type": "string"
                       },
-                      "surface-card": {
+                      "surface-1": {
                         "type": "string"
                       },
                       "surface-document": {
                         "type": "string"
                       },
-                      "surface-well": {
+                      "well-1": {
                         "type": "string"
                       },
 

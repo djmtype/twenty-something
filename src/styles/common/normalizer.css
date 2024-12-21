@@ -11,7 +11,6 @@
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
-  /* background-color: var(--surface-document); */
 }
 
 :where(body) {
@@ -63,9 +62,7 @@
   text-decoration: none;
 }
 
-:where(:not(pre) > code) {
-  background: var(--surface-well);
-}
+
 
 
 :where(li) {
@@ -76,19 +73,19 @@
   line-height: calc(1em + .5rem);
 }
 
-:where(h1, h2, h3, h4, h5, h6, dt) {
+:where(h1, h2, h3, h4, h5, h6) {
   font-family: var(--font-family-heading);
   font-weight: var(--font-weight-heading);
 }
 
 
 :where(strong, b, dt, summary) {
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-bold, 700);
 }
 
 :where(figcaption) {
   font-style: italic;
-  color: var(--ink-mute);
+  color: var(--text-2);
 }
 
 :where([disabled]) {
@@ -99,7 +96,7 @@
 
 :where(table tr:hover td),
 :where(tbody tr:nth-child(even):hover td) {
-  background-color: color-mix(in oklch, var(--accent) 15%, var(--surface-well));
+  background-color: color-mix(in oklch, var(--accent) 15%, var(--surface-2));
 }
 
 :where(blockquote:not([class]) br) {
@@ -108,12 +105,29 @@
 
 :where(blockquote) {
   max-inline-size: inherit;
+  position: relative;
+
+}
+
+:where(blockquote):not(:has(cite)) {
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    display: block;
+    background: var(--surface-3);
+    inset: 0;
+  }
 }
 
 :where(details) {
-  background: var(--surface-document);
-  box-shadow: var(--shadow-1);
-  border: var(--border-size-2) solid var(--surface-well);
+  background: var(--surface-1);
+
+}
+
+:where(summary) {
+  background: var(--surface-3);
+  font-size: var(--font-size-2);
 }
 
 :where(summary > *) {
@@ -128,9 +142,7 @@
   margin-block-start: var(--size-3);
 }
 
-:where(summary) {
-  background: var(--surface-well);
-}
+
 
 :where(sup) {
   font-family: var(--font-family-mono);
@@ -141,7 +153,7 @@
   place-content: center;
   min-height: var(--size-6);
   min-width: var(--size-6);
-  background-color: var(--surface-well);
+  background-color: var(--surface-3);
   border-radius: var(--radius-round);
 }
 
@@ -155,7 +167,7 @@
 }
 
 :where(del) {
-  color: var(--ink-mute);
+  color: var(--text-2);
   text-decoration-color: var(--danger);
   background: initial;
 }
