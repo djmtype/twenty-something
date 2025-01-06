@@ -28,6 +28,10 @@
       "follow": true
     }
   },
+  "scripts": {
+    "header": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap\" rel=\"stylesheet\">",
+    "footer": ""
+  },
   "logo": {
     "image": "/images/logo-light-theme.svg",
     "imageDarkMode": "/images/logo-dark-theme.svg",

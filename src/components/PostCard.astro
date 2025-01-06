@@ -1,9 +1,14 @@
 ---
 import { Icon } from "astro-icon/components"
-import type { Blog } from "@/types/configuration";
-import config from "@/data/config.json";
+import type { Blog } from "@/types/configuration"
+import config from "@/data/config.json"
 import { Image } from "astro:assets"
-import { makeExcerpt, makePlainText, breakLongTitle, makeSmartText } from "@/utils/textConverter"
+import {
+  makeExcerpt,
+  makePlainText,
+  breakLongTitle,
+  makeSmartText,
+} from "@/utils/textConverter"
 import FormattedDate from "@/components/FormattedDate.astro"
 import { getEntry, type CollectionEntry } from "astro:content"
 
@@ -13,21 +18,11 @@ type Props = {
   post: CollectionEntry<"post">
   hideImage?: boolean
   class?: string
-  style?: any
+  style?: Record<string, string | number>
   index?: number
-} 
+}
 
-
-
-const { 
-  post, 
-  index,
-  hideImage, 
-  class: className,
-  ...restProps 
-} = Astro.props
-
-
+const { post, index, hideImage, class: className, ...restProps } = Astro.props
 
 const {
   author,
@@ -40,22 +35,30 @@ const {
   categories,
 } = post.data
 
-const blogConfig: Blog = config.blog;
+const blogConfig: Blog = config.blog
 
-const { excerptWordLength } = blogConfig;
+const { excerptWordLength } = blogConfig
 
-const authorEntry = await getEntry("author", author.id);
+const authorEntry = await getEntry("author", author.id)
 
 const entryTitle = breakLongTitle(makeSmartText(title))
 
 const postBody = post.body
+let plainText = ""
 
-const plainText = await makePlainText(postBody)
-
+if (postBody) {
+  plainText = await makePlainText(postBody)
+} else {
+  console.warn("Post body is not available.")
+  plainText = "" // Fallback value when post.body is not present
+}
 ---
 
-<article class:list={['card', className]} style={{...restProps.style
-}} {...restProps}>
+<article
+  class:list={["card", className]}
+  style={{ ...restProps.style }}
+  {...restProps}
+>
   {
     thumbnail && !hideImage ? (
       <figure class="card__figure">
@@ -71,60 +74,62 @@ const plainText = await makePlainText(postBody)
           alt={thumbnailAlt}
         />
       </figure>
-    ) :
-    (
-      
-    <div class="card__figure--placeholder">
-  <Icon name="lucide:image" />
-  </div>
+    ) : (
+      <div class="card__figure--placeholder">
+        <Icon name="lucide:image" />
+      </div>
     )
   }
 
-
   <div class="card__content">
     <h2 class="card__title">
-      <a class="link-block" href={`/${post.slug}`} set:html={entryTitle}></a>
+      <a class="link-block" href={`/${post.id}`} set:html={entryTitle} />
     </h2>
     <div class="card__meta">
       <FormattedDate date={date} />
-      &mdash; by <a href=`/author/${author.id}`>{authorEntry?.data.name}</a> in
-      <Taxonomy type="category" name={categories[0]} />
+      {author?.id && authorEntry?.data?.name && (
+        <>
+          &mdash; by <a href={`/author/${author.id}`}>{authorEntry.data.name}</a>
+        </>
+      )}
+      {categories.length > 0 && (
+        <>
+          {" in "}
+          <Taxonomy type="category" name={categories[0]} />
+        </>
+      )}
     </div>
 
     <p class="card__description">
-      {customExcerpt ? description : makeExcerpt(plainText, excerptWordLength || 30)}
+      {
+        customExcerpt
+          ? description
+          : makeExcerpt(plainText, excerptWordLength || 30)
+      }
     </p>
-
-    
   </div>
 </article>
 
 <style is:global>
-  
-    .card__meta a {
+  .card__meta a {
     text-decoration: underline;
-    &:hover, &:focus-visible {
+    &:hover,
+    &:focus-visible {
       text-decoration: none;
     }
   }
 
   .card__figure--placeholder svg {
-  width: 100%;
-  height: auto;
-  
-}
-
+    width: 100%;
+    height: auto;
+  }
 
   .card__figure--placeholder svg :is(rect, circle, path) {
-  stroke-width: .05em;
-}
-
+    stroke-width: 0.05em;
+  }
 </style>
 
 <style>
-
-  
-  
   .card {
     --_thumbnail-size: var(--size-fluid-7);
     --_summary-size: 70%;
@@ -138,7 +143,6 @@ const plainText = await makePlainText(postBody)
     gap: var(--_gap);
     align-items: var(--_align-items);
     position: relative;
-    
   }
 
   .card :is(p, .card__meta) {
@@ -150,14 +154,11 @@ const plainText = await makePlainText(postBody)
     flex-grow: 1;
   }
 
-
   .card > *:last-child {
     flex-basis: 0;
     flex-grow: 999;
     min-inline-size: var(--_summary-size);
   }
-
-
 
   .card__image {
     aspect-ratio: var(--_image-ratio);
@@ -166,8 +167,6 @@ const plainText = await makePlainText(postBody)
     object-fit: cover;
     border-radius: var(--radius);
   }
-
-  
 
   .card__figure--placeholder {
     display: grid;
@@ -182,10 +181,6 @@ const plainText = await makePlainText(postBody)
     border-radius: var(--radius);
     background: var(--accent);
   }
-
-
-
-
 
   .card__title {
     font-size: var(--font-size-5);

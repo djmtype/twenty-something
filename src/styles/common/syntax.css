@@ -4,15 +4,6 @@ pre {
     border-radius: var(--radius-2);
   }
 
-  details:has(pre) {
-    background: var(--well-1);
-  }
-
-  details pre {
-    background: unset;
-    border-radius: unset;
-    padding: unset;
-  }
 
   code, kbd {
     font-family: var(--font-family-mono);

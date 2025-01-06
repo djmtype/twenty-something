@@ -63,7 +63,7 @@ const thumbnailSizeOption = getColumnOption(thumbnailSize)
 
     <div class={`entry__heading flow ${contentSizeOption}`}>
       <h1
-        set:html={breakLongTitle(title)}
+        set:html={title}
         class={thumbnail ? 'entry__title' : 'entry__title entry__title--lg'}
       />
     </div>

@@ -1,8 +1,10 @@
 import { defineCollection, reference, z } from "astro:content";
+import { glob } from 'astro/loaders';
 
 const page = defineCollection({
   // type: "content",
   // Type-check frontmatter using a schema
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/page" }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -42,6 +44,7 @@ const page = defineCollection({
 const post = defineCollection({
   // type: "content",
   // Type-check frontmatter using a schema
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/post" }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -74,6 +77,7 @@ const post = defineCollection({
 
 const author = defineCollection({
   // type: "content",
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/author" }),
   schema: ({ image }) =>
     z.object({
       name: z.string(),

@@ -7,6 +7,8 @@
 @import "/node_modules/open-props/css/packs/normalize/normalize.src.css";
 
 
+
+
 :where(html) {
   -moz-text-size-adjust: none;
   -webkit-text-size-adjust: none;
@@ -15,6 +17,8 @@
 
 :where(body) {
   font-family: var(--font-family-body);
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
 }
 
 :where(ul[role="list"], ol[role="list"]) {
@@ -121,7 +125,7 @@
 }
 
 :where(details) {
-  background: var(--surface-1);
+  background: var(--surface-2);
 
 }
 

@@ -212,7 +212,7 @@ p:has(> img:nth-child(1)) img {
   display: block;
   color: var(--text-1);
   font-family: var(--font-family-body);
-
+line-height: calc(1em + .5rem);
 
 }
 

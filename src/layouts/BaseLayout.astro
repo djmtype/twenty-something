@@ -1,6 +1,4 @@
 ---
-
-
 import "../styles/app.css"
 import type { Site, Metadata } from "@/types/configuration"
 import config from "@/data/config.json"
@@ -49,9 +47,7 @@ const { title, description, thumbnail = ogImage.url } = Astro.props
 
     <link rel="canonical" href={canonicalURL} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+   
 
     <title>{title}</title>
     <meta name="title" content={title} />
@@ -101,6 +97,10 @@ const { title, description, thumbnail = ogImage.url } = Astro.props
     <script is:inline>
       document.documentElement.classList.remove("no-js")
     </script>
+
+{config.scripts.header && 
+    <Fragment set:html={config.scripts.header} />
+}
   </head>
 
   <body>

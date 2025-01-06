@@ -126,5 +126,6 @@
       "*.css": "css"
     },
     "prettier.documentSelectors": true
-  }
+  },
+  "frontMatter.dashboard.openOnStart": false
 }

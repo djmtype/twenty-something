@@ -2,7 +2,7 @@
 import PaginationSingle from "@/components/PaginationSingle.astro"
 import { sortByDate } from "@/utils/postFunctions"
 
-import { getCollection, type CollectionEntry } from "astro:content"
+import { getCollection, render, type CollectionEntry } from "astro:content"
 
 import PostWrapper from "@/layouts/PostWrapper.astro"
 import PageWrapper from "@/layouts/PageWrapper.astro"
@@ -19,7 +19,7 @@ export async function getStaticPaths() {
   const entryCount = allEntries.length
 
   return allEntries.map((entry, index) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: {
       entry,
       prevEntry: index + 1 !== entryCount ? postEntries[index + 1] : null,
@@ -35,7 +35,7 @@ type Props = {
 }
 
 const { entry, prevEntry, nextEntry } = Astro.props
-const { Content } = await entry.render()
+const { Content } = await render(entry)
 import { Tweet, Vimeo, YouTube, BaselineStatus, BlueskyPost, LinkPreview } from 'astro-embed';
 import MediaImage from "@/components/MediaImage.astro"
 ---

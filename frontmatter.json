@@ -375,6 +375,22 @@
               }
             }
           },
+          "scripts": {
+            "type": "object",
+            "title": "Scripts",
+            "properties": {
+              "header": {
+                "type": "string",
+                "multiline": true,
+                "title": "Header"
+              },
+              "footer": {
+                "type": "string",
+                "multiline": true,
+                "title": "Footer"
+              }
+            }
+          },
           "logo": {
             "type": "object",
             "title": "Logo",

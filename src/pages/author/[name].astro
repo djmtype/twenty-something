@@ -7,7 +7,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro"
 import { Image } from "astro:assets"
 import { makeSlug } from "@/utils/textConverter"
 import Testimonial from "@/components/Testimonial.astro"
-import { type CollectionEntry, getCollection } from "astro:content"
+import { type CollectionEntry, getCollection, render } from "astro:content"
 import Container from "@/components/Container.astro"
 
 type Props = {
@@ -23,7 +23,7 @@ export async function getStaticPaths() {
 
   const paths = authors.map((author) => ({
     params: {
-      name: author.slug,
+      name: author.id,
     },
     props: { author },
   }))
@@ -32,7 +32,7 @@ export async function getStaticPaths() {
 
 const { author } = Astro.props
 const { name, description, thumbnail, links } = author.data
-const { Content } = await author.render()
+const { Content } = await render(author)
 const posts = await getCollection(
   "post",
   ({ data }) => data.status === "publish"
